@@ -36,8 +36,6 @@ export function CopilotOverlay({
   running,
   onClose,
   onRun,
-  onSimulateAdvance,
-  onRunDelta,
   onTeach,
   onShowPrompt,
   onShowCustomizations,
@@ -52,8 +50,6 @@ export function CopilotOverlay({
   running: boolean;
   onClose: () => void;
   onRun: () => void;
-  onSimulateAdvance: () => Promise<void>;
-  onRunDelta: () => void;
   onTeach: (sectionId: string, instruction: string) => Promise<void>;
   onShowPrompt: () => void;
   onShowCustomizations: () => void;
@@ -61,7 +57,6 @@ export function CopilotOverlay({
 }) {
   const [pinned, setPinned] = useState(false);
   const [hovering, setHovering] = useState(true); // open expanded on launch
-  const [advancing, setAdvancing] = useState(false);
   const [dragging, setDragging] = useState(false);
   const [showActivity, setShowActivity] = useState(false); // collapsed by default
   const [showSummary, setShowSummary] = useState(false); // AI chart summary — collapsed by default
@@ -184,7 +179,6 @@ export function CopilotOverlay({
     });
   }
 
-  const canAdvance = patient.releasedStages < patient.totalStages;
   const customizationCount = config?.activeVersion?.customizations.length ?? 0;
 
   // ---- Collapsed: small draggable floating icon ----
@@ -314,52 +308,11 @@ export function CopilotOverlay({
           </span>
         )}
         {card && !running && (
-          <>
-            {canAdvance && (
-              <button
-                onClick={async () => {
-                  setAdvancing(true);
-                  await onSimulateAdvance();
-                  setAdvancing(false);
-                }}
-                disabled={advancing}
-                className="flex items-center gap-1.5 bg-white border border-stone-300 hover:bg-stone-50 rounded-full px-3.5 py-1.5 text-xs font-semibold"
-                title="Demo control: release the next wave of results into the chart"
-              >
-                ◷ {advancing ? "Time passing…" : `Simulate: ${patient.nextStageLabel ?? "time passes"}`}
-              </button>
-            )}
-            {patient.deltaAvailable && (
-              <button
-                onClick={onRunDelta}
-                className="flex items-center gap-1.5 bg-red-600 hover:bg-red-700 text-white rounded-full px-3.5 py-1.5 text-xs font-semibold shadow-sm"
-              >
-                <Sparkle className="w-3.5 h-3.5" /> Run Delta — new results
-              </button>
-            )}
-            <button
-              onClick={onRun}
-              className="flex items-center gap-1.5 bg-indigo-brand hover:bg-indigo-brand-dark text-white rounded-full px-3.5 py-1.5 text-xs font-semibold shadow-sm"
-            >
-              ⟳ Regenerate
-            </button>
-          </>
-        )}
-
-        {/* Simulate button still needs to be reachable even before the LLM card exists,
-            since Abridge AI CDS reacts to stage changes independent of the narrative agent. */}
-        {!card && canAdvance && (
           <button
-            onClick={async () => {
-              setAdvancing(true);
-              await onSimulateAdvance();
-              setAdvancing(false);
-            }}
-            disabled={advancing}
-            className="flex items-center gap-1.5 bg-white border border-stone-300 hover:bg-stone-50 rounded-full px-3.5 py-1.5 text-xs font-semibold"
-            title="Demo control: release the next wave of results into the chart"
+            onClick={onRun}
+            className="flex items-center gap-1.5 bg-indigo-brand hover:bg-indigo-brand-dark text-white rounded-full px-3.5 py-1.5 text-xs font-semibold shadow-sm"
           >
-            ◷ {advancing ? "Time passing…" : `Simulate: ${patient.nextStageLabel ?? "time passes"}`}
+            ⟳ Regenerate
           </button>
         )}
       </div>

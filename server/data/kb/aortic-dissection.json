@@ -18,8 +18,8 @@
   "recommendations": [
     {
       "id": "ad-rec9",
-      "text": "Widened mediastinum on CXR in a patient with acute chest pain warrants immediate CT angiography of the chest BEFORE further ACS-directed anticoagulation, cath activation, or thrombolysis.",
-      "rationale": "Missing an aortic dissection on the ACS pathway is a well-documented cause of preventable death — anticoagulation or thrombolysis in a patient with dissection dramatically worsens outcomes and complicates emergent surgical repair.",
+      "text": "Widened mediastinum + chest pain → CT angiography BEFORE further ACS-directed anticoagulation, cath, or thrombolysis.",
+      "rationale": "Missing a dissection on the ACS pathway is a well-documented cause of preventable death — anticoagulation/thrombolysis dramatically worsens outcomes and complicates repair.",
       "priority": "high",
       "triggered_by": ["ad-r5"],
       "evidence_line": "AATS/ACC/AHA 2022 Guideline — screen for dissection before ACS-directed therapy when mediastinal contour is abnormal",
@@ -27,7 +27,7 @@
     },
     {
       "id": "ad-rec1",
-      "text": "Stanford Type A dissection confirmed. Emergently consult cardiovascular surgery — do not wait for troponin or further cardiology workup.",
+      "text": "Stanford Type A confirmed — emergently consult CV surgery. Don't wait on troponin or further cardiology workup.",
       "rationale": "Type A dissection is a surgical emergency; every hour of delay measurably increases mortality.",
       "priority": "high",
       "triggered_by": ["ad-r1"],
@@ -45,7 +45,7 @@
     },
     {
       "id": "ad-rec2",
-      "text": "HOLD apixaban and aspirin. Do not pursue cath, thrombolysis, or further anticoagulation for the presumed ACS picture — active anticoagulation in a dissection sharply raises rupture and surgical bleeding risk.",
+      "text": "HOLD apixaban and aspirin — anticoagulation in a confirmed dissection sharply raises rupture and surgical bleeding risk.",
       "rationale": "The ACS-directed plan from 11:00 is now superseded; continuing anticoagulation works directly against emergent surgical repair.",
       "priority": "high",
       "triggered_by": ["ad-r1"],
@@ -66,8 +66,8 @@
     },
     {
       "id": "ad-rec3",
-      "text": "Aggressive heart rate and blood pressure control: IV beta-blocker first (target HR <60, SBP 100-120), then a vasodilator if BP remains elevated after adequate rate control.",
-      "rationale": "Reducing dP/dt (rate of aortic wall stress) lowers propagation risk while awaiting the OR; beta-blockade must precede vasodilators to avoid reflex tachycardia worsening shear stress.",
+      "text": "Aggressive rate/BP control: IV beta-blocker first (HR <60, SBP 100–120), then a vasodilator if still elevated.",
+      "rationale": "Reducing dP/dt lowers propagation risk while awaiting the OR; beta-blockade must precede vasodilators to avoid reflex tachycardia worsening shear stress.",
       "priority": "high",
       "triggered_by": ["ad-r1"],
       "evidence_line": "AATS/ACC/AHA 2022 Guideline — impulse control (rate before pressure) in acute dissection",
@@ -75,7 +75,7 @@
     },
     {
       "id": "ad-rec4",
-      "text": "Type & crossmatch — anticipate need for blood products with emergent aortic repair.",
+      "text": "Type & crossmatch now — anticipate transfusion need for emergent aortic repair.",
       "rationale": "Type A repair carries high transfusion likelihood; blood bank turnaround should not be the rate-limiting step once the OR is ready.",
       "priority": "high",
       "triggered_by": ["ad-r1"],
@@ -96,7 +96,7 @@
     },
     {
       "id": "ad-rec5",
-      "text": "Book the OR emergently. Pre-fill the case request with diagnosis, indication, anticipated blood products, and cannulation preferences so CV surgery and anesthesia can move the moment they arrive.",
+      "text": "Book the OR emergently — pre-fill diagnosis, blood products, and cannulation preferences so the team can move immediately.",
       "rationale": "Every step pre-staged before the surgical team arrives is time saved on the mortality clock.",
       "priority": "high",
       "triggered_by": ["ad-r1"],
@@ -122,7 +122,7 @@
     },
     {
       "id": "ad-rec6",
-      "text": "Establish two large-bore IVs and an arterial line for continuous hemodynamic monitoring. Defer right radial/brachial access pending CV surgery's cannulation plan.",
+      "text": "Two large-bore IVs + arterial line. Defer right radial/brachial access pending CV surgery's cannulation plan.",
       "rationale": "Right-arm access can conflict with axillary cannulation planning; left-sided or femoral access avoids pre-empting the surgical approach.",
       "priority": "medium",
       "triggered_by": ["ad-r1"],
@@ -131,7 +131,7 @@
     },
     {
       "id": "ad-rec7",
-      "text": "Serial neurologic and pulse checks (all four extremities) while awaiting the OR — watch for malperfusion syndrome (stroke, mesenteric ischemia, limb ischemia, renal involvement) as the dissection extends into the descending aorta.",
+      "text": "Serial neuro + four-extremity pulse checks while awaiting the OR — watch for malperfusion as the dissection extends distally.",
       "rationale": "Malperfusion changes the urgency and surgical approach and can develop rapidly; frequent reassessment catches it early.",
       "priority": "medium",
       "triggered_by": ["ad-r1"],

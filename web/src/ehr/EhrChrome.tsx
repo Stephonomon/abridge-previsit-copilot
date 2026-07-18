@@ -1,6 +1,17 @@
 // Top-level chrome for the mock EHR — deliberately utilitarian, NOT the copilot aesthetic.
+import { useState } from "react";
 
-export function EhrTopBar({ tabTitle, onHome }: { tabTitle?: string; onHome: () => void }) {
+export function EhrTopBar({
+  tabTitle,
+  onHome,
+  onResetWorkspace,
+}: {
+  tabTitle?: string;
+  onHome: () => void;
+  onResetWorkspace: () => Promise<void>;
+}) {
+  const [resetting, setResetting] = useState(false);
+
   return (
     <div className="bg-[#155676] text-white">
       <div className="flex items-center gap-4 px-3 py-1.5 text-[13px]">
@@ -19,7 +30,27 @@ export function EhrTopBar({ tabTitle, onHome }: { tabTitle?: string; onHome: () 
             Search (Ctrl+Space)
           </div>
         </div>
-        <div className="flex items-center gap-2 text-xs">
+        <div className="flex items-center gap-2.5 text-xs">
+          <button
+            onClick={async () => {
+              setResetting(true);
+              await onResetWorkspace();
+              window.location.reload();
+            }}
+            disabled={resetting}
+            title="Reset demo workspace — clears all patients back to arrival state"
+            className="p-1.5 rounded-full hover:bg-white/15 disabled:opacity-50"
+          >
+            <svg
+              className={`w-4 h-4 ${resetting ? "animate-spin" : ""}`}
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+            >
+              <path d="M3 12a9 9 0 0 1 15.4-6.4L21 8" />
+              <path d="M21 3v5h-5" />
+              <path d="M21 12a9 9 0 0 1-15.4 6.4L3 16" />
+              <path d="M3 21v-5h5" />
+            </svg>
+          </button>
           <span className="opacity-80">MERIDIAN EMERGENCY</span>
           <span className="w-7 h-7 rounded-full bg-rose-400 text-white grid place-items-center font-bold">JL</span>
         </div>

@@ -6,6 +6,10 @@ export async function fetchPatients(): Promise<Patient[]> {
   return j.patients;
 }
 
+export async function resetWorkspace(): Promise<void> {
+  await fetch("/api/reset", { method: "POST" });
+}
+
 export async function fetchCds(patientId: string): Promise<CdsResult> {
   const r = await fetch(`/api/patients/${patientId}/cds`);
   return r.json();

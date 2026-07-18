@@ -4,6 +4,7 @@ import {
   fetchAgentConfig,
   fetchCard,
   fetchPatients,
+  resetWorkspace,
   sendFeedback,
   setActiveVersion,
   simulateAdvance,
@@ -16,6 +17,7 @@ import { EhrTopBar } from "./ehr/EhrChrome";
 import { Trackboard } from "./ehr/Trackboard";
 import { PatientChart } from "./ehr/PatientChart";
 import { CopilotOverlay } from "./components/CopilotOverlay";
+import { DemoControls } from "./components/DemoControls";
 import { CustomizationsDrawer, PromptDrawer, VersionsDrawer } from "./components/Drawers";
 
 export default function App() {
@@ -101,6 +103,7 @@ export default function App() {
           setSelectedId(null);
           setCopilotOpenFor(null);
         }}
+        onResetWorkspace={resetWorkspace}
       />
 
       {!selected ? (
@@ -120,8 +123,18 @@ export default function App() {
         />
       )}
 
+      {selected && (
+        <DemoControls
+          patient={selected}
+          hasCard={!!cards[selected.id]}
+          onSimulateAdvance={handleSimulateAdvance}
+          onRunDelta={() => runAgent(selected, "delta")}
+        />
+      )}
+
       {selected && copilotOpenFor === selected.id && (
         <CopilotOverlay
+          key={selected.id}
           patient={selected}
           config={config}
           card={cards[selected.id] ?? null}
@@ -131,8 +144,6 @@ export default function App() {
           running={runningPatientId === selected.id}
           onClose={() => setCopilotOpenFor(null)}
           onRun={() => runAgent(selected, "previsit")}
-          onSimulateAdvance={handleSimulateAdvance}
-          onRunDelta={() => runAgent(selected, "delta")}
           onTeach={handleTeach}
           onShowPrompt={() => setDrawer("prompt")}
           onShowCustomizations={() => setDrawer("customizations")}

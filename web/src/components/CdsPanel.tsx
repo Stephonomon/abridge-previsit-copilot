@@ -8,23 +8,31 @@ const PRIO_STYLE: Record<string, { chip: string; border: string }> = {
   low: { chip: "text-stone-500 border-stone-300", border: "border-l-stone-300" },
 };
 
+interface SentAction {
+  confirmation: string;
+  at: string; // formatted local time, e.g. "11:32 AM"
+}
+
 function RecommendationCard({
   rec,
+  sentActions,
   onTriggerAction,
 }: {
   rec: CdsRecommendationView;
+  sentActions: Record<string, SentAction>;
   onTriggerAction: (action: CdsAction) => void;
 }) {
   const [expanded, setExpanded] = useState<string | null>(null);
+  const [showWhy, setShowWhy] = useState(false);
   const style = PRIO_STYLE[rec.priority] ?? PRIO_STYLE.low;
 
   return (
     <div
-      className={`rounded-lg border border-stone-200 border-l-4 ${style.border} p-3.5 ${
+      className={`rounded-lg border border-stone-200 border-l-4 ${style.border} p-3 ${
         rec.isEmergency ? "bg-red-50/60" : "bg-white"
       }`}
     >
-      <div className="flex items-center gap-2 mb-2 flex-wrap">
+      <div className="flex items-center gap-2 mb-1.5 flex-wrap">
         <span className={`text-[10px] font-bold tracking-wider uppercase border rounded px-1.5 py-0.5 ${style.chip}`}>
           {rec.priority}
         </span>
@@ -36,20 +44,51 @@ function RecommendationCard({
         <span className="text-[11px] text-stone-400">{rec.topic_title}</span>
       </div>
 
-      <div className="text-[14px] font-semibold leading-snug mb-1.5">{rec.text}</div>
-      <div className="text-[12.5px] text-stone-500 leading-relaxed mb-2.5">{rec.rationale}</div>
+      <div className="flex items-start gap-2 mb-2">
+        <div className="text-[13.5px] font-semibold leading-snug flex-1">{rec.text}</div>
+        <button
+          onClick={() => setShowWhy((v) => !v)}
+          className="shrink-0 text-[10.5px] text-stone-400 hover:text-stone-600 underline decoration-dotted underline-offset-2 mt-0.5"
+        >
+          {showWhy ? "hide why" : "why?"}
+        </button>
+      </div>
+
+      {showWhy && (
+        <div className="mb-2 pl-2.5 border-l-2 border-stone-200 text-[12px] text-stone-500 leading-relaxed">
+          {rec.rationale}
+          <div className="italic text-stone-400 mt-1">{rec.evidence_line}</div>
+        </div>
+      )}
 
       {rec.actions.length > 0 && (
-        <div className="flex flex-wrap gap-2 mb-2.5">
-          {rec.actions.map((action) => (
-            <button
-              key={action.id}
-              onClick={() => onTriggerAction(action)}
-              className="flex items-center gap-1.5 bg-indigo-brand hover:bg-indigo-brand-dark text-white text-xs font-semibold rounded-full px-3.5 py-1.5 shadow-sm"
-            >
-              {action.type === "secure_message" ? "💬" : "📋"} {action.label}
-            </button>
-          ))}
+        <div className="flex flex-wrap gap-2 mb-2">
+          {rec.actions.map((action) => {
+            const sent = sentActions[action.id];
+            if (sent) {
+              return (
+                <span
+                  key={action.id}
+                  className="flex items-center gap-1.5 bg-stone-100 text-stone-400 border border-stone-200 text-[11px] font-medium rounded-full px-3 py-1.5"
+                  title={sent.confirmation}
+                >
+                  <svg className="w-3 h-3 text-emerald-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M4 12.5 9.5 18 20 6.5" />
+                  </svg>
+                  {action.label} — sent {sent.at}
+                </span>
+              );
+            }
+            return (
+              <button
+                key={action.id}
+                onClick={() => onTriggerAction(action)}
+                className="flex items-center gap-1.5 bg-indigo-brand hover:bg-indigo-brand-dark text-white text-xs font-semibold rounded-full px-3.5 py-1.5 shadow-sm"
+              >
+                {action.type === "secure_message" ? "💬" : "📋"} {action.label}
+              </button>
+            );
+          })}
         </div>
       )}
 
@@ -104,6 +143,7 @@ function RecommendationCard({
 export function CdsPanel({ cds, patient }: { cds: CdsResult | null; patient: Patient }) {
   const [activeAction, setActiveAction] = useState<CdsAction | null>(null);
   const [toast, setToast] = useState<string | null>(null);
+  const [sentActions, setSentActions] = useState<Record<string, SentAction>>({});
 
   if (!cds || !cds.hasCds) return null;
 
@@ -137,12 +177,12 @@ export function CdsPanel({ cds, patient }: { cds: CdsResult | null; patient: Pat
         ))}
       </div>
 
-      <div className="p-3.5 space-y-2.5">
+      <div className="p-3 space-y-2">
         {cds.recommendations.length === 0 ? (
           <div className="text-sm text-stone-400 italic px-1 py-2">No recommendations fired for the current findings.</div>
         ) : (
           cds.recommendations.map((rec) => (
-            <RecommendationCard key={rec.id} rec={rec} onTriggerAction={setActiveAction} />
+            <RecommendationCard key={rec.id} rec={rec} sentActions={sentActions} onTriggerAction={setActiveAction} />
           ))
         )}
       </div>
@@ -153,6 +193,8 @@ export function CdsPanel({ cds, patient }: { cds: CdsResult | null; patient: Pat
           patient={patient}
           onClose={() => setActiveAction(null)}
           onSend={(confirmation) => {
+            const at = new Date().toLocaleTimeString([], { hour: "numeric", minute: "2-digit" });
+            setSentActions((prev) => ({ ...prev, [activeAction.id]: { confirmation, at } }));
             setActiveAction(null);
             setToast(confirmation);
             setTimeout(() => setToast(null), 4200);

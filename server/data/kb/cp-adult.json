@@ -42,8 +42,8 @@
   "recommendations": [
     {
       "id": "cp-rec1",
-      "text": "Chronic LBBB precludes standard STEMI ECG criteria — apply Sgarbossa/modified Sgarbossa criteria and compare today's tracing directly to the 11/2024 baseline before ruling ischemia in or out.",
-      "rationale": "Generic ST-elevation thresholds are unreliable in the presence of LBBB and can produce false-negative or false-positive STEMI calls.",
+      "text": "Chronic LBBB precludes standard STEMI criteria — apply Sgarbossa vs. the 11/2024 baseline.",
+      "rationale": "Generic ST-elevation thresholds are unreliable with LBBB and can produce false-negative or false-positive STEMI calls.",
       "priority": "medium",
       "triggered_by": ["cp-r1"],
       "evidence_line": "ACC/AHA STEMI Guideline — Sgarbossa/modified Sgarbossa criteria in the presence of LBBB",
@@ -51,8 +51,8 @@
     },
     {
       "id": "cp-rec2",
-      "text": "Confirm apixaban last-dose timing before any invasive workup, thrombolysis, or line placement. Have reversal (andexanet alfa) protocol identified in case of bleeding or emergent surgery.",
-      "rationale": "CHA2DS2-VASc 4 on a DOAC — timing is currently undocumented in the ED note and materially changes cath/surgical risk.",
+      "text": "Confirm apixaban last-dose timing before any invasive workup — have reversal (andexanet alfa) protocol ready.",
+      "rationale": "CHA2DS2-VASc 4 on a DOAC; timing is undocumented in the ED note and materially changes cath/surgical risk.",
       "priority": "medium",
       "triggered_by": ["cp-r2"],
       "evidence_line": "ACC 2020 Expert Consensus — periprocedural management of DOAC therapy",
@@ -60,8 +60,8 @@
     },
     {
       "id": "cp-rec6",
-      "text": "The 6/28/2026 negative workup evaluated pain that was at rest. Today's presentation is exertional — that pattern was never cleared. Do not treat the prior negative result as reassurance for this visit.",
-      "rationale": "Different symptom triggers carry different pretest probabilities; the prior encounter explicitly did not address exertional symptoms.",
+      "text": "6/28 workup was for at-rest pain only — today's exertional pattern was never cleared.",
+      "rationale": "Different symptom triggers carry different pretest probabilities; the prior encounter did not address exertional symptoms.",
       "priority": "low",
       "triggered_by": ["cp-r6"],
       "evidence_line": "Cardiology 6/28/2026 note — workup scoped to at-rest pain only",
@@ -69,8 +69,8 @@
     },
     {
       "id": "cp-rec7",
-      "text": "Patient took sildenafil ~11 hours ago. Nitrates — including sublingual and IV nitroglycerin — are contraindicated for at least 24 hours. Alert pharmacy and strip nitrate orders from any ACS order set before they're placed.",
-      "rationale": "Sildenafil + nitrates can cause severe, refractory hypotension; this needs to be visible before anyone reaches for nitro.",
+      "text": "Sildenafil ~11h ago — nitrates contraindicated for 24h. Alert pharmacy before any nitro order is placed.",
+      "rationale": "Sildenafil + nitrates can cause severe, refractory hypotension; must be visible before anyone reaches for nitro.",
       "priority": "high",
       "triggered_by": ["cp-r7"],
       "evidence_line": "FDA labeling — PDE5 inhibitor / organic nitrate contraindication",
@@ -87,7 +87,7 @@
     },
     {
       "id": "cp-rec8",
-      "text": "Cardiology's outpatient workup for this patient's LBBB / reduced-EF picture remains incomplete despite an explicit low-threshold recommendation for re-evaluation with exertional symptoms. Today's presentation meets that threshold — and the outside stress echo faxed in today (equivocal, never followed up) reinforces the gap.",
+      "text": "Cardiology's 1/2026 note flagged incomplete workup with a low threshold for re-eval on exertional symptoms — today meets that threshold.",
       "rationale": "The prior physician already documented the exact trigger for re-workup; that trigger has now occurred.",
       "priority": "medium",
       "triggered_by": ["cp-r8"],
@@ -96,8 +96,8 @@
     },
     {
       "id": "cp-rec9",
-      "text": "Update Cardiology on-call with NSTEMI-pattern presentation. Troponin-positive with LBBB precluding Sgarbossa STEMI-equivalent — combined picture is high-risk. Include anticoagulation status and reversal considerations in the update.",
-      "rationale": "Troponin elevation with a non-diagnostic ECG establishes NSTEMI/UA; cardiology involvement determines cath timing and coordinates anticoagulation management.",
+      "text": "Troponin critical (62) with LBBB precluding Sgarbossa — NSTEMI-pattern. Update cardiology with anticoagulation status included.",
+      "rationale": "Troponin elevation with a non-diagnostic ECG establishes NSTEMI/UA; cardiology involvement determines cath timing and anticoagulation management.",
       "priority": "high",
       "triggered_by": ["cp-r9"],
       "evidence_line": "ACC/AHA/HFSA 2020 NSTEMI Guideline — early invasive vs. conservative strategy in high-risk patients",
