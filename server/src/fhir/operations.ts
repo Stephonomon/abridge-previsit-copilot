@@ -223,5 +223,5 @@ export const BINARY_READ_EXTERNAL = {
 };
 
 export function jitteredLatency(): number {
-  return 150 + Math.floor(Math.random() * 450);
+  return 60 + Math.floor(Math.random() * 140);
 }

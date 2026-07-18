@@ -4,6 +4,7 @@ import { emit, type Run } from "../events/bus.js";
 import { currentPending, readBinary, stagesBetween, type PatientRecord } from "../data/store.js";
 import { composedPrompt } from "./prompts.js";
 import { jitteredLatency } from "../fhir/operations.js";
+import { cacheKey, writeRunCache } from "../cache.js";
 import type { DeltaCard } from "../types.js";
 
 const client = new Anthropic();
@@ -47,10 +48,11 @@ const DELTA_SCHEMA = {
  */
 export async function runDelta(run: Run, rec: PatientRecord): Promise<DeltaCard> {
   const t0 = Date.now();
+  const fromStage = rec.lastDeltaCheckedStage;
   emit(run, { type: "run_started", runId: run.id, patientId: rec.meta.id, mode: "delta", at: t0 });
   emit(run, { type: "agent_started", agent: "delta", label: "Delta Agent", at: t0 });
 
-  const stages = stagesBetween(rec, rec.lastDeltaCheckedStage, rec.releasedStages);
+  const stages = stagesBetween(rec, fromStage, rec.releasedStages);
 
   const newLabs = stages.flatMap((s) => s.newObservationsLabs ?? []);
   const newVitals = stages.flatMap((s) => s.newObservationsVitals ?? []);
@@ -125,6 +127,7 @@ export async function runDelta(run: Run, rec: PatientRecord): Promise<DeltaCard>
     at: Date.now(),
   });
 
+  writeRunCache(cacheKey(rec.meta.id, "delta", fromStage, rec.releasedStages), run.events);
   rec.lastDeltaCheckedStage = rec.releasedStages;
   return card;
 }

@@ -28,12 +28,6 @@ export function Header({
 
         <nav className="flex items-center gap-1 text-sm font-medium">
           <span className="px-4 py-1.5 rounded-full bg-indigo-soft text-indigo-brand-dark">Emergency Medicine</span>
-          <span className="px-4 py-1.5 rounded-full text-stone-500 hover:bg-stone-100 cursor-not-allowed" title="Coming soon">
-            Orthopedics
-          </span>
-          <span className="px-4 py-1.5 rounded-full text-stone-500 hover:bg-stone-100 cursor-not-allowed" title="Coming soon">
-            Behavioral Health
-          </span>
         </nav>
 
         <div className="ml-auto flex items-center gap-2 bg-white border border-stone-200 rounded-full pl-4 pr-2 py-1.5 shadow-sm">

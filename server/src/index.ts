@@ -1,7 +1,8 @@
 import "./env.js";
 import express from "express";
 import cors from "cors";
-import { PORT } from "./env.js";
+import { PORT, REPLAY_DELTA_MS, REPLAY_PREVISIT_MS, RUN_MODE } from "./env.js";
+import { cacheKey, cardFromEvents, deltaFromEvents, readRunCache, replayRun } from "./cache.js";
 import { currentPending, getPatient, loadAllPatients } from "./data/store.js";
 import { createRun, emit, getRun } from "./events/bus.js";
 import { runPrevisit } from "./agents/orchestrator.js";
@@ -44,10 +45,22 @@ app.get("/api/patients/:id/card", (req, res) => {
 app.post("/api/patients/:id/previsit", (req, res) => {
   const rec = getPatient(req.params.id);
   const run = createRun(rec.meta.id, "previsit");
-  runPrevisit(run, rec).catch((e) => {
-    console.error("previsit run failed", e);
-    emit(run, { type: "run_error", message: String(e?.message ?? e), at: Date.now() });
-  });
+
+  const cached = RUN_MODE === "cached" ? readRunCache(cacheKey(rec.meta.id, "previsit")) : null;
+  if (cached && cardFromEvents(cached)) {
+    replayRun(run, cached, REPLAY_PREVISIT_MS)
+      .then(() => {
+        rec.lastCard = cardFromEvents(cached);
+        rec.lastCardAt = new Date().toISOString();
+        rec.lastDeltaCheckedStage = rec.releasedStages;
+      })
+      .catch((e) => emit(run, { type: "run_error", message: String(e?.message ?? e), at: Date.now() }));
+  } else {
+    runPrevisit(run, rec).catch((e) => {
+      console.error("previsit run failed", e);
+      emit(run, { type: "run_error", message: String(e?.message ?? e), at: Date.now() });
+    });
+  }
   res.json({ runId: run.id });
 });
 
@@ -70,10 +83,23 @@ app.post("/api/patients/:id/delta", (req, res) => {
     return;
   }
   const run = createRun(rec.meta.id, "delta");
-  runDelta(run, rec).catch((e) => {
-    console.error("delta run failed", e);
-    emit(run, { type: "run_error", message: String(e?.message ?? e), at: Date.now() });
-  });
+
+  const cached =
+    RUN_MODE === "cached"
+      ? readRunCache(cacheKey(rec.meta.id, "delta", rec.lastDeltaCheckedStage, rec.releasedStages))
+      : null;
+  if (cached && deltaFromEvents(cached)) {
+    replayRun(run, cached, REPLAY_DELTA_MS)
+      .then(() => {
+        rec.lastDeltaCheckedStage = rec.releasedStages;
+      })
+      .catch((e) => emit(run, { type: "run_error", message: String(e?.message ?? e), at: Date.now() }));
+  } else {
+    runDelta(run, rec).catch((e) => {
+      console.error("delta run failed", e);
+      emit(run, { type: "run_error", message: String(e?.message ?? e), at: Date.now() });
+    });
+  }
   res.json({ runId: run.id });
 });
 

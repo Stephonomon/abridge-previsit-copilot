@@ -39,7 +39,7 @@ npm run dev:server                    # :8787  (needs ANTHROPIC_API_KEY in ../.e
 npm run dev:web                       # :5173
 ```
 
-Headless MVP check: `npm run card:walter` (add `--delta` for the delta run).
+**Demo speed:** by default (`PREVISIT_MODE=cached`) runs replay recorded live runs with compressed pacing — ~10s pre-visit, ~5s delta. `npm run warm --workspace server` re-records the cache with fresh live runs; `PREVISIT_MODE=live` always calls the API (~60–90s per run). Headless check: `npm run card:walter` (add `--delta`).
 
 ## Patients
 

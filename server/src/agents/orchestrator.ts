@@ -4,6 +4,7 @@ import { emit, type Run } from "../events/bus.js";
 import { currentPending, type PatientRecord } from "../data/store.js";
 import { composedPrompt } from "./prompts.js";
 import { runSubagent, type SubagentSpec } from "./subagent.js";
+import { cacheKey, writeRunCache } from "../cache.js";
 import type { RoomEntryCard, SubagentResult } from "../types.js";
 
 const client = new Anthropic();
@@ -178,5 +179,6 @@ You will receive structured findings from 5 chart-review sub-agents. Synthesize 
   rec.lastCard = card;
   rec.lastCardAt = new Date().toISOString();
   rec.lastDeltaCheckedStage = rec.releasedStages;
+  writeRunCache(cacheKey(rec.meta.id, "previsit"), run.events);
   return card;
 }
