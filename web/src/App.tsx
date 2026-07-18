@@ -51,7 +51,7 @@ export default function App() {
         setCards((c) => ({ ...c, [patient.id]: null }));
         setDeltaCards((c) => ({ ...c, [patient.id]: null }));
       }
-      const runId = mode === "previsit" ? await startPrevisit(patient.id) : await startDelta(patient.id);
+      const runId = mode === "previsit" ? await startPrevisit(patient.id) : await startDelta(patient.id, patient.releasedStages);
       unsubscribe.current?.();
       unsubscribe.current = subscribeRun(runId, (event) => {
         setEvents((e) => ({ ...e, [patient.id]: [...(e[patient.id] ?? []), event] }));
@@ -88,7 +88,7 @@ export default function App() {
 
   const handleSimulateAdvance = useCallback(async () => {
     if (!selected) return;
-    await simulateAdvance(selected.id);
+    await simulateAdvance(selected.id, selected.releasedStages);
     await refreshPatients();
     setChartVersion((v) => v + 1); // new results also appear in the EHR chart tabs
   }, [selected, refreshPatients]);

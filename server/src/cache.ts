@@ -17,8 +17,12 @@ export function cacheKey(patientId: string, mode: "previsit" | "delta", fromStag
 }
 
 export function writeRunCache(key: string, events: RunEvent[]): void {
-  fs.mkdirSync(CACHE_DIR, { recursive: true });
-  fs.writeFileSync(path.join(CACHE_DIR, `${key}.json`), JSON.stringify({ recordedAt: new Date().toISOString(), events }, null, 2));
+  try {
+    fs.mkdirSync(CACHE_DIR, { recursive: true });
+    fs.writeFileSync(path.join(CACHE_DIR, `${key}.json`), JSON.stringify({ recordedAt: new Date().toISOString(), events }, null, 2));
+  } catch (e) {
+    console.warn(`run cache not persisted (read-only filesystem?): ${key}`);
+  }
 }
 
 export function readRunCache(key: string): RunEvent[] | null {

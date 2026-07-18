@@ -3,7 +3,23 @@ import path from "path";
 import { fileURLToPath } from "url";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
-export const DATA_DIR = path.resolve(here, "../../data");
+
+// Resolve the data dir both locally (server/src/data -> server/data) and inside
+// a bundled serverless function, where import.meta.url points at the bundle and
+// includeFiles places server/data/** relative to the project root (cwd).
+function resolveDataDir(): string {
+  const candidates = [
+    path.resolve(here, "../../data"),
+    path.resolve(process.cwd(), "server/data"),
+    path.resolve(process.cwd(), "data"),
+  ];
+  for (const c of candidates) {
+    if (fs.existsSync(path.join(c, "patients"))) return c;
+  }
+  return candidates[0];
+}
+
+export const DATA_DIR = resolveDataDir();
 const PATIENTS_DIR = path.join(DATA_DIR, "patients");
 
 export interface PatientMeta {

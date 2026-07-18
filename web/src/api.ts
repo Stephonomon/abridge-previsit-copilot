@@ -22,14 +22,22 @@ export async function startPrevisit(patientId: string): Promise<string> {
   return j.runId;
 }
 
-export async function startDelta(patientId: string): Promise<string> {
-  const r = await fetch(`/api/patients/${patientId}/delta`, { method: "POST" });
+export async function startDelta(patientId: string, releasedStages = 0): Promise<string> {
+  const r = await fetch(`/api/patients/${patientId}/delta`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ releasedStages }),
+  });
   const j = await r.json();
   return j.runId;
 }
 
-export async function simulateAdvance(patientId: string) {
-  const r = await fetch(`/api/patients/${patientId}/simulate-advance`, { method: "POST" });
+export async function simulateAdvance(patientId: string, knownStages = 0) {
+  const r = await fetch(`/api/patients/${patientId}/simulate-advance`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ knownStages }),
+  });
   return r.json();
 }
 

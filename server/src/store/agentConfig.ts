@@ -56,7 +56,11 @@ export function loadConfigs(): Record<string, AgentConfig> {
 }
 
 function save(): void {
-  fs.writeFileSync(CONFIG_PATH, JSON.stringify(cache, null, 2));
+  try {
+    fs.writeFileSync(CONFIG_PATH, JSON.stringify(cache, null, 2));
+  } catch {
+    // read-only filesystem (serverless) — config lives in memory for this instance
+  }
 }
 
 export function getConfig(specialty: string): AgentConfig {

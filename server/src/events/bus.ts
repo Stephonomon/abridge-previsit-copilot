@@ -13,8 +13,8 @@ export interface Run {
 const runs = new Map<string, Run>();
 let counter = 0;
 
-export function createRun(patientId: string, mode: "previsit" | "delta"): Run {
-  const id = `run_${Date.now()}_${++counter}`;
+export function createRun(patientId: string, mode: "previsit" | "delta", idHint = "", exactId?: string): Run {
+  const id = exactId ?? `${idHint || "run"}--${Date.now()}_${++counter}`;
   const run: Run = { id, patientId, mode, events: [], emitter: new EventEmitter(), done: false };
   run.emitter.setMaxListeners(50);
   runs.set(id, run);
