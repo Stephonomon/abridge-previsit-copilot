@@ -40,6 +40,10 @@ const DEFAULT_CONFIG: Record<string, AgentConfig> = {
 
 let cache: Record<string, AgentConfig> | null = null;
 
+export function __resetCache(): void {
+  cache = null;
+}
+
 export function loadConfigs(): Record<string, AgentConfig> {
   if (cache) return cache;
   if (fs.existsSync(CONFIG_PATH)) {

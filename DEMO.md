@@ -1,6 +1,6 @@
 # 3-Minute Judge Walkthrough
 
-> Before demoing: both servers running, browser at `localhost:5173`, and (optional) reset state by restarting the server (`data/agent-config.json` back to v1.0 by deleting it) so the version story starts clean.
+> Before demoing: both servers running, browser at `localhost:5173`. To reset to a clean v1.0 state between run-throughs: `curl -X POST localhost:8787/api/reset` then reload the page.
 
 ## Beat 1 — The problem (15s)
 

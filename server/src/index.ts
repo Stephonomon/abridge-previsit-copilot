@@ -139,6 +139,21 @@ app.post("/api/agent-config/:specialty/versions/:versionId/label", (req, res) =>
   res.json({ ...cfg, activeVersion: activeVersion(cfg) });
 });
 
+// Demo control: restore pristine state (fresh charts, v1.0 prompt config)
+app.post("/api/reset", async (_req, res) => {
+  const fs = await import("fs");
+  const path = await import("path");
+  const { DATA_DIR } = await import("./data/store.js");
+  const { resetPatients } = await import("./data/store.js");
+  const cfgPath = path.join(DATA_DIR, "agent-config.json");
+  if (fs.existsSync(cfgPath)) fs.unlinkSync(cfgPath);
+  resetPatients();
+  // agentConfig cache reset requires process restart under tsx watch; simplest is touch a src file… instead re-require:
+  const cfgModule = await import("./store/agentConfig.js");
+  (cfgModule as any).__resetCache?.();
+  res.json({ ok: true, note: "Patient state reset. If prompt versions persist, restart the server." });
+});
+
 app.listen(PORT, () => {
   console.log(`Pre-Visit Copilot server on http://localhost:${PORT}`);
 });
