@@ -38,7 +38,19 @@ function NoteModal({ patientId, binaryId, title, onClose }: { patientId: string;
   );
 }
 
-function Storyboard({ patient, chart, onLaunchCopilot, copilotActive }: { patient: Patient; chart: any; onLaunchCopilot: () => void; copilotActive: boolean }) {
+function Storyboard({
+  patient,
+  chart,
+  onLaunchCopilot,
+  copilotActive,
+  hasUnseenUpdate,
+}: {
+  patient: Patient;
+  chart: any;
+  onLaunchCopilot: () => void;
+  copilotActive: boolean;
+  hasUnseenUpdate: boolean;
+}) {
   const alert = storyboardAlert(chart);
   const vitals = patient as any;
   return (
@@ -52,12 +64,17 @@ function Storyboard({ patient, chart, onLaunchCopilot, copilotActive }: { patien
           <div className="font-bold text-[15px] text-stone-900">{patient.name}</div>
           <button
             onClick={onLaunchCopilot}
-            title="Pre-Visit Copilot — AI chart review for this patient"
-            className={`w-6 h-6 rounded-full grid place-items-center transition-colors ${
-              copilotActive ? "bg-indigo-brand text-white" : "bg-white border border-indigo-brand/40 text-indigo-brand hover:bg-indigo-soft"
+            title={hasUnseenUpdate ? "New results — click to review" : "Pre-Visit Copilot — AI chart review for this patient"}
+            className={`relative w-6 h-6 rounded-full grid place-items-center transition-colors ${
+              hasUnseenUpdate
+                ? "bg-amber-500 text-white animate-pulse ring-2 ring-amber-300"
+                : copilotActive
+                ? "bg-indigo-brand text-white"
+                : "bg-white border border-indigo-brand/40 text-indigo-brand hover:bg-indigo-soft"
             }`}
           >
             <Sparkle className="w-3.5 h-3.5" />
+            {hasUnseenUpdate && <span className="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-amber-300 border border-white animate-ping" />}
           </button>
         </div>
         <div className="text-stone-500">
@@ -126,11 +143,13 @@ export function PatientChart({
   patient,
   onLaunchCopilot,
   copilotActive,
+  hasUnseenUpdate,
   chartVersion,
 }: {
   patient: Patient;
   onLaunchCopilot: () => void;
   copilotActive: boolean;
+  hasUnseenUpdate: boolean;
   chartVersion: number; // bump to refetch (e.g. after simulate-advance)
 }) {
   const [tab, setTab] = useState<(typeof TABS)[number]>("Chart Review");
@@ -146,7 +165,7 @@ export function PatientChart({
 
   return (
     <div className="flex bg-white min-h-[calc(100vh-64px)] text-stone-800">
-      <Storyboard patient={patient} chart={chart} onLaunchCopilot={onLaunchCopilot} copilotActive={copilotActive} />
+      <Storyboard patient={patient} chart={chart} onLaunchCopilot={onLaunchCopilot} copilotActive={copilotActive} hasUnseenUpdate={hasUnseenUpdate} />
 
       <div className="flex-1 min-w-0">
         <div className="flex items-end gap-1 px-3 pt-2 bg-[#dde7ee] border-b border-stone-300">

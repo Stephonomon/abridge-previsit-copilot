@@ -109,12 +109,21 @@ app.post("/api/patients/:id/previsit", (req, res) => {
 
 function startPrevisitRun(run: Run, rec: ReturnType<typeof getPatient>): void {
   const cached = RUN_MODE === "cached" ? readRunCache(cacheKey(rec.meta.id, "previsit")) : null;
+  // Capture the stage the previsit run actually reviewed. The replay takes
+  // several seconds; if the user advances stages (Simulate) while it's still
+  // playing, releasedStages will have moved on by the time this resolves —
+  // stamping lastDeltaCheckedStage with the CURRENT stage would silently
+  // swallow that stage's delta (deltaAvailable would read false with no delta
+  // ever having run for it).
+  const stageAtStart = rec.releasedStages;
   if (cached && cardFromEvents(cached)) {
     replayRun(run, cached, REPLAY_PREVISIT_MS)
       .then(() => {
         rec.lastCard = cardFromEvents(cached);
         rec.lastCardAt = new Date().toISOString();
-        rec.lastDeltaCheckedStage = rec.releasedStages;
+        // Monotonic: if a delta triggered by a mid-replay Simulate click has
+        // already moved this forward, don't regress it back down.
+        rec.lastDeltaCheckedStage = Math.max(rec.lastDeltaCheckedStage, stageAtStart);
       })
       .catch((e) => emit(run, { type: "run_error", message: String(e?.message ?? e), at: Date.now() }));
   } else {

@@ -34,6 +34,8 @@ export function CopilotOverlay({
   events,
   mode,
   running,
+  hasUnseenUpdate,
+  onSeen,
   onClose,
   onRun,
   onTeach,
@@ -48,6 +50,8 @@ export function CopilotOverlay({
   events: RunEvent[];
   mode: "previsit" | "delta";
   running: boolean;
+  hasUnseenUpdate: boolean;
+  onSeen: () => void;
   onClose: () => void;
   onRun: () => void;
   onTeach: (sectionId: string, instruction: string) => Promise<void>;
@@ -66,11 +70,16 @@ export function CopilotOverlay({
   useEffect(() => {
     let cancelled = false;
     fetchCds(patient.id).then((res) => {
-      if (!cancelled) setCds(res);
+      if (!cancelled) {
+        setCds(res);
+        // Window's already open and visible — no need to flag the icon too.
+        if (expanded) onSeen();
+      }
     });
     return () => {
       cancelled = true;
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [patient.id, patient.releasedStages]);
 
   const [winPos, setWinPos] = useState<XY>(() => ({
@@ -190,15 +199,18 @@ export function CopilotOverlay({
         onClick={() => {
           if (movedRef.current) return; // was a drag, not a click
           setHovering(true);
+          onSeen();
         }}
-        title="Pre-Visit Copilot — drag to move, click or hover to expand"
-        className={`fixed z-50 rounded-full bg-indigo-brand text-white shadow-[0_8px_24px_-4px_rgba(91,91,214,0.6)] grid place-items-center border-2 border-white/70 ${
-          dragging ? "cursor-grabbing" : "cursor-grab"
-        }`}
+        title={hasUnseenUpdate ? "New results — click to review" : "Pre-Visit Copilot — drag to move, click or hover to expand"}
+        className={`fixed z-50 rounded-full text-white shadow-[0_8px_24px_-4px_rgba(91,91,214,0.6)] grid place-items-center border-2 border-white/70 ${
+          hasUnseenUpdate ? "bg-amber-500 animate-pulse" : "bg-indigo-brand"
+        } ${dragging ? "cursor-grabbing" : "cursor-grab"}`}
         style={{ left: bubblePos.x, top: bubblePos.y, width: BUBBLE, height: BUBBLE }}
       >
         <Sparkle className="w-6 h-6" />
-        {cds?.ribbon.some((t) => t.badge === "emergency") ? (
+        {hasUnseenUpdate ? (
+          <span className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-amber-300 border-2 border-white animate-ping" title="New results" />
+        ) : cds?.ribbon.some((t) => t.badge === "emergency") ? (
           <span className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-red-500 border-2 border-white animate-pulse" title="Emergency recommendation" />
         ) : (
           card && <span className="absolute -top-0.5 -right-0.5 w-3.5 h-3.5 rounded-full bg-emerald-400 border-2 border-white" title="Card ready" />

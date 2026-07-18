@@ -32,7 +32,12 @@ export default function App() {
   const [runningPatientId, setRunningPatientId] = useState<string | null>(null);
   const [drawer, setDrawer] = useState<null | "prompt" | "customizations" | "versions">(null);
   const [chartVersion, setChartVersion] = useState(0); // bump → EHR chart refetch
+  const [hasUnseenUpdate, setHasUnseenUpdate] = useState<Record<string, boolean>>({});
   const unsubscribe = useRef<(() => void) | null>(null);
+
+  const markSeen = useCallback((patientId: string) => {
+    setHasUnseenUpdate((m) => (m[patientId] ? { ...m, [patientId]: false } : m));
+  }, []);
 
   const refreshPatients = useCallback(async () => setPatients(await fetchPatients()), []);
   const refreshConfig = useCallback(async () => setConfig(await fetchAgentConfig()), []);
@@ -96,12 +101,19 @@ export default function App() {
     const result = await simulateAdvance(selected.id, selected.releasedStages);
     await refreshPatients();
     setChartVersion((v) => v + 1); // new results also appear in the EHR chart tabs
+    // Abridge AI's CDS ribbon reflects the new stage instantly (no LLM wait) —
+    // flag the AI icon(s) until the user actually looks.
+    setHasUnseenUpdate((m) => ({ ...m, [selected.id]: true }));
     // Auto-run the delta agent on the freshly released stage so new results
-    // surface without a separate manual "Run Delta" click.
-    if (cards[selected.id] && result?.releasedStages > 0) {
+    // surface without a separate manual "Run Delta" click. Don't gate this on
+    // cards[selected.id] being populated client-side — the pre-visit agent is
+    // always auto-triggered on chart open, and the server hydrates its card
+    // from the replay cache on demand even while that replay is still
+    // mid-animation, so the delta call succeeds regardless of client timing.
+    if (result?.releasedStages > 0) {
       await runAgent(selected, "delta", result.releasedStages);
     }
-  }, [selected, refreshPatients, runAgent, cards]);
+  }, [selected, refreshPatients, runAgent]);
 
   return (
     <div className="min-h-screen bg-[#c8d4dc]">
@@ -129,7 +141,11 @@ export default function App() {
         <PatientChart
           patient={selected}
           copilotActive={copilotOpenFor === selected.id}
-          onLaunchCopilot={() => launchCopilot(selected)}
+          hasUnseenUpdate={!!hasUnseenUpdate[selected.id]}
+          onLaunchCopilot={() => {
+            markSeen(selected.id);
+            launchCopilot(selected);
+          }}
           chartVersion={chartVersion}
         />
       )}
@@ -153,6 +169,8 @@ export default function App() {
           events={events[selected.id] ?? []}
           mode={runMode[selected.id] ?? "previsit"}
           running={runningPatientId === selected.id}
+          hasUnseenUpdate={!!hasUnseenUpdate[selected.id]}
+          onSeen={() => markSeen(selected.id)}
           onClose={() => setCopilotOpenFor(null)}
           onRun={() => runAgent(selected, "previsit")}
           onTeach={handleTeach}

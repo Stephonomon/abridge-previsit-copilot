@@ -114,6 +114,11 @@ const CARD_SCHEMA = {
 
 export async function runPrevisit(run: Run, rec: PatientRecord): Promise<RoomEntryCard> {
   const t0 = Date.now();
+  // Stage the run actually reviewed — if the patient advances stages while
+  // this (multi-second) run is still in flight, releasedStages will have
+  // moved on by the time we finish; stamping lastDeltaCheckedStage with the
+  // stage at completion would silently swallow the delta for those stages.
+  const stageAtStart = rec.releasedStages;
   emit(run, { type: "run_started", runId: run.id, patientId: rec.meta.id, mode: "previsit", at: t0 });
 
   const results: SubagentResult[] = await Promise.all(
@@ -178,7 +183,9 @@ You will receive structured findings from 5 chart-review sub-agents. Synthesize 
 
   rec.lastCard = card;
   rec.lastCardAt = new Date().toISOString();
-  rec.lastDeltaCheckedStage = rec.releasedStages;
+  // Monotonic: if a delta triggered by a mid-run Simulate click has already
+  // moved this forward, don't regress it back down.
+  rec.lastDeltaCheckedStage = Math.max(rec.lastDeltaCheckedStage, stageAtStart);
   writeRunCache(cacheKey(rec.meta.id, "previsit"), run.events);
   return card;
 }
