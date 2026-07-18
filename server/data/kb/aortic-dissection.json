@@ -23,7 +23,19 @@
       "priority": "high",
       "triggered_by": ["ad-r5"],
       "evidence_line": "AATS/ACC/AHA 2022 Guideline — screen for dissection before ACS-directed therapy when mediastinal contour is abnormal",
-      "actions": []
+      "actions": [
+        {
+          "id": "act-order-cta-chest",
+          "type": "order",
+          "label": "CT angiogram, chest — STAT",
+          "orderDetails": {
+            "orderType": "Imaging",
+            "items": ["CT angiography, chest, with IV contrast — aortic dissection protocol"],
+            "indication": "Widened mediastinum on today's CXR final read in a chest-pain patient — rule out aortic dissection before further ACS-directed anticoagulation, cath, or thrombolysis",
+            "priority": "STAT"
+          }
+        }
+      ]
     },
     {
       "id": "ad-rec1",
