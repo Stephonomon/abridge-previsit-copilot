@@ -1,5 +1,7 @@
 # Pre-Visit Copilot
 
+**Live demo:** https://abridge-previsit-copilot.vercel.app (cached-replay mode — no API key required)
+
 An agentic ED pre-visit intelligence demo built for the Abridge **Future of Agentic AI in Healthcare** hackathon by Stephon Proctor + John Lee, MD.
 
 Five Claude sub-agents fan out across a simulated Epic EHR (mirroring Abridge's real incoming Epic API surface), mine structured FHIR R4 data **and** the PDFs buried in the chart (faxes, EMS run sheets, outside reports), and synthesize a physician-taught, versioned **Room-Entry Card** — plus a mid-encounter **Delta Card** when new results land.
