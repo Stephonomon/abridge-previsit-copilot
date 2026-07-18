@@ -5,18 +5,22 @@ import { CardView } from "./CardView";
 import { DeltaCardView } from "./DeltaCardView";
 import { Eye, Sliders, Sparkle, Stethoscope } from "./icons";
 
-const WIN_W = 940;
+const DEFAULT_W = 900;
+const MIN_W = 420;
+const MIN_H = 300;
 const BUBBLE = 56;
 const clamp = (v: number, lo: number, hi: number) => Math.max(lo, Math.min(hi, v));
-const winHeight = () => Math.min(760, window.innerHeight - 24);
+const defaultH = () => Math.min(720, window.innerHeight - 24);
 
 type XY = { x: number; y: number };
+type WH = { w: number; h: number };
 
 /**
  * The Pre-Visit Copilot as a free-floating in-EHR window:
- * - draggable anywhere by its title bar
- * - collapses to a small draggable floating icon
- * - hover or click the icon to expand; pin to keep it from auto-collapsing; X closes.
+ * - draggable by its title bar, resizable from the bottom-right corner
+ * - collapses to a small draggable floating icon (hover or click to expand)
+ * - the Live Agent Activity panel is collapsed by default; toggle it open to
+ *   show the multi-agent run to an audience.
  */
 export function CopilotOverlay({
   patient,
@@ -55,30 +59,32 @@ export function CopilotOverlay({
   const [hovering, setHovering] = useState(true); // open expanded on launch
   const [advancing, setAdvancing] = useState(false);
   const [dragging, setDragging] = useState(false);
+  const [showActivity, setShowActivity] = useState(false); // collapsed by default
   const expanded = pinned || hovering;
 
   const [winPos, setWinPos] = useState<XY>(() => ({
-    x: clamp(window.innerWidth - WIN_W - 16, 8, window.innerWidth - WIN_W - 8),
+    x: clamp(window.innerWidth - DEFAULT_W - 16, 8, window.innerWidth - DEFAULT_W - 8),
     y: 76,
   }));
+  const [winSize, setWinSize] = useState<WH>(() => ({ w: DEFAULT_W, h: defaultH() }));
   const [bubblePos, setBubblePos] = useState<XY>(() => ({
     x: window.innerWidth - BUBBLE - 24,
     y: window.innerHeight - BUBBLE - 24,
   }));
 
   const leaveTimer = useRef<number | null>(null);
-  const draggingRef = useRef(false);
+  const busyRef = useRef(false); // true during any drag/resize — suppresses auto-collapse + click-expand
   const movedRef = useRef(false);
 
   const onEnter = () => {
     if (leaveTimer.current) window.clearTimeout(leaveTimer.current);
-    if (!draggingRef.current) setHovering(true);
+    if (!busyRef.current) setHovering(true);
   };
   const onLeave = () => {
     if (leaveTimer.current) window.clearTimeout(leaveTimer.current);
-    if (draggingRef.current) return; // never collapse mid-drag
+    if (busyRef.current) return; // never collapse mid-drag/resize
     leaveTimer.current = window.setTimeout(() => {
-      if (!draggingRef.current) setHovering(false);
+      if (!busyRef.current) setHovering(false);
     }, 350);
   };
 
@@ -88,7 +94,7 @@ export function CopilotOverlay({
     const start = { x: e.clientX, y: e.clientY };
     const orig = target === "win" ? { ...winPos } : { ...bubblePos };
     let moved = false;
-    draggingRef.current = true;
+    busyRef.current = true;
     movedRef.current = false;
     setDragging(true);
 
@@ -96,8 +102,8 @@ export function CopilotOverlay({
       const dx = ev.clientX - start.x;
       const dy = ev.clientY - start.y;
       if (Math.abs(dx) > 3 || Math.abs(dy) > 3) moved = true;
-      const w = target === "win" ? WIN_W : BUBBLE;
-      const h = target === "win" ? winHeight() : BUBBLE;
+      const w = target === "win" ? winSize.w : BUBBLE;
+      const h = target === "win" ? winSize.h : BUBBLE;
       const nx = clamp(orig.x + dx, 4, window.innerWidth - w - 4);
       const ny = clamp(orig.y + dy, 4, window.innerHeight - h - 4);
       if (target === "win") setWinPos({ x: nx, y: ny });
@@ -106,8 +112,34 @@ export function CopilotOverlay({
     const up = () => {
       window.removeEventListener("pointermove", move);
       window.removeEventListener("pointerup", up);
-      draggingRef.current = false;
+      busyRef.current = false;
       movedRef.current = moved;
+      setDragging(false);
+    };
+    window.addEventListener("pointermove", move);
+    window.addEventListener("pointerup", up);
+  }
+
+  function beginResize(e: React.PointerEvent) {
+    if (e.button !== 0) return;
+    e.preventDefault();
+    e.stopPropagation();
+    const start = { x: e.clientX, y: e.clientY };
+    const orig = { ...winSize };
+    busyRef.current = true;
+    setDragging(true);
+
+    const move = (ev: PointerEvent) => {
+      const dw = ev.clientX - start.x;
+      const dh = ev.clientY - start.y;
+      const w = clamp(orig.w + dw, MIN_W, window.innerWidth - winPos.x - 8);
+      const h = clamp(orig.h + dh, MIN_H, window.innerHeight - winPos.y - 8);
+      setWinSize({ w, h });
+    };
+    const up = () => {
+      window.removeEventListener("pointermove", move);
+      window.removeEventListener("pointerup", up);
+      busyRef.current = false;
       setDragging(false);
     };
     window.addEventListener("pointermove", move);
@@ -119,6 +151,22 @@ export function CopilotOverlay({
     setHovering(false);
     if (leaveTimer.current) window.clearTimeout(leaveTimer.current);
   };
+
+  // Opening the activity panel widens a narrow window so both columns fit.
+  function toggleActivity() {
+    setShowActivity((prev) => {
+      const next = !prev;
+      if (next) {
+        setWinSize((sz) => {
+          if (sz.w >= 900) return sz;
+          const w = Math.min(window.innerWidth - 16, sz.w + 360);
+          setWinPos((p) => ({ x: clamp(p.x, 4, window.innerWidth - w - 4), y: p.y }));
+          return { w, h: sz.h };
+        });
+      }
+      return next;
+    });
+  }
 
   const canAdvance = patient.releasedStages < patient.totalStages;
   const customizationCount = config?.activeVersion?.customizations.length ?? 0;
@@ -147,7 +195,7 @@ export function CopilotOverlay({
     );
   }
 
-  // ---- Expanded: draggable floating window ----
+  // ---- Expanded: draggable + resizable floating window ----
   return (
     <div
       onMouseEnter={onEnter}
@@ -155,7 +203,7 @@ export function CopilotOverlay({
       className={`fixed z-50 flex flex-col rounded-2xl shadow-[0_16px_56px_-8px_rgba(28,25,23,0.5)] border border-indigo-brand/25 overflow-hidden bg-cream/95 backdrop-blur-md select-none ${
         dragging ? "cursor-grabbing" : ""
       }`}
-      style={{ left: winPos.x, top: winPos.y, width: WIN_W, height: winHeight() }}
+      style={{ left: winPos.x, top: winPos.y, width: winSize.w, height: winSize.h }}
     >
       {/* Title bar (drag handle) */}
       <div className="flex items-center gap-3 px-4 py-2.5 bg-white/90 border-b border-stone-200 shrink-0">
@@ -273,18 +321,38 @@ export function CopilotOverlay({
             )}
             <button
               onClick={onRun}
-              className="flex items-center gap-1.5 bg-indigo-brand hover:bg-indigo-brand-dark text-white rounded-full px-3.5 py-1.5 text-xs font-semibold shadow-sm ml-auto"
+              className="flex items-center gap-1.5 bg-indigo-brand hover:bg-indigo-brand-dark text-white rounded-full px-3.5 py-1.5 text-xs font-semibold shadow-sm"
             >
               ⟳ Regenerate
             </button>
           </>
         )}
+
+        {/* Live Agent Activity toggle — collapsed by default, open to reveal the run */}
+        <button
+          onClick={toggleActivity}
+          className={`ml-auto flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold border ${
+            showActivity ? "bg-indigo-soft border-indigo-brand/30 text-indigo-brand-dark" : "bg-white border-stone-300 text-stone-600 hover:bg-stone-50"
+          }`}
+          title="Show what the sub-agents are doing behind the scenes"
+        >
+          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M3 12h4l2.5-6 4 12 2.5-6h5" />
+          </svg>
+          {showActivity ? "Hide" : "Show"} agent activity
+          {running && (
+            <span className="relative flex w-2 h-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-70" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+            </span>
+          )}
+        </button>
       </div>
 
-      {/* Body: card + activity side by side */}
+      {/* Body: card, with the activity panel optionally beside it */}
       <div className="flex-1 overflow-y-auto p-3">
-        <div className="grid grid-cols-[1fr_330px] gap-3 items-start">
-          <div className="space-y-3">
+        <div className={`grid gap-3 items-start ${showActivity ? "grid-cols-[1fr_330px]" : "grid-cols-1"}`}>
+          <div className="space-y-3 min-w-0">
             {deltaCard && <DeltaCardView card={deltaCard} stageLabel={patient.releasedStages > 0 ? `Stage ${patient.releasedStages} results in` : null} />}
             <CardView
               card={card}
@@ -293,16 +361,30 @@ export function CopilotOverlay({
               onTeach={onTeach}
             />
           </div>
-          <div>
-            {events.length > 0 ? (
-              <ActivityPanel events={events} mode={mode} />
-            ) : (
-              <div className="bg-white/60 border border-dashed border-stone-300 rounded-2xl p-5 text-xs text-stone-400 text-center">
-                Sub-agent activity will stream here during a run.
-              </div>
-            )}
-          </div>
+          {showActivity && (
+            <div>
+              {events.length > 0 ? (
+                <ActivityPanel events={events} mode={mode} />
+              ) : (
+                <div className="bg-white/60 border border-dashed border-stone-300 rounded-2xl p-5 text-xs text-stone-400 text-center">
+                  Sub-agent activity will stream here during a run.
+                </div>
+              )}
+            </div>
+          )}
         </div>
+      </div>
+
+      {/* Resize grip (bottom-right) */}
+      <div
+        onPointerDown={beginResize}
+        className="absolute bottom-0 right-0 w-5 h-5 cursor-nwse-resize z-10"
+        style={{ touchAction: "none" }}
+        title="Drag to resize"
+      >
+        <svg className="w-full h-full text-stone-400" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+          <path d="M16 8 8 16M16 13l-3 3" />
+        </svg>
       </div>
     </div>
   );
