@@ -8,12 +8,17 @@ Two separate scripts: a **60-second recorded demo** (voiceover over screen captu
 
 ---
 
+## Present from localhost, not the hosted Vercel link
+
+**Both the recorded take and the live demo should run against `localhost:5173` (with the local server on `:8787`), not `abridge-previsit-copilot.vercel.app`.** The hosted deployment has a known issue: it runs as Vercel serverless functions, and different requests can land on different backing processes that don't share memory. In practice that means stage/card/sent-action state can go inconsistent between requests — a reset that took effect for one request may not be visible to the next, or Simulate can appear to "jump ahead" if the browser's last-known stage is stale relative to whichever instance answers the next call. It's intermittent, not something a retry reliably fixes, and not something to risk hitting mid-demo. `localhost` is a single long-running process — the exact same code, but with no cross-instance state problem at all. The hosted link is still fine to hand out afterward for people to click around on their own; just don't present live from it.
+
 ## Before either take: reset the workspace
 
 The app now **persists CDS actions, chart stage, and run state server-side** — it survives page reloads, not just window closes. That means a rehearsal run will leave "sent" actions greyed out and the patient already at the final stage. **Reset immediately before every take** (including between rehearsal and the real recording, and again right before walking on stage):
 
-- Click the circular reset icon in the top bar (left of "MERIDIAN EMERGENCY"), **or**
-- `curl -X POST http://localhost:8787/api/reset` (local) / the deployed `/api/reset` endpoint if presenting from the hosted URL
+- **Preferred: click the circular reset icon in the top bar** (left of "MERIDIAN EMERGENCY"), in the same browser tab you're about to present from. It resets the server *and* reloads that tab in one action, so there's no way for the tab to end up out of sync with the server.
+- If you reset via `curl -X POST http://localhost:8787/api/reset` from a terminal instead, you **must** manually reload the browser tab afterward — the server doesn't know your tab exists and can't refresh it for you. Skipping that reload is exactly how you get the "stage looks wrong" / "Simulate jumped ahead" symptom: the tab is still holding an old, higher stage number in memory from before the reset, and the next click sends that stale number back to the (now-reset) server, which obediently jumps to it. This isn't specific to the hosted deployment — it'll happen locally too if you reset out-of-band and forget to refresh the tab you're actually looking at.
+- If you've had the app open for a long stretch (rehearsing, testing, this conversation's back-and-forth) and you're not sure what state the tab thinks it's in, don't trust it — close the tab and open a fresh one, or hard-refresh, right before you go live.
 
 This clears Walter back to arrival, clears all sent CDS actions, and reloads.
 
@@ -154,3 +159,4 @@ Type something like *"Show the last 5–10 vitals, not just the most recent"* �
 - **"Is the narrative card actually live-generated?"** — Yes, every card was produced by the real multi-agent Claude pipeline; we replay the recording for stage-timing consistency in a demo setting. Flip one env var and it calls the live API in ~90s. The Abridge AI CDS panel above it is never cached — it's a deterministic rules match, live every time, independent of whether the narrative agent has run at all.
 - **"Is the clinical logic real?"** — Every rule/recommendation is our own authored knowledge base, citing real guideline lines (ACC/AHA, AATS, FDA labeling) the way a production CDS system would — fully inspectable via the `rule:` chips, fully editable, nothing sends without a click.
 - **"Does teach-the-agent affect the CDS rules panel too, or just the narrative summary?"** — Today, teach-the-agent personalizes the narrative chart-review agent's prompt (versioned, e.g. v1.0 → v1.1). The rules-based CDS panel is deterministic by design — that's a deliberate product question worth discussing, not an oversight.
+- **"Is this hosted anywhere / can I try it myself later?"** — Yes, there's a public link, and you're welcome to click around it after the talk. For today's live walkthrough we're running it locally rather than off that link, since the hosted version currently stores patient state per-request in a way that isn't guaranteed consistent across serverless invocations — a real production build would put that state in a shared store; for a one-day build we scoped that out in favor of the clinical logic and the UI. Good instinct to ask, actually — it's exactly the kind of thing that'd get hardened before this touched a real chart.
