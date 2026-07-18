@@ -1,42 +1,40 @@
-# Judge Walkthrough (~3 minutes, Emergency Medicine only)
+# Judge Walkthrough (~3 minutes, Emergency Medicine)
 
 > **Setup (before judges arrive):**
 > 1. Both servers running (`npm run dev:server`, `npm run dev:web`), browser at `localhost:5173`.
-> 2. Cache is warm (repo ships with it; to refresh: `npm run warm --workspace server`).
-> 3. Reset to clean state: `curl -X POST localhost:8787/api/reset` and reload the page.
+> 2. Replay cache is warm (repo ships with it; refresh with `npm run warm --workspace server`).
+> 3. Clean state: `curl -X POST localhost:8787/api/reset`, then reload.
 >
-> Runs replay from recorded live runs in ~10s (pre-visit) / ~5s (delta) — real agent output, demo-speed pacing. Set `PREVISIT_MODE=live` to run the API live instead.
+> Agent runs replay recorded live runs (~5–10s pre-visit, ~2–5s delta). `PREVISIT_MODE=live` runs the API for real (~60–90s).
 
-## Beat 1 — Problem (15s)
+## Beat 1 — The problem, in the EHR itself (30s)
 
-"Before an ED doc walks into a room, what they need to know is scattered across hundreds of FHIR resources — and buried in faxed PDFs nobody reads. We built a pre-visit agent on the same Epic API surface Abridge already ships."
+Start on the **Meridian ED Track Board**. *"This is where an ED doc lives. Three patients waiting."*
 
-## Beat 2 — Run it on Walter Reyes (60s)
+Click **Reyes, Walter** → his chart opens. Click **Chart Review** and flip through a few tabs — Encounters, Laboratory, Notes, **Media**. *"Everything you need to know about this chest-pain patient is in here somewhere — encounters, labs, ECGs, and scanned faxes like this one"* (open the EMS run-sheet PDF from Media — it's a real fax-style PDF). *"Nobody has time to read all of this before walking into the room. That's the problem."*
 
-1. Click **Run Pre-Visit Agent** on Walter Reyes (68M, chest pain).
-2. While the ~10s run streams, narrate the **Live Agent Activity** panel: *"Five sub-agents in parallel — real Epic API names, Patient.Read, Observation.Search (Labs), Binary.Read — resource counts and latency live."*
-3. Card lands. Point at the top item: **"Sildenafil ~11h before arrival (per EMS) — nitrates contraindicated."**
-   *"That fact exists only inside the EMS run-sheet PDF. Our Document Intelligence agent read the fax. Give this patient nitro and you bottom out his pressure — that's the catch."*
-4. Fast follow: chronic LBBB → "apply Sgarbossa," and the faxed cardiology consult showing his stress workup was never completed.
+## Beat 2 — Launch the copilot (45s)
+
+Click the **✦ sparkle next to Walter's name** in the storyboard. *"The copilot opens with patient context — it knows whose chart I'm in."* Note the window behavior: semi-transparent over the chart, **collapses to a side rail when you mouse away, pin keeps it open, X closes it**.
+
+Click **Run Pre-Visit Agent**. Narrate the Live Agent Activity panel: *"Five sub-agents in parallel, hitting the same Epic FHIR APIs Abridge already ships — Patient.Read, Observation.Search (Labs), Binary.Read."*
+
+Card lands. Point at the top item: **"Sildenafil last night per EMS — nitrates contraindicated."** *"That fact exists only in the EMS fax you just saw in the Media tab. The Document Intelligence agent read it. Nitro after sildenafil bottoms out his pressure — that's a real catch."* Fast follow: chronic LBBB → Sgarbossa, and the never-completed stress workup from the faxed cardiology consult.
 
 ## Beat 3 — Teach the agent (40s)
 
-1. Hover **Meds That Matter Now** → **Teach the agent** → type a preference (e.g. "always show last anticoagulant dose timing").
-2. Header bumps **v1.0 → v1.1**. Open the **eye icon** (base specialty prompt — full transparency) and the **sliders icon** (the doc's own edits layered on top).
-3. Version dropdown: *"physicians keep versions per patient population — here's a Geriatric-focused variant. Same scaffold, personally tuned, and every future run uses it."*
+Hover a card section → **Teach the agent** → type a preference ("always show last anticoagulant dose timing"). Version bumps **v1.0 → v1.1**. Open the **eye** (base specialty prompt) and **sliders** (the doc's own edits). *"Versions per patient population — here's a Geriatric-focused variant. One scaffold, personally tuned, every future run uses it."*
 
-## Beat 4 — Delta Card (40s)
+## Beat 4 — Delta Card, and the EHR agrees (45s)
 
-1. Click **Simulate: 45 min later** → then the red **Run Delta Agent**.
-2. ~5s later: **ACT: hs-Troponin 8 → 62.** ECG final read, and *"a stress-echo fax hit the chart 3 minutes ago — the agent already read it: equivocal ischemia, never followed up."*
-3. Point at the **interaction check** (apixaban vs cath) and **Pending** line: *"max 3 items, interruption-budgeted. If nothing qualifies, it says so — silence is a valid answer."*
+Click **Simulate: 45 min later** → the labs land in the chart. Flip the EHR's **Laboratory tab** behind the overlay: *"there's the troponin — 62, critical."* Then click **Run Delta**: **ACT: hs-Troponin 8 → 62**, the ECG read, and *"a stress-echo fax arrived mid-encounter — already read: equivocal ischemia, never followed up."* Point at the interaction check (apixaban vs cath) and the **Pending** line. *"Max three items, interruption-budgeted — a quiet interval honestly returns 'no management-changing results.'"*
 
 ## Beat 5 — Close (15s)
 
-"Specialty scaffold + physician teaching + versioning: an agent that gets personally better every shift, on APIs Abridge already has in production. The other two patients on the schedule catch an ESBL organism empiric ceftriaxone would miss, and a Crohn's patient whose appendix — per an outside op-note PDF — isn't there."
+*"An agent layer inside the EHR workflow: trackboard → chart → one click → a taught, versioned brief. Same Epic APIs Abridge has in production. The other two patients catch an ESBL organism ceftriaxone would miss, and a Crohn's patient whose appendix — per an outside op-note PDF — isn't there."*
 
-## If asked / spare time
+## Backup / Q&A
 
-- Margaret Okafor: ESBL + mechanical valve + SJS sulfa allergy; delta shows lactate clearing after fluids and a carbapenem renal-dosing interaction check.
-- Jasmine Cole: no appendix (outside op-note PDF), biologic+steroid-masked inflammation, hCG-gated imaging; stage-2 delta is the CT abscess.
-- "Is it live?" — *"Every card you saw was generated by the real multi-agent pipeline; for stage time we replay the recorded run. Happy to flip `PREVISIT_MODE=live` and wait 90 seconds."*
+- Collapse/expand: mouse away collapses to the rail; hover or click the rail to reopen; pin to lock; the header chevron also collapses.
+- Margaret Okafor: ESBL + mechanical valve + SJS allergy; delta = lactate clearing + carbapenem renal dosing. Jasmine Cole: no appendix, masked inflammation, hCG-gated imaging; stage-2 delta = CT abscess.
+- "Is it live?" — *"Every card was generated by the real multi-agent pipeline; we replay the recorded run for stage time. Flip `PREVISIT_MODE=live` and it runs the API in ~90s."*

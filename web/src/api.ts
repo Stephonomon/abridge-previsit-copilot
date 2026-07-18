@@ -6,6 +6,11 @@ export async function fetchPatients(): Promise<Patient[]> {
   return j.patients;
 }
 
+export async function fetchChart(patientId: string) {
+  const r = await fetch(`/api/patients/${patientId}/chart`);
+  return r.json();
+}
+
 export async function fetchCard(patientId: string) {
   const r = await fetch(`/api/patients/${patientId}/card`);
   return r.json();

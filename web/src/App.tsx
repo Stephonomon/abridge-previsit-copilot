@@ -12,21 +12,24 @@ import {
   subscribeRun,
 } from "./api";
 import type { AgentConfigResponse, DeltaCard, Patient, RoomEntryCard, RunEvent } from "./types";
-import { Header } from "./components/Header";
-import { Schedule } from "./components/Schedule";
-import { PatientView } from "./components/PatientView";
+import { EhrTopBar } from "./ehr/EhrChrome";
+import { Trackboard } from "./ehr/Trackboard";
+import { PatientChart } from "./ehr/PatientChart";
+import { CopilotOverlay } from "./components/CopilotOverlay";
 import { CustomizationsDrawer, PromptDrawer, VersionsDrawer } from "./components/Drawers";
 
 export default function App() {
   const [patients, setPatients] = useState<Patient[]>([]);
   const [config, setConfig] = useState<AgentConfigResponse | null>(null);
   const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [copilotOpenFor, setCopilotOpenFor] = useState<string | null>(null);
   const [cards, setCards] = useState<Record<string, RoomEntryCard | null>>({});
   const [deltaCards, setDeltaCards] = useState<Record<string, DeltaCard | null>>({});
   const [events, setEvents] = useState<Record<string, RunEvent[]>>({});
   const [runMode, setRunMode] = useState<Record<string, "previsit" | "delta">>({});
   const [runningPatientId, setRunningPatientId] = useState<string | null>(null);
   const [drawer, setDrawer] = useState<null | "prompt" | "customizations" | "versions">(null);
+  const [chartVersion, setChartVersion] = useState(0); // bump → EHR chart refetch
   const unsubscribe = useRef<(() => void) | null>(null);
 
   const refreshPatients = useCallback(async () => setPatients(await fetchPatients()), []);
@@ -41,7 +44,6 @@ export default function App() {
 
   const runAgent = useCallback(
     async (patient: Patient, mode: "previsit" | "delta") => {
-      setSelectedId(patient.id);
       setRunningPatientId(patient.id);
       setRunMode((m) => ({ ...m, [patient.id]: mode }));
       setEvents((e) => ({ ...e, [patient.id]: [] }));
@@ -64,10 +66,11 @@ export default function App() {
     [refreshPatients]
   );
 
-  const viewPatient = useCallback(
+  const launchCopilot = useCallback(
     async (patient: Patient) => {
-      setSelectedId(patient.id);
-      if (!cards[patient.id]) {
+      setCopilotOpenFor(patient.id);
+      // hydrate an existing card if one was generated earlier
+      if (!cards[patient.id] && patient.hasCard) {
         const j = await fetchCard(patient.id);
         if (j.card) setCards((c) => ({ ...c, [patient.id]: j.card }));
       }
@@ -87,42 +90,53 @@ export default function App() {
     if (!selected) return;
     await simulateAdvance(selected.id);
     await refreshPatients();
+    setChartVersion((v) => v + 1); // new results also appear in the EHR chart tabs
   }, [selected, refreshPatients]);
 
-  const stageLabel = selected ? (selected.releasedStages > 0 ? selected.nextStageLabel ?? null : null) : null;
-
   return (
-    <div className="min-h-screen">
-      <Header
-        config={config}
-        onShowPrompt={() => setDrawer("prompt")}
-        onShowCustomizations={() => setDrawer("customizations")}
-        onShowVersions={() => setDrawer("versions")}
+    <div className="min-h-screen bg-[#c8d4dc]">
+      <EhrTopBar
+        tabTitle={selected ? selected.name.split(" ").reverse().join(", ") : undefined}
+        onHome={() => {
+          setSelectedId(null);
+          setCopilotOpenFor(null);
+        }}
       />
 
       {!selected ? (
-        <Schedule
+        <Trackboard
           patients={patients}
-          runningPatientId={runningPatientId}
-          onRun={(p) => runAgent(p, "previsit")}
-          onView={viewPatient}
+          onOpenChart={(p) => {
+            setSelectedId(p.id);
+            setCopilotOpenFor(null);
+          }}
         />
       ) : (
-        <PatientView
+        <PatientChart
           patient={selected}
+          copilotActive={copilotOpenFor === selected.id}
+          onLaunchCopilot={() => launchCopilot(selected)}
+          chartVersion={chartVersion}
+        />
+      )}
+
+      {selected && copilotOpenFor === selected.id && (
+        <CopilotOverlay
+          patient={selected}
+          config={config}
           card={cards[selected.id] ?? null}
           deltaCard={deltaCards[selected.id] ?? null}
           events={events[selected.id] ?? []}
           mode={runMode[selected.id] ?? "previsit"}
           running={runningPatientId === selected.id}
-          onBack={() => setSelectedId(null)}
-          onRegenerate={() => runAgent(selected, "previsit")}
+          onClose={() => setCopilotOpenFor(null)}
+          onRun={() => runAgent(selected, "previsit")}
           onSimulateAdvance={handleSimulateAdvance}
           onRunDelta={() => runAgent(selected, "delta")}
           onTeach={handleTeach}
-          versionId={config?.activeVersionId ?? "v1.0"}
-          versionLabel={config?.activeVersion?.label ?? "Base scaffold"}
-          stageLabel={selected.releasedStages > 0 ? `Stage ${selected.releasedStages} results in` : stageLabel}
+          onShowPrompt={() => setDrawer("prompt")}
+          onShowCustomizations={() => setDrawer("customizations")}
+          onShowVersions={() => setDrawer("versions")}
         />
       )}
 

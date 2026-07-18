@@ -3,7 +3,7 @@ import express from "express";
 import cors from "cors";
 import { PORT, REPLAY_DELTA_MS, REPLAY_PREVISIT_MS, RUN_MODE } from "./env.js";
 import { cacheKey, cardFromEvents, deltaFromEvents, readRunCache, replayRun } from "./cache.js";
-import { currentPending, getPatient, loadAllPatients } from "./data/store.js";
+import { currentPending, effectiveChart, getPatient, loadAllPatients, readBinary } from "./data/store.js";
 import { createRun, emit, getRun } from "./events/bus.js";
 import { runPrevisit } from "./agents/orchestrator.js";
 import { runDelta } from "./agents/delta.js";
@@ -35,6 +35,31 @@ app.get("/api/patients", (_req, res) => {
     deltaAvailable: r.releasedStages > r.lastDeltaCheckedStage,
   }));
   res.json({ patients });
+});
+
+// Full chart view for the mock EHR (includes any released delta-stage results)
+app.get("/api/patients/:id/chart", (req, res) => {
+  const rec = getPatient(req.params.id);
+  const chart = effectiveChart(rec);
+  res.json({ meta: rec.meta, chart, pending: currentPending(rec), releasedStages: rec.releasedStages });
+});
+
+// Serve a Binary resource (PDF bytes or plain text) for the EHR document viewer
+app.get("/api/patients/:id/binary/:binaryId", (req, res) => {
+  const rec = getPatient(req.params.id);
+  const bin = readBinary(rec, req.params.binaryId);
+  if (!bin) {
+    res.status(404).json({ error: "Binary not found" });
+    return;
+  }
+  if (bin.base64) {
+    res.setHeader("Content-Type", bin.contentType);
+    res.setHeader("Content-Disposition", "inline");
+    res.send(Buffer.from(bin.base64, "base64"));
+  } else {
+    res.setHeader("Content-Type", "text/plain; charset=utf-8");
+    res.send(bin.text ?? "");
+  }
 });
 
 app.get("/api/patients/:id/card", (req, res) => {
