@@ -1,0 +1,94 @@
+{
+  "recordedAt": "2026-07-18T18:49:17.825Z",
+  "events": [
+    {
+      "type": "run_started",
+      "runId": "run_1784400553389_9",
+      "patientId": "walter-reyes",
+      "mode": "delta",
+      "at": 1784400553389
+    },
+    {
+      "type": "agent_started",
+      "agent": "delta",
+      "label": "Delta Agent",
+      "at": 1784400553389
+    },
+    {
+      "type": "fhir_call",
+      "agent": "delta",
+      "api": "Observation.Search (Labs) (R4)",
+      "params": {
+        "sinceLastCard": true
+      },
+      "resourceCount": 1,
+      "ms": 80,
+      "at": 1784400553430
+    },
+    {
+      "type": "fhir_call",
+      "agent": "delta",
+      "api": "Observation.Search (Vital Signs) (R4)",
+      "params": {
+        "sinceLastCard": true
+      },
+      "resourceCount": 1,
+      "ms": 89,
+      "at": 1784400553475
+    },
+    {
+      "type": "fhir_call",
+      "agent": "delta",
+      "api": "DiagnosticReport.Search (Results) (R4)",
+      "params": {
+        "sinceLastCard": true
+      },
+      "resourceCount": 0,
+      "ms": 194,
+      "at": 1784400553573
+    },
+    {
+      "type": "fhir_call",
+      "agent": "delta",
+      "api": "DocumentReference.Search (External CCDA) (R4)",
+      "params": {
+        "sinceLastCard": true
+      },
+      "resourceCount": 0,
+      "ms": 155,
+      "at": 1784400553652
+    },
+    {
+      "type": "agent_done",
+      "agent": "delta",
+      "label": "Delta Agent",
+      "findingsCount": 0,
+      "ms": 4435,
+      "at": 1784400557824
+    },
+    {
+      "type": "delta_ready",
+      "card": {
+        "noDelta": true,
+        "items": [],
+        "interactionCheck": null,
+        "pending": [
+          "2nd hs-Troponin T (2-hour draw, due ~12:00)",
+          "Cardiology consult (paged 10:10)",
+          "Chest X-ray final attending read",
+          "Today's ECG official read"
+        ],
+        "overflowNote": null
+      },
+      "at": 1784400557824
+    },
+    {
+      "type": "run_complete",
+      "totalApiCalls": 4,
+      "totalResources": 2,
+      "totalMs": 4435,
+      "agentCount": 1,
+      "at": 1784400557824
+    }
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "recordedAt": "2026-07-18T18:47:41.965Z",
+  "events": [
+    {
+      "type": "run_started",
+      "runId": "run_1784400450546_6",
+      "patientId": "margaret-okafor",
+      "mode": "delta",
+      "at": 1784400450546
+    },
+    {
+      "type": "agent_started",
+      "agent": "delta",
+      "label": "Delta Agent",
+      "at": 1784400450546
+    },
+    {
+      "type": "fhir_call",
+      "agent": "delta",
+      "api": "Observation.Search (Labs) (R4)",
+      "params": {
+        "sinceLastCard": true
+      },
+      "resourceCount": 1,
+      "ms": 76,
+      "at": 1784400450585
+    },
+    {
+      "type": "fhir_call",
+      "agent": "delta",
+      "api": "Observation.Search (Vital Signs) (R4)",
+      "params": {
+        "sinceLastCard": true
+      },
+      "resourceCount": 1,
+      "ms": 187,
+      "at": 1784400450679
+    },
+    {
+      "type": "fhir_call",
+      "agent": "delta",
+      "api": "DiagnosticReport.Search (Results) (R4)",
+      "params": {
+        "sinceLastCard": true
+      },
+      "resourceCount": 0,
+      "ms": 109,
+      "at": 1784400450732
+    },
+    {
+      "type": "fhir_call",
+      "agent": "delta",
+      "api": "DocumentReference.Search (External CCDA) (R4)",
+      "params": {
+        "sinceLastCard": true
+      },
+      "resourceCount": 0,
+      "ms": 110,
+      "at": 1784400450788
+    },
+    {
+      "type": "agent_done",
+      "agent": "delta",
+      "label": "Delta Agent",
+      "findingsCount": 2,
+      "ms": 11419,
+      "at": 1784400461965
+    },
+    {
+      "type": "delta_ready",
+      "card": {
+        "noDelta": false,
+        "items": [
+          {
+            "flag": "NOTE",
+            "text": "Repeat lactate resulted",
+            "prior": "not documented (labeled as repeat/comparison to initial)",
+            "current": "1.9 mmol/L, within normal range, documented as cleared after 1L LR",
+            "why": "Supports adequate response to fluid resuscitation; relevant for sepsis reassessment and disposition trajectory",
+            "source": "lab-mo-lactate-today2 — Lactate (repeat) 11:45"
+          },
+          {
+            "flag": "NOTE",
+            "text": "Vitals trend post-fluids",
+            "prior": "HR 112, BP 104/62, RR 22, SpO2 95%, T 38.9°C (triage)",
+            "current": "HR 96, BP 118/70, RR 18, SpO2 96%, T 38.1°C (post 1L LR)",
+            "why": "Hemodynamic improvement supports current management; new confusion this AM still unexplained and not re-assessed since fluids given",
+            "source": "vit-mo-today2 — Vitals post 1L LR 11:50"
+          }
+        ],
+        "interactionCheck": null,
+        "pending": [
+          "Blood cultures x2 (collected 11:05, no growth to date)",
+          "Urine culture (collected 10:58)"
+        ],
+        "overflowNote": null
+      },
+      "at": 1784400461965
+    },
+    {
+      "type": "run_complete",
+      "totalApiCalls": 4,
+      "totalResources": 2,
+      "totalMs": 11419,
+      "agentCount": 1,
+      "at": 1784400461965
+    }
+  ]
+}

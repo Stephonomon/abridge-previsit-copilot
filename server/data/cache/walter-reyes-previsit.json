@@ -1,0 +1,546 @@
+{
+  "recordedAt": "2026-07-18T18:48:49.329Z",
+  "events": [
+    {
+      "type": "run_started",
+      "runId": "run_1784400461966_7",
+      "patientId": "walter-reyes",
+      "mode": "previsit",
+      "at": 1784400461966
+    },
+    {
+      "type": "agent_started",
+      "agent": "chart-overview",
+      "label": "Chart Overview Agent",
+      "at": 1784400461966
+    },
+    {
+      "type": "agent_started",
+      "agent": "meds-problems",
+      "label": "Meds & Problems Agent",
+      "at": 1784400461966
+    },
+    {
+      "type": "agent_started",
+      "agent": "results",
+      "label": "Results Agent",
+      "at": 1784400461966
+    },
+    {
+      "type": "agent_started",
+      "agent": "notes-context",
+      "label": "Notes & Context Agent",
+      "at": 1784400461966
+    },
+    {
+      "type": "agent_started",
+      "agent": "documents",
+      "label": "Document Intelligence Agent",
+      "at": 1784400461966
+    },
+    {
+      "type": "fhir_call",
+      "agent": "documents",
+      "api": "DocumentReference.Search (External CCDA) (R4)",
+      "params": {},
+      "resourceCount": 2,
+      "ms": 135,
+      "at": 1784400463613
+    },
+    {
+      "type": "fhir_call",
+      "agent": "meds-problems",
+      "api": "Condition.Search (Problems) (R4)",
+      "params": {},
+      "resourceCount": 5,
+      "ms": 103,
+      "at": 1784400463926
+    },
+    {
+      "type": "fhir_call",
+      "agent": "meds-problems",
+      "api": "MedicationRequest.Search (Signed Medication Order) (R4)",
+      "params": {},
+      "resourceCount": 6,
+      "ms": 87,
+      "at": 1784400464014
+    },
+    {
+      "type": "fhir_call",
+      "agent": "meds-problems",
+      "api": "AllergyIntolerance.Search (Patient Chart) (R4)",
+      "params": {},
+      "resourceCount": 1,
+      "ms": 85,
+      "at": 1784400464101
+    },
+    {
+      "type": "fhir_call",
+      "agent": "meds-problems",
+      "api": "Condition.Search (Medical History) (R4)",
+      "params": {},
+      "resourceCount": 1,
+      "ms": 175,
+      "at": 1784400464278
+    },
+    {
+      "type": "fhir_call",
+      "agent": "chart-overview",
+      "api": "Patient.Read (Demographics) (R4)",
+      "params": {},
+      "resourceCount": 1,
+      "ms": 153,
+      "at": 1784400464488
+    },
+    {
+      "type": "fhir_call",
+      "agent": "chart-overview",
+      "api": "Appointment.Read (Appointments) (R4)",
+      "params": {},
+      "resourceCount": 1,
+      "ms": 186,
+      "at": 1784400464675
+    },
+    {
+      "type": "fhir_call",
+      "agent": "chart-overview",
+      "api": "Encounter.Search (Patient Chart) (R4)",
+      "params": {
+        "sinceISO": "2025-07-18"
+      },
+      "resourceCount": 4,
+      "ms": 138,
+      "at": 1784400464815
+    },
+    {
+      "type": "fhir_call",
+      "agent": "notes-context",
+      "api": "DocumentReference.Search (Clinical Notes) (R4)",
+      "params": {},
+      "resourceCount": 2,
+      "ms": 173,
+      "at": 1784400464877
+    },
+    {
+      "type": "fhir_call",
+      "agent": "chart-overview",
+      "api": "Procedure.Search (Orders) (R4)",
+      "params": {},
+      "resourceCount": 2,
+      "ms": 182,
+      "at": 1784400464998
+    },
+    {
+      "type": "fhir_call",
+      "agent": "results",
+      "api": "Observation.Search (Labs) (R4)",
+      "params": {
+        "sinceISO": "2026-06-01"
+      },
+      "resourceCount": 7,
+      "ms": 150,
+      "at": 1784400465041
+    },
+    {
+      "type": "fhir_call",
+      "agent": "notes-context",
+      "api": "Observation.Search (Social History) (R4)",
+      "params": {},
+      "resourceCount": 3,
+      "ms": 175,
+      "at": 1784400465053
+    },
+    {
+      "type": "fhir_call",
+      "agent": "results",
+      "api": "Observation.Search (Vital Signs) (R4)",
+      "params": {
+        "sinceISO": "2026-06-01"
+      },
+      "resourceCount": 3,
+      "ms": 129,
+      "at": 1784400465172
+    },
+    {
+      "type": "fhir_call",
+      "agent": "chart-overview",
+      "api": "Coverage.Search (Patient Insurance Information) (R4)",
+      "params": {},
+      "resourceCount": 1,
+      "ms": 177,
+      "at": 1784400465176
+    },
+    {
+      "type": "fhir_call",
+      "agent": "notes-context",
+      "api": "FamilyMemberHistory.Search (R4)",
+      "params": {},
+      "resourceCount": 2,
+      "ms": 150,
+      "at": 1784400465204
+    },
+    {
+      "type": "fhir_call",
+      "agent": "results",
+      "api": "DiagnosticReport.Search (Results) (R4)",
+      "params": {
+        "sinceISO": "2026-06-01"
+      },
+      "resourceCount": 2,
+      "ms": 68,
+      "at": 1784400465241
+    },
+    {
+      "type": "fhir_call",
+      "agent": "results",
+      "api": "Observation.Search (Assessments) (R4)",
+      "params": {},
+      "resourceCount": 0,
+      "ms": 83,
+      "at": 1784400465325
+    },
+    {
+      "type": "fhir_call",
+      "agent": "documents",
+      "api": "Binary.Read (External CCDA) (R4)",
+      "params": {
+        "binaryId": "bin-wr-pdf-cardiology-fax"
+      },
+      "resourceCount": 1,
+      "ms": 125,
+      "at": 1784400465509
+    },
+    {
+      "type": "fhir_call",
+      "agent": "documents",
+      "api": "Binary.Read (External CCDA) (R4)",
+      "params": {
+        "binaryId": "bin-wr-pdf-ems"
+      },
+      "resourceCount": 1,
+      "ms": 182,
+      "at": 1784400465695
+    },
+    {
+      "type": "fhir_call",
+      "agent": "notes-context",
+      "api": "Binary.Read (Clinical Notes) (R4)",
+      "params": {
+        "binaryId": "bin-wr-ednote-0628"
+      },
+      "resourceCount": 1,
+      "ms": 130,
+      "at": 1784400467342
+    },
+    {
+      "type": "fhir_call",
+      "agent": "notes-context",
+      "api": "Binary.Read (Clinical Notes) (R4)",
+      "params": {
+        "binaryId": "bin-wr-cardnote-0314"
+      },
+      "resourceCount": 1,
+      "ms": 168,
+      "at": 1784400467511
+    },
+    {
+      "type": "agent_done",
+      "agent": "chart-overview",
+      "label": "Chart Overview Agent",
+      "findingsCount": 6,
+      "ms": 25872,
+      "at": 1784400487838
+    },
+    {
+      "type": "agent_done",
+      "agent": "meds-problems",
+      "label": "Meds & Problems Agent",
+      "findingsCount": 6,
+      "ms": 26352,
+      "at": 1784400488318
+    },
+    {
+      "type": "agent_done",
+      "agent": "notes-context",
+      "label": "Notes & Context Agent",
+      "findingsCount": 9,
+      "ms": 32916,
+      "at": 1784400494882
+    },
+    {
+      "type": "agent_done",
+      "agent": "results",
+      "label": "Results Agent",
+      "findingsCount": 7,
+      "ms": 33806,
+      "at": 1784400495772
+    },
+    {
+      "type": "agent_done",
+      "agent": "documents",
+      "label": "Document Intelligence Agent",
+      "findingsCount": 5,
+      "ms": 36402,
+      "at": 1784400498368
+    },
+    {
+      "type": "synthesis_started",
+      "at": 1784400498368
+    },
+    {
+      "type": "card_ready",
+      "card": {
+        "oneLiner": "68M | CC: Chest pain (exertional, radiating to L arm, diaphoretic) | Vitals: HR 104, BP 152/88 | ESI 2 — Recurrent CP 3wks after 'negative' ACS workup, on apixaban, baseline LBBB",
+        "sections": [
+          {
+            "id": "approach",
+            "title": "Things That Change My Approach",
+            "items": [
+              {
+                "text": "Chronic LBBB (since 11/2024) confounds STEMI criteria — today's ECG needs explicit Sgarbossa comparison, not just 'no acute changes' read",
+                "severity": "act",
+                "sources": [
+                  {
+                    "ref": "cond-wr-lbbb",
+                    "label": "Problem list - LBBB"
+                  },
+                  {
+                    "ref": "dr-wr-ecg-0628",
+                    "label": "ECG 6/28"
+                  },
+                  {
+                    "ref": "bin-wr-pdf-cardiology-fax",
+                    "label": "DVCA cardiology consult letter 12/30/2025"
+                  }
+                ]
+              },
+              {
+                "text": "On apixaban (CHA2DS2-VASc 4) — affects bleeding risk/eligibility for thrombolytics or invasive cath if ACS confirmed",
+                "severity": "act",
+                "sources": [
+                  {
+                    "ref": "med-wr-apixaban",
+                    "label": "Apixaban 5mg BID (active)"
+                  },
+                  {
+                    "ref": "Encounter/enc-wr-card-0314",
+                    "label": "Cardiology follow-up 3/14"
+                  }
+                ]
+              },
+              {
+                "text": "Patient took sildenafil ~22:00 night prior per EMS — nitroglycerin contraindicated within 24-48h",
+                "severity": "act",
+                "sources": [
+                  {
+                    "ref": "bin-wr-pdf-ems",
+                    "label": "EMS run sheet 7/18/2026"
+                  }
+                ]
+              },
+              {
+                "text": "Recurrent CP only 3wks after 'negative' workup, AND stress imaging recommended twice by cardiology (12/2025, 6/28) never completed — ischemic etiology of known reduced EF/LBBB still unresolved; today's exertional symptoms are exactly what cardiology warned would warrant urgent re-evaluation",
+                "severity": "act",
+                "sources": [
+                  {
+                    "ref": "Encounter/enc-wr-ed-0628",
+                    "label": "ED visit 6/28 — Chest pain"
+                  },
+                  {
+                    "ref": "docref-wr-ednote-0628",
+                    "label": "ED Provider Note 6/28"
+                  },
+                  {
+                    "ref": "bin-wr-pdf-cardiology-fax",
+                    "label": "DVCA consult + TTE report 12/09/2025"
+                  }
+                ]
+              },
+              {
+                "text": "Baseline LVEF 45-50% with mild global hypokinesis, etiology unresolved (ischemic vs nonischemic vs tachycardia-mediated) — relevant to risk stratification and disposition",
+                "severity": "caution",
+                "sources": [
+                  {
+                    "ref": "Encounter/enc-wr-echo-1209",
+                    "label": "TTE 12/9"
+                  },
+                  {
+                    "ref": "bin-wr-pdf-cardiology-fax",
+                    "label": "DVCA consult + TTE report 12/09/2025"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "meds",
+            "title": "Meds That Matter Now",
+            "items": [
+              {
+                "text": "Apixaban 5mg PO BID (active) — increases bleeding risk with any invasive workup; contraindicates thrombolysis",
+                "severity": "caution",
+                "sources": [
+                  {
+                    "ref": "med-wr-apixaban",
+                    "label": "Apixaban 5mg BID (active)"
+                  }
+                ]
+              },
+              {
+                "text": "Metoprolol succinate 50mg daily (active) — tachycardic (HR 104) despite chronic beta-blockade; consider non-adherence, pain/anxiety, or superimposed ischemia/arrhythmia before adding additional rate control",
+                "severity": "caution",
+                "sources": [
+                  {
+                    "ref": "med-wr-metoprolol",
+                    "label": "Metoprolol succinate 50mg daily (active)"
+                  }
+                ]
+              },
+              {
+                "text": "Metformin 1000mg BID (active) — hold if contrast (CT/cath) planned; baseline eGFR 58 (mild renal impairment) from 6/28",
+                "severity": "caution",
+                "sources": [
+                  {
+                    "ref": "med-wr-metformin",
+                    "label": "Metformin 1000mg BID (active)"
+                  },
+                  {
+                    "ref": "lab-wr-egfr-0628",
+                    "label": "Cr/eGFR 6/28"
+                  }
+                ]
+              },
+              {
+                "text": "ASA 324mg already given at triage 09:20 — no additional dose needed; combined with home apixaban raises bleeding risk if further antiplatelet added",
+                "severity": "info",
+                "sources": [
+                  {
+                    "ref": "medadm-wr-asa",
+                    "label": "ASA 324mg given 07/18 09:20"
+                  }
+                ]
+              },
+              {
+                "text": "Baseline QTc 452ms with cardiology recommendation to avoid additive QT-prolonging agents — factor in if ondansetron/other QT-prolonging drugs considered",
+                "severity": "caution",
+                "sources": [
+                  {
+                    "ref": "docref-wr-cardnote-0314",
+                    "label": "Cardiology note 3/14"
+                  },
+                  {
+                    "ref": "bin-wr-pdf-cardiology-fax",
+                    "label": "DVCA cardiology consult letter 12/30/2025"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "micro_imaging",
+            "title": "Micro & Imaging That Change Empirics",
+            "items": [
+              {
+                "text": "No microbiology data relevant to this presentation (non-infectious CC) — not applicable to today's workup",
+                "severity": "info",
+                "sources": [
+                  {
+                    "ref": "Appointment/appt-walter-reyes",
+                    "label": "Today's ED triage 7/18"
+                  }
+                ]
+              },
+              {
+                "text": "Prior TTE (12/9/2025): EF 45-50%, mild global hypokinesis, no definitive regional WMA (limited by LBBB dyssynchrony) — ischemic workup explicitly flagged as incomplete by cardiology",
+                "severity": "caution",
+                "sources": [
+                  {
+                    "ref": "Encounter/enc-wr-echo-1209",
+                    "label": "TTE 12/9"
+                  },
+                  {
+                    "ref": "bin-wr-pdf-cardiology-fax",
+                    "label": "DVCA consult + TTE report 12/09/2025"
+                  }
+                ]
+              },
+              {
+                "text": "Prior CXR (6/28/2026): mild stable cardiomegaly, no acute process — useful baseline comparator for today's CXR",
+                "severity": "info",
+                "sources": [
+                  {
+                    "ref": "dr-wr-cxr-0628",
+                    "label": "CXR 6/28"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "ecg_delta",
+            "title": "ECG Delta",
+            "items": [
+              {
+                "text": "Today's official ECG read is PENDING — critical given baseline LBBB; must be explicitly compared for new Sgarbossa-positive changes",
+                "severity": "pending",
+                "sources": [
+                  {
+                    "ref": "Appointment/appt-walter-reyes",
+                    "label": "Today's ED triage 7/18"
+                  },
+                  {
+                    "ref": "dr-wr-ecg-0628",
+                    "label": "ECG 6/28"
+                  }
+                ]
+              },
+              {
+                "text": "Prior ECG (6/28/2026): sinus rhythm 94bpm, chronic LBBB unchanged from 11/2024, QTc 452ms, no Sgarbossa criteria, cardiology over-read negative for acute ischemia — this is the baseline for today's comparison",
+                "severity": "info",
+                "sources": [
+                  {
+                    "ref": "dr-wr-ecg-0628",
+                    "label": "ECG 6/28"
+                  },
+                  {
+                    "ref": "bin-wr-pdf-cardiology-fax",
+                    "label": "DVCA cardiology consult letter 12/30/2025"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "risk_flags",
+            "title": "One-Liner Risk Flags",
+            "items": [
+              {
+                "text": "Two prior cardiology orders for stress imaging (12/2025, 6/28) never completed despite reduced EF/LBBB — today's exertional CP is the scenario cardiology explicitly warned about. No code status documented anywhere in chart.",
+                "severity": "caution",
+                "sources": [
+                  {
+                    "ref": "docref-wr-cardnote-0314",
+                    "label": "Cardiology note 3/14"
+                  },
+                  {
+                    "ref": "docref-wr-ednote-0628",
+                    "label": "ED Provider Note 6/28"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "at": 1784400529325
+    },
+    {
+      "type": "run_complete",
+      "totalApiCalls": 21,
+      "totalResources": 47,
+      "totalMs": 67359,
+      "agentCount": 5,
+      "at": 1784400529325
+    }
+  ]
+}

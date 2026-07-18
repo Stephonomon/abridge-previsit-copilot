@@ -1,0 +1,549 @@
+{
+  "recordedAt": "2026-07-18T18:45:22.985Z",
+  "events": [
+    {
+      "type": "run_started",
+      "runId": "run_1784400235526_1",
+      "patientId": "jasmine-cole",
+      "mode": "previsit",
+      "at": 1784400235526
+    },
+    {
+      "type": "agent_started",
+      "agent": "chart-overview",
+      "label": "Chart Overview Agent",
+      "at": 1784400235526
+    },
+    {
+      "type": "agent_started",
+      "agent": "meds-problems",
+      "label": "Meds & Problems Agent",
+      "at": 1784400235538
+    },
+    {
+      "type": "agent_started",
+      "agent": "results",
+      "label": "Results Agent",
+      "at": 1784400235538
+    },
+    {
+      "type": "agent_started",
+      "agent": "notes-context",
+      "label": "Notes & Context Agent",
+      "at": 1784400235538
+    },
+    {
+      "type": "agent_started",
+      "agent": "documents",
+      "label": "Document Intelligence Agent",
+      "at": 1784400235538
+    },
+    {
+      "type": "fhir_call",
+      "agent": "documents",
+      "api": "DocumentReference.Search (External CCDA) (R4)",
+      "params": {},
+      "resourceCount": 2,
+      "ms": 181,
+      "at": 1784400237523
+    },
+    {
+      "type": "fhir_call",
+      "agent": "meds-problems",
+      "api": "Condition.Search (Problems) (R4)",
+      "params": {},
+      "resourceCount": 3,
+      "ms": 64,
+      "at": 1784400237539
+    },
+    {
+      "type": "fhir_call",
+      "agent": "meds-problems",
+      "api": "MedicationRequest.Search (Signed Medication Order) (R4)",
+      "params": {},
+      "resourceCount": 5,
+      "ms": 73,
+      "at": 1784400237613
+    },
+    {
+      "type": "fhir_call",
+      "agent": "meds-problems",
+      "api": "AllergyIntolerance.Search (Patient Chart) (R4)",
+      "params": {},
+      "resourceCount": 1,
+      "ms": 71,
+      "at": 1784400237685
+    },
+    {
+      "type": "fhir_call",
+      "agent": "meds-problems",
+      "api": "Condition.Search (Medical History) (R4)",
+      "params": {},
+      "resourceCount": 2,
+      "ms": 137,
+      "at": 1784400237824
+    },
+    {
+      "type": "fhir_call",
+      "agent": "chart-overview",
+      "api": "Patient.Read (Demographics) (R4)",
+      "params": {},
+      "resourceCount": 1,
+      "ms": 131,
+      "at": 1784400238151
+    },
+    {
+      "type": "fhir_call",
+      "agent": "chart-overview",
+      "api": "Appointment.Read (Appointments) (R4)",
+      "params": {},
+      "resourceCount": 1,
+      "ms": 88,
+      "at": 1784400238241
+    },
+    {
+      "type": "fhir_call",
+      "agent": "results",
+      "api": "Observation.Search (Labs) (R4)",
+      "params": {
+        "sinceISO": "2025-11-18"
+      },
+      "resourceCount": 10,
+      "ms": 85,
+      "at": 1784400238419
+    },
+    {
+      "type": "fhir_call",
+      "agent": "chart-overview",
+      "api": "Encounter.Search (Patient Chart) (R4)",
+      "params": {
+        "sinceISO": "2025-07-18"
+      },
+      "resourceCount": 4,
+      "ms": 188,
+      "at": 1784400238430
+    },
+    {
+      "type": "fhir_call",
+      "agent": "chart-overview",
+      "api": "Procedure.Search (Orders) (R4)",
+      "params": {},
+      "resourceCount": 2,
+      "ms": 117,
+      "at": 1784400238549
+    },
+    {
+      "type": "fhir_call",
+      "agent": "results",
+      "api": "Observation.Search (Vital Signs) (R4)",
+      "params": {
+        "sinceISO": "2025-11-18"
+      },
+      "resourceCount": 4,
+      "ms": 173,
+      "at": 1784400238594
+    },
+    {
+      "type": "fhir_call",
+      "agent": "results",
+      "api": "DiagnosticReport.Search (Results) (R4)",
+      "params": {
+        "sinceISO": "2025-11-18"
+      },
+      "resourceCount": 1,
+      "ms": 104,
+      "at": 1784400238700
+    },
+    {
+      "type": "fhir_call",
+      "agent": "notes-context",
+      "api": "DocumentReference.Search (Clinical Notes) (R4)",
+      "params": {},
+      "resourceCount": 2,
+      "ms": 67,
+      "at": 1784400238700
+    },
+    {
+      "type": "fhir_call",
+      "agent": "chart-overview",
+      "api": "Coverage.Search (Patient Insurance Information) (R4)",
+      "params": {},
+      "resourceCount": 1,
+      "ms": 197,
+      "at": 1784400238747
+    },
+    {
+      "type": "fhir_call",
+      "agent": "notes-context",
+      "api": "Observation.Search (Social History) (R4)",
+      "params": {},
+      "resourceCount": 4,
+      "ms": 108,
+      "at": 1784400238811
+    },
+    {
+      "type": "fhir_call",
+      "agent": "results",
+      "api": "DocumentReference.Search (Radiology Results) (R4)",
+      "params": {},
+      "resourceCount": 2,
+      "ms": 140,
+      "at": 1784400238842
+    },
+    {
+      "type": "fhir_call",
+      "agent": "notes-context",
+      "api": "FamilyMemberHistory.Search (R4)",
+      "params": {},
+      "resourceCount": 2,
+      "ms": 82,
+      "at": 1784400238895
+    },
+    {
+      "type": "fhir_call",
+      "agent": "results",
+      "api": "Observation.Search (Assessments) (R4)",
+      "params": {},
+      "resourceCount": 0,
+      "ms": 175,
+      "at": 1784400239018
+    },
+    {
+      "type": "fhir_call",
+      "agent": "documents",
+      "api": "Binary.Read (External CCDA) (R4)",
+      "params": {
+        "binaryId": "bin-jc-pdf-opreport-fax"
+      },
+      "resourceCount": 1,
+      "ms": 129,
+      "at": 1784400239398
+    },
+    {
+      "type": "fhir_call",
+      "agent": "documents",
+      "api": "Binary.Read (External CCDA) (R4)",
+      "params": {
+        "binaryId": "bin-jc-pdf-colonoscopy-fax"
+      },
+      "resourceCount": 1,
+      "ms": 60,
+      "at": 1784400239462
+    },
+    {
+      "type": "fhir_call",
+      "agent": "notes-context",
+      "api": "Binary.Read (Clinical Notes) (R4)",
+      "params": {
+        "binaryId": "bin-jc-ginote-0616"
+      },
+      "resourceCount": 1,
+      "ms": 154,
+      "at": 1784400240903
+    },
+    {
+      "type": "fhir_call",
+      "agent": "notes-context",
+      "api": "Binary.Read (Clinical Notes) (R4)",
+      "params": {
+        "binaryId": "bin-jc-ednote-1114"
+      },
+      "resourceCount": 1,
+      "ms": 90,
+      "at": 1784400240995
+    },
+    {
+      "type": "agent_done",
+      "agent": "meds-problems",
+      "label": "Meds & Problems Agent",
+      "findingsCount": 9,
+      "ms": 30512,
+      "at": 1784400266050
+    },
+    {
+      "type": "agent_done",
+      "agent": "chart-overview",
+      "label": "Chart Overview Agent",
+      "findingsCount": 9,
+      "ms": 31243,
+      "at": 1784400266769
+    },
+    {
+      "type": "agent_done",
+      "agent": "documents",
+      "label": "Document Intelligence Agent",
+      "findingsCount": 4,
+      "ms": 33629,
+      "at": 1784400269167
+    },
+    {
+      "type": "agent_done",
+      "agent": "results",
+      "label": "Results Agent",
+      "findingsCount": 8,
+      "ms": 40220,
+      "at": 1784400275758
+    },
+    {
+      "type": "agent_done",
+      "agent": "notes-context",
+      "label": "Notes & Context Agent",
+      "findingsCount": 11,
+      "ms": 52183,
+      "at": 1784400287721
+    },
+    {
+      "type": "synthesis_started",
+      "at": 1784400287721
+    },
+    {
+      "type": "card_ready",
+      "card": {
+        "oneLiner": "29F | CC: RLQ abdominal pain x2d | Vitals: HR 98, Temp 37.9, Pain 7/10 | ESI 3 — Crohn's flare pattern, 3rd ED visit for abd pain in 8 months",
+        "sections": [
+          {
+            "id": "approach",
+            "title": "Things That Change My Approach",
+            "items": [
+              {
+                "text": "S/p laparoscopic ileocecal resection + appendectomy (8/2024) — no appendix present; RLQ pain differential is anastomotic stricture/recurrence or SBO, NOT appendicitis",
+                "severity": "act",
+                "sources": [
+                  {
+                    "ref": "cond-jc-hx-resection",
+                    "label": "Medical history - Ileocecal resection/appendectomy 8/2024"
+                  },
+                  {
+                    "ref": "dr-jc-ct-1114",
+                    "label": "CT A/P 11/14/2025"
+                  }
+                ]
+              },
+              {
+                "text": "Combination immunosuppression (adalimumab + azathioprine + prednisone taper) can blunt fever/WBC response — reassuring vitals do NOT exclude abscess/perforation; low threshold for imaging",
+                "severity": "act",
+                "sources": [
+                  {
+                    "ref": "cond-jc-immunosupp",
+                    "label": "Problem list - Immunosuppressed state"
+                  },
+                  {
+                    "ref": "docref-jc-ednote-1114",
+                    "label": "ED Discharge Note 11/14/2025"
+                  },
+                  {
+                    "ref": "med-jc-prednisone",
+                    "label": "Active med - Prednisone taper"
+                  }
+                ]
+              },
+              {
+                "text": "Uncertain LMP ('maybe 6 weeks ago'), irregular cycles, not on contraception — pregnancy test pending, must exclude ectopic before proceeding with imaging plan",
+                "severity": "act",
+                "sources": [
+                  {
+                    "ref": "appt-jasmine-cole",
+                    "label": "Triage note 7/18/26"
+                  },
+                  {
+                    "ref": "docref-jc-ginote-0616",
+                    "label": "GI Progress Note 6/16/2026"
+                  }
+                ]
+              },
+              {
+                "text": "Colonoscopy 12/18/2025 showed anastomotic recurrence (Rutgeerts i2b) with mild luminal narrowing at the exact site of current pain — raises concern for evolving stricture/partial SBO vs. simple flare",
+                "severity": "caution",
+                "sources": [
+                  {
+                    "ref": "dr-jc-colo-1218",
+                    "label": "Colonoscopy 12/18/2025"
+                  },
+                  {
+                    "ref": "bin-jc-pdf-colonoscopy-fax",
+                    "label": "Outside colonoscopy report fax 01/06/2026"
+                  }
+                ]
+              },
+              {
+                "text": "Missed 2 adalimumab doses (Apr-May 2026); drug level/antibody testing was pending as of 6/16/2026 — possible subtherapeutic biologic exposure contributing to flare severity",
+                "severity": "caution",
+                "sources": [
+                  {
+                    "ref": "docref-jc-ginote-0616",
+                    "label": "GI Progress Note 6/16/2026"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "meds",
+            "title": "Meds That Matter Now",
+            "items": [
+              {
+                "text": "Adalimumab (q2wk SC) + azathioprine (daily) — combination immunosuppression increases risk of occult intra-abdominal infection/abscess",
+                "severity": "caution",
+                "sources": [
+                  {
+                    "ref": "med-jc-adalimumab",
+                    "label": "Active med - Adalimumab"
+                  },
+                  {
+                    "ref": "med-jc-azathioprine",
+                    "label": "Active med - Azathioprine"
+                  }
+                ]
+              },
+              {
+                "text": "Prednisone 20mg daily (week 3 of taper) — masks peritoneal signs and fever, complicating exam-based severity assessment",
+                "severity": "caution",
+                "sources": [
+                  {
+                    "ref": "med-jc-prednisone",
+                    "label": "Active med - Prednisone taper"
+                  }
+                ]
+              },
+              {
+                "text": "Azathioprine — risk of marrow suppression; interpret today's CBC against recent baseline (WBC 9.4 on 6/16)",
+                "severity": "caution",
+                "sources": [
+                  {
+                    "ref": "lab-jc-wbc-0616",
+                    "label": "WBC 6/16 (azathioprine monitoring)"
+                  }
+                ]
+              },
+              {
+                "text": "Documented morphine intolerance (nausea/vomiting) — use alternative opioid if analgesia needed",
+                "severity": "caution",
+                "sources": [
+                  {
+                    "ref": "allergy-jc-morphine",
+                    "label": "Allergy - Morphine intolerance"
+                  }
+                ]
+              },
+              {
+                "text": "Frequent NSAID use counseled against (flare trigger) — avoid NSAIDs for analgesia today",
+                "severity": "caution",
+                "sources": [
+                  {
+                    "ref": "soc-jc-nsaid",
+                    "label": "OTC analgesic use (social history) 6/16/2026"
+                  },
+                  {
+                    "ref": "bin-jc-pdf-colonoscopy-fax",
+                    "label": "Outside colonoscopy report fax 01/06/2026"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "micro_imaging",
+            "title": "Micro & Imaging That Change Empirics",
+            "items": [
+              {
+                "text": "CT A/P 11/14/2025: active neo-terminal ileal inflammation (8mm wall thickening, fat stranding), no abscess/obstruction/free air at that time — 8 months old, does not capture current acute process",
+                "severity": "info",
+                "sources": [
+                  {
+                    "ref": "dr-jc-ct-1114",
+                    "label": "CT A/P 11/14/2025"
+                  }
+                ]
+              },
+              {
+                "text": "Colonoscopy 12/18/2025: anastomotic recurrence i2b with mild luminal narrowing; biopsies CMV-negative, no dysplasia/granulomata — argues against infectious ileitis mimicker, baseline for new imaging comparison",
+                "severity": "info",
+                "sources": [
+                  {
+                    "ref": "dr-jc-colo-1218",
+                    "label": "Colonoscopy 12/18/2025"
+                  }
+                ]
+              },
+              {
+                "text": "No current-visit imaging obtained yet — no abdominal CT/pelvic imaging from today to assess for abscess, stricture, or SBO",
+                "severity": "pending",
+                "sources": [
+                  {
+                    "ref": "lab-jc-crp-0616",
+                    "label": "CRP 6/16 (prior 5/12)"
+                  }
+                ]
+              },
+              {
+                "text": "Today's labs pending: CBC, BMP, CRP, lactate, UA, urine hCG — no results yet to correlate with immunosuppression-blunted inflammatory response",
+                "severity": "pending",
+                "sources": [
+                  {
+                    "ref": "lab-jc-wbc-0616",
+                    "label": "WBC 6/16 (azathioprine monitoring)"
+                  }
+                ]
+              },
+              {
+                "text": "No microbiology/culture data available in chart",
+                "severity": "info",
+                "sources": [
+                  {
+                    "ref": "dr-jc-colo-1218",
+                    "label": "Colonoscopy 12/18/2025"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "ecg_delta",
+            "title": "ECG Delta",
+            "items": [
+              {
+                "text": "No ECG performed or indicated for this presentation; not applicable to current complaint",
+                "severity": "info",
+                "sources": [
+                  {
+                    "ref": "appt-jasmine-cole",
+                    "label": "Triage note 7/18/26"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "risk_flags",
+            "title": "One-Liner Risk Flags",
+            "items": [
+              {
+                "text": "3rd ED visit for abdominal pain in 8 months against backdrop of biomarker-confirmed escalating Crohn's activity (CRP 4.2→11.8, calprotectin 620) — pattern suggests progressive/refractory disease warranting complication workup rather than reflexive symptomatic care.",
+                "severity": "caution",
+                "sources": [
+                  {
+                    "ref": "docref-jc-ginote-0616",
+                    "label": "GI Progress Note 6/16/2026"
+                  },
+                  {
+                    "ref": "lab-jc-crp-0616",
+                    "label": "CRP 6/16 (prior 5/12)"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "at": 1784400322968
+    },
+    {
+      "type": "run_complete",
+      "totalApiCalls": 22,
+      "totalResources": 51,
+      "totalMs": 87442,
+      "agentCount": 5,
+      "at": 1784400322968
+    }
+  ]
+}

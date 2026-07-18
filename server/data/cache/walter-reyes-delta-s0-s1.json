@@ -1,0 +1,129 @@
+{
+  "recordedAt": "2026-07-18T18:49:13.388Z",
+  "events": [
+    {
+      "type": "run_started",
+      "runId": "run_1784400529331_8",
+      "patientId": "walter-reyes",
+      "mode": "delta",
+      "at": 1784400529331
+    },
+    {
+      "type": "agent_started",
+      "agent": "delta",
+      "label": "Delta Agent",
+      "at": 1784400529331
+    },
+    {
+      "type": "fhir_call",
+      "agent": "delta",
+      "api": "Observation.Search (Labs) (R4)",
+      "params": {
+        "sinceLastCard": true
+      },
+      "resourceCount": 4,
+      "ms": 84,
+      "at": 1784400529374
+    },
+    {
+      "type": "fhir_call",
+      "agent": "delta",
+      "api": "Observation.Search (Vital Signs) (R4)",
+      "params": {
+        "sinceLastCard": true
+      },
+      "resourceCount": 0,
+      "ms": 144,
+      "at": 1784400529447
+    },
+    {
+      "type": "fhir_call",
+      "agent": "delta",
+      "api": "DiagnosticReport.Search (Results) (R4)",
+      "params": {
+        "sinceLastCard": true
+      },
+      "resourceCount": 2,
+      "ms": 87,
+      "at": 1784400529492
+    },
+    {
+      "type": "fhir_call",
+      "agent": "delta",
+      "api": "DocumentReference.Search (External CCDA) (R4)",
+      "params": {
+        "sinceLastCard": true
+      },
+      "resourceCount": 1,
+      "ms": 146,
+      "at": 1784400529566
+    },
+    {
+      "type": "fhir_call",
+      "agent": "delta",
+      "api": "Binary.Read (External CCDA) (R4)",
+      "params": {
+        "binaryId": "bin-wr-pdf-stress-fax"
+      },
+      "resourceCount": 1,
+      "ms": 169,
+      "at": 1784400529569
+    },
+    {
+      "type": "agent_done",
+      "agent": "delta",
+      "label": "Delta Agent",
+      "findingsCount": 3,
+      "ms": 24056,
+      "at": 1784400553387
+    },
+    {
+      "type": "delta_ready",
+      "card": {
+        "noDelta": false,
+        "items": [
+          {
+            "flag": "ACT",
+            "text": "hs-Troponin T resulted",
+            "prior": "no prior troponin drawn today",
+            "current": "62 ng/L (ref <14) — critical high",
+            "why": "Confirms myocardial injury; on apixaban and baseline LBBB — cath eligibility/bleeding risk now immediately relevant",
+            "source": "lab-wr-trop-today1 (hs-Troponin T 09:58)"
+          },
+          {
+            "flag": "ACT",
+            "text": "ECG resulted — LBBB comparison performed",
+            "prior": "6/28 ECG: sinus 94, chronic LBBB, QTc 452, no Sgarbossa",
+            "current": "Sinus tach 102, LBBB unchanged, QTc 455, no Sgarbossa criteria met",
+            "why": "No STEMI-equivalent pattern despite positive troponin — supports NSTEMI pathway, not emergent STEMI activation, but urgent cardiology still needed",
+            "source": "dr-wr-ecg-today (ECG final read 09:30)"
+          },
+          {
+            "flag": "NOTE",
+            "text": "Outside stress echo fax arrived (2024, never previously in chart)",
+            "prior": "Not previously documented — ischemic workup gap known from 12/2025 and 6/28 notes",
+            "current": "9/2024 stress echo: equivocal, inferolateral hypokinesis at peak stress; recommended CTA or angiography if suspicion persists; never completed",
+            "why": "Adds concrete prior ischemic substrate directly relevant to today's exertional CP and troponin elevation",
+            "source": "docref-wr-fax-stress / bin-wr-pdf-stress-fax"
+          }
+        ],
+        "interactionCheck": "Troponin now critical with likely need for invasive workup — active apixaban (CHA2DS2-VASc 4) raises bleeding risk for cath access; confirm hold/reversal plan with cardiology before any intervention.",
+        "pending": [
+          "2nd hs-Troponin T (2-hour draw, due ~12:00)",
+          "Cardiology consult (paged 10:10)",
+          "Chest X-ray final attending read"
+        ],
+        "overflowNote": null
+      },
+      "at": 1784400553387
+    },
+    {
+      "type": "run_complete",
+      "totalApiCalls": 5,
+      "totalResources": 8,
+      "totalMs": 24056,
+      "agentCount": 1,
+      "at": 1784400553387
+    }
+  ]
+}

@@ -1,0 +1,553 @@
+{
+  "recordedAt": "2026-07-18T18:47:08.437Z",
+  "events": [
+    {
+      "type": "run_started",
+      "runId": "run_1784400352014_4",
+      "patientId": "margaret-okafor",
+      "mode": "previsit",
+      "at": 1784400352031
+    },
+    {
+      "type": "agent_started",
+      "agent": "chart-overview",
+      "label": "Chart Overview Agent",
+      "at": 1784400352031
+    },
+    {
+      "type": "agent_started",
+      "agent": "meds-problems",
+      "label": "Meds & Problems Agent",
+      "at": 1784400352050
+    },
+    {
+      "type": "agent_started",
+      "agent": "results",
+      "label": "Results Agent",
+      "at": 1784400352050
+    },
+    {
+      "type": "agent_started",
+      "agent": "notes-context",
+      "label": "Notes & Context Agent",
+      "at": 1784400352050
+    },
+    {
+      "type": "agent_started",
+      "agent": "documents",
+      "label": "Document Intelligence Agent",
+      "at": 1784400352050
+    },
+    {
+      "type": "fhir_call",
+      "agent": "documents",
+      "api": "DocumentReference.Search (External CCDA) (R4)",
+      "params": {},
+      "resourceCount": 2,
+      "ms": 67,
+      "at": 1784400353723
+    },
+    {
+      "type": "fhir_call",
+      "agent": "chart-overview",
+      "api": "Patient.Read (Demographics) (R4)",
+      "params": {},
+      "resourceCount": 1,
+      "ms": 81,
+      "at": 1784400354272
+    },
+    {
+      "type": "fhir_call",
+      "agent": "chart-overview",
+      "api": "Appointment.Read (Appointments) (R4)",
+      "params": {},
+      "resourceCount": 1,
+      "ms": 63,
+      "at": 1784400354337
+    },
+    {
+      "type": "fhir_call",
+      "agent": "meds-problems",
+      "api": "Condition.Search (Problems) (R4)",
+      "params": {},
+      "resourceCount": 6,
+      "ms": 75,
+      "at": 1784400354464
+    },
+    {
+      "type": "fhir_call",
+      "agent": "notes-context",
+      "api": "DocumentReference.Search (Clinical Notes) (R4)",
+      "params": {},
+      "resourceCount": 2,
+      "ms": 171,
+      "at": 1784400354482
+    },
+    {
+      "type": "fhir_call",
+      "agent": "chart-overview",
+      "api": "Encounter.Search (Patient Chart) (R4)",
+      "params": {
+        "sinceISO": "2025-07-18"
+      },
+      "resourceCount": 5,
+      "ms": 160,
+      "at": 1784400354499
+    },
+    {
+      "type": "fhir_call",
+      "agent": "notes-context",
+      "api": "Observation.Search (Social History) (R4)",
+      "params": {},
+      "resourceCount": 3,
+      "ms": 95,
+      "at": 1784400354578
+    },
+    {
+      "type": "fhir_call",
+      "agent": "meds-problems",
+      "api": "MedicationRequest.Search (Signed Medication Order) (R4)",
+      "params": {},
+      "resourceCount": 7,
+      "ms": 113,
+      "at": 1784400354579
+    },
+    {
+      "type": "fhir_call",
+      "agent": "chart-overview",
+      "api": "Procedure.Search (Orders) (R4)",
+      "params": {},
+      "resourceCount": 3,
+      "ms": 171,
+      "at": 1784400354672
+    },
+    {
+      "type": "fhir_call",
+      "agent": "meds-problems",
+      "api": "AllergyIntolerance.Search (Patient Chart) (R4)",
+      "params": {},
+      "resourceCount": 2,
+      "ms": 108,
+      "at": 1784400354689
+    },
+    {
+      "type": "fhir_call",
+      "agent": "notes-context",
+      "api": "FamilyMemberHistory.Search (R4)",
+      "params": {},
+      "resourceCount": 2,
+      "ms": 178,
+      "at": 1784400354758
+    },
+    {
+      "type": "fhir_call",
+      "agent": "chart-overview",
+      "api": "Coverage.Search (Patient Insurance Information) (R4)",
+      "params": {},
+      "resourceCount": 1,
+      "ms": 130,
+      "at": 1784400354802
+    },
+    {
+      "type": "fhir_call",
+      "agent": "meds-problems",
+      "api": "Condition.Search (Medical History) (R4)",
+      "params": {},
+      "resourceCount": 2,
+      "ms": 197,
+      "at": 1784400354888
+    },
+    {
+      "type": "fhir_call",
+      "agent": "results",
+      "api": "Observation.Search (Labs) (R4)",
+      "params": {
+        "sinceISO": "2026-04-01"
+      },
+      "resourceCount": 11,
+      "ms": 88,
+      "at": 1784400355023
+    },
+    {
+      "type": "fhir_call",
+      "agent": "results",
+      "api": "Observation.Search (Vital Signs) (R4)",
+      "params": {
+        "sinceISO": "2026-04-01"
+      },
+      "resourceCount": 5,
+      "ms": 137,
+      "at": 1784400355162
+    },
+    {
+      "type": "fhir_call",
+      "agent": "results",
+      "api": "DiagnosticReport.Search (Results) (R4)",
+      "params": {
+        "sinceISO": "2026-04-01"
+      },
+      "resourceCount": 3,
+      "ms": 152,
+      "at": 1784400355315
+    },
+    {
+      "type": "fhir_call",
+      "agent": "results",
+      "api": "DocumentReference.Search (Radiology Results) (R4)",
+      "params": {},
+      "resourceCount": 2,
+      "ms": 132,
+      "at": 1784400355452
+    },
+    {
+      "type": "fhir_call",
+      "agent": "documents",
+      "api": "Binary.Read (External CCDA) (R4)",
+      "params": {
+        "binaryId": "bin-mo-pdf-id-fax"
+      },
+      "resourceCount": 1,
+      "ms": 117,
+      "at": 1784400355561
+    },
+    {
+      "type": "fhir_call",
+      "agent": "results",
+      "api": "Observation.Search (Assessments) (R4)",
+      "params": {},
+      "resourceCount": 0,
+      "ms": 186,
+      "at": 1784400355639
+    },
+    {
+      "type": "fhir_call",
+      "agent": "documents",
+      "api": "Binary.Read (External CCDA) (R4)",
+      "params": {
+        "binaryId": "bin-mo-pdf-acc-fax"
+      },
+      "resourceCount": 1,
+      "ms": 178,
+      "at": 1784400355741
+    },
+    {
+      "type": "fhir_call",
+      "agent": "notes-context",
+      "api": "Binary.Read (Clinical Notes) (R4)",
+      "params": {
+        "binaryId": "bin-mo-dcsum-0416"
+      },
+      "resourceCount": 1,
+      "ms": 99,
+      "at": 1784400356816
+    },
+    {
+      "type": "fhir_call",
+      "agent": "notes-context",
+      "api": "Binary.Read (Clinical Notes) (R4)",
+      "params": {
+        "binaryId": "bin-mo-uronote-0521"
+      },
+      "resourceCount": 1,
+      "ms": 120,
+      "at": 1784400356938
+    },
+    {
+      "type": "agent_done",
+      "agent": "meds-problems",
+      "label": "Meds & Problems Agent",
+      "findingsCount": 10,
+      "ms": 34287,
+      "at": 1784400386337
+    },
+    {
+      "type": "agent_done",
+      "agent": "documents",
+      "label": "Document Intelligence Agent",
+      "findingsCount": 7,
+      "ms": 37299,
+      "at": 1784400389349
+    },
+    {
+      "type": "agent_done",
+      "agent": "chart-overview",
+      "label": "Chart Overview Agent",
+      "findingsCount": 9,
+      "ms": 37396,
+      "at": 1784400389427
+    },
+    {
+      "type": "agent_done",
+      "agent": "notes-context",
+      "label": "Notes & Context Agent",
+      "findingsCount": 7,
+      "ms": 37648,
+      "at": 1784400389698
+    },
+    {
+      "type": "agent_done",
+      "agent": "results",
+      "label": "Results Agent",
+      "findingsCount": 9,
+      "ms": 44067,
+      "at": 1784400396117
+    },
+    {
+      "type": "synthesis_started",
+      "at": 1784400396118
+    },
+    {
+      "type": "card_ready",
+      "card": {
+        "oneLiner": "74F | CC: Fever, dysuria, left flank pain | Vitals: HR 112, BP 104/62, RR 22, SpO2 95%, T 38.9°C | ESI 2 — Suspected recurrent pyelonephritis/urosepsis with new confusion, mechanical mitral valve on warfarin, prior ESBL E. coli",
+        "sections": [
+          {
+            "id": "approach",
+            "title": "Things That Change My Approach",
+            "items": [
+              {
+                "text": "Mechanical mitral valve (St. Jude 2015) + fever/rigors today → prosthetic valve endocarditis must stay on differential; prior TTE (2/2026) negative but explicitly noted limited sensitivity for prosthetic valve IE; blood cultures before antibiotics, consider TEE if bacteremic",
+                "severity": "act",
+                "sources": [
+                  {
+                    "ref": "dr-mo-echo-0217",
+                    "label": "TTE 2/17/2026"
+                  },
+                  {
+                    "ref": "bin-mo-pdf-id-fax",
+                    "label": "ID consult fax 4/14/2026"
+                  },
+                  {
+                    "ref": "proc-mo-mvr",
+                    "label": "Surgical history — MVR 2015"
+                  }
+                ]
+              },
+              {
+                "text": "Prior admission 4/2026 for pyelonephritis with ESBL-producing E. coli resistant to ceftriaxone/cipro/levo/TMP-SMX; ID standing order: empiric carbapenem for any future febrile UTI, ceftriaxone expected to fail",
+                "severity": "act",
+                "sources": [
+                  {
+                    "ref": "dr-mo-ucx-0412",
+                    "label": "Urine culture 4/12/2026"
+                  },
+                  {
+                    "ref": "bin-mo-pdf-id-fax",
+                    "label": "ID consult fax 4/14/2026"
+                  },
+                  {
+                    "ref": "bin-mo-dcsum-0416",
+                    "label": "Discharge summary 4/16/2026"
+                  }
+                ]
+              },
+              {
+                "text": "New mild confusion this AM per daughter in patient documented cognitively intact at baseline (6/9/2026) — concerning for sepsis-associated encephalopathy, raises acuity beyond vitals alone",
+                "severity": "act",
+                "sources": [
+                  {
+                    "ref": "appt-margaret-okafor",
+                    "label": "ED Triage 7/18/2026"
+                  },
+                  {
+                    "ref": "soc-mo-living",
+                    "label": "Living situation 6/9/2026"
+                  }
+                ]
+              },
+              {
+                "text": "CKD stage 3b (eGFR ~34, Cr 1.6–1.7) — renal dosing required for carbapenem/aminoglycosides; nitrofurantoin contraindicated",
+                "severity": "caution",
+                "sources": [
+                  {
+                    "ref": "cond-mo-ckd",
+                    "label": "CKD stage 3b"
+                  },
+                  {
+                    "ref": "lab-mo-egfr-0609",
+                    "label": "eGFR 6/9/2026"
+                  }
+                ]
+              },
+              {
+                "text": "Warfarin for mechanical mitral valve — do not hold/reverse without cardiology; new antibiotics will potentiate INR, recheck in 3–5 days per anticoagulation clinic instructions",
+                "severity": "caution",
+                "sources": [
+                  {
+                    "ref": "bin-mo-pdf-acc-fax",
+                    "label": "Anticoagulation flowsheet 7/10/2026"
+                  },
+                  {
+                    "ref": "med-mo-warfarin",
+                    "label": "Warfarin for mechanical MV"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "meds",
+            "title": "Meds That Matter Now",
+            "items": [
+              {
+                "text": "Warfarin 5mg daily (2.5mg Sun) for mechanical MV — last INR 2.7 (7/10), no current INR; bleeding risk assessment pending, cardiology input needed before any hold/reversal",
+                "severity": "caution",
+                "sources": [
+                  {
+                    "ref": "lab-mo-inr-0710",
+                    "label": "INR 7/10/2026"
+                  },
+                  {
+                    "ref": "med-mo-warfarin",
+                    "label": "Warfarin for mechanical MV"
+                  }
+                ]
+              },
+              {
+                "text": "TMP-SMX allergy (Stevens-Johnson syndrome) — absolute avoidance; also resistant per prior culture",
+                "severity": "act",
+                "sources": [
+                  {
+                    "ref": "allergy-mo-smx",
+                    "label": "TMP-SMX allergy (SJS)"
+                  }
+                ]
+              },
+              {
+                "text": "Empagliflozin (SGLT2i) 10mg daily — hold during acute illness, risk of euglycemic DKA if septic/decompensating",
+                "severity": "caution",
+                "sources": [
+                  {
+                    "ref": "med-mo-empagliflozin",
+                    "label": "Empagliflozin 10mg daily"
+                  }
+                ]
+              },
+              {
+                "text": "Insulin glargine 18u nightly — hypoglycemia risk if oral intake drops with acute illness; monitor glucose closely",
+                "severity": "caution",
+                "sources": [
+                  {
+                    "ref": "med-mo-glargine",
+                    "label": "Insulin glargine 18u nightly"
+                  }
+                ]
+              },
+              {
+                "text": "Metoprolol succinate 25mg daily — may blunt compensatory tachycardia; HR 112 despite beta-blockade suggests more severe physiologic stress than HR alone implies",
+                "severity": "caution",
+                "sources": [
+                  {
+                    "ref": "med-mo-metoprolol",
+                    "label": "Metoprolol succinate 25mg daily"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "micro_imaging",
+            "title": "Micro & Imaging That Change Empirics",
+            "items": [
+              {
+                "text": "Prior urine culture 4/2026: ESBL-producing E. coli, resistant to ceftriaxone/cipro/levo/TMP-SMX/amp-sulb; sensitive to meropenem, ertapenem, gentamicin — standard empiric ceftriaxone/fluoroquinolone likely to fail today",
+                "severity": "act",
+                "sources": [
+                  {
+                    "ref": "dr-mo-ucx-0412",
+                    "label": "Urine culture 4/12/2026"
+                  },
+                  {
+                    "ref": "bin-mo-pdf-id-fax",
+                    "label": "ID consult fax 4/14/2026"
+                  }
+                ]
+              },
+              {
+                "text": "Renal ultrasound 4/2026: no hydronephrosis, abscess, or stone — baseline normal parenchyma for comparison if repeat imaging obtained today",
+                "severity": "info",
+                "sources": [
+                  {
+                    "ref": "dr-mo-rus-0412",
+                    "label": "Renal ultrasound 4/13/2026"
+                  }
+                ]
+              },
+              {
+                "text": "TTE 2/2026 showed well-seated mechanical MV, no vegetation, but explicitly noted limited sensitivity for prosthetic valve endocarditis; no TEE performed",
+                "severity": "caution",
+                "sources": [
+                  {
+                    "ref": "dr-mo-echo-0217",
+                    "label": "TTE 2/17/2026"
+                  }
+                ]
+              },
+              {
+                "text": "Today's urine culture, blood cultures x2, and UA are pending — no current-visit microbiology results available yet to confirm whether this is the same ESBL organism",
+                "severity": "pending",
+                "sources": [
+                  {
+                    "ref": "dr-mo-bcx-0412",
+                    "label": "Blood cultures 4/12/2026"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "ecg_delta",
+            "title": "ECG Delta",
+            "items": [
+              {
+                "text": "No ECG obtained today and no ECG on file from this visit — no delta possible despite tachycardia, fever, warfarin use, and mechanical valve",
+                "severity": "pending",
+                "sources": [
+                  {
+                    "ref": "appt-margaret-okafor",
+                    "label": "ED Triage 7/18/2026"
+                  }
+                ]
+              },
+              {
+                "text": "Baseline QTc 470ms documented 2/2026 with instruction to avoid QT-prolonging agents — constrains antiemetic/antibiotic choice (avoid ondansetron, fluoroquinolones) if used today",
+                "severity": "caution",
+                "sources": [
+                  {
+                    "ref": "enc-mo-card-0217",
+                    "label": "Cardiology follow-up 2/17/2026"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "risk_flags",
+            "title": "One-Liner Risk Flags",
+            "items": [
+              {
+                "text": "Today's vitals mirror the 4/2026 pyelonephritis admission (relative hypotension, tachycardia, tachypnea) vs. stable outpatient baseline — supports early sepsis physiology; no code status documented despite ESI 2, mechanical valve/anticoagulation, and possible sepsis with new confusion",
+                "severity": "caution",
+                "sources": [
+                  {
+                    "ref": "vit-mo-today",
+                    "label": "Triage vitals 7/18/2026"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "at": 1784400428434
+    },
+    {
+      "type": "run_complete",
+      "totalApiCalls": 22,
+      "totalResources": 62,
+      "totalMs": 76403,
+      "agentCount": 5,
+      "at": 1784400428434
+    }
+  ]
+}

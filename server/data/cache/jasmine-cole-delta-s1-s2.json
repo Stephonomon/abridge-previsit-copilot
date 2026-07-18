@@ -1,0 +1,119 @@
+{
+  "recordedAt": "2026-07-18T18:45:51.990Z",
+  "events": [
+    {
+      "type": "run_started",
+      "runId": "run_1784400335343_3",
+      "patientId": "jasmine-cole",
+      "mode": "delta",
+      "at": 1784400335343
+    },
+    {
+      "type": "agent_started",
+      "agent": "delta",
+      "label": "Delta Agent",
+      "at": 1784400335343
+    },
+    {
+      "type": "fhir_call",
+      "agent": "delta",
+      "api": "Observation.Search (Labs) (R4)",
+      "params": {
+        "sinceLastCard": true
+      },
+      "resourceCount": 0,
+      "ms": 149,
+      "at": 1784400335418
+    },
+    {
+      "type": "fhir_call",
+      "agent": "delta",
+      "api": "Observation.Search (Vital Signs) (R4)",
+      "params": {
+        "sinceLastCard": true
+      },
+      "resourceCount": 1,
+      "ms": 196,
+      "at": 1784400335517
+    },
+    {
+      "type": "fhir_call",
+      "agent": "delta",
+      "api": "DiagnosticReport.Search (Results) (R4)",
+      "params": {
+        "sinceLastCard": true
+      },
+      "resourceCount": 1,
+      "ms": 131,
+      "at": 1784400335584
+    },
+    {
+      "type": "fhir_call",
+      "agent": "delta",
+      "api": "DocumentReference.Search (External CCDA) (R4)",
+      "params": {
+        "sinceLastCard": true
+      },
+      "resourceCount": 0,
+      "ms": 61,
+      "at": 1784400335615
+    },
+    {
+      "type": "agent_done",
+      "agent": "delta",
+      "label": "Delta Agent",
+      "findingsCount": 3,
+      "ms": 16632,
+      "at": 1784400351975
+    },
+    {
+      "type": "delta_ready",
+      "card": {
+        "noDelta": false,
+        "items": [
+          {
+            "flag": "ACT",
+            "text": "CT A/P final: new 3.1cm rim-enhancing interloop abscess adjacent to ileocolic anastomosis",
+            "prior": "CT 11/14/2025 — active ileitis, no abscess/obstruction/free air",
+            "current": "3.1cm abscess, active neo-terminal ileal inflammation, no free air/obstruction",
+            "why": "Source-control decision required before further biologic dosing; IR drainage candidacy and empiric antibiotics needed now",
+            "source": "dr-jc-ct-today-final: CT A/P w/contrast, final 13:22"
+          },
+          {
+            "flag": "ACT",
+            "text": "Repeat vitals: worsening tachycardia and fever",
+            "prior": "HR 98, Temp 37.9C (triage)",
+            "current": "HR 104, Temp 38.4C, BP 112/70, SpO2 99%",
+            "why": "Rising fever/HR on background of immunosuppression corroborates abscess found on CT — not a benign flare pattern",
+            "source": "vit-jc-today2: repeat vitals panel 13:25"
+          },
+          {
+            "flag": "NOTE",
+            "text": "Blood culture threshold met (fever ≥38.0C)",
+            "prior": "no prior culture data in chart",
+            "current": "Temp 38.4C — cultures now indicated, draw pending",
+            "why": "Bacteremia workup now warranted given confirmed abscess; affects antibiotic duration/de-escalation plan",
+            "source": "vit-jc-today2 + stillPending: blood cultures x2"
+          }
+        ],
+        "interactionCheck": "Adalimumab/azathioprine/prednisone (active immunosuppression) with newly confirmed abscess — hold biologic/immunosuppressant dosing pending source control and antibiotics; do not resume adalimumab today.",
+        "pending": [
+          "IR consult — abscess drainage candidacy (paged 13:30)",
+          "GI consult callback (paged 12:50)",
+          "Blood cultures x2 (draw pending, Temp 38.4C)",
+          "CBC/BMP/CRP/lactate/UA/urine hCG (today's labs not yet resulted)"
+        ],
+        "overflowNote": null
+      },
+      "at": 1784400351976
+    },
+    {
+      "type": "run_complete",
+      "totalApiCalls": 4,
+      "totalResources": 2,
+      "totalMs": 16633,
+      "agentCount": 1,
+      "at": 1784400351976
+    }
+  ]
+}

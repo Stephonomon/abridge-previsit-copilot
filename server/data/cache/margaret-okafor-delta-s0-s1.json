@@ -1,0 +1,119 @@
+{
+  "recordedAt": "2026-07-18T18:47:30.545Z",
+  "events": [
+    {
+      "type": "run_started",
+      "runId": "run_1784400428438_5",
+      "patientId": "margaret-okafor",
+      "mode": "delta",
+      "at": 1784400428438
+    },
+    {
+      "type": "agent_started",
+      "agent": "delta",
+      "label": "Delta Agent",
+      "at": 1784400428438
+    },
+    {
+      "type": "fhir_call",
+      "agent": "delta",
+      "api": "Observation.Search (Labs) (R4)",
+      "params": {
+        "sinceLastCard": true
+      },
+      "resourceCount": 7,
+      "ms": 78,
+      "at": 1784400428478
+    },
+    {
+      "type": "fhir_call",
+      "agent": "delta",
+      "api": "Observation.Search (Vital Signs) (R4)",
+      "params": {
+        "sinceLastCard": true
+      },
+      "resourceCount": 0,
+      "ms": 152,
+      "at": 1784400428555
+    },
+    {
+      "type": "fhir_call",
+      "agent": "delta",
+      "api": "DiagnosticReport.Search (Results) (R4)",
+      "params": {
+        "sinceLastCard": true
+      },
+      "resourceCount": 3,
+      "ms": 103,
+      "at": 1784400428608
+    },
+    {
+      "type": "fhir_call",
+      "agent": "delta",
+      "api": "DocumentReference.Search (External CCDA) (R4)",
+      "params": {
+        "sinceLastCard": true
+      },
+      "resourceCount": 0,
+      "ms": 140,
+      "at": 1784400428678
+    },
+    {
+      "type": "agent_done",
+      "agent": "delta",
+      "label": "Delta Agent",
+      "findingsCount": 3,
+      "ms": 22106,
+      "at": 1784400450544
+    },
+    {
+      "type": "delta_ready",
+      "card": {
+        "noDelta": false,
+        "items": [
+          {
+            "flag": "ACT",
+            "text": "Lactate resulted",
+            "prior": "no prior",
+            "current": "3.4 mmol/L (meets sepsis threshold)",
+            "why": "Confirms sepsis physiology beyond vitals alone — triggers sepsis bundle/reassessment of fluids and abx timing",
+            "source": "lab-mo-lactate-today1"
+          },
+          {
+            "flag": "ACT",
+            "text": "WBC with bandemia",
+            "prior": "no prior",
+            "current": "WBC 16.8 (H), bands 12% (H)",
+            "why": "Marked leukocytosis with left shift supports severe bacterial infection, reinforces need for source control and broad empiric coverage now",
+            "source": "lab-mo-wbc-today / lab-mo-bands-today"
+          },
+          {
+            "flag": "NOTE",
+            "text": "Creatinine rising",
+            "prior": "1.6 (6/9/2026 baseline)",
+            "current": "1.9 mg/dL",
+            "why": "Worsening renal function on top of CKD 3b — requires renal dosing adjustment for empiric carbapenem before administration",
+            "source": "lab-mo-cr-today"
+          }
+        ],
+        "interactionCheck": "INR 3.4 (up from 2.7 on 7/10, upper therapeutic range) — new antibiotics will further potentiate warfarin; recheck INR closely and avoid additional anticoagulant-interacting agents.",
+        "pending": [
+          "Blood cultures x2 (collected 11:05, no growth to date)",
+          "Urine culture (collected 10:58)",
+          "Repeat lactate after fluid resuscitation",
+          "CXR final attending read"
+        ],
+        "overflowNote": "+2 additional resulted items (UA positive for UTI, glucose 188 with SGLT2i-related glucosuria) — confirm working diagnosis but don't change management beyond plans already in place."
+      },
+      "at": 1784400450544
+    },
+    {
+      "type": "run_complete",
+      "totalApiCalls": 4,
+      "totalResources": 10,
+      "totalMs": 22106,
+      "agentCount": 1,
+      "at": 1784400450544
+    }
+  ]
+}

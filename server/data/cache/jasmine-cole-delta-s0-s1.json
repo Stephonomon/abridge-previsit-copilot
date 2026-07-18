@@ -1,0 +1,117 @@
+{
+  "recordedAt": "2026-07-18T18:45:35.336Z",
+  "events": [
+    {
+      "type": "run_started",
+      "runId": "run_1784400322986_2",
+      "patientId": "jasmine-cole",
+      "mode": "delta",
+      "at": 1784400322986
+    },
+    {
+      "type": "agent_started",
+      "agent": "delta",
+      "label": "Delta Agent",
+      "at": 1784400322986
+    },
+    {
+      "type": "fhir_call",
+      "agent": "delta",
+      "api": "Observation.Search (Labs) (R4)",
+      "params": {
+        "sinceLastCard": true
+      },
+      "resourceCount": 7,
+      "ms": 102,
+      "at": 1784400323039
+    },
+    {
+      "type": "fhir_call",
+      "agent": "delta",
+      "api": "Observation.Search (Vital Signs) (R4)",
+      "params": {
+        "sinceLastCard": true
+      },
+      "resourceCount": 0,
+      "ms": 131,
+      "at": 1784400323105
+    },
+    {
+      "type": "fhir_call",
+      "agent": "delta",
+      "api": "DiagnosticReport.Search (Results) (R4)",
+      "params": {
+        "sinceLastCard": true
+      },
+      "resourceCount": 1,
+      "ms": 92,
+      "at": 1784400323153
+    },
+    {
+      "type": "fhir_call",
+      "agent": "delta",
+      "api": "DocumentReference.Search (External CCDA) (R4)",
+      "params": {
+        "sinceLastCard": true
+      },
+      "resourceCount": 0,
+      "ms": 152,
+      "at": 1784400323230
+    },
+    {
+      "type": "agent_done",
+      "agent": "delta",
+      "label": "Delta Agent",
+      "findingsCount": 3,
+      "ms": 12348,
+      "at": 1784400335334
+    },
+    {
+      "type": "delta_ready",
+      "card": {
+        "noDelta": false,
+        "items": [
+          {
+            "flag": "ACT",
+            "text": "CRP markedly elevated",
+            "prior": "11.8 mg/L (6/16)",
+            "current": "96 mg/L",
+            "why": "Massive rise despite triple immunosuppression — raises concern for abscess/perforation, not just flare",
+            "source": "lab-jc-crp-today"
+          },
+          {
+            "flag": "ACT",
+            "text": "WBC elevated breaking through immunosuppression",
+            "prior": "9.4 (6/16), expected blunted on adalimumab/AZA/prednisone",
+            "current": "13.9 x10^3/uL",
+            "why": "Leukocytosis despite triple immunosuppression is a real signal, not reassuring — supports low threshold for imaging already in progress",
+            "source": "lab-jc-wbc-today"
+          },
+          {
+            "flag": "NOTE",
+            "text": "Urine hCG resulted",
+            "prior": "pending (LMP uncertain, ectopic on differential)",
+            "current": "Negative",
+            "why": "Ectopic excluded; clears path for IV contrast CT already ordered",
+            "source": "lab-jc-hcg-today"
+          }
+        ],
+        "interactionCheck": null,
+        "pending": [
+          "CT abdomen/pelvis with IV contrast — radiology read",
+          "GI consult callback (paged 12:50)"
+        ],
+        "overflowNote": "+1 additional resulted item (Hgb 10.5, low, new anemia) — noted but does not independently change immediate management pending CT read."
+      },
+      "at": 1784400335334
+    },
+    {
+      "type": "run_complete",
+      "totalApiCalls": 4,
+      "totalResources": 8,
+      "totalMs": 12349,
+      "agentCount": 1,
+      "at": 1784400335335
+    }
+  ]
+}
