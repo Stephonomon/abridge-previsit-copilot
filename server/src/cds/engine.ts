@@ -105,17 +105,18 @@ export function computeCds(rec: PatientRecord): CdsResult {
     });
 
   // ---- Fired recommendations ----
-  const recommendations: CdsRecommendationView[] = [];
+  // Track each recommendation's freshest contributing finding (by stage) so
+  // recs superseded by later evidence (e.g. "get a CT" once the CT is back
+  // and confirms the diagnosis) sort below the newer recs, not above them.
+  const staged: { view: CdsRecommendationView; maxStageIndex: number }[] = [];
   for (const topicId of patientCds.topic_ids) {
     const topic = getTopic(topicId);
     if (!topic) continue;
     for (const recDef of topic.recommendations) {
       const fired = recDef.triggered_by.some((rid) => matchedRuleIds.has(rid));
       if (!fired) continue;
-      const contributingFindings = recDef.triggered_by
-        .flatMap((rid) => visible.filter((f) => f.matched_rule_id === rid))
-        .map(findingView)
-        .filter((f): f is CdsFindingView => !!f);
+      const matchingFindings = recDef.triggered_by.flatMap((rid) => visible.filter((f) => f.matched_rule_id === rid));
+      const contributingFindings = matchingFindings.map(findingView).filter((f): f is CdsFindingView => !!f);
       const contributingRules = recDef.triggered_by
         .filter((rid) => matchedRuleIds.has(rid))
         .map((rid) => {
@@ -123,26 +124,33 @@ export function computeCds(rec: PatientRecord): CdsResult {
           return r ? { id: r.id, finding_pattern: r.finding_pattern, why_it_matters: r.why_it_matters } : null;
         })
         .filter((r): r is { id: string; finding_pattern: string; why_it_matters: string } => !!r);
-      recommendations.push({
-        id: recDef.id,
-        text: recDef.text,
-        rationale: recDef.rationale,
-        priority: recDef.priority,
-        evidence_line: recDef.evidence_line,
-        topic_id: topic.topic_id,
-        topic_title: topic.title,
-        isEmergency: topic.topic_id === "aortic-dissection" && dissectionConfirmed && recDef.priority === "high",
-        actions: recDef.actions ?? [],
-        contributingFindings,
-        contributingRules,
+      const maxStageIndex = matchingFindings.reduce((max, f) => Math.max(max, f.stageIndex), 0);
+      staged.push({
+        maxStageIndex,
+        view: {
+          id: recDef.id,
+          text: recDef.text,
+          rationale: recDef.rationale,
+          priority: recDef.priority,
+          evidence_line: recDef.evidence_line,
+          topic_id: topic.topic_id,
+          topic_title: topic.title,
+          isEmergency: topic.topic_id === "aortic-dissection" && dissectionConfirmed && recDef.priority === "high",
+          actions: recDef.actions ?? [],
+          contributingFindings,
+          contributingRules,
+        },
       });
     }
   }
 
-  recommendations.sort((a, b) => {
-    if (a.isEmergency !== b.isEmergency) return a.isEmergency ? -1 : 1;
-    return WEIGHT_ORDER[a.priority] - WEIGHT_ORDER[b.priority];
+  staged.sort((a, b) => {
+    if (a.view.isEmergency !== b.view.isEmergency) return a.view.isEmergency ? -1 : 1;
+    const wp = WEIGHT_ORDER[a.view.priority] - WEIGHT_ORDER[b.view.priority];
+    if (wp !== 0) return wp;
+    return b.maxStageIndex - a.maxStageIndex; // freshest evidence first
   });
+  const recommendations = staged.map((s) => s.view);
 
   return { hasCds: true, asOfTimestamp, ribbon, recommendations, supportingFindings, sentActions };
 }

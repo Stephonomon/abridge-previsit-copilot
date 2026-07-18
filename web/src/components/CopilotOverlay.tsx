@@ -21,7 +21,11 @@ type WH = { w: number; h: number };
 /**
  * The Physician Co-pilot as a free-floating in-EHR window:
  * - draggable by its title bar, resizable from the bottom-right corner
- * - collapses to a small draggable floating icon (hover or click to expand)
+ * - collapses to a small draggable floating icon (hover or click to expand);
+ *   once expanded, stays open until explicitly collapsed or closed — it does
+ *   NOT auto-collapse when the mouse leaves, so results from the external
+ *   Simulate button (bottom-left, outside this window) are always visible
+ *   live without the user needing to reopen anything.
  * - Abridge AI clinical decision support sits at the top, always live (pure
  *   rules matching over the current chart stage — no LLM wait). Below it, the
  *   AI-narrated chart summary is collapsed by default; expand it to show the
@@ -64,13 +68,12 @@ export function CopilotOverlay({
   onShowPrompt: () => void;
   onShowCustomizations: () => void;
 }) {
-  const [pinned, setPinned] = useState(false);
   const [hovering, setHovering] = useState(() => expandSignal !== null);
   const [dragging, setDragging] = useState(false);
   const [showActivity, setShowActivity] = useState(false); // collapsed by default
   const [showSummary, setShowSummary] = useState(false); // AI chart summary — collapsed by default
   const [cds, setCds] = useState<CdsResult | null>(null);
-  const expanded = pinned || hovering;
+  const expanded = hovering;
 
   // The sparkle icon lives outside this component (it's always mounted, even
   // collapsed) — this is how it forces an already-collapsed window back open.
@@ -143,20 +146,14 @@ export function CopilotOverlay({
     y: window.innerHeight - BUBBLE - 24,
   }));
 
-  const leaveTimer = useRef<number | null>(null);
-  const busyRef = useRef(false); // true during any drag/resize — suppresses auto-collapse + click-expand
+  const busyRef = useRef(false); // true during any drag/resize — suppresses click-expand
   const movedRef = useRef(false);
 
+  // Hover-to-expand on the collapsed bubble only — there is no matching
+  // "leave to collapse," so the window stays open once expanded (see header
+  // comment) until the user explicitly collapses or closes it.
   const onEnter = () => {
-    if (leaveTimer.current) window.clearTimeout(leaveTimer.current);
     if (!busyRef.current) setHovering(true);
-  };
-  const onLeave = () => {
-    if (leaveTimer.current) window.clearTimeout(leaveTimer.current);
-    if (busyRef.current) return; // never collapse mid-drag/resize
-    leaveTimer.current = window.setTimeout(() => {
-      if (!busyRef.current) setHovering(false);
-    }, 350);
   };
 
   function beginDrag(e: React.PointerEvent, target: "win" | "bubble") {
@@ -217,11 +214,7 @@ export function CopilotOverlay({
     window.addEventListener("pointerup", up);
   }
 
-  const collapse = () => {
-    setPinned(false);
-    setHovering(false);
-    if (leaveTimer.current) window.clearTimeout(leaveTimer.current);
-  };
+  const collapse = () => setHovering(false);
 
   // Opening the activity panel widens a narrow window so both columns fit.
   function toggleActivity() {
@@ -273,8 +266,6 @@ export function CopilotOverlay({
   // ---- Expanded: draggable + resizable floating window ----
   return (
     <div
-      onMouseEnter={onEnter}
-      onMouseLeave={onLeave}
       className={`fixed z-50 flex flex-col rounded-2xl shadow-[0_16px_56px_-8px_rgba(28,25,23,0.5)] border border-indigo-brand/25 overflow-hidden bg-cream/95 backdrop-blur-md select-none ${
         dragging ? "cursor-grabbing" : ""
       }`}
@@ -318,16 +309,6 @@ export function CopilotOverlay({
             )}
           </button>
           <div className="w-px h-5 bg-stone-200 mx-1" />
-          <button
-            onClick={() => setPinned(!pinned)}
-            className={`p-1.5 rounded-full ${pinned ? "bg-indigo-brand text-white" : "hover:bg-stone-100 text-stone-500"}`}
-            title={pinned ? "Unpin (collapses when you mouse away)" : "Pin window open"}
-          >
-            <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M9 4h6l1 6 2.5 2.5h-13L8 10l1-6z" />
-              <line x1="12" y1="12.5" x2="12" y2="20" />
-            </svg>
-          </button>
           <button onClick={collapse} className="p-1.5 rounded-full hover:bg-stone-100 text-stone-500" title="Collapse to floating icon">
             <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M5 12h14" />
