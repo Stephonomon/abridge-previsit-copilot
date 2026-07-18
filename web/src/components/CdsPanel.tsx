@@ -1,7 +1,5 @@
-import { useEffect, useState } from "react";
-import type { CdsAction, CdsRecommendationView, CdsResult, Patient } from "../types";
-import { sendCdsAction } from "../api";
-import { ActionModal, confirmationFor } from "./ActionModal";
+import { useState } from "react";
+import type { CdsAction, CdsRecommendationView, CdsResult } from "../types";
 
 const PRIO_STYLE: Record<string, { chip: string; border: string }> = {
   high: { chip: "text-red-600 border-red-300", border: "border-l-red-500" },
@@ -9,7 +7,7 @@ const PRIO_STYLE: Record<string, { chip: string; border: string }> = {
   low: { chip: "text-stone-500 border-stone-300", border: "border-l-stone-300" },
 };
 
-interface SentAction {
+export interface SentAction {
   confirmation: string;
   at: string; // formatted local time, e.g. "11:32 AM"
 }
@@ -141,42 +139,16 @@ function RecommendationCard({
   );
 }
 
-export function CdsPanel({ cds, patient }: { cds: CdsResult | null; patient: Patient }) {
-  const [activeAction, setActiveAction] = useState<CdsAction | null>(null);
-  const [toast, setToast] = useState<string | null>(null);
-  const [sentActions, setSentActions] = useState<Record<string, SentAction>>({});
-  const [executingAll, setExecutingAll] = useState(false);
-
-  // Server-persisted truth (survives window close/reopen + stage simulation);
-  // merged under any optimistic local state from an action just sent.
-  useEffect(() => {
-    if (cds?.sentActions) setSentActions((prev) => ({ ...cds.sentActions, ...prev }));
-  }, [cds]);
-
-  const persist = async (actionId: string, confirmation: string) => {
-    const at = new Date().toLocaleTimeString([], { hour: "numeric", minute: "2-digit" });
-    setSentActions((prev) => ({ ...prev, [actionId]: { confirmation, at } }));
-    await sendCdsAction(patient.id, actionId, confirmation).catch(() => {});
-  };
-
+export function CdsPanel({
+  cds,
+  sentActions,
+  onTriggerAction,
+}: {
+  cds: CdsResult | null;
+  sentActions: Record<string, SentAction>;
+  onTriggerAction: (action: CdsAction) => void;
+}) {
   if (!cds || !cds.hasCds) return null;
-
-  const pendingActions = Array.from(
-    new Map(cds.recommendations.flatMap((r) => r.actions).map((a) => [a.id, a])).values()
-  ).filter((a) => !sentActions[a.id]);
-
-  async function executeAll() {
-    setExecutingAll(true);
-    for (const action of pendingActions) {
-      const confirmation = confirmationFor(action);
-      await persist(action.id, confirmation);
-      setToast(confirmation);
-      await new Promise((r) => setTimeout(r, 250));
-    }
-    setToast(`${pendingActions.length} action${pendingActions.length === 1 ? "" : "s"} executed`);
-    setTimeout(() => setToast(null), 4200);
-    setExecutingAll(false);
-  }
 
   return (
     <div className="rounded-2xl border border-indigo-brand/20 bg-white overflow-hidden shadow-sm relative">
@@ -185,19 +157,6 @@ export function CdsPanel({ cds, patient }: { cds: CdsResult | null; patient: Pat
         <div className="text-[11px] font-bold tracking-wide uppercase text-indigo-brand-dark">
           Abridge AI consulted{cds.asOfTimestamp ? ` — as of ${cds.asOfTimestamp}` : ""}
         </div>
-        {pendingActions.length > 0 && (
-          <button
-            onClick={executeAll}
-            disabled={executingAll}
-            className="ml-auto text-[10.5px] font-bold bg-indigo-brand hover:bg-indigo-brand-dark disabled:opacity-60 text-white rounded-full px-2.5 py-1 flex items-center gap-1"
-            title="Send every recommended action that hasn't been taken yet"
-          >
-            ⚡ {executingAll ? "Executing…" : `Execute all (${pendingActions.length})`}
-          </button>
-        )}
-        <span className={`text-[10px] font-semibold text-stone-400 bg-stone-100 rounded px-1.5 py-0.5 ${pendingActions.length > 0 ? "" : "ml-auto"}`}>
-          Synthetic demo
-        </span>
       </div>
 
       <div className="px-4 py-2 flex flex-wrap gap-x-4 gap-y-1 border-b border-stone-100 bg-stone-50/50">
@@ -225,29 +184,10 @@ export function CdsPanel({ cds, patient }: { cds: CdsResult | null; patient: Pat
           <div className="text-sm text-stone-400 italic px-1 py-2">No recommendations fired for the current findings.</div>
         ) : (
           cds.recommendations.map((rec) => (
-            <RecommendationCard key={rec.id} rec={rec} sentActions={sentActions} onTriggerAction={setActiveAction} />
+            <RecommendationCard key={rec.id} rec={rec} sentActions={sentActions} onTriggerAction={onTriggerAction} />
           ))
         )}
       </div>
-
-      {activeAction && (
-        <ActionModal
-          action={activeAction}
-          patient={patient}
-          onClose={() => setActiveAction(null)}
-          onSend={(confirmation) => {
-            persist(activeAction.id, confirmation);
-            setActiveAction(null);
-            setToast(confirmation);
-            setTimeout(() => setToast(null), 4200);
-          }}
-        />
-      )}
-      {toast && (
-        <div className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-stone-900 text-white text-xs font-medium px-4 py-2 rounded-full shadow-lg z-10">
-          {toast}
-        </div>
-      )}
     </div>
   );
 }

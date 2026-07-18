@@ -64,7 +64,7 @@ function Storyboard({
           <div className="font-bold text-[15px] text-stone-900">{patient.name}</div>
           <button
             onClick={onLaunchCopilot}
-            title={hasUnseenUpdate ? "New results — click to review" : "Pre-Visit Copilot — AI chart review for this patient"}
+            title={hasUnseenUpdate ? "New results — click to review" : "Physician Co-pilot — AI chart review for this patient"}
             className={`relative w-6 h-6 rounded-full grid place-items-center transition-colors ${
               hasUnseenUpdate
                 ? "bg-amber-500 text-white animate-pulse ring-2 ring-amber-300"

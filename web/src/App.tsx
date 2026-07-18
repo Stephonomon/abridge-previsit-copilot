@@ -6,7 +6,6 @@ import {
   fetchPatients,
   resetWorkspace,
   sendFeedback,
-  setActiveVersion,
   simulateAdvance,
   startDelta,
   startPrevisit,
@@ -18,7 +17,7 @@ import { Trackboard } from "./ehr/Trackboard";
 import { PatientChart } from "./ehr/PatientChart";
 import { CopilotOverlay } from "./components/CopilotOverlay";
 import { DemoControls } from "./components/DemoControls";
-import { CustomizationsDrawer, PromptDrawer, VersionsDrawer } from "./components/Drawers";
+import { CustomizationsDrawer, PromptDrawer } from "./components/Drawers";
 
 export default function App() {
   const [patients, setPatients] = useState<Patient[]>([]);
@@ -30,7 +29,7 @@ export default function App() {
   const [events, setEvents] = useState<Record<string, RunEvent[]>>({});
   const [runMode, setRunMode] = useState<Record<string, "previsit" | "delta">>({});
   const [runningPatientId, setRunningPatientId] = useState<string | null>(null);
-  const [drawer, setDrawer] = useState<null | "prompt" | "customizations" | "versions">(null);
+  const [drawer, setDrawer] = useState<null | "prompt" | "customizations">(null);
   const [chartVersion, setChartVersion] = useState(0); // bump → EHR chart refetch
   const [hasUnseenUpdate, setHasUnseenUpdate] = useState<Record<string, boolean>>({});
   // Bumped (per-patient) to force the copilot window open from outside its own
@@ -185,7 +184,6 @@ export default function App() {
           onTeach={handleTeach}
           onShowPrompt={() => setDrawer("prompt")}
           onShowCustomizations={() => setDrawer("customizations")}
-          onShowVersions={() => setDrawer("versions")}
         />
       )}
 
@@ -197,17 +195,6 @@ export default function App() {
           onDelete={async (id) => {
             await deleteCustomization(id);
             await refreshConfig();
-          }}
-        />
-      )}
-      {drawer === "versions" && config && (
-        <VersionsDrawer
-          config={config}
-          onClose={() => setDrawer(null)}
-          onActivate={async (versionId) => {
-            await setActiveVersion(versionId);
-            await refreshConfig();
-            setDrawer(null);
           }}
         />
       )}

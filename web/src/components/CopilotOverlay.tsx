@@ -1,9 +1,10 @@
 import { useEffect, useRef, useState } from "react";
-import type { AgentConfigResponse, CdsResult, DeltaCard, Patient, RoomEntryCard, RunEvent } from "../types";
-import { fetchCds } from "../api";
+import type { AgentConfigResponse, CdsAction, CdsResult, DeltaCard, Patient, RoomEntryCard, RunEvent } from "../types";
+import { fetchCds, sendCdsAction } from "../api";
+import { ActionModal, confirmationFor } from "./ActionModal";
 import { ActivityPanel } from "./ActivityPanel";
 import { CardView } from "./CardView";
-import { CdsPanel } from "./CdsPanel";
+import { CdsPanel, type SentAction } from "./CdsPanel";
 import { DeltaCardView } from "./DeltaCardView";
 import { Eye, Sliders, Sparkle, Stethoscope } from "./icons";
 
@@ -18,7 +19,7 @@ type XY = { x: number; y: number };
 type WH = { w: number; h: number };
 
 /**
- * The Pre-Visit Copilot as a free-floating in-EHR window:
+ * The Physician Co-pilot as a free-floating in-EHR window:
  * - draggable by its title bar, resizable from the bottom-right corner
  * - collapses to a small draggable floating icon (hover or click to expand)
  * - Abridge AI clinical decision support sits at the top, always live (pure
@@ -42,7 +43,6 @@ export function CopilotOverlay({
   onTeach,
   onShowPrompt,
   onShowCustomizations,
-  onShowVersions,
 }: {
   patient: Patient;
   config: AgentConfigResponse | null;
@@ -63,7 +63,6 @@ export function CopilotOverlay({
   onTeach: (sectionId: string, instruction: string) => Promise<void>;
   onShowPrompt: () => void;
   onShowCustomizations: () => void;
-  onShowVersions: () => void;
 }) {
   const [pinned, setPinned] = useState(false);
   const [hovering, setHovering] = useState(() => expandSignal !== null);
@@ -97,6 +96,42 @@ export function CopilotOverlay({
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [patient.id, patient.releasedStages]);
+
+  // CDS action state lives here (not in CdsPanel) so "Execute all" can sit in
+  // the non-scrolling action strip and stay visible while the body scrolls.
+  const [activeAction, setActiveAction] = useState<CdsAction | null>(null);
+  const [actionToast, setActionToast] = useState<string | null>(null);
+  const [sentActions, setSentActions] = useState<Record<string, SentAction>>({});
+  const [executingAll, setExecutingAll] = useState(false);
+
+  useEffect(() => {
+    if (cds?.sentActions) setSentActions((prev) => ({ ...cds.sentActions, ...prev }));
+  }, [cds]);
+
+  const persistAction = async (actionId: string, confirmation: string) => {
+    const at = new Date().toLocaleTimeString([], { hour: "numeric", minute: "2-digit" });
+    setSentActions((prev) => ({ ...prev, [actionId]: { confirmation, at } }));
+    await sendCdsAction(patient.id, actionId, confirmation).catch(() => {});
+  };
+
+  const pendingActions = cds
+    ? Array.from(new Map(cds.recommendations.flatMap((r) => r.actions).map((a) => [a.id, a])).values()).filter(
+        (a) => !sentActions[a.id]
+      )
+    : [];
+
+  async function executeAll() {
+    setExecutingAll(true);
+    for (const action of pendingActions) {
+      const confirmation = confirmationFor(action);
+      await persistAction(action.id, confirmation);
+      setActionToast(confirmation);
+      await new Promise((r) => setTimeout(r, 250));
+    }
+    setActionToast(`${pendingActions.length} action${pendingActions.length === 1 ? "" : "s"} executed`);
+    setTimeout(() => setActionToast(null), 4200);
+    setExecutingAll(false);
+  }
 
   const [winPos, setWinPos] = useState<XY>(() => ({
     x: clamp(window.innerWidth - DEFAULT_W - 16, 8, window.innerWidth - DEFAULT_W - 8),
@@ -217,7 +252,7 @@ export function CopilotOverlay({
           setHovering(true);
           onSeen();
         }}
-        title={hasUnseenUpdate ? "New results — click to review" : "Pre-Visit Copilot — drag to move, click or hover to expand"}
+        title={hasUnseenUpdate ? "New results — click to review" : "Physician Co-pilot — drag to move, click or hover to expand"}
         className={`fixed z-50 rounded-full text-white shadow-[0_8px_24px_-4px_rgba(91,91,214,0.6)] grid place-items-center border-2 border-white/70 ${
           hasUnseenUpdate ? "bg-amber-500 animate-pulse" : "bg-indigo-brand"
         } ${dragging ? "cursor-grabbing" : "cursor-grab"}`}
@@ -257,7 +292,7 @@ export function CopilotOverlay({
           </div>
           <div className="leading-tight min-w-0">
             <div className="font-bold text-[14px] flex items-center gap-1.5">
-              Pre-Visit Copilot
+              Physician Co-pilot
               <svg className="w-3.5 h-3.5 text-stone-300" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
                 <circle cx="9" cy="6" r="1.5" /><circle cx="15" cy="6" r="1.5" />
                 <circle cx="9" cy="12" r="1.5" /><circle cx="15" cy="12" r="1.5" />
@@ -271,16 +306,6 @@ export function CopilotOverlay({
         </div>
 
         <div className="flex items-center gap-1.5 shrink-0">
-          <button
-            onClick={onShowVersions}
-            className="text-xs font-semibold bg-stone-100 hover:bg-stone-200 rounded-full px-2.5 py-1 flex items-center gap-1"
-            title="Agent versions"
-          >
-            {config?.activeVersionId ?? "v1.0"}
-            <svg className="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-              <path d="M6 9.5 12 15l6-5.5" />
-            </svg>
-          </button>
           <button onClick={onShowPrompt} className="p-1.5 rounded-full hover:bg-stone-100 text-stone-600" title="View base agent prompt">
             <Eye />
           </button>
@@ -343,11 +368,21 @@ export function CopilotOverlay({
             ⟳ Regenerate
           </button>
         )}
+        {pendingActions.length > 0 && (
+          <button
+            onClick={executeAll}
+            disabled={executingAll}
+            className="ml-auto text-xs font-bold bg-indigo-brand hover:bg-indigo-brand-dark disabled:opacity-60 text-white rounded-full px-3 py-1.5 flex items-center gap-1"
+            title="Send every recommended action that hasn't been taken yet"
+          >
+            ⚡ {executingAll ? "Executing…" : `Execute all (${pendingActions.length})`}
+          </button>
+        )}
       </div>
 
       {/* Body: Abridge AI CDS + latest delta always up top; AI chart summary collapsed below */}
       <div className="flex-1 overflow-y-auto p-3 space-y-3">
-        <CdsPanel cds={cds} patient={patient} />
+        <CdsPanel cds={cds} sentActions={sentActions} onTriggerAction={setActiveAction} />
 
         {deltaCard && (
           <DeltaCardView card={deltaCard} stageLabel={patient.releasedStages > 0 ? `Stage ${patient.releasedStages} results in` : null} />
@@ -435,6 +470,25 @@ export function CopilotOverlay({
           <path d="M16 8 8 16M16 13l-3 3" />
         </svg>
       </div>
+
+      {activeAction && (
+        <ActionModal
+          action={activeAction}
+          patient={patient}
+          onClose={() => setActiveAction(null)}
+          onSend={(confirmation) => {
+            persistAction(activeAction.id, confirmation);
+            setActiveAction(null);
+            setActionToast(confirmation);
+            setTimeout(() => setActionToast(null), 4200);
+          }}
+        />
+      )}
+      {actionToast && (
+        <div className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-stone-900 text-white text-xs font-medium px-4 py-2 rounded-full shadow-lg z-10">
+          {actionToast}
+        </div>
+      )}
     </div>
   );
 }

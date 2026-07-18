@@ -79,15 +79,6 @@ export async function sendFeedback(section: string, instruction: string, special
   return r.json();
 }
 
-export async function setActiveVersion(versionId: string, specialty = "emergency-medicine") {
-  const r = await fetch(`/api/agent-config/${specialty}/active-version`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ versionId }),
-  });
-  return r.json();
-}
-
 export async function deleteCustomization(id: string, specialty = "emergency-medicine") {
   const r = await fetch(`/api/agent-config/${specialty}/customizations/${id}`, { method: "DELETE" });
   return r.json();
