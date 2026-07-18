@@ -1,4 +1,4 @@
-# Presentation Script — Pre-Visit Copilot
+# Presentation Script — Physician Co-pilot
 
 Two separate scripts: a **60-second recorded demo** (voiceover over screen capture, no live audience interaction) and a **3-minute live demo** (in front of an audience — Abridge employees, software engineers, other tech companies). Every click below maps to real, working functionality in the app as of this build — nothing is aspirational or faked for the video.
 
@@ -34,7 +34,7 @@ No live Q&A, no room to recover from a fumbled click — this is the tightest po
 | 0:15–0:20 | Click the **sparkle icon** next to Walter's name | *"So we put an agent next to every chart."* |
 | 0:20–0:33 | Copilot window open. Abridge AI CDS panel already live: point at the **sildenafil → nitrate contraindication** card. Click **💬 Alert Pharmacy — nitrate hold**, show the pre-filled message, send it (toast confirms) | *"It's already read the chart. Grounded twice — the exact chart fact, and the guideline that makes it standard of care. One click, and the action is sent."* |
 | 0:33–0:45 | Click **Simulate: Delta card — 11:00**. Ribbon adds **Aortic Dissection — SUSPECTED** (amber). Point at the new top card (widened mediastinum) | *"New results land — the card updates itself. Troponin's critical, but look: a widened mediastinum. This isn't a heart attack. It's a dissection."* |
-| 0:45–0:55 | Click **Simulate: CT results — 11:30**. Ribbon flips to **SURGICAL EMERGENCY** (red, pulsing). Click **💬 Update CV Surgery on-call** to show the pre-filled STAT message | *"Confirmed. Five actions, pre-filled, one click each — the clock starts before the doctor's even picked up the phone."* |
+| 0:45–0:55 | Click **Simulate: CT results — 11:30**. Ribbon flips to **SURGICAL EMERGENCY** (red, pulsing). Click **💬 Update CV Surgery on-call** to show the pre-filled STAT message | *"Confirmed. A full stack of actions, pre-filled, one click each — the clock starts before the doctor's even picked up the phone."* |
 | 0:55–1:00 | Cut back to a wide shot / logo card | *"One specialty, built end to end. Abridge already supports fifty — this is the pattern for every one of them."* |
 
 **Cut list if you're over time:** drop the tab-flipping in the first beat (go straight from trackboard to chart to sparkle icon); collapse the two Simulate beats into one (skip straight to CT results and mention "results evolve automatically" verbally instead of showing both stages).
@@ -71,7 +71,7 @@ Click **Reyes, Walter** → chart opens on **Chart Review**. Click through **Enc
 
 Click the **sparkle icon** next to Walter's name in the left storyboard. Copilot window opens.
 
-> **STEPHON:** "This didn't wait for us to ask — it started reading the chart the second we opened it. This window is draggable, it pins open, it collapses to an icon when you don't need it."
+> **STEPHON:** "This didn't wait for us to ask — it started reading the chart the second we opened it. This window is draggable, and it stays open once you open it — it won't collapse just because your mouse wanders off to click something else. Collapse it on purpose when you don't need it, and it's still right there, bottom-right."
 
 Point at the **Abridge AI** panel at the top (already populated — no run required).
 
@@ -95,7 +95,7 @@ Gesture to the collapsed **Chart summary** below.
 
 Click **Simulate: Delta card — 11:00**.
 
-> **JOHN:** "New labs, new imaging — landing automatically, no one re-running anything." *(point at ribbon)* "Aortic Dissection, suspected. Troponin's critical — that would normally point straight at a heart attack. But it caught a widened mediastinum on today's chest X-ray, and it's telling me: don't anchor on ACS yet, get the CT."
+> **JOHN:** "New labs, new imaging — landing automatically, no one re-running anything." *(point at ribbon)* "Aortic Dissection, suspected. Troponin's critical — that would normally point straight at a heart attack. But it caught a widened mediastinum on today's chest X-ray, and it's telling me: don't anchor on ACS yet, get the CT." *(gesture at the* **📋 CT angiogram, chest — STAT** *button on that card, don't click it yet)* "And it doesn't just tell me — it hands me the order right there."
 
 Click the **collapse button** in the window's title bar (thin line icon, top right) — the window shrinks to a small floating icon.
 
@@ -111,11 +111,11 @@ Click the pulsing icon to re-expand. It reverts to purple. Ribbon flips red, pul
 
 Point at the cascading action cards.
 
-> **JOHN:** "Five actions, all pre-filled from the CT read: message CV surgery, hold the apixaban and aspirin that are now a bleeding risk, type and cross blood, book the OR."
+> **JOHN:** "A stack of actions, all pre-filled from the CT read: message CV surgery, hold the apixaban and aspirin that are now a bleeding risk, type and cross blood, book the OR — the CT order from a minute ago is still sitting there too if we never sent it."
 
 Click **💬 Update CV Surgery on-call** — show the pre-filled STAT message.
 
-> **STEPHON:** "And if there are more than one — " *(point at the Execute all button)* " — send everything that's still pending in one click, all logged, all timestamped, none of it silent."
+> **STEPHON:** "And if there's more than one —" *(point at the* **⚡ Execute all** *button, top-right of the window, next to Regenerate — it stays pinned there even if you scroll the recommendations)* "— send everything that's still pending in one click, all logged, all timestamped, none of it silent."
 
 ### Beat 5 — Teach it once, it stays taught (2:35–2:50)
 
@@ -141,7 +141,9 @@ Type something like *"Show the last 5–10 vitals, not just the most recent"* �
 - CDS panel header: **"Abridge AI consulted — as of {time}"**
 - Ribbon badges: **SUSPECTED** (amber, stage 1) → **SURGICAL EMERGENCY** (red, pulsing, stage 2)
 - Stage buttons (bottom-left Demo Controls bar): **"◷ Simulate: Delta card — 11:00"** then **"◷ Simulate: CT results — 11:30"**
-- Bulk actionable recommendations, in order they'll fire: **Alert Pharmacy — nitrate hold** (arrival) → **Update Cardiology on-call** (stage 1) → **Update CV Surgery on-call, Hold apixaban + ASA, Type & crossmatch — STAT, Emergent OR request** (stage 2) — 6 total, matching the **"Execute all (6)"** button once stage 2 lands
+- Actionable recommendations, in order they fire: **Alert Pharmacy — nitrate hold** (arrival) → **CT angiogram, chest — STAT**, **Update Cardiology on-call** (stage 1) → **Update CV Surgery on-call, Hold apixaban + ASA, Type & crossmatch — STAT, Emergent OR request** (stage 2) — 7 total, matching **"Execute all (7)"** if none have been sent individually yet
+- Recommendation sort order: within the same priority/emergency tier, whichever recommendation has the *freshest* supporting evidence sorts first. Once both stages have landed, **"Stanford Type A confirmed"** (stage 2) sorts above **"Widened mediastinum + chest pain → CT angiography"** (stage 1, now superseded) — the CT-order card doesn't disappear, it just moves down, since the newer confirmed-dissection actions are the ones that matter right now
+- The window no longer auto-collapses when your mouse leaves it — there's no "pin" button anymore because there's nothing left to pin against. It only collapses when you click the collapse button (or close it). This means Beat 4's collapse step must be done deliberately — it will not happen on its own, so don't skip that click expecting the window to shrink by itself
 - Sent-action pill: greyed out, **"{label} — sent {time}"**, persists across reload until the workspace is reset
 - Teach popover copy: **"How should '{section}' work for you in future runs? Your feedback becomes part of this agent's next version."**
 - New-results notification: sparkle icon (storyboard) and floating bubble (collapsed copilot) both turn **amber and pulse**, title **"New results — click to review"**, the instant Simulate lands new results *while the window is closed or collapsed*. Reverts to normal purple the moment either icon is clicked — or instantly, with no flash at all, if the window is already open and visible when the results land (nothing to notify about if you're already looking at it).
