@@ -1,6 +1,12 @@
 import { useState } from "react";
 import type { CdsAction, Patient } from "../types";
 
+export function confirmationFor(action: CdsAction): string {
+  return action.type === "secure_message"
+    ? `Sent to ${action.recipient?.name} via ${action.recipient?.channel}`
+    : `${action.orderDetails?.orderType ?? "Order"} placed — ${action.label}`;
+}
+
 function fillTemplate(template: string, patient: Patient): string {
   const vitals = patient.triageVitals ?? {};
   const vals: Record<string, string> = {
@@ -34,10 +40,7 @@ export function ActionModal({
   const send = () => {
     setSending(true);
     setTimeout(() => {
-      const confirmation = isMessage
-        ? `Sent to ${action.recipient?.name} via ${action.recipient?.channel}`
-        : `${action.orderDetails?.orderType ?? "Order"} placed — ${action.label}`;
-      onSend(confirmation);
+      onSend(confirmationFor(action));
     }, 500);
   };
 

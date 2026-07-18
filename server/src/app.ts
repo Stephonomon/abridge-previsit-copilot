@@ -3,7 +3,7 @@ import express from "express";
 import cors from "cors";
 import { REPLAY_DELTA_MS, REPLAY_PREVISIT_MS, RUN_MODE } from "./env.js";
 import { cacheKey, cardFromEvents, deltaFromEvents, readRunCache, replayRun } from "./cache.js";
-import { currentPending, effectiveChart, getPatient, loadAllPatients, readBinary, resetPatients } from "./data/store.js";
+import { chartForDisplay, currentPending, getPatient, loadAllPatients, readBinary, resetPatients } from "./data/store.js";
 import { createRun, emit, getRun, type Run } from "./events/bus.js";
 import { runPrevisit } from "./agents/orchestrator.js";
 import { runDelta } from "./agents/delta.js";
@@ -45,7 +45,7 @@ app.get("/api/patients", (_req, res) => {
 // Full chart view for the mock EHR (includes any released delta-stage results)
 app.get("/api/patients/:id/chart", (req, res) => {
   const rec = getPatient(req.params.id);
-  const chart = effectiveChart(rec);
+  const chart = chartForDisplay(rec);
   res.json({ meta: rec.meta, chart, pending: currentPending(rec), releasedStages: rec.releasedStages });
 });
 
@@ -73,6 +73,20 @@ app.get("/api/patients/:id/binary/:binaryId", (req, res) => {
 app.get("/api/patients/:id/cds", (req, res) => {
   const rec = getPatient(req.params.id);
   res.json(computeCds(rec));
+});
+
+// Records a CDS action as taken so it stays greyed out across window
+// close/reopen and time simulation, until the workspace is reset.
+app.post("/api/patients/:id/cds-actions", (req, res) => {
+  const rec = getPatient(req.params.id);
+  const { actionId, confirmation } = req.body ?? {};
+  if (!actionId || !confirmation) {
+    res.status(400).json({ error: "actionId and confirmation required" });
+    return;
+  }
+  const at = new Date().toLocaleTimeString([], { hour: "numeric", minute: "2-digit" });
+  rec.sentCdsActions[actionId] = { confirmation, at };
+  res.json({ ok: true, sentActions: rec.sentCdsActions });
 });
 
 app.get("/api/patients/:id/card", (req, res) => {

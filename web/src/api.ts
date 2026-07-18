@@ -15,6 +15,14 @@ export async function fetchCds(patientId: string): Promise<CdsResult> {
   return r.json();
 }
 
+export async function sendCdsAction(patientId: string, actionId: string, confirmation: string): Promise<void> {
+  await fetch(`/api/patients/${patientId}/cds-actions`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ actionId, confirmation }),
+  });
+}
+
 export async function fetchChart(patientId: string) {
   const r = await fetch(`/api/patients/${patientId}/chart`);
   return r.json();

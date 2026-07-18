@@ -1,18 +1,18 @@
 {
-  "recordedAt": "2026-07-18T20:14:28.042Z",
+  "recordedAt": "2026-07-18T21:27:15.192Z",
   "events": [
     {
       "type": "run_started",
-      "runId": "run--1784405658948_3",
+      "runId": "run--1784410026266_3",
       "patientId": "walter-reyes",
       "mode": "delta",
-      "at": 1784405658948
+      "at": 1784410026266
     },
     {
       "type": "agent_started",
       "agent": "delta",
       "label": "Delta Agent",
-      "at": 1784405658948
+      "at": 1784410026266
     },
     {
       "type": "fhir_call",
@@ -22,8 +22,8 @@
         "sinceLastCard": true
       },
       "resourceCount": 0,
-      "ms": 102,
-      "at": 1784405659000
+      "ms": 61,
+      "at": 1784410026298
     },
     {
       "type": "fhir_call",
@@ -33,8 +33,8 @@
         "sinceLastCard": true
       },
       "resourceCount": 0,
-      "ms": 157,
-      "at": 1784405659079
+      "ms": 90,
+      "at": 1784410026344
     },
     {
       "type": "fhir_call",
@@ -44,8 +44,8 @@
         "sinceLastCard": true
       },
       "resourceCount": 1,
-      "ms": 171,
-      "at": 1784405659165
+      "ms": 198,
+      "at": 1784410026444
     },
     {
       "type": "fhir_call",
@@ -55,16 +55,16 @@
         "sinceLastCard": true
       },
       "resourceCount": 0,
-      "ms": 134,
-      "at": 1784405659234
+      "ms": 184,
+      "at": 1784410026537
     },
     {
       "type": "agent_done",
       "agent": "delta",
       "label": "Delta Agent",
       "findingsCount": 1,
-      "ms": 9092,
-      "at": 1784405668040
+      "ms": 8926,
+      "at": 1784410035192
     },
     {
       "type": "delta_ready",
@@ -73,30 +73,30 @@
         "items": [
           {
             "flag": "ACT",
-            "text": "CT chest/abd/pelvis final read: Stanford Type A aortic dissection (root to arch, extending into descending thoracic aorta), max diameter 4.7cm at sinotubular junction",
-            "prior": "No prior imaging of aorta; working framework was ACS/ischemia",
-            "current": "Type A dissection confirmed — surgical emergency",
-            "why": "Reframes entire presentation from ACS to aortic catastrophe; ASA already given and apixaban on board now represent active bleeding risk for imminent surgery",
-            "source": "dr-wr-ct-cap-today CT chest/abd/pelvis 7/18 11:30"
+            "text": "CT chest/abd/pelvis final read: Stanford Type A (DeBakey I) acute aortic dissection, root to arch, 4.7cm at sinotubular junction, preserved coronary ostia, no tamponade/effusion",
+            "prior": "No prior aortic imaging — differential was ACS with incomplete ischemic workup",
+            "current": "Type A dissection confirmed, final read",
+            "why": "Surgical emergency — reframes entire presentation from ACS workup to emergent CV surgery, changes all downstream management (BP/HR control agents, anticoagulation reversal, no cath)",
+            "source": "dr-wr-ct-cap-today — CT chest/abd/pelvis final report"
           }
         ],
-        "interactionCheck": "Therapeutic apixaban + ASA 324mg given at triage now high-risk in setting of confirmed Type A dissection requiring emergent surgery — anticoagulation reversal must be addressed with CV surgery immediately.",
+        "interactionCheck": "Therapeutic apixaban + ASA 324mg already given — anticoagulation/antiplatelet effect must be addressed emergently before surgical intervention; consider reversal per CV surgery.",
         "pending": [
-          "2nd hs-Troponin T (deprioritized, dissection confirmed)",
+          "2nd hs-Troponin T (deprioritized — dissection confirmed)",
           "Emergent CV surgery consult",
           "Type & crossmatch, OR booking"
         ],
         "overflowNote": null
       },
-      "at": 1784405668040
+      "at": 1784410035192
     },
     {
       "type": "run_complete",
       "totalApiCalls": 4,
       "totalResources": 1,
-      "totalMs": 9092,
+      "totalMs": 8926,
       "agentCount": 1,
-      "at": 1784405668040
+      "at": 1784410035192
     }
   ]
 }

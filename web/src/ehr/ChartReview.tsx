@@ -236,7 +236,22 @@ export function ChartReview({ patientId, chart, onOpenBinary }: { patientId: str
         )}
 
         {tab === "Referrals" && (
-          <div className="p-6 text-stone-400 text-[13px]">No open referrals for this encounter.</div>
+          <table className="w-full text-[13px]">
+            <thead><tr><Th>Date</Th><Th>Specialty</Th><Th>Reason</Th><Th>Status</Th></tr></thead>
+            <tbody>
+              {(chart.referrals ?? []).map((r: any) => (
+                <tr key={r.id} className="hover:bg-[#eaf3fb]">
+                  <Td>{fmtDate(r.date)}</Td>
+                  <Td className="font-semibold">{r.specialty}</Td>
+                  <Td className="max-w-[420px]">{r.reason}</Td>
+                  <Td className={r.status === "Pending" ? "text-amber-600 font-semibold" : ""}>{r.status}</Td>
+                </tr>
+              ))}
+              {(chart.referrals ?? []).length === 0 && (
+                <tr><Td className="text-stone-400">No open referrals for this encounter.</Td><Td> </Td><Td> </Td><Td> </Td></tr>
+              )}
+            </tbody>
+          </table>
         )}
       </div>
     </div>

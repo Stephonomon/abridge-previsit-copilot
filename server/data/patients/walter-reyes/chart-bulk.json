@@ -1,0 +1,3721 @@
+{
+  "encounters": [
+    {
+      "resourceType": "Encounter",
+      "id": "enc-wrbulk-001",
+      "status": "finished",
+      "class": {
+        "code": "AMB",
+        "display": "Ambulatory"
+      },
+      "type": [
+        {
+          "text": "Annual physical \u2014 primary care"
+        }
+      ],
+      "period": {
+        "start": "2006-04-11T09:00:00-04:00"
+      },
+      "reasonCode": [
+        {
+          "text": "Annual exam"
+        }
+      ],
+      "extension": [
+        {
+          "url": "dispositionDx",
+          "valueString": "Routine annual exam, unremarkable. Immunizations up to date."
+        }
+      ]
+    },
+    {
+      "resourceType": "Encounter",
+      "id": "enc-wrbulk-002",
+      "status": "finished",
+      "class": {
+        "code": "AMB",
+        "display": "Ambulatory"
+      },
+      "type": [
+        {
+          "text": "Annual physical \u2014 primary care"
+        }
+      ],
+      "period": {
+        "start": "2007-04-12T09:00:00-04:00"
+      },
+      "reasonCode": [
+        {
+          "text": "Annual exam"
+        }
+      ],
+      "extension": [
+        {
+          "url": "dispositionDx",
+          "valueString": "Annual physical \u2014 stable weight, BP well controlled on lisinopril."
+        }
+      ]
+    },
+    {
+      "resourceType": "Encounter",
+      "id": "enc-wrbulk-003",
+      "status": "finished",
+      "class": {
+        "code": "AMB",
+        "display": "Ambulatory"
+      },
+      "type": [
+        {
+          "text": "Annual physical \u2014 primary care"
+        }
+      ],
+      "period": {
+        "start": "2009-04-14T09:00:00-04:00"
+      },
+      "reasonCode": [
+        {
+          "text": "Annual exam"
+        }
+      ],
+      "extension": [
+        {
+          "url": "dispositionDx",
+          "valueString": "Annual exam \u2014 reviewed diet/exercise, labs within normal limits."
+        }
+      ]
+    },
+    {
+      "resourceType": "Encounter",
+      "id": "enc-wrbulk-004",
+      "status": "finished",
+      "class": {
+        "code": "AMB",
+        "display": "Ambulatory"
+      },
+      "type": [
+        {
+          "text": "Annual physical \u2014 primary care"
+        }
+      ],
+      "period": {
+        "start": "2010-04-10T09:00:00-04:00"
+      },
+      "reasonCode": [
+        {
+          "text": "Annual exam"
+        }
+      ],
+      "extension": [
+        {
+          "url": "dispositionDx",
+          "valueString": "Annual physical \u2014 no new complaints, continue current regimen."
+        }
+      ]
+    },
+    {
+      "resourceType": "Encounter",
+      "id": "enc-wrbulk-005",
+      "status": "finished",
+      "class": {
+        "code": "AMB",
+        "display": "Ambulatory"
+      },
+      "type": [
+        {
+          "text": "Annual physical \u2014 primary care"
+        }
+      ],
+      "period": {
+        "start": "2012-04-12T09:00:00-04:00"
+      },
+      "reasonCode": [
+        {
+          "text": "Annual exam"
+        }
+      ],
+      "extension": [
+        {
+          "url": "dispositionDx",
+          "valueString": "Routine annual exam \u2014 mild seasonal allergic rhinitis noted."
+        }
+      ]
+    },
+    {
+      "resourceType": "Encounter",
+      "id": "enc-wrbulk-006",
+      "status": "finished",
+      "class": {
+        "code": "AMB",
+        "display": "Ambulatory"
+      },
+      "type": [
+        {
+          "text": "Annual physical \u2014 primary care"
+        }
+      ],
+      "period": {
+        "start": "2013-04-13T09:00:00-04:00"
+      },
+      "reasonCode": [
+        {
+          "text": "Annual exam"
+        }
+      ],
+      "extension": [
+        {
+          "url": "dispositionDx",
+          "valueString": "Annual physical \u2014 updated tetanus booster, labs stable."
+        }
+      ]
+    },
+    {
+      "resourceType": "Encounter",
+      "id": "enc-wrbulk-007",
+      "status": "finished",
+      "class": {
+        "code": "AMB",
+        "display": "Ambulatory"
+      },
+      "type": [
+        {
+          "text": "Annual physical \u2014 primary care"
+        }
+      ],
+      "period": {
+        "start": "2015-04-10T09:00:00-04:00"
+      },
+      "reasonCode": [
+        {
+          "text": "Annual exam"
+        }
+      ],
+      "extension": [
+        {
+          "url": "dispositionDx",
+          "valueString": "Annual exam \u2014 discussed weight management, routine labs ordered."
+        }
+      ]
+    },
+    {
+      "resourceType": "Encounter",
+      "id": "enc-wrbulk-008",
+      "status": "finished",
+      "class": {
+        "code": "AMB",
+        "display": "Ambulatory"
+      },
+      "type": [
+        {
+          "text": "Annual physical \u2014 primary care"
+        }
+      ],
+      "period": {
+        "start": "2016-04-11T09:00:00-04:00"
+      },
+      "reasonCode": [
+        {
+          "text": "Annual exam"
+        }
+      ],
+      "extension": [
+        {
+          "url": "dispositionDx",
+          "valueString": "Routine annual physical \u2014 no acute issues identified."
+        }
+      ]
+    },
+    {
+      "resourceType": "Encounter",
+      "id": "enc-wrbulk-009",
+      "status": "finished",
+      "class": {
+        "code": "AMB",
+        "display": "Ambulatory"
+      },
+      "type": [
+        {
+          "text": "Annual physical \u2014 primary care"
+        }
+      ],
+      "period": {
+        "start": "2018-04-13T09:00:00-04:00"
+      },
+      "reasonCode": [
+        {
+          "text": "Annual exam"
+        }
+      ],
+      "extension": [
+        {
+          "url": "dispositionDx",
+          "valueString": "Annual exam \u2014 reviewed fall risk, home safety counseling given."
+        }
+      ]
+    },
+    {
+      "resourceType": "Encounter",
+      "id": "enc-wrbulk-010",
+      "status": "finished",
+      "class": {
+        "code": "AMB",
+        "display": "Ambulatory"
+      },
+      "type": [
+        {
+          "text": "Annual physical \u2014 primary care"
+        }
+      ],
+      "period": {
+        "start": "2019-04-14T09:00:00-04:00"
+      },
+      "reasonCode": [
+        {
+          "text": "Annual exam"
+        }
+      ],
+      "extension": [
+        {
+          "url": "dispositionDx",
+          "valueString": "Annual physical \u2014 hearing/vision screening referrals placed."
+        }
+      ]
+    },
+    {
+      "resourceType": "Encounter",
+      "id": "enc-wrbulk-011",
+      "status": "finished",
+      "class": {
+        "code": "AMB",
+        "display": "Ambulatory"
+      },
+      "type": [
+        {
+          "text": "Annual physical \u2014 primary care"
+        }
+      ],
+      "period": {
+        "start": "2021-04-11T09:00:00-04:00"
+      },
+      "reasonCode": [
+        {
+          "text": "Annual exam"
+        }
+      ],
+      "extension": [
+        {
+          "url": "dispositionDx",
+          "valueString": "Routine annual exam \u2014 colon cancer screening reviewed."
+        }
+      ]
+    },
+    {
+      "resourceType": "Encounter",
+      "id": "enc-wrbulk-012",
+      "status": "finished",
+      "class": {
+        "code": "AMB",
+        "display": "Ambulatory"
+      },
+      "type": [
+        {
+          "text": "Annual physical \u2014 primary care"
+        }
+      ],
+      "period": {
+        "start": "2022-04-12T09:00:00-04:00"
+      },
+      "reasonCode": [
+        {
+          "text": "Annual exam"
+        }
+      ],
+      "extension": [
+        {
+          "url": "dispositionDx",
+          "valueString": "Annual physical \u2014 influenza and pneumococcal vaccines given."
+        }
+      ]
+    },
+    {
+      "resourceType": "Encounter",
+      "id": "enc-wrbulk-013",
+      "status": "finished",
+      "class": {
+        "code": "AMB",
+        "display": "Ambulatory"
+      },
+      "type": [
+        {
+          "text": "Annual physical \u2014 primary care"
+        }
+      ],
+      "period": {
+        "start": "2024-04-14T09:00:00-04:00"
+      },
+      "reasonCode": [
+        {
+          "text": "Annual exam"
+        }
+      ],
+      "extension": [
+        {
+          "url": "dispositionDx",
+          "valueString": "Annual exam \u2014 reviewed medication list, no changes needed."
+        }
+      ]
+    },
+    {
+      "resourceType": "Encounter",
+      "id": "enc-wrbulk-014",
+      "status": "finished",
+      "class": {
+        "code": "AMB",
+        "display": "Ambulatory"
+      },
+      "type": [
+        {
+          "text": "Urgent care \u2014 upper respiratory infection"
+        }
+      ],
+      "period": {
+        "start": "2008-01-14T10:15:00-04:00"
+      },
+      "reasonCode": [
+        {
+          "text": "Cough, congestion"
+        }
+      ],
+      "extension": [
+        {
+          "url": "dispositionDx",
+          "valueString": "Viral URI, supportive care advised, resolved."
+        }
+      ]
+    },
+    {
+      "resourceType": "Encounter",
+      "id": "enc-wrbulk-015",
+      "status": "finished",
+      "class": {
+        "code": "AMB",
+        "display": "Ambulatory"
+      },
+      "type": [
+        {
+          "text": "Urgent care \u2014 ankle sprain"
+        }
+      ],
+      "period": {
+        "start": "2011-06-22T16:40:00-04:00"
+      },
+      "reasonCode": [
+        {
+          "text": "Right ankle pain after misstep"
+        }
+      ],
+      "extension": [
+        {
+          "url": "dispositionDx",
+          "valueString": "Grade 1 ankle sprain, RICE protocol, resolved without complication."
+        }
+      ]
+    },
+    {
+      "resourceType": "Encounter",
+      "id": "enc-wrbulk-016",
+      "status": "finished",
+      "class": {
+        "code": "AMB",
+        "display": "Ambulatory"
+      },
+      "type": [
+        {
+          "text": "Urgent care \u2014 minor laceration, hand"
+        }
+      ],
+      "period": {
+        "start": "2014-09-03T11:05:00-04:00"
+      },
+      "reasonCode": [
+        {
+          "text": "Cut on left hand from yard work"
+        }
+      ],
+      "extension": [
+        {
+          "url": "dispositionDx",
+          "valueString": "2 cm laceration closed with 4 sutures, tetanus updated, healed well."
+        }
+      ]
+    },
+    {
+      "resourceType": "Encounter",
+      "id": "enc-wrbulk-017",
+      "status": "finished",
+      "class": {
+        "code": "AMB",
+        "display": "Ambulatory"
+      },
+      "type": [
+        {
+          "text": "Urgent care \u2014 contact dermatitis"
+        }
+      ],
+      "period": {
+        "start": "2016-03-19T14:20:00-04:00"
+      },
+      "reasonCode": [
+        {
+          "text": "Itchy rash on forearms"
+        }
+      ],
+      "extension": [
+        {
+          "url": "dispositionDx",
+          "valueString": "Contact dermatitis, likely poison ivy exposure, topical steroid prescribed."
+        }
+      ]
+    },
+    {
+      "resourceType": "Encounter",
+      "id": "enc-wrbulk-018",
+      "status": "finished",
+      "class": {
+        "code": "AMB",
+        "display": "Ambulatory"
+      },
+      "type": [
+        {
+          "text": "Urgent care \u2014 conjunctivitis"
+        }
+      ],
+      "period": {
+        "start": "2017-11-08T09:50:00-04:00"
+      },
+      "reasonCode": [
+        {
+          "text": "Red, itchy right eye x2 days"
+        }
+      ],
+      "extension": [
+        {
+          "url": "dispositionDx",
+          "valueString": "Viral conjunctivitis, supportive care, resolved within a week."
+        }
+      ]
+    },
+    {
+      "resourceType": "Encounter",
+      "id": "enc-wrbulk-019",
+      "status": "finished",
+      "class": {
+        "code": "AMB",
+        "display": "Ambulatory"
+      },
+      "type": [
+        {
+          "text": "Urgent care \u2014 low back strain"
+        }
+      ],
+      "period": {
+        "start": "2019-05-30T13:10:00-04:00"
+      },
+      "reasonCode": [
+        {
+          "text": "Low back pain after lifting"
+        }
+      ],
+      "extension": [
+        {
+          "url": "dispositionDx",
+          "valueString": "Mechanical low back strain, NSAIDs and stretching advised, resolved."
+        }
+      ]
+    },
+    {
+      "resourceType": "Encounter",
+      "id": "enc-wrbulk-020",
+      "status": "finished",
+      "class": {
+        "code": "AMB",
+        "display": "Ambulatory"
+      },
+      "type": [
+        {
+          "text": "Urgent care \u2014 gastroenteritis"
+        }
+      ],
+      "period": {
+        "start": "2020-10-12T15:35:00-04:00"
+      },
+      "reasonCode": [
+        {
+          "text": "Nausea, diarrhea x1 day"
+        }
+      ],
+      "extension": [
+        {
+          "url": "dispositionDx",
+          "valueString": "Acute viral gastroenteritis, hydration advised, self-limited."
+        }
+      ]
+    },
+    {
+      "resourceType": "Encounter",
+      "id": "enc-wrbulk-021",
+      "status": "finished",
+      "class": {
+        "code": "AMB",
+        "display": "Ambulatory"
+      },
+      "type": [
+        {
+          "text": "Urgent care \u2014 influenza"
+        }
+      ],
+      "period": {
+        "start": "2023-02-04T10:00:00-04:00"
+      },
+      "reasonCode": [
+        {
+          "text": "Fever, myalgias, cough x2 days"
+        }
+      ],
+      "extension": [
+        {
+          "url": "dispositionDx",
+          "valueString": "Influenza A, supportive care, no antivirals indicated given late presentation."
+        }
+      ]
+    },
+    {
+      "resourceType": "Encounter",
+      "id": "enc-wrbulk-022",
+      "status": "finished",
+      "class": {
+        "code": "AMB",
+        "display": "Ambulatory"
+      },
+      "type": [
+        {
+          "text": "Ophthalmology follow-up"
+        }
+      ],
+      "period": {
+        "start": "2009-08-11T10:00:00-04:00"
+      },
+      "reasonCode": [
+        {
+          "text": "Routine eye exam"
+        }
+      ],
+      "extension": [
+        {
+          "url": "dispositionDx",
+          "valueString": "Mild refractive error, early cataract changes noted, monitor annually."
+        }
+      ]
+    },
+    {
+      "resourceType": "Encounter",
+      "id": "enc-wrbulk-023",
+      "status": "finished",
+      "class": {
+        "code": "AMB",
+        "display": "Ambulatory"
+      },
+      "type": [
+        {
+          "text": "Dermatology follow-up"
+        }
+      ],
+      "period": {
+        "start": "2012-07-02T13:30:00-04:00"
+      },
+      "reasonCode": [
+        {
+          "text": "Annual skin check"
+        }
+      ],
+      "extension": [
+        {
+          "url": "dispositionDx",
+          "valueString": "Few actinic keratoses treated with cryotherapy, no melanoma concern."
+        }
+      ]
+    },
+    {
+      "resourceType": "Encounter",
+      "id": "enc-wrbulk-024",
+      "status": "finished",
+      "class": {
+        "code": "AMB",
+        "display": "Ambulatory"
+      },
+      "type": [
+        {
+          "text": "Podiatry follow-up"
+        }
+      ],
+      "period": {
+        "start": "2013-04-25T09:15:00-04:00"
+      },
+      "reasonCode": [
+        {
+          "text": "Diabetic foot exam"
+        }
+      ],
+      "extension": [
+        {
+          "url": "dispositionDx",
+          "valueString": "Normal monofilament sensation, no ulceration, nails trimmed."
+        }
+      ]
+    },
+    {
+      "resourceType": "Encounter",
+      "id": "enc-wrbulk-025",
+      "status": "finished",
+      "class": {
+        "code": "AMB",
+        "display": "Ambulatory"
+      },
+      "type": [
+        {
+          "text": "Dental follow-up"
+        }
+      ],
+      "period": {
+        "start": "2015-11-17T14:00:00-04:00"
+      },
+      "reasonCode": [
+        {
+          "text": "Routine cleaning and exam"
+        }
+      ],
+      "extension": [
+        {
+          "url": "dispositionDx",
+          "valueString": "Two small cavities filled, otherwise healthy dentition."
+        }
+      ]
+    },
+    {
+      "resourceType": "Encounter",
+      "id": "enc-wrbulk-026",
+      "status": "finished",
+      "class": {
+        "code": "AMB",
+        "display": "Ambulatory"
+      },
+      "type": [
+        {
+          "text": "Audiology follow-up"
+        }
+      ],
+      "period": {
+        "start": "2017-02-09T11:20:00-04:00"
+      },
+      "reasonCode": [
+        {
+          "text": "Hearing evaluation"
+        }
+      ],
+      "extension": [
+        {
+          "url": "dispositionDx",
+          "valueString": "Mild high-frequency sensorineural hearing loss, hearing aids discussed."
+        }
+      ]
+    },
+    {
+      "resourceType": "Encounter",
+      "id": "enc-wrbulk-027",
+      "status": "finished",
+      "class": {
+        "code": "AMB",
+        "display": "Ambulatory"
+      },
+      "type": [
+        {
+          "text": "Urology follow-up"
+        }
+      ],
+      "period": {
+        "start": "2018-06-14T10:45:00-04:00"
+      },
+      "reasonCode": [
+        {
+          "text": "BPH monitoring"
+        }
+      ],
+      "extension": [
+        {
+          "url": "dispositionDx",
+          "valueString": "PSA stable, mild LUTS, continue tamsulosin, reassess in 1 year."
+        }
+      ]
+    },
+    {
+      "resourceType": "Encounter",
+      "id": "enc-wrbulk-028",
+      "status": "finished",
+      "class": {
+        "code": "AMB",
+        "display": "Ambulatory"
+      },
+      "type": [
+        {
+          "text": "Ophthalmology follow-up"
+        }
+      ],
+      "period": {
+        "start": "2020-09-21T15:00:00-04:00"
+      },
+      "reasonCode": [
+        {
+          "text": "Cataract surveillance"
+        }
+      ],
+      "extension": [
+        {
+          "url": "dispositionDx",
+          "valueString": "Cataracts progressing slowly, surgery not yet indicated."
+        }
+      ]
+    },
+    {
+      "resourceType": "Encounter",
+      "id": "enc-wrbulk-029",
+      "status": "finished",
+      "class": {
+        "code": "AMB",
+        "display": "Ambulatory"
+      },
+      "type": [
+        {
+          "text": "Podiatry follow-up"
+        }
+      ],
+      "period": {
+        "start": "2021-12-06T09:30:00-04:00"
+      },
+      "reasonCode": [
+        {
+          "text": "Plantar fasciitis follow-up"
+        }
+      ],
+      "extension": [
+        {
+          "url": "dispositionDx",
+          "valueString": "Improved with stretching and orthotics, symptoms resolved."
+        }
+      ]
+    },
+    {
+      "resourceType": "Encounter",
+      "id": "enc-wrbulk-030",
+      "status": "finished",
+      "class": {
+        "code": "AMB",
+        "display": "Ambulatory"
+      },
+      "type": [
+        {
+          "text": "Dermatology follow-up"
+        }
+      ],
+      "period": {
+        "start": "2022-08-19T13:45:00-04:00"
+      },
+      "reasonCode": [
+        {
+          "text": "Mole check"
+        }
+      ],
+      "extension": [
+        {
+          "url": "dispositionDx",
+          "valueString": "Benign nevus, no dysplastic features, routine surveillance continues."
+        }
+      ]
+    },
+    {
+      "resourceType": "Encounter",
+      "id": "enc-wrbulk-031",
+      "status": "finished",
+      "class": {
+        "code": "AMB",
+        "display": "Ambulatory"
+      },
+      "type": [
+        {
+          "text": "Audiology follow-up"
+        }
+      ],
+      "period": {
+        "start": "2024-05-02T10:10:00-04:00"
+      },
+      "reasonCode": [
+        {
+          "text": "Hearing aid adjustment"
+        }
+      ],
+      "extension": [
+        {
+          "url": "dispositionDx",
+          "valueString": "Hearing aids reprogrammed, patient satisfied with amplification."
+        }
+      ]
+    },
+    {
+      "resourceType": "Encounter",
+      "id": "enc-wrbulk-032",
+      "status": "finished",
+      "class": {
+        "code": "EMER",
+        "display": "Emergency"
+      },
+      "type": [
+        {
+          "text": "ED visit \u2014 Fall, minor injury"
+        }
+      ],
+      "period": {
+        "start": "2011-06-22T16:00:00-04:00"
+      },
+      "reasonCode": [
+        {
+          "text": "Ground-level fall in garage"
+        }
+      ],
+      "extension": [
+        {
+          "url": "dispositionDx",
+          "valueString": "Minor contusions, no fracture on X-ray, discharged same day."
+        }
+      ]
+    },
+    {
+      "resourceType": "Encounter",
+      "id": "enc-wrbulk-033",
+      "status": "finished",
+      "class": {
+        "code": "EMER",
+        "display": "Emergency"
+      },
+      "type": [
+        {
+          "text": "ED visit \u2014 Laceration repair"
+        }
+      ],
+      "period": {
+        "start": "2016-08-30T20:15:00-04:00"
+      },
+      "reasonCode": [
+        {
+          "text": "Deep laceration to right forearm from tool slip"
+        }
+      ],
+      "extension": [
+        {
+          "url": "dispositionDx",
+          "valueString": "5 cm laceration repaired with sutures, tetanus updated, discharged."
+        }
+      ]
+    },
+    {
+      "resourceType": "Encounter",
+      "id": "enc-wrbulk-034",
+      "status": "finished",
+      "class": {
+        "code": "EMER",
+        "display": "Emergency"
+      },
+      "type": [
+        {
+          "text": "ED visit \u2014 Slip on ice"
+        }
+      ],
+      "period": {
+        "start": "2019-01-27T07:40:00-04:00"
+      },
+      "reasonCode": [
+        {
+          "text": "Fell on icy driveway, wrist pain"
+        }
+      ],
+      "extension": [
+        {
+          "url": "dispositionDx",
+          "valueString": "Nondisplaced wrist fracture, splinted, orthopedic follow-up arranged."
+        }
+      ]
+    },
+    {
+      "resourceType": "Encounter",
+      "id": "enc-wrbulk-035",
+      "status": "finished",
+      "class": {
+        "code": "AMB",
+        "display": "Ambulatory"
+      },
+      "type": [
+        {
+          "text": "Urgent care \u2014 sinusitis"
+        }
+      ],
+      "period": {
+        "start": "2021-04-08T10:20:00-04:00"
+      },
+      "reasonCode": [
+        {
+          "text": "Facial pressure, congestion x5 days"
+        }
+      ],
+      "extension": [
+        {
+          "url": "dispositionDx",
+          "valueString": "Acute sinusitis, amoxicillin course prescribed, resolved."
+        }
+      ]
+    },
+    {
+      "resourceType": "Encounter",
+      "id": "enc-wrbulk-036",
+      "status": "finished",
+      "class": {
+        "code": "AMB",
+        "display": "Ambulatory"
+      },
+      "type": [
+        {
+          "text": "Urology follow-up"
+        }
+      ],
+      "period": {
+        "start": "2024-10-15T09:40:00-04:00"
+      },
+      "reasonCode": [
+        {
+          "text": "Annual BPH monitoring"
+        }
+      ],
+      "extension": [
+        {
+          "url": "dispositionDx",
+          "valueString": "PSA stable at 2.3, LUTS unchanged, continue tamsulosin."
+        }
+      ]
+    }
+  ],
+  "observationsLabs": [
+    {
+      "resourceType": "Observation",
+      "id": "lab-wrbulk-001",
+      "status": "final",
+      "code": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "718-7"
+          }
+        ],
+        "text": "Hemoglobin"
+      },
+      "effectiveDateTime": "2007-04-12T08:30:00-04:00",
+      "valueQuantity": {
+        "value": 14.6,
+        "unit": "g/dL"
+      },
+      "referenceRange": [
+        {
+          "low": {
+            "value": 13.0
+          },
+          "high": {
+            "value": 17.0
+          }
+        }
+      ]
+    },
+    {
+      "resourceType": "Observation",
+      "id": "lab-wrbulk-002",
+      "status": "final",
+      "code": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "6690-2"
+          }
+        ],
+        "text": "WBC count"
+      },
+      "effectiveDateTime": "2007-04-12T08:30:00-04:00",
+      "valueQuantity": {
+        "value": 6.9,
+        "unit": "x10^3/uL"
+      },
+      "referenceRange": [
+        {
+          "low": {
+            "value": 4.0
+          },
+          "high": {
+            "value": 11.0
+          }
+        }
+      ]
+    },
+    {
+      "resourceType": "Observation",
+      "id": "lab-wrbulk-003",
+      "status": "final",
+      "code": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "777-3"
+          }
+        ],
+        "text": "Platelet count"
+      },
+      "effectiveDateTime": "2007-04-12T08:30:00-04:00",
+      "valueQuantity": {
+        "value": 245,
+        "unit": "x10^3/uL"
+      },
+      "referenceRange": [
+        {
+          "low": {
+            "value": 150
+          },
+          "high": {
+            "value": 400
+          }
+        }
+      ]
+    },
+    {
+      "resourceType": "Observation",
+      "id": "lab-wrbulk-004",
+      "status": "final",
+      "code": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "2951-2"
+          }
+        ],
+        "text": "Sodium"
+      },
+      "effectiveDateTime": "2007-04-12T08:30:00-04:00",
+      "valueQuantity": {
+        "value": 140,
+        "unit": "mmol/L"
+      },
+      "referenceRange": [
+        {
+          "low": {
+            "value": 135
+          },
+          "high": {
+            "value": 145
+          }
+        }
+      ]
+    },
+    {
+      "resourceType": "Observation",
+      "id": "lab-wrbulk-005",
+      "status": "final",
+      "code": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "2160-0"
+          }
+        ],
+        "text": "Creatinine"
+      },
+      "effectiveDateTime": "2007-04-12T08:30:00-04:00",
+      "valueQuantity": {
+        "value": 0.9,
+        "unit": "mg/dL"
+      },
+      "referenceRange": [
+        {
+          "low": {
+            "value": 0.7
+          },
+          "high": {
+            "value": 1.3
+          }
+        }
+      ]
+    },
+    {
+      "resourceType": "Observation",
+      "id": "lab-wrbulk-006",
+      "status": "final",
+      "code": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "2093-3"
+          }
+        ],
+        "text": "Total cholesterol"
+      },
+      "effectiveDateTime": "2007-04-12T08:30:00-04:00",
+      "valueQuantity": {
+        "value": 198,
+        "unit": "mg/dL"
+      },
+      "referenceRange": [
+        {
+          "high": {
+            "value": 200
+          }
+        }
+      ]
+    },
+    {
+      "resourceType": "Observation",
+      "id": "lab-wrbulk-007",
+      "status": "final",
+      "code": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "718-7"
+          }
+        ],
+        "text": "Hemoglobin"
+      },
+      "effectiveDateTime": "2009-11-02T08:30:00-04:00",
+      "valueQuantity": {
+        "value": 14.3,
+        "unit": "g/dL"
+      },
+      "referenceRange": [
+        {
+          "low": {
+            "value": 13.0
+          },
+          "high": {
+            "value": 17.0
+          }
+        }
+      ]
+    },
+    {
+      "resourceType": "Observation",
+      "id": "lab-wrbulk-008",
+      "status": "final",
+      "code": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "6690-2"
+          }
+        ],
+        "text": "WBC count"
+      },
+      "effectiveDateTime": "2009-11-02T08:30:00-04:00",
+      "valueQuantity": {
+        "value": 7.4,
+        "unit": "x10^3/uL"
+      },
+      "referenceRange": [
+        {
+          "low": {
+            "value": 4.0
+          },
+          "high": {
+            "value": 11.0
+          }
+        }
+      ]
+    },
+    {
+      "resourceType": "Observation",
+      "id": "lab-wrbulk-009",
+      "status": "final",
+      "code": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "2823-3"
+          }
+        ],
+        "text": "Potassium"
+      },
+      "effectiveDateTime": "2009-11-02T08:30:00-04:00",
+      "valueQuantity": {
+        "value": 4.1,
+        "unit": "mmol/L"
+      },
+      "referenceRange": [
+        {
+          "low": {
+            "value": 3.5
+          },
+          "high": {
+            "value": 5.1
+          }
+        }
+      ]
+    },
+    {
+      "resourceType": "Observation",
+      "id": "lab-wrbulk-010",
+      "status": "final",
+      "code": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "3094-0"
+          }
+        ],
+        "text": "BUN"
+      },
+      "effectiveDateTime": "2009-11-02T08:30:00-04:00",
+      "valueQuantity": {
+        "value": 15,
+        "unit": "mg/dL"
+      },
+      "referenceRange": [
+        {
+          "low": {
+            "value": 7
+          },
+          "high": {
+            "value": 20
+          }
+        }
+      ]
+    },
+    {
+      "resourceType": "Observation",
+      "id": "lab-wrbulk-011",
+      "status": "final",
+      "code": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "13457-7"
+          }
+        ],
+        "text": "LDL cholesterol"
+      },
+      "effectiveDateTime": "2009-11-02T08:30:00-04:00",
+      "valueQuantity": {
+        "value": 108,
+        "unit": "mg/dL"
+      },
+      "referenceRange": [
+        {
+          "high": {
+            "value": 100
+          }
+        }
+      ],
+      "interpretation": [
+        {
+          "coding": [
+            {
+              "code": "H"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "resourceType": "Observation",
+      "id": "lab-wrbulk-012",
+      "status": "final",
+      "code": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "2085-9"
+          }
+        ],
+        "text": "HDL cholesterol"
+      },
+      "effectiveDateTime": "2009-11-02T08:30:00-04:00",
+      "valueQuantity": {
+        "value": 46,
+        "unit": "mg/dL"
+      },
+      "referenceRange": [
+        {
+          "low": {
+            "value": 40
+          }
+        }
+      ]
+    },
+    {
+      "resourceType": "Observation",
+      "id": "lab-wrbulk-013",
+      "status": "final",
+      "code": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "718-7"
+          }
+        ],
+        "text": "Hemoglobin"
+      },
+      "effectiveDateTime": "2011-03-22T08:30:00-04:00",
+      "valueQuantity": {
+        "value": 14.1,
+        "unit": "g/dL"
+      },
+      "referenceRange": [
+        {
+          "low": {
+            "value": 13.0
+          },
+          "high": {
+            "value": 17.0
+          }
+        }
+      ]
+    },
+    {
+      "resourceType": "Observation",
+      "id": "lab-wrbulk-014",
+      "status": "final",
+      "code": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "1558-6"
+          }
+        ],
+        "text": "Glucose, fasting"
+      },
+      "effectiveDateTime": "2011-03-22T08:30:00-04:00",
+      "valueQuantity": {
+        "value": 97,
+        "unit": "mg/dL"
+      },
+      "referenceRange": [
+        {
+          "low": {
+            "value": 70
+          },
+          "high": {
+            "value": 99
+          }
+        }
+      ]
+    },
+    {
+      "resourceType": "Observation",
+      "id": "lab-wrbulk-015",
+      "status": "final",
+      "code": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "2075-0"
+          }
+        ],
+        "text": "Chloride"
+      },
+      "effectiveDateTime": "2011-03-22T08:30:00-04:00",
+      "valueQuantity": {
+        "value": 103,
+        "unit": "mmol/L"
+      },
+      "referenceRange": [
+        {
+          "low": {
+            "value": 98
+          },
+          "high": {
+            "value": 107
+          }
+        }
+      ]
+    },
+    {
+      "resourceType": "Observation",
+      "id": "lab-wrbulk-016",
+      "status": "final",
+      "code": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "2028-9"
+          }
+        ],
+        "text": "CO2"
+      },
+      "effectiveDateTime": "2011-03-22T08:30:00-04:00",
+      "valueQuantity": {
+        "value": 26,
+        "unit": "mmol/L"
+      },
+      "referenceRange": [
+        {
+          "low": {
+            "value": 22
+          },
+          "high": {
+            "value": 29
+          }
+        }
+      ]
+    },
+    {
+      "resourceType": "Observation",
+      "id": "lab-wrbulk-017",
+      "status": "final",
+      "code": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "2571-8"
+          }
+        ],
+        "text": "Triglycerides"
+      },
+      "effectiveDateTime": "2011-03-22T08:30:00-04:00",
+      "valueQuantity": {
+        "value": 142,
+        "unit": "mg/dL"
+      },
+      "referenceRange": [
+        {
+          "high": {
+            "value": 150
+          }
+        }
+      ]
+    },
+    {
+      "resourceType": "Observation",
+      "id": "lab-wrbulk-018",
+      "status": "final",
+      "code": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "3016-3"
+          }
+        ],
+        "text": "TSH"
+      },
+      "effectiveDateTime": "2011-03-22T08:30:00-04:00",
+      "valueQuantity": {
+        "value": 2.4,
+        "unit": "mIU/L"
+      },
+      "referenceRange": [
+        {
+          "low": {
+            "value": 0.4
+          },
+          "high": {
+            "value": 4.5
+          }
+        }
+      ]
+    },
+    {
+      "resourceType": "Observation",
+      "id": "lab-wrbulk-019",
+      "status": "final",
+      "code": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "718-7"
+          }
+        ],
+        "text": "Hemoglobin"
+      },
+      "effectiveDateTime": "2013-08-14T08:30:00-04:00",
+      "valueQuantity": {
+        "value": 13.9,
+        "unit": "g/dL"
+      },
+      "referenceRange": [
+        {
+          "low": {
+            "value": 13.0
+          },
+          "high": {
+            "value": 17.0
+          }
+        }
+      ]
+    },
+    {
+      "resourceType": "Observation",
+      "id": "lab-wrbulk-020",
+      "status": "final",
+      "code": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "6690-2"
+          }
+        ],
+        "text": "WBC count"
+      },
+      "effectiveDateTime": "2013-08-14T08:30:00-04:00",
+      "valueQuantity": {
+        "value": 6.2,
+        "unit": "x10^3/uL"
+      },
+      "referenceRange": [
+        {
+          "low": {
+            "value": 4.0
+          },
+          "high": {
+            "value": 11.0
+          }
+        }
+      ]
+    },
+    {
+      "resourceType": "Observation",
+      "id": "lab-wrbulk-021",
+      "status": "final",
+      "code": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "777-3"
+          }
+        ],
+        "text": "Platelet count"
+      },
+      "effectiveDateTime": "2013-08-14T08:30:00-04:00",
+      "valueQuantity": {
+        "value": 268,
+        "unit": "x10^3/uL"
+      },
+      "referenceRange": [
+        {
+          "low": {
+            "value": 150
+          },
+          "high": {
+            "value": 400
+          }
+        }
+      ]
+    },
+    {
+      "resourceType": "Observation",
+      "id": "lab-wrbulk-022",
+      "status": "final",
+      "code": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "2160-0"
+          }
+        ],
+        "text": "Creatinine"
+      },
+      "effectiveDateTime": "2013-08-14T08:30:00-04:00",
+      "valueQuantity": {
+        "value": 1.0,
+        "unit": "mg/dL"
+      },
+      "referenceRange": [
+        {
+          "low": {
+            "value": 0.7
+          },
+          "high": {
+            "value": 1.3
+          }
+        }
+      ]
+    },
+    {
+      "resourceType": "Observation",
+      "id": "lab-wrbulk-023",
+      "status": "final",
+      "code": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "4548-4"
+          }
+        ],
+        "text": "Hemoglobin A1c"
+      },
+      "effectiveDateTime": "2013-08-14T08:30:00-04:00",
+      "valueQuantity": {
+        "value": 5.6,
+        "unit": "%"
+      },
+      "referenceRange": [
+        {
+          "high": {
+            "value": 5.7
+          }
+        }
+      ]
+    },
+    {
+      "resourceType": "Observation",
+      "id": "lab-wrbulk-024",
+      "status": "final",
+      "code": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "62292-8"
+          }
+        ],
+        "text": "Vitamin D, 25-OH"
+      },
+      "effectiveDateTime": "2013-08-14T08:30:00-04:00",
+      "valueQuantity": {
+        "value": 27,
+        "unit": "ng/mL"
+      },
+      "referenceRange": [
+        {
+          "low": {
+            "value": 30
+          }
+        }
+      ],
+      "interpretation": [
+        {
+          "coding": [
+            {
+              "code": "L"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "resourceType": "Observation",
+      "id": "lab-wrbulk-025",
+      "status": "final",
+      "code": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "718-7"
+          }
+        ],
+        "text": "Hemoglobin"
+      },
+      "effectiveDateTime": "2017-06-02T08:30:00-04:00",
+      "valueQuantity": {
+        "value": 13.7,
+        "unit": "g/dL"
+      },
+      "referenceRange": [
+        {
+          "low": {
+            "value": 13.0
+          },
+          "high": {
+            "value": 17.0
+          }
+        }
+      ]
+    },
+    {
+      "resourceType": "Observation",
+      "id": "lab-wrbulk-026",
+      "status": "final",
+      "code": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "2951-2"
+          }
+        ],
+        "text": "Sodium"
+      },
+      "effectiveDateTime": "2017-06-02T08:30:00-04:00",
+      "valueQuantity": {
+        "value": 139,
+        "unit": "mmol/L"
+      },
+      "referenceRange": [
+        {
+          "low": {
+            "value": 135
+          },
+          "high": {
+            "value": 145
+          }
+        }
+      ]
+    },
+    {
+      "resourceType": "Observation",
+      "id": "lab-wrbulk-027",
+      "status": "final",
+      "code": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "2823-3"
+          }
+        ],
+        "text": "Potassium"
+      },
+      "effectiveDateTime": "2017-06-02T08:30:00-04:00",
+      "valueQuantity": {
+        "value": 4.3,
+        "unit": "mmol/L"
+      },
+      "referenceRange": [
+        {
+          "low": {
+            "value": 3.5
+          },
+          "high": {
+            "value": 5.1
+          }
+        }
+      ]
+    },
+    {
+      "resourceType": "Observation",
+      "id": "lab-wrbulk-028",
+      "status": "final",
+      "code": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "1558-6"
+          }
+        ],
+        "text": "Glucose, fasting"
+      },
+      "effectiveDateTime": "2017-06-02T08:30:00-04:00",
+      "valueQuantity": {
+        "value": 118,
+        "unit": "mg/dL"
+      },
+      "referenceRange": [
+        {
+          "low": {
+            "value": 70
+          },
+          "high": {
+            "value": 99
+          }
+        }
+      ],
+      "interpretation": [
+        {
+          "coding": [
+            {
+              "code": "H"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "resourceType": "Observation",
+      "id": "lab-wrbulk-029",
+      "status": "final",
+      "code": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "13457-7"
+          }
+        ],
+        "text": "LDL cholesterol"
+      },
+      "effectiveDateTime": "2017-06-02T08:30:00-04:00",
+      "valueQuantity": {
+        "value": 96,
+        "unit": "mg/dL"
+      },
+      "referenceRange": [
+        {
+          "high": {
+            "value": 100
+          }
+        }
+      ]
+    },
+    {
+      "resourceType": "Observation",
+      "id": "lab-wrbulk-030",
+      "status": "final",
+      "code": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "4548-4"
+          }
+        ],
+        "text": "Hemoglobin A1c"
+      },
+      "effectiveDateTime": "2017-06-02T08:30:00-04:00",
+      "valueQuantity": {
+        "value": 6.6,
+        "unit": "%"
+      },
+      "referenceRange": [
+        {
+          "high": {
+            "value": 5.7
+          }
+        }
+      ],
+      "interpretation": [
+        {
+          "coding": [
+            {
+              "code": "H"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "resourceType": "Observation",
+      "id": "lab-wrbulk-031",
+      "status": "final",
+      "code": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "718-7"
+          }
+        ],
+        "text": "Hemoglobin"
+      },
+      "effectiveDateTime": "2020-02-28T08:30:00-04:00",
+      "valueQuantity": {
+        "value": 14.0,
+        "unit": "g/dL"
+      },
+      "referenceRange": [
+        {
+          "low": {
+            "value": 13.0
+          },
+          "high": {
+            "value": 17.0
+          }
+        }
+      ]
+    },
+    {
+      "resourceType": "Observation",
+      "id": "lab-wrbulk-032",
+      "status": "final",
+      "code": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "6690-2"
+          }
+        ],
+        "text": "WBC count"
+      },
+      "effectiveDateTime": "2020-02-28T08:30:00-04:00",
+      "valueQuantity": {
+        "value": 7.1,
+        "unit": "x10^3/uL"
+      },
+      "referenceRange": [
+        {
+          "low": {
+            "value": 4.0
+          },
+          "high": {
+            "value": 11.0
+          }
+        }
+      ]
+    },
+    {
+      "resourceType": "Observation",
+      "id": "lab-wrbulk-033",
+      "status": "final",
+      "code": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "2160-0"
+          }
+        ],
+        "text": "Creatinine"
+      },
+      "effectiveDateTime": "2020-02-28T08:30:00-04:00",
+      "valueQuantity": {
+        "value": 1.1,
+        "unit": "mg/dL"
+      },
+      "referenceRange": [
+        {
+          "low": {
+            "value": 0.7
+          },
+          "high": {
+            "value": 1.3
+          }
+        }
+      ]
+    },
+    {
+      "resourceType": "Observation",
+      "id": "lab-wrbulk-034",
+      "status": "final",
+      "code": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "3016-3"
+          }
+        ],
+        "text": "TSH"
+      },
+      "effectiveDateTime": "2020-02-28T08:30:00-04:00",
+      "valueQuantity": {
+        "value": 3.1,
+        "unit": "mIU/L"
+      },
+      "referenceRange": [
+        {
+          "low": {
+            "value": 0.4
+          },
+          "high": {
+            "value": 4.5
+          }
+        }
+      ]
+    },
+    {
+      "resourceType": "Observation",
+      "id": "lab-wrbulk-035",
+      "status": "final",
+      "code": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "2276-4"
+          }
+        ],
+        "text": "Ferritin"
+      },
+      "effectiveDateTime": "2020-02-28T08:30:00-04:00",
+      "valueQuantity": {
+        "value": 132,
+        "unit": "ng/mL"
+      },
+      "referenceRange": [
+        {
+          "low": {
+            "value": 20
+          },
+          "high": {
+            "value": 250
+          }
+        }
+      ]
+    },
+    {
+      "resourceType": "Observation",
+      "id": "lab-wrbulk-036",
+      "status": "final",
+      "code": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "2888-6"
+          }
+        ],
+        "text": "Urine protein"
+      },
+      "effectiveDateTime": "2020-02-28T08:30:00-04:00",
+      "valueQuantity": {
+        "value": 6,
+        "unit": "mg/dL"
+      },
+      "referenceRange": [
+        {
+          "high": {
+            "value": 20
+          }
+        }
+      ]
+    },
+    {
+      "resourceType": "Observation",
+      "id": "lab-wrbulk-037",
+      "status": "final",
+      "code": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "718-7"
+          }
+        ],
+        "text": "Hemoglobin"
+      },
+      "effectiveDateTime": "2023-01-17T08:30:00-04:00",
+      "valueQuantity": {
+        "value": 13.6,
+        "unit": "g/dL"
+      },
+      "referenceRange": [
+        {
+          "low": {
+            "value": 13.0
+          },
+          "high": {
+            "value": 17.0
+          }
+        }
+      ]
+    },
+    {
+      "resourceType": "Observation",
+      "id": "lab-wrbulk-038",
+      "status": "final",
+      "code": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "777-3"
+          }
+        ],
+        "text": "Platelet count"
+      },
+      "effectiveDateTime": "2023-01-17T08:30:00-04:00",
+      "valueQuantity": {
+        "value": 231,
+        "unit": "x10^3/uL"
+      },
+      "referenceRange": [
+        {
+          "low": {
+            "value": 150
+          },
+          "high": {
+            "value": 400
+          }
+        }
+      ]
+    },
+    {
+      "resourceType": "Observation",
+      "id": "lab-wrbulk-039",
+      "status": "final",
+      "code": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "2160-0"
+          }
+        ],
+        "text": "Creatinine"
+      },
+      "effectiveDateTime": "2023-01-17T08:30:00-04:00",
+      "valueQuantity": {
+        "value": 1.2,
+        "unit": "mg/dL"
+      },
+      "referenceRange": [
+        {
+          "low": {
+            "value": 0.7
+          },
+          "high": {
+            "value": 1.3
+          }
+        }
+      ]
+    },
+    {
+      "resourceType": "Observation",
+      "id": "lab-wrbulk-040",
+      "status": "final",
+      "code": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "4548-4"
+          }
+        ],
+        "text": "Hemoglobin A1c"
+      },
+      "effectiveDateTime": "2023-01-17T08:30:00-04:00",
+      "valueQuantity": {
+        "value": 7.1,
+        "unit": "%"
+      },
+      "referenceRange": [
+        {
+          "high": {
+            "value": 5.7
+          }
+        }
+      ],
+      "interpretation": [
+        {
+          "coding": [
+            {
+              "code": "H"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "diagnosticReports": [
+    {
+      "resourceType": "DiagnosticReport",
+      "id": "dr-wrbulk-001",
+      "status": "final",
+      "category": [
+        {
+          "text": "Radiology"
+        }
+      ],
+      "code": {
+        "text": "Right ankle X-ray, 3 views"
+      },
+      "effectiveDateTime": "2011-06-22T16:20:00-04:00",
+      "conclusion": "No acute fracture or dislocation. Soft tissue swelling consistent with sprain."
+    },
+    {
+      "resourceType": "DiagnosticReport",
+      "id": "dr-wrbulk-002",
+      "status": "final",
+      "category": [
+        {
+          "text": "Radiology"
+        }
+      ],
+      "code": {
+        "text": "Right forearm X-ray"
+      },
+      "effectiveDateTime": "2016-08-30T20:30:00-04:00",
+      "conclusion": "No fracture. Soft tissue laceration overlying, no retained foreign body."
+    },
+    {
+      "resourceType": "DiagnosticReport",
+      "id": "dr-wrbulk-003",
+      "status": "final",
+      "category": [
+        {
+          "text": "Radiology"
+        }
+      ],
+      "code": {
+        "text": "Dental panoramic X-ray"
+      },
+      "effectiveDateTime": "2014-09-15T09:00:00-04:00",
+      "conclusion": "No impacted teeth. Mild generalized bone loss consistent with age. Two carious lesions noted."
+    },
+    {
+      "resourceType": "DiagnosticReport",
+      "id": "dr-wrbulk-004",
+      "status": "final",
+      "category": [
+        {
+          "text": "Radiology"
+        }
+      ],
+      "code": {
+        "text": "Left wrist X-ray, 3 views"
+      },
+      "effectiveDateTime": "2019-01-27T08:10:00-04:00",
+      "conclusion": "Nondisplaced distal radius fracture. Recommend splinting and orthopedic follow-up."
+    },
+    {
+      "resourceType": "DiagnosticReport",
+      "id": "dr-wrbulk-005",
+      "status": "final",
+      "category": [
+        {
+          "text": "Radiology"
+        }
+      ],
+      "code": {
+        "text": "Low-dose CT chest, lung cancer screening"
+      },
+      "effectiveDateTime": "2020-11-04T10:30:00-04:00",
+      "conclusion": "No suspicious pulmonary nodules. Lung-RADS 1. Mild emphysematous changes, stable."
+    },
+    {
+      "resourceType": "DiagnosticReport",
+      "id": "dr-wrbulk-006",
+      "status": "final",
+      "category": [
+        {
+          "text": "Radiology"
+        }
+      ],
+      "code": {
+        "text": "Right shoulder X-ray, 2 views"
+      },
+      "effectiveDateTime": "2013-04-30T13:00:00-04:00",
+      "conclusion": "No fracture or dislocation. Mild degenerative changes of the AC joint."
+    },
+    {
+      "resourceType": "DiagnosticReport",
+      "id": "dr-wrbulk-007",
+      "status": "final",
+      "category": [
+        {
+          "text": "Radiology"
+        }
+      ],
+      "code": {
+        "text": "Lumbar spine X-ray, 2 views"
+      },
+      "effectiveDateTime": "2022-03-11T11:15:00-04:00",
+      "conclusion": "Mild degenerative disc disease L4-L5. No acute compression fracture."
+    },
+    {
+      "resourceType": "DiagnosticReport",
+      "id": "dr-wrbulk-008",
+      "status": "final",
+      "category": [
+        {
+          "text": "ECG"
+        }
+      ],
+      "code": {
+        "text": "12-lead ECG"
+      },
+      "effectiveDateTime": "2008-04-12T09:15:00-04:00",
+      "conclusion": "Normal sinus rhythm, 68 bpm. No ST-T wave abnormalities. Normal intervals."
+    },
+    {
+      "resourceType": "DiagnosticReport",
+      "id": "dr-wrbulk-009",
+      "status": "final",
+      "category": [
+        {
+          "text": "ECG"
+        }
+      ],
+      "code": {
+        "text": "12-lead ECG"
+      },
+      "effectiveDateTime": "2012-07-02T13:45:00-04:00",
+      "conclusion": "Normal sinus rhythm, 72 bpm. No conduction abnormality."
+    },
+    {
+      "resourceType": "DiagnosticReport",
+      "id": "dr-wrbulk-010",
+      "status": "final",
+      "category": [
+        {
+          "text": "ECG"
+        }
+      ],
+      "code": {
+        "text": "12-lead ECG"
+      },
+      "effectiveDateTime": "2016-03-19T14:35:00-04:00",
+      "conclusion": "Sinus rhythm, 74 bpm. Nonspecific T-wave changes, no prior comparison available, deemed benign."
+    },
+    {
+      "resourceType": "DiagnosticReport",
+      "id": "dr-wrbulk-011",
+      "status": "final",
+      "category": [
+        {
+          "text": "ECG"
+        }
+      ],
+      "code": {
+        "text": "12-lead ECG"
+      },
+      "effectiveDateTime": "2019-05-30T13:25:00-04:00",
+      "conclusion": "Normal sinus rhythm, 70 bpm. Normal axis and intervals. No LBBB."
+    },
+    {
+      "resourceType": "DiagnosticReport",
+      "id": "dr-wrbulk-012",
+      "status": "final",
+      "category": [
+        {
+          "text": "ECG"
+        }
+      ],
+      "code": {
+        "text": "12-lead ECG"
+      },
+      "effectiveDateTime": "2022-08-19T13:55:00-04:00",
+      "conclusion": "Sinus rhythm, 76 bpm. Normal intervals, no bundle branch block. Baseline tracing prior to LBBB onset."
+    },
+    {
+      "resourceType": "DiagnosticReport",
+      "id": "dr-wrbulk-013",
+      "status": "final",
+      "category": [
+        {
+          "text": "Microbiology"
+        }
+      ],
+      "code": {
+        "text": "Rapid strep / throat culture"
+      },
+      "effectiveDateTime": "2010-02-18T10:30:00-04:00",
+      "conclusion": "Group A Streptococcus, culture confirmed. Treated with amoxicillin, resolved."
+    },
+    {
+      "resourceType": "DiagnosticReport",
+      "id": "dr-wrbulk-014",
+      "status": "final",
+      "category": [
+        {
+          "text": "Microbiology"
+        }
+      ],
+      "code": {
+        "text": "Sputum culture"
+      },
+      "effectiveDateTime": "2013-04-25T09:20:00-04:00",
+      "conclusion": "Normal oropharyngeal flora, no pathogenic organisms isolated."
+    },
+    {
+      "resourceType": "DiagnosticReport",
+      "id": "dr-wrbulk-015",
+      "status": "final",
+      "category": [
+        {
+          "text": "Microbiology"
+        }
+      ],
+      "code": {
+        "text": "Wound culture"
+      },
+      "effectiveDateTime": "2015-06-09T14:10:00-04:00",
+      "conclusion": "Staphylococcus aureus, methicillin-sensitive. Treated with cephalexin, wound healed."
+    },
+    {
+      "resourceType": "DiagnosticReport",
+      "id": "dr-wrbulk-016",
+      "status": "final",
+      "category": [
+        {
+          "text": "Microbiology"
+        }
+      ],
+      "code": {
+        "text": "Stool culture"
+      },
+      "effectiveDateTime": "2018-07-22T11:00:00-04:00",
+      "conclusion": "No Salmonella, Shigella, or Campylobacter isolated. Consistent with viral gastroenteritis."
+    },
+    {
+      "resourceType": "DiagnosticReport",
+      "id": "dr-wrbulk-017",
+      "status": "final",
+      "category": [
+        {
+          "text": "Microbiology"
+        }
+      ],
+      "code": {
+        "text": "Skin/wound culture"
+      },
+      "effectiveDateTime": "2020-10-12T16:00:00-04:00",
+      "conclusion": "Rare skin flora, no significant growth. Contact dermatitis, not infectious."
+    }
+  ],
+  "medicationRequests": [
+    {
+      "resourceType": "MedicationRequest",
+      "id": "med-wrbulk-001",
+      "status": "active",
+      "medicationCodeableConcept": {
+        "text": "Multivitamin tablet"
+      },
+      "dosageInstruction": [
+        {
+          "text": "1 tablet PO daily"
+        }
+      ],
+      "authoredOn": "2018-01-10",
+      "reasonCode": [
+        {
+          "text": "General health maintenance"
+        }
+      ]
+    },
+    {
+      "resourceType": "MedicationRequest",
+      "id": "med-wrbulk-002",
+      "status": "active",
+      "medicationCodeableConcept": {
+        "text": "Vitamin D3 2000 IU capsule"
+      },
+      "dosageInstruction": [
+        {
+          "text": "2000 IU PO daily"
+        }
+      ],
+      "authoredOn": "2020-11-04",
+      "reasonCode": [
+        {
+          "text": "Vitamin D insufficiency"
+        }
+      ]
+    },
+    {
+      "resourceType": "MedicationRequest",
+      "id": "med-wrbulk-003",
+      "status": "active",
+      "medicationCodeableConcept": {
+        "text": "Loratadine 10 mg tablet"
+      },
+      "dosageInstruction": [
+        {
+          "text": "10 mg PO daily PRN"
+        }
+      ],
+      "authoredOn": "2019-04-02",
+      "reasonCode": [
+        {
+          "text": "Seasonal allergic rhinitis"
+        }
+      ]
+    },
+    {
+      "resourceType": "MedicationRequest",
+      "id": "med-wrbulk-004",
+      "status": "active",
+      "medicationCodeableConcept": {
+        "text": "Omeprazole 20 mg capsule"
+      },
+      "dosageInstruction": [
+        {
+          "text": "20 mg PO daily"
+        }
+      ],
+      "authoredOn": "2016-07-01",
+      "reasonCode": [
+        {
+          "text": "GERD"
+        }
+      ]
+    },
+    {
+      "resourceType": "MedicationRequest",
+      "id": "med-wrbulk-005",
+      "status": "active",
+      "medicationCodeableConcept": {
+        "text": "Tamsulosin 0.4 mg capsule"
+      },
+      "dosageInstruction": [
+        {
+          "text": "0.4 mg PO nightly"
+        }
+      ],
+      "authoredOn": "2018-06-14",
+      "reasonCode": [
+        {
+          "text": "Benign prostatic hyperplasia"
+        }
+      ]
+    },
+    {
+      "resourceType": "MedicationRequest",
+      "id": "med-wrbulk-006",
+      "status": "active",
+      "medicationCodeableConcept": {
+        "text": "Artificial tears, preservative-free"
+      },
+      "dosageInstruction": [
+        {
+          "text": "1 drop each eye PRN"
+        }
+      ],
+      "authoredOn": "2020-09-21",
+      "reasonCode": [
+        {
+          "text": "Dry eye syndrome"
+        }
+      ]
+    },
+    {
+      "resourceType": "MedicationRequest",
+      "id": "med-wrbulk-007",
+      "status": "active",
+      "medicationCodeableConcept": {
+        "text": "Fish oil 1000 mg capsule"
+      },
+      "dosageInstruction": [
+        {
+          "text": "1000 mg PO daily"
+        }
+      ],
+      "authoredOn": "2021-02-15",
+      "reasonCode": [
+        {
+          "text": "Lipid support"
+        }
+      ]
+    },
+    {
+      "resourceType": "MedicationRequest",
+      "id": "med-wrbulk-008",
+      "status": "stopped",
+      "medicationCodeableConcept": {
+        "text": "Amoxicillin 500 mg capsule"
+      },
+      "dosageInstruction": [
+        {
+          "text": "500 mg PO TID x10 days"
+        }
+      ],
+      "authoredOn": "2010-02-18",
+      "reasonCode": [
+        {
+          "text": "Streptococcal pharyngitis"
+        }
+      ]
+    },
+    {
+      "resourceType": "MedicationRequest",
+      "id": "med-wrbulk-009",
+      "status": "completed",
+      "medicationCodeableConcept": {
+        "text": "Doxycycline 100 mg capsule"
+      },
+      "dosageInstruction": [
+        {
+          "text": "100 mg PO BID x7 days"
+        }
+      ],
+      "authoredOn": "2015-06-09",
+      "reasonCode": [
+        {
+          "text": "Skin/soft tissue infection"
+        }
+      ]
+    },
+    {
+      "resourceType": "MedicationRequest",
+      "id": "med-wrbulk-010",
+      "status": "stopped",
+      "medicationCodeableConcept": {
+        "text": "Simvastatin 20 mg tablet"
+      },
+      "dosageInstruction": [
+        {
+          "text": "20 mg PO nightly"
+        }
+      ],
+      "authoredOn": "2010-01-05",
+      "reasonCode": [
+        {
+          "text": "Hyperlipidemia \u2014 discontinued, switched to atorvastatin"
+        }
+      ]
+    },
+    {
+      "resourceType": "MedicationRequest",
+      "id": "med-wrbulk-011",
+      "status": "completed",
+      "medicationCodeableConcept": {
+        "text": "Cetirizine 10 mg tablet"
+      },
+      "dosageInstruction": [
+        {
+          "text": "10 mg PO daily"
+        }
+      ],
+      "authoredOn": "2014-04-20",
+      "reasonCode": [
+        {
+          "text": "Seasonal allergies"
+        }
+      ]
+    },
+    {
+      "resourceType": "MedicationRequest",
+      "id": "med-wrbulk-012",
+      "status": "completed",
+      "medicationCodeableConcept": {
+        "text": "Prednisone taper 10 mg tablet"
+      },
+      "dosageInstruction": [
+        {
+          "text": "Tapered dose over 12 days"
+        }
+      ],
+      "authoredOn": "2016-03-19",
+      "reasonCode": [
+        {
+          "text": "Contact dermatitis"
+        }
+      ]
+    },
+    {
+      "resourceType": "MedicationRequest",
+      "id": "med-wrbulk-013",
+      "status": "completed",
+      "medicationCodeableConcept": {
+        "text": "Cephalexin 500 mg capsule"
+      },
+      "dosageInstruction": [
+        {
+          "text": "500 mg PO QID x7 days"
+        }
+      ],
+      "authoredOn": "2015-06-10",
+      "reasonCode": [
+        {
+          "text": "Wound infection"
+        }
+      ]
+    },
+    {
+      "resourceType": "MedicationRequest",
+      "id": "med-wrbulk-014",
+      "status": "completed",
+      "medicationCodeableConcept": {
+        "text": "Ibuprofen 600 mg tablet"
+      },
+      "dosageInstruction": [
+        {
+          "text": "600 mg PO TID PRN x5 days"
+        }
+      ],
+      "authoredOn": "2019-05-30",
+      "reasonCode": [
+        {
+          "text": "Low back strain"
+        }
+      ]
+    }
+  ],
+  "conditionsProblems": [
+    {
+      "resourceType": "Condition",
+      "id": "cond-wrbulk-001",
+      "clinicalStatus": {
+        "coding": [
+          {
+            "code": "active"
+          }
+        ]
+      },
+      "code": {
+        "text": "Benign prostatic hyperplasia"
+      },
+      "onsetDateTime": "2017-11-01",
+      "note": [
+        {
+          "text": "Managed on tamsulosin, PSA stable."
+        }
+      ]
+    },
+    {
+      "resourceType": "Condition",
+      "id": "cond-wrbulk-002",
+      "clinicalStatus": {
+        "coding": [
+          {
+            "code": "active"
+          }
+        ]
+      },
+      "code": {
+        "text": "Gastroesophageal reflux disease"
+      },
+      "onsetDateTime": "2016-06-15",
+      "note": [
+        {
+          "text": "Well controlled on omeprazole."
+        }
+      ]
+    },
+    {
+      "resourceType": "Condition",
+      "id": "cond-wrbulk-003",
+      "clinicalStatus": {
+        "coding": [
+          {
+            "code": "active"
+          }
+        ]
+      },
+      "code": {
+        "text": "Seasonal allergic rhinitis"
+      },
+      "onsetDateTime": "2013-03-01",
+      "note": [
+        {
+          "text": "Managed PRN with loratadine."
+        }
+      ]
+    },
+    {
+      "resourceType": "Condition",
+      "id": "cond-wrbulk-004",
+      "clinicalStatus": {
+        "coding": [
+          {
+            "code": "active"
+          }
+        ]
+      },
+      "code": {
+        "text": "Osteoarthritis, right knee"
+      },
+      "onsetDateTime": "2019-08-01",
+      "note": [
+        {
+          "text": "Mild, managed conservatively with activity modification."
+        }
+      ]
+    },
+    {
+      "resourceType": "Condition",
+      "id": "cond-wrbulk-005",
+      "clinicalStatus": {
+        "coding": [
+          {
+            "code": "active"
+          }
+        ]
+      },
+      "code": {
+        "text": "Age-related hearing loss, bilateral"
+      },
+      "onsetDateTime": "2016-11-01",
+      "note": [
+        {
+          "text": "Mild high-frequency loss, hearing aids fitted."
+        }
+      ]
+    },
+    {
+      "resourceType": "Condition",
+      "id": "cond-wrbulk-006",
+      "clinicalStatus": {
+        "coding": [
+          {
+            "code": "active"
+          }
+        ]
+      },
+      "code": {
+        "text": "Presbyopia / early cataracts"
+      },
+      "onsetDateTime": "2009-08-11",
+      "note": [
+        {
+          "text": "Followed by ophthalmology, surgery not yet indicated."
+        }
+      ]
+    },
+    {
+      "resourceType": "Condition",
+      "id": "cond-wrbulk-007",
+      "clinicalStatus": {
+        "coding": [
+          {
+            "code": "active"
+          }
+        ]
+      },
+      "code": {
+        "text": "Diverticulosis"
+      },
+      "onsetDateTime": "2013-09-20",
+      "note": [
+        {
+          "text": "Incidental finding on colonoscopy, asymptomatic."
+        }
+      ]
+    }
+  ],
+  "conditionsMedicalHistory": [
+    {
+      "resourceType": "Condition",
+      "id": "cond-wrbulk-008",
+      "clinicalStatus": {
+        "coding": [
+          {
+            "code": "resolved"
+          }
+        ]
+      },
+      "code": {
+        "text": "Right wrist fracture, s/p closed reduction"
+      },
+      "onsetDateTime": "2019-01-27",
+      "note": [
+        {
+          "text": "Healed without complication."
+        }
+      ]
+    },
+    {
+      "resourceType": "Condition",
+      "id": "cond-wrbulk-009",
+      "clinicalStatus": {
+        "coding": [
+          {
+            "code": "resolved"
+          }
+        ]
+      },
+      "code": {
+        "text": "Right ankle sprain"
+      },
+      "onsetDateTime": "2011-06-22",
+      "note": [
+        {
+          "text": "Resolved with conservative management."
+        }
+      ]
+    },
+    {
+      "resourceType": "Condition",
+      "id": "cond-wrbulk-010",
+      "clinicalStatus": {
+        "coding": [
+          {
+            "code": "resolved"
+          }
+        ]
+      },
+      "code": {
+        "text": "Streptococcal pharyngitis"
+      },
+      "onsetDateTime": "2010-02-18",
+      "note": [
+        {
+          "text": "Treated with amoxicillin, resolved."
+        }
+      ]
+    },
+    {
+      "resourceType": "Condition",
+      "id": "cond-wrbulk-011",
+      "clinicalStatus": {
+        "coding": [
+          {
+            "code": "resolved"
+          }
+        ]
+      },
+      "code": {
+        "text": "Cellulitis, left forearm"
+      },
+      "onsetDateTime": "2015-06-09",
+      "note": [
+        {
+          "text": "Treated with cephalexin, resolved."
+        }
+      ]
+    },
+    {
+      "resourceType": "Condition",
+      "id": "cond-wrbulk-012",
+      "clinicalStatus": {
+        "coding": [
+          {
+            "code": "resolved"
+          }
+        ]
+      },
+      "code": {
+        "text": "Plantar fasciitis, right foot"
+      },
+      "onsetDateTime": "2020-05-01",
+      "note": [
+        {
+          "text": "Resolved with orthotics and stretching."
+        }
+      ]
+    },
+    {
+      "resourceType": "Condition",
+      "id": "cond-wrbulk-013",
+      "clinicalStatus": {
+        "coding": [
+          {
+            "code": "resolved"
+          }
+        ]
+      },
+      "code": {
+        "text": "Actinic keratosis, s/p cryotherapy"
+      },
+      "onsetDateTime": "2012-07-02",
+      "note": [
+        {
+          "text": "Treated, no recurrence."
+        }
+      ]
+    },
+    {
+      "resourceType": "Condition",
+      "id": "cond-wrbulk-014",
+      "clinicalStatus": {
+        "coding": [
+          {
+            "code": "resolved"
+          }
+        ]
+      },
+      "code": {
+        "text": "Contact dermatitis (poison ivy)"
+      },
+      "onsetDateTime": "2016-03-19",
+      "note": [
+        {
+          "text": "Resolved with topical steroid course."
+        }
+      ]
+    }
+  ],
+  "procedures": [
+    {
+      "resourceType": "Procedure",
+      "id": "proc-wrbulk-001",
+      "status": "completed",
+      "code": {
+        "text": "Ankle splinting, closed"
+      },
+      "performedDateTime": "2011-06-22"
+    },
+    {
+      "resourceType": "Procedure",
+      "id": "proc-wrbulk-002",
+      "status": "completed",
+      "code": {
+        "text": "Skin biopsy, actinic keratosis, left forearm"
+      },
+      "performedDateTime": "2012-07-02"
+    },
+    {
+      "resourceType": "Procedure",
+      "id": "proc-wrbulk-003",
+      "status": "completed",
+      "code": {
+        "text": "Screening colonoscopy \u2014 1 benign polyp removed"
+      },
+      "performedDateTime": "2013-06-01"
+    },
+    {
+      "resourceType": "Procedure",
+      "id": "proc-wrbulk-004",
+      "status": "completed",
+      "code": {
+        "text": "Dental extraction, tooth #18"
+      },
+      "performedDateTime": "2014-09-15"
+    },
+    {
+      "resourceType": "Procedure",
+      "id": "proc-wrbulk-005",
+      "status": "completed",
+      "code": {
+        "text": "Incision and drainage, forearm abscess"
+      },
+      "performedDateTime": "2015-06-09"
+    },
+    {
+      "resourceType": "Procedure",
+      "id": "proc-wrbulk-006",
+      "status": "completed",
+      "code": {
+        "text": "Esophagogastroduodenoscopy (EGD) for GERD evaluation"
+      },
+      "performedDateTime": "2016-07-20"
+    },
+    {
+      "resourceType": "Procedure",
+      "id": "proc-wrbulk-007",
+      "status": "completed",
+      "code": {
+        "text": "Closed reduction and splinting, distal radius fracture"
+      },
+      "performedDateTime": "2019-01-27"
+    },
+    {
+      "resourceType": "Procedure",
+      "id": "proc-wrbulk-008",
+      "status": "completed",
+      "code": {
+        "text": "Corticosteroid injection, right knee"
+      },
+      "performedDateTime": "2020-05-15"
+    },
+    {
+      "resourceType": "Procedure",
+      "id": "proc-wrbulk-009",
+      "status": "completed",
+      "code": {
+        "text": "Cystoscopy, BPH evaluation"
+      },
+      "performedDateTime": "2021-10-08"
+    },
+    {
+      "resourceType": "Procedure",
+      "id": "proc-wrbulk-010",
+      "status": "completed",
+      "code": {
+        "text": "Cataract extraction with IOL placement, right eye"
+      },
+      "performedDateTime": "2023-03-14"
+    }
+  ],
+  "documentReferencesClinicalNotes": [
+    {
+      "resourceType": "DocumentReference",
+      "id": "docref-wrbulk-001",
+      "status": "current",
+      "type": {
+        "text": "Ophthalmology Progress Note"
+      },
+      "date": "2009-08-11T10:30:00-04:00",
+      "content": [
+        {
+          "attachment": {
+            "contentType": "text/plain",
+            "url": "Binary/bin-wrbulk-001",
+            "title": "Ophthalmology Progress Note 2009-08-11"
+          }
+        }
+      ]
+    },
+    {
+      "resourceType": "DocumentReference",
+      "id": "docref-wrbulk-002",
+      "status": "current",
+      "type": {
+        "text": "Dermatology Progress Note"
+      },
+      "date": "2012-07-02T14:00:00-04:00",
+      "content": [
+        {
+          "attachment": {
+            "contentType": "text/plain",
+            "url": "Binary/bin-wrbulk-002",
+            "title": "Dermatology Progress Note 2012-07-02"
+          }
+        }
+      ]
+    },
+    {
+      "resourceType": "DocumentReference",
+      "id": "docref-wrbulk-003",
+      "status": "current",
+      "type": {
+        "text": "Podiatry Progress Note"
+      },
+      "date": "2013-04-25T09:45:00-04:00",
+      "content": [
+        {
+          "attachment": {
+            "contentType": "text/plain",
+            "url": "Binary/bin-wrbulk-003",
+            "title": "Podiatry Progress Note 2013-04-25"
+          }
+        }
+      ]
+    },
+    {
+      "resourceType": "DocumentReference",
+      "id": "docref-wrbulk-004",
+      "status": "current",
+      "type": {
+        "text": "Dental Progress Note"
+      },
+      "date": "2015-11-17T14:30:00-04:00",
+      "content": [
+        {
+          "attachment": {
+            "contentType": "text/plain",
+            "url": "Binary/bin-wrbulk-004",
+            "title": "Dental Progress Note 2015-11-17"
+          }
+        }
+      ]
+    },
+    {
+      "resourceType": "DocumentReference",
+      "id": "docref-wrbulk-005",
+      "status": "current",
+      "type": {
+        "text": "Audiology Progress Note"
+      },
+      "date": "2017-02-09T11:50:00-04:00",
+      "content": [
+        {
+          "attachment": {
+            "contentType": "text/plain",
+            "url": "Binary/bin-wrbulk-005",
+            "title": "Audiology Progress Note 2017-02-09"
+          }
+        }
+      ]
+    },
+    {
+      "resourceType": "DocumentReference",
+      "id": "docref-wrbulk-006",
+      "status": "current",
+      "type": {
+        "text": "Urology Progress Note"
+      },
+      "date": "2018-06-14T11:10:00-04:00",
+      "content": [
+        {
+          "attachment": {
+            "contentType": "text/plain",
+            "url": "Binary/bin-wrbulk-006",
+            "title": "Urology Progress Note 2018-06-14"
+          }
+        }
+      ]
+    },
+    {
+      "resourceType": "DocumentReference",
+      "id": "docref-wrbulk-007",
+      "status": "current",
+      "type": {
+        "text": "Ophthalmology Progress Note"
+      },
+      "date": "2020-09-21T15:20:00-04:00",
+      "content": [
+        {
+          "attachment": {
+            "contentType": "text/plain",
+            "url": "Binary/bin-wrbulk-007",
+            "title": "Ophthalmology Progress Note 2020-09-21"
+          }
+        }
+      ]
+    },
+    {
+      "resourceType": "DocumentReference",
+      "id": "docref-wrbulk-008",
+      "status": "current",
+      "type": {
+        "text": "Podiatry Progress Note"
+      },
+      "date": "2021-12-06T09:55:00-04:00",
+      "content": [
+        {
+          "attachment": {
+            "contentType": "text/plain",
+            "url": "Binary/bin-wrbulk-008",
+            "title": "Podiatry Progress Note 2021-12-06"
+          }
+        }
+      ]
+    },
+    {
+      "resourceType": "DocumentReference",
+      "id": "docref-wrbulk-009",
+      "status": "current",
+      "type": {
+        "text": "Dermatology Progress Note"
+      },
+      "date": "2022-08-19T14:10:00-04:00",
+      "content": [
+        {
+          "attachment": {
+            "contentType": "text/plain",
+            "url": "Binary/bin-wrbulk-009",
+            "title": "Dermatology Progress Note 2022-08-19"
+          }
+        }
+      ]
+    },
+    {
+      "resourceType": "DocumentReference",
+      "id": "docref-wrbulk-010",
+      "status": "current",
+      "type": {
+        "text": "Primary Care Progress Note"
+      },
+      "date": "2023-01-17T09:10:00-04:00",
+      "content": [
+        {
+          "attachment": {
+            "contentType": "text/plain",
+            "url": "Binary/bin-wrbulk-010",
+            "title": "Primary Care Progress Note 2023-01-17"
+          }
+        }
+      ]
+    },
+    {
+      "resourceType": "DocumentReference",
+      "id": "docref-wrbulk-011",
+      "status": "current",
+      "type": {
+        "text": "Audiology Progress Note"
+      },
+      "date": "2024-05-02T10:30:00-04:00",
+      "content": [
+        {
+          "attachment": {
+            "contentType": "text/plain",
+            "url": "Binary/bin-wrbulk-011",
+            "title": "Audiology Progress Note 2024-05-02"
+          }
+        }
+      ]
+    },
+    {
+      "resourceType": "DocumentReference",
+      "id": "docref-wrbulk-012",
+      "status": "current",
+      "type": {
+        "text": "Pulmonology Progress Note"
+      },
+      "date": "2020-11-04T10:45:00-04:00",
+      "content": [
+        {
+          "attachment": {
+            "contentType": "text/plain",
+            "url": "Binary/bin-wrbulk-012",
+            "title": "Pulmonology Progress Note 2020-11-04"
+          }
+        }
+      ]
+    }
+  ],
+  "binaries": {
+    "bin-wrbulk-001": {
+      "contentType": "text/plain",
+      "text": "68-year-old male (was 51 at time of visit) presenting for routine eye exam. Visual acuity 20/25 OU, mild refractive error. Early nuclear sclerotic cataract changes noted bilaterally. No diabetic retinopathy. Return in 12 months for surveillance."
+    },
+    "bin-wrbulk-002": {
+      "contentType": "text/plain",
+      "text": "Annual skin check. Several actinic keratoses noted on forearms and scalp, treated with cryotherapy today. No suspicious pigmented lesions identified. Sun protection counseling provided. Return in 1 year."
+    },
+    "bin-wrbulk-003": {
+      "contentType": "text/plain",
+      "text": "Diabetic foot exam performed. Monofilament sensation intact bilaterally, pedal pulses palpable, no ulceration or skin breakdown. Nails trimmed. Continue daily foot checks at home."
+    },
+    "bin-wrbulk-004": {
+      "contentType": "text/plain",
+      "text": "Routine cleaning and exam. Two small carious lesions identified and restored with composite filling. Gingiva mildly inflamed, oral hygiene instruction reviewed. Recall in 6 months."
+    },
+    "bin-wrbulk-005": {
+      "contentType": "text/plain",
+      "text": "Audiogram shows mild bilateral high-frequency sensorineural hearing loss. Discussed hearing aid options with patient. Follow-up scheduled for fitting."
+    },
+    "bin-wrbulk-006": {
+      "contentType": "text/plain",
+      "text": "Follow-up for benign prostatic hyperplasia. PSA 1.9 ng/mL, stable from prior. Mild lower urinary tract symptoms, well controlled on tamsulosin. Continue current regimen, recheck PSA in 1 year."
+    },
+    "bin-wrbulk-007": {
+      "contentType": "text/plain",
+      "text": "Cataract surveillance visit. Vision 20/30 OD, 20/25 OS, mild progression of nuclear sclerosis. Not yet visually significant. Continue annual monitoring."
+    },
+    "bin-wrbulk-008": {
+      "contentType": "text/plain",
+      "text": "Follow-up for plantar fasciitis, right foot. Symptoms markedly improved with stretching program and OTC orthotic inserts. Discharged from active podiatric care, return PRN."
+    },
+    "bin-wrbulk-009": {
+      "contentType": "text/plain",
+      "text": "Annual skin check. Single benign-appearing nevus on right upper back, stable in size and appearance compared to photographs from 2018. No biopsy indicated. Return in 1 year."
+    },
+    "bin-wrbulk-010": {
+      "contentType": "text/plain",
+      "text": "Routine visit to review annual labs. Lipid panel and renal function stable. A1c mildly elevated at 7.1%, discussed diet and adherence. No medication changes made today."
+    },
+    "bin-wrbulk-011": {
+      "contentType": "text/plain",
+      "text": "Hearing aid check and reprogramming. Patient reports good satisfaction with current amplification settings in most environments. No further adjustments needed today."
+    },
+    "bin-wrbulk-012": {
+      "contentType": "text/plain",
+      "text": "Reviewed low-dose CT chest performed for lung cancer screening given remote 20 pack-year smoking history. No suspicious nodules, Lung-RADS 1. Continue annual screening per guidelines."
+    },
+    "bin-wrbulk-ext-001": {
+      "contentType": "text/plain",
+      "text": "Referral letter dated 8/5/2009 requesting routine ophthalmologic evaluation for a 51-year-old male with no known eye disease. Family history noncontributory. Please evaluate and advise."
+    },
+    "bin-wrbulk-ext-002": {
+      "contentType": "text/plain",
+      "text": "Referral letter dated 6/20/2012 requesting dermatologic evaluation of sun-damaged skin, multiple actinic keratoses on forearms and scalp. History of significant outdoor occupational sun exposure (electrician)."
+    },
+    "bin-wrbulk-ext-003": {
+      "contentType": "text/plain",
+      "text": "Transferred dental records summary: patient has been a regular biannual patient since 1995. History of routine restorative work, no periodontal disease. No outstanding treatment needs at time of transfer."
+    },
+    "bin-wrbulk-ext-004": {
+      "contentType": "text/plain",
+      "text": "Prior authorization letter dated 7/5/2016 approving outpatient esophagogastroduodenoscopy for evaluation of chronic GERD symptoms. Authorization valid for 90 days from issue date."
+    },
+    "bin-wrbulk-ext-005": {
+      "contentType": "text/plain",
+      "text": "Referral letter dated 1/20/2017 requesting formal audiometric evaluation for reported difficulty hearing in group settings and during phone calls."
+    },
+    "bin-wrbulk-ext-006": {
+      "contentType": "text/plain",
+      "text": "Outside consult summary dated 5/28/2018 for evaluation of urinary hesitancy and weak stream. Impression: benign prostatic hyperplasia. Recommended starting tamsulosin and routine PSA monitoring."
+    },
+    "bin-wrbulk-ext-007": {
+      "contentType": "text/plain",
+      "text": "Outside orthopedic consult dated 9/30/2021. Mild-to-moderate osteoarthritic changes on knee X-ray. Recommended conservative management with activity modification and PRN corticosteroid injection."
+    },
+    "bin-wrbulk-ext-008": {
+      "contentType": "text/plain",
+      "text": "Prior authorization letter dated 2/11/2022 approving ophthalmology consultation and surgical planning for cataract evaluation, right eye."
+    }
+  },
+  "documentReferencesExternal": [
+    {
+      "resourceType": "DocumentReference",
+      "id": "docref-wrbulk-ext-001",
+      "status": "current",
+      "type": {
+        "text": "Outside Records \u2014 Ophthalmology Referral Letter"
+      },
+      "date": "2009-08-05T00:00:00-04:00",
+      "description": "Referral letter from primary care to Delaware Valley Eye Associates",
+      "content": [
+        {
+          "attachment": {
+            "contentType": "text/plain",
+            "url": "Binary/bin-wrbulk-ext-001",
+            "title": "Outside Records \u2014 Ophthalmology Referral Letter"
+          }
+        }
+      ]
+    },
+    {
+      "resourceType": "DocumentReference",
+      "id": "docref-wrbulk-ext-002",
+      "status": "current",
+      "type": {
+        "text": "Outside Records \u2014 Dermatology Referral Letter"
+      },
+      "date": "2012-06-20T00:00:00-04:00",
+      "description": "Referral letter from primary care to Main Line Dermatology Group",
+      "content": [
+        {
+          "attachment": {
+            "contentType": "text/plain",
+            "url": "Binary/bin-wrbulk-ext-002",
+            "title": "Outside Records \u2014 Dermatology Referral Letter"
+          }
+        }
+      ]
+    },
+    {
+      "resourceType": "DocumentReference",
+      "id": "docref-wrbulk-ext-003",
+      "status": "current",
+      "type": {
+        "text": "Outside Records \u2014 Dental Records Transfer"
+      },
+      "date": "2014-08-01T00:00:00-04:00",
+      "description": "Records transfer from prior dental office (Dr. Marlowe, DDS, retired)",
+      "content": [
+        {
+          "attachment": {
+            "contentType": "text/plain",
+            "url": "Binary/bin-wrbulk-ext-003",
+            "title": "Outside Records \u2014 Dental Records Transfer"
+          }
+        }
+      ]
+    },
+    {
+      "resourceType": "DocumentReference",
+      "id": "docref-wrbulk-ext-004",
+      "status": "current",
+      "type": {
+        "text": "Outside Records \u2014 Insurance Prior Authorization Letter"
+      },
+      "date": "2016-07-05T00:00:00-04:00",
+      "description": "Prior authorization approval from Independence Blue Cross for EGD procedure",
+      "content": [
+        {
+          "attachment": {
+            "contentType": "text/plain",
+            "url": "Binary/bin-wrbulk-ext-004",
+            "title": "Outside Records \u2014 Insurance Prior Authorization Letter"
+          }
+        }
+      ]
+    },
+    {
+      "resourceType": "DocumentReference",
+      "id": "docref-wrbulk-ext-005",
+      "status": "current",
+      "type": {
+        "text": "Outside Records \u2014 Audiology Referral Letter"
+      },
+      "date": "2017-01-20T00:00:00-04:00",
+      "description": "Referral letter from primary care to Philadelphia Hearing Center",
+      "content": [
+        {
+          "attachment": {
+            "contentType": "text/plain",
+            "url": "Binary/bin-wrbulk-ext-005",
+            "title": "Outside Records \u2014 Audiology Referral Letter"
+          }
+        }
+      ]
+    },
+    {
+      "resourceType": "DocumentReference",
+      "id": "docref-wrbulk-ext-006",
+      "status": "current",
+      "type": {
+        "text": "Outside Records \u2014 Urology Consult Summary"
+      },
+      "date": "2018-05-28T00:00:00-04:00",
+      "description": "Consult summary faxed from Jefferson Urology Associates",
+      "content": [
+        {
+          "attachment": {
+            "contentType": "text/plain",
+            "url": "Binary/bin-wrbulk-ext-006",
+            "title": "Outside Records \u2014 Urology Consult Summary"
+          }
+        }
+      ]
+    },
+    {
+      "resourceType": "DocumentReference",
+      "id": "docref-wrbulk-ext-007",
+      "status": "current",
+      "type": {
+        "text": "Outside Records \u2014 Orthopedic Consult Summary"
+      },
+      "date": "2021-09-30T00:00:00-04:00",
+      "description": "Consult summary from Rothman Orthopaedics regarding right knee osteoarthritis",
+      "content": [
+        {
+          "attachment": {
+            "contentType": "text/plain",
+            "url": "Binary/bin-wrbulk-ext-007",
+            "title": "Outside Records \u2014 Orthopedic Consult Summary"
+          }
+        }
+      ]
+    },
+    {
+      "resourceType": "DocumentReference",
+      "id": "docref-wrbulk-ext-008",
+      "status": "current",
+      "type": {
+        "text": "Outside Records \u2014 Insurance Prior Authorization Letter"
+      },
+      "date": "2022-02-11T00:00:00-04:00",
+      "description": "Prior authorization approval from Independence Blue Cross for cataract evaluation",
+      "content": [
+        {
+          "attachment": {
+            "contentType": "text/plain",
+            "url": "Binary/bin-wrbulk-ext-008",
+            "title": "Outside Records \u2014 Insurance Prior Authorization Letter"
+          }
+        }
+      ]
+    }
+  ],
+  "familyMemberHistory": [
+    {
+      "resourceType": "FamilyMemberHistory",
+      "id": "fmh-wrbulk-001",
+      "status": "completed",
+      "relationship": {
+        "text": "Mother"
+      },
+      "deceasedBoolean": true,
+      "condition": [
+        {
+          "code": {
+            "text": "Osteoporosis"
+          },
+          "onsetAge": {
+            "value": 70,
+            "unit": "years"
+          },
+          "note": [
+            {
+              "text": "Diagnosed after hip fracture, deceased at 84 of unrelated causes."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "resourceType": "FamilyMemberHistory",
+      "id": "fmh-wrbulk-002",
+      "status": "completed",
+      "relationship": {
+        "text": "Sister"
+      },
+      "deceasedBoolean": false,
+      "condition": [
+        {
+          "code": {
+            "text": "Hypothyroidism"
+          },
+          "onsetAge": {
+            "value": 55,
+            "unit": "years"
+          }
+        }
+      ]
+    },
+    {
+      "resourceType": "FamilyMemberHistory",
+      "id": "fmh-wrbulk-003",
+      "status": "completed",
+      "relationship": {
+        "text": "Sister"
+      },
+      "deceasedBoolean": false,
+      "condition": [
+        {
+          "code": {
+            "text": "Seasonal allergic asthma"
+          },
+          "onsetAge": {
+            "value": 30,
+            "unit": "years"
+          }
+        }
+      ]
+    }
+  ],
+  "allergies": [
+    {
+      "resourceType": "AllergyIntolerance",
+      "id": "allergy-wrbulk-001",
+      "clinicalStatus": {
+        "coding": [
+          {
+            "code": "active"
+          }
+        ]
+      },
+      "criticality": "low",
+      "code": {
+        "text": "Seasonal pollen (environmental)"
+      },
+      "reaction": [
+        {
+          "manifestation": [
+            {
+              "text": "Rhinorrhea, sneezing"
+            }
+          ],
+          "severity": "mild"
+        }
+      ]
+    },
+    {
+      "resourceType": "AllergyIntolerance",
+      "id": "allergy-wrbulk-002",
+      "clinicalStatus": {
+        "coding": [
+          {
+            "code": "active"
+          }
+        ]
+      },
+      "criticality": "low",
+      "code": {
+        "text": "Adhesive tape"
+      },
+      "reaction": [
+        {
+          "manifestation": [
+            {
+              "text": "Localized skin redness"
+            }
+          ],
+          "severity": "mild"
+        }
+      ]
+    }
+  ],
+  "referrals": [
+    {
+      "id": "ref-wrbulk-001",
+      "date": "2009-08-05",
+      "specialty": "Ophthalmology",
+      "reason": "Routine eye exam, early cataract surveillance",
+      "status": "Completed"
+    },
+    {
+      "id": "ref-wrbulk-002",
+      "date": "2012-06-20",
+      "specialty": "Dermatology",
+      "reason": "Evaluation of actinic keratoses / sun-damaged skin",
+      "status": "Completed"
+    },
+    {
+      "id": "ref-wrbulk-003",
+      "date": "2013-04-10",
+      "specialty": "Podiatry",
+      "reason": "Diabetic foot care and monitoring",
+      "status": "Completed"
+    },
+    {
+      "id": "ref-wrbulk-004",
+      "date": "2017-01-20",
+      "specialty": "Audiology",
+      "reason": "Hearing evaluation for reported difficulty in group settings",
+      "status": "Completed"
+    },
+    {
+      "id": "ref-wrbulk-005",
+      "date": "2018-05-10",
+      "specialty": "Urology",
+      "reason": "Urinary hesitancy and weak stream, evaluate for BPH",
+      "status": "Completed"
+    },
+    {
+      "id": "ref-wrbulk-006",
+      "date": "2021-09-15",
+      "specialty": "Orthopedics",
+      "reason": "Right knee pain, evaluate for osteoarthritis",
+      "status": "Completed"
+    },
+    {
+      "id": "ref-wrbulk-007",
+      "date": "2022-12-01",
+      "specialty": "Ophthalmology",
+      "reason": "Cataract surgical evaluation, right eye",
+      "status": "Completed"
+    },
+    {
+      "id": "ref-wrbulk-008",
+      "date": "2025-09-10",
+      "specialty": "Dental",
+      "reason": "Routine biannual cleaning and exam",
+      "status": "Scheduled"
+    }
+  ]
+}

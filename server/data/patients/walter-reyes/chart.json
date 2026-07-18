@@ -58,6 +58,86 @@
       "period": { "start": "2025-10-02T08:45:00-04:00" },
       "reasonCode": [{ "text": "Annual exam" }],
       "extension": [{ "url": "dispositionDx", "valueString": "T2DM (A1c 7.4), HTN, hyperlipidemia — stable; colonoscopy up to date" }]
+    },
+    {
+      "resourceType": "Encounter",
+      "id": "enc-wr-derm-0115",
+      "status": "finished",
+      "class": { "code": "AMB", "display": "Ambulatory" },
+      "type": [{ "text": "Dermatology — annual skin check" }],
+      "period": { "start": "2026-01-15T13:00:00-05:00" },
+      "reasonCode": [{ "text": "Skin check" }],
+      "extension": [{ "url": "dispositionDx", "valueString": "Few actinic keratoses treated with cryotherapy; no concerning lesions" }]
+    },
+    {
+      "resourceType": "Encounter",
+      "id": "enc-wr-eye-0820",
+      "status": "finished",
+      "class": { "code": "AMB", "display": "Ambulatory" },
+      "type": [{ "text": "Ophthalmology — cataract evaluation" }],
+      "period": { "start": "2025-08-20T10:15:00-04:00" },
+      "reasonCode": [{ "text": "Blurred vision" }],
+      "extension": [{ "url": "dispositionDx", "valueString": "Bilateral age-related cataracts, worse OD; surgery recommended" }]
+    },
+    {
+      "resourceType": "Encounter",
+      "id": "enc-wr-uro-0505",
+      "status": "finished",
+      "class": { "code": "AMB", "display": "Ambulatory" },
+      "type": [{ "text": "Urology — BPH follow-up" }],
+      "period": { "start": "2025-05-05T09:30:00-04:00" },
+      "reasonCode": [{ "text": "Urinary frequency" }],
+      "extension": [{ "url": "dispositionDx", "valueString": "BPH stable on tamsulosin; PSA within normal limits" }]
+    },
+    {
+      "resourceType": "Encounter",
+      "id": "enc-wr-pod-0219",
+      "status": "finished",
+      "class": { "code": "AMB", "display": "Ambulatory" },
+      "type": [{ "text": "Podiatry — routine foot care" }],
+      "period": { "start": "2025-02-19T11:00:00-05:00" },
+      "reasonCode": [{ "text": "Diabetic foot check" }],
+      "extension": [{ "url": "dispositionDx", "valueString": "No ulceration, intact sensation, toenails trimmed" }]
+    },
+    {
+      "resourceType": "Encounter",
+      "id": "enc-wr-dental-1108",
+      "status": "finished",
+      "class": { "code": "AMB", "display": "Ambulatory" },
+      "type": [{ "text": "Dental — extraction" }],
+      "period": { "start": "2024-11-08T14:00:00-05:00" },
+      "reasonCode": [{ "text": "Fractured molar" }],
+      "extension": [{ "url": "dispositionDx", "valueString": "Extraction of tooth #30, uncomplicated, no antibiotics required" }]
+    },
+    {
+      "resourceType": "Encounter",
+      "id": "enc-wr-uc-0730",
+      "status": "finished",
+      "class": { "code": "AMB", "display": "Ambulatory" },
+      "type": [{ "text": "Urgent care — ankle sprain" }],
+      "period": { "start": "2024-07-30T16:20:00-04:00" },
+      "reasonCode": [{ "text": "Right ankle injury" }],
+      "extension": [{ "url": "dispositionDx", "valueString": "Grade 1 lateral ankle sprain, X-ray negative for fracture; RICE and brace" }]
+    },
+    {
+      "resourceType": "Encounter",
+      "id": "enc-wr-flu-1015",
+      "status": "finished",
+      "class": { "code": "AMB", "display": "Ambulatory" },
+      "type": [{ "text": "Immunization visit — influenza vaccine" }],
+      "period": { "start": "2024-10-15T09:00:00-04:00" },
+      "reasonCode": [{ "text": "Seasonal flu shot" }],
+      "extension": [{ "url": "dispositionDx", "valueString": "Influenza vaccine administered, no adverse reaction" }]
+    },
+    {
+      "resourceType": "Encounter",
+      "id": "enc-wr-audio-0603",
+      "status": "finished",
+      "class": { "code": "AMB", "display": "Ambulatory" },
+      "type": [{ "text": "Audiology — hearing aid fitting" }],
+      "period": { "start": "2023-06-03T10:00:00-04:00" },
+      "reasonCode": [{ "text": "Age-related hearing loss" }],
+      "extension": [{ "url": "dispositionDx", "valueString": "Bilateral mild-moderate sensorineural hearing loss; fitted for hearing aids" }]
     }
   ],
   "conditionsProblems": [
@@ -65,7 +145,14 @@
     { "resourceType": "Condition", "id": "cond-wr-lbbb", "clinicalStatus": { "coding": [{ "code": "active" }] }, "code": { "coding": [{ "system": "http://snomed.info/sct", "code": "164909002" }], "text": "Left bundle branch block (chronic)" }, "onsetDateTime": "2024-11-19", "note": [{ "text": "First documented on ECG 11/2024, present on all subsequent ECGs." }] },
     { "resourceType": "Condition", "id": "cond-wr-t2dm", "clinicalStatus": { "coding": [{ "code": "active" }] }, "code": { "coding": [{ "system": "http://snomed.info/sct", "code": "44054006" }], "text": "Type 2 diabetes mellitus" }, "onsetDateTime": "2015-03-01" },
     { "resourceType": "Condition", "id": "cond-wr-htn", "clinicalStatus": { "coding": [{ "code": "active" }] }, "code": { "coding": [{ "system": "http://snomed.info/sct", "code": "38341003" }], "text": "Essential hypertension" }, "onsetDateTime": "2012-01-01" },
-    { "resourceType": "Condition", "id": "cond-wr-hld", "clinicalStatus": { "coding": [{ "code": "active" }] }, "code": { "coding": [{ "system": "http://snomed.info/sct", "code": "55822004" }], "text": "Hyperlipidemia" }, "onsetDateTime": "2012-01-01" }
+    { "resourceType": "Condition", "id": "cond-wr-hld", "clinicalStatus": { "coding": [{ "code": "active" }] }, "code": { "coding": [{ "system": "http://snomed.info/sct", "code": "55822004" }], "text": "Hyperlipidemia" }, "onsetDateTime": "2012-01-01" },
+    { "resourceType": "Condition", "id": "cond-wr-bph", "clinicalStatus": { "coding": [{ "code": "active" }] }, "code": { "coding": [{ "system": "http://snomed.info/sct", "code": "266569009" }], "text": "Benign prostatic hyperplasia" }, "onsetDateTime": "2024-05-01" },
+    { "resourceType": "Condition", "id": "cond-wr-oa-knee", "clinicalStatus": { "coding": [{ "code": "active" }] }, "code": { "coding": [{ "system": "http://snomed.info/sct", "code": "239873007" }], "text": "Osteoarthritis of knee" }, "onsetDateTime": "2019-01-01" },
+    { "resourceType": "Condition", "id": "cond-wr-gerd", "clinicalStatus": { "coding": [{ "code": "active" }] }, "code": { "coding": [{ "system": "http://snomed.info/sct", "code": "235595009" }], "text": "Gastroesophageal reflux disease" }, "onsetDateTime": "2018-01-01" },
+    { "resourceType": "Condition", "id": "cond-wr-hearing-loss", "clinicalStatus": { "coding": [{ "code": "active" }] }, "code": { "coding": [{ "system": "http://snomed.info/sct", "code": "70122005" }], "text": "Age-related sensorineural hearing loss" }, "onsetDateTime": "2023-06-03" },
+    { "resourceType": "Condition", "id": "cond-wr-cataracts", "clinicalStatus": { "coding": [{ "code": "active" }] }, "code": { "coding": [{ "system": "http://snomed.info/sct", "code": "193570009" }], "text": "Age-related cataract, bilateral" }, "onsetDateTime": "2025-08-20" },
+    { "resourceType": "Condition", "id": "cond-wr-vitd-def", "clinicalStatus": { "coding": [{ "code": "active" }] }, "code": { "coding": [{ "system": "http://snomed.info/sct", "code": "34713006" }], "text": "Vitamin D deficiency" }, "onsetDateTime": "2025-05-05" },
+    { "resourceType": "Condition", "id": "cond-wr-ak", "clinicalStatus": { "coding": [{ "code": "active" }] }, "code": { "coding": [{ "system": "http://snomed.info/sct", "code": "402577007" }], "text": "Actinic keratosis" }, "onsetDateTime": "2026-01-15" }
   ],
   "conditionsMedicalHistory": [
     { "resourceType": "Condition", "id": "cond-wr-hx-appy", "clinicalStatus": { "coding": [{ "code": "resolved" }] }, "code": { "text": "Appendicitis s/p appendectomy" }, "onsetDateTime": "1998-06-01" }
@@ -85,7 +172,12 @@
     { "resourceType": "MedicationRequest", "id": "med-wr-metoprolol", "status": "active", "medicationCodeableConcept": { "text": "Metoprolol succinate 50 mg tablet" }, "dosageInstruction": [{ "text": "50 mg PO daily" }], "authoredOn": "2023-05-12", "reasonCode": [{ "text": "AFib rate control" }] },
     { "resourceType": "MedicationRequest", "id": "med-wr-metformin", "status": "active", "medicationCodeableConcept": { "text": "Metformin 1000 mg tablet" }, "dosageInstruction": [{ "text": "1000 mg PO BID" }], "authoredOn": "2015-03-15", "reasonCode": [{ "text": "Type 2 diabetes" }] },
     { "resourceType": "MedicationRequest", "id": "med-wr-atorvastatin", "status": "active", "medicationCodeableConcept": { "text": "Atorvastatin 40 mg tablet" }, "dosageInstruction": [{ "text": "40 mg PO nightly" }], "authoredOn": "2012-04-01", "reasonCode": [{ "text": "Hyperlipidemia" }] },
-    { "resourceType": "MedicationRequest", "id": "med-wr-lisinopril", "status": "active", "medicationCodeableConcept": { "text": "Lisinopril 10 mg tablet" }, "dosageInstruction": [{ "text": "10 mg PO daily" }], "authoredOn": "2012-04-01", "reasonCode": [{ "text": "Hypertension" }] }
+    { "resourceType": "MedicationRequest", "id": "med-wr-lisinopril", "status": "active", "medicationCodeableConcept": { "text": "Lisinopril 10 mg tablet" }, "dosageInstruction": [{ "text": "10 mg PO daily" }], "authoredOn": "2012-04-01", "reasonCode": [{ "text": "Hypertension" }] },
+    { "resourceType": "MedicationRequest", "id": "med-wr-tamsulosin", "status": "active", "medicationCodeableConcept": { "text": "Tamsulosin 0.4 mg capsule" }, "dosageInstruction": [{ "text": "0.4 mg PO daily" }], "authoredOn": "2024-05-01", "reasonCode": [{ "text": "Benign prostatic hyperplasia" }] },
+    { "resourceType": "MedicationRequest", "id": "med-wr-omeprazole", "status": "active", "medicationCodeableConcept": { "text": "Omeprazole 20 mg capsule" }, "dosageInstruction": [{ "text": "20 mg PO daily" }], "authoredOn": "2018-01-01", "reasonCode": [{ "text": "GERD" }] },
+    { "resourceType": "MedicationRequest", "id": "med-wr-vitd3", "status": "active", "medicationCodeableConcept": { "text": "Vitamin D3 2000 unit capsule" }, "dosageInstruction": [{ "text": "2000 units PO daily" }], "authoredOn": "2025-05-05", "reasonCode": [{ "text": "Vitamin D deficiency" }] },
+    { "resourceType": "MedicationRequest", "id": "med-wr-artificial-tears", "status": "active", "medicationCodeableConcept": { "text": "Artificial tears ophthalmic solution" }, "dosageInstruction": [{ "text": "1 drop each eye PRN dryness" }], "authoredOn": "2025-08-20", "reasonCode": [{ "text": "Dry eyes" }] },
+    { "resourceType": "MedicationRequest", "id": "med-wr-loratadine", "status": "active", "medicationCodeableConcept": { "text": "Loratadine 10 mg tablet" }, "dosageInstruction": [{ "text": "10 mg PO PRN seasonal allergies" }], "authoredOn": "2022-04-01", "reasonCode": [{ "text": "Seasonal allergic rhinitis" }] }
   ],
   "medicationAdministrations": [
     { "resourceType": "MedicationAdministration", "id": "medadm-wr-asa", "status": "completed", "medicationCodeableConcept": { "text": "Aspirin 324 mg chewed" }, "effectiveDateTime": "2026-07-18T09:20:00-04:00", "note": [{ "text": "Given at triage per chest pain protocol" }] }
@@ -133,7 +225,13 @@
     { "resourceType": "Observation", "id": "lab-wr-hgb-0628", "status": "final", "code": { "coding": [{ "system": "http://loinc.org", "code": "718-7" }], "text": "Hemoglobin" }, "effectiveDateTime": "2026-06-28T15:00:00-04:00", "valueQuantity": { "value": 13.8, "unit": "g/dL" }, "referenceRange": [{ "low": { "value": 13.0 }, "high": { "value": 17.0 } }] },
     { "resourceType": "Observation", "id": "lab-wr-a1c-0326", "status": "final", "code": { "coding": [{ "system": "http://loinc.org", "code": "4548-4" }], "text": "Hemoglobin A1c" }, "effectiveDateTime": "2026-03-14T11:00:00-04:00", "valueQuantity": { "value": 7.4, "unit": "%" }, "referenceRange": [{ "high": { "value": 5.7, "unit": "%" } }] },
     { "resourceType": "Observation", "id": "lab-wr-ldl-1002", "status": "final", "code": { "coding": [{ "system": "http://loinc.org", "code": "13457-7" }], "text": "LDL cholesterol" }, "effectiveDateTime": "2025-10-02T09:30:00-04:00", "valueQuantity": { "value": 88, "unit": "mg/dL" } },
-    { "resourceType": "Observation", "id": "lab-wr-egfr-0628", "status": "final", "code": { "coding": [{ "system": "http://loinc.org", "code": "62238-1" }], "text": "eGFR" }, "effectiveDateTime": "2026-06-28T15:00:00-04:00", "valueQuantity": { "value": 58, "unit": "mL/min/1.73m2" }, "referenceRange": [{ "low": { "value": 60 } }] }
+    { "resourceType": "Observation", "id": "lab-wr-egfr-0628", "status": "final", "code": { "coding": [{ "system": "http://loinc.org", "code": "62238-1" }], "text": "eGFR" }, "effectiveDateTime": "2026-06-28T15:00:00-04:00", "valueQuantity": { "value": 58, "unit": "mL/min/1.73m2" }, "referenceRange": [{ "low": { "value": 60 } }] },
+    { "resourceType": "Observation", "id": "lab-wr-tsh-1015", "status": "final", "code": { "coding": [{ "system": "http://loinc.org", "code": "3016-3" }], "text": "TSH" }, "effectiveDateTime": "2024-10-15T09:10:00-04:00", "valueQuantity": { "value": 2.1, "unit": "mIU/L" }, "referenceRange": [{ "low": { "value": 0.4 }, "high": { "value": 4.5 } }] },
+    { "resourceType": "Observation", "id": "lab-wr-psa-0505", "status": "final", "code": { "coding": [{ "system": "http://loinc.org", "code": "2857-1" }], "text": "PSA" }, "effectiveDateTime": "2025-05-05T09:45:00-04:00", "valueQuantity": { "value": 1.8, "unit": "ng/mL" }, "referenceRange": [{ "high": { "value": 4.0, "unit": "ng/mL" } }] },
+    { "resourceType": "Observation", "id": "lab-wr-vitd-0505", "status": "final", "code": { "coding": [{ "system": "http://loinc.org", "code": "1989-3" }], "text": "Vitamin D, 25-OH" }, "effectiveDateTime": "2025-05-05T09:45:00-04:00", "valueQuantity": { "value": 32, "unit": "ng/mL" }, "referenceRange": [{ "low": { "value": 30 }, "high": { "value": 100 } }] },
+    { "resourceType": "Observation", "id": "lab-wr-ua-0730", "status": "final", "code": { "coding": [{ "system": "http://loinc.org", "code": "5811-5" }], "text": "Urinalysis, complete" }, "effectiveDateTime": "2024-07-30T16:35:00-04:00", "valueString": "Clear, yellow. No blood, protein, glucose, or leukocyte esterase." },
+    { "resourceType": "Observation", "id": "lab-wr-neut-1015", "status": "final", "code": { "coding": [{ "system": "http://loinc.org", "code": "770-8" }], "text": "Neutrophils %" }, "effectiveDateTime": "2024-10-15T09:10:00-04:00", "valueQuantity": { "value": 58, "unit": "%" }, "referenceRange": [{ "low": { "value": 40 }, "high": { "value": 70 } }] },
+    { "resourceType": "Observation", "id": "lab-wr-lymph-1015", "status": "final", "code": { "coding": [{ "system": "http://loinc.org", "code": "736-9" }], "text": "Lymphocytes %" }, "effectiveDateTime": "2024-10-15T09:10:00-04:00", "valueQuantity": { "value": 32, "unit": "%" }, "referenceRange": [{ "low": { "value": 20 }, "high": { "value": 45 } }] }
   ],
   "observationsSocial": [
     { "resourceType": "Observation", "id": "soc-wr-tobacco", "status": "final", "code": { "text": "Tobacco use" }, "valueString": "Former smoker — 20 pack-years, quit 2015", "effectiveDateTime": "2025-10-02" },
@@ -203,6 +301,22 @@
       "type": { "text": "Cardiology Progress Note" },
       "date": "2026-03-14T11:15:00-04:00",
       "content": [{ "attachment": { "contentType": "text/plain", "url": "Binary/bin-wr-cardnote-0314", "title": "Cardiology Note 3/14/2026" } }]
+    },
+    {
+      "resourceType": "DocumentReference",
+      "id": "docref-wr-dermnote-0115",
+      "status": "current",
+      "type": { "text": "Dermatology Note" },
+      "date": "2026-01-15T13:20:00-05:00",
+      "content": [{ "attachment": { "contentType": "text/plain", "url": "Binary/bin-wr-dermnote-0115", "title": "Dermatology Note 1/15/2026" } }]
+    },
+    {
+      "resourceType": "DocumentReference",
+      "id": "docref-wr-eyenote-0820",
+      "status": "current",
+      "type": { "text": "Ophthalmology Note" },
+      "date": "2025-08-20T10:40:00-04:00",
+      "content": [{ "attachment": { "contentType": "text/plain", "url": "Binary/bin-wr-eyenote-0820", "title": "Ophthalmology Note 8/20/2025" } }]
     }
   ],
   "documentReferencesExternal": [
@@ -231,7 +345,10 @@
   ],
   "procedures": [
     { "resourceType": "Procedure", "id": "proc-wr-appy", "status": "completed", "code": { "text": "Appendectomy" }, "performedDateTime": "1998-06-14" },
-    { "resourceType": "Procedure", "id": "proc-wr-colo", "status": "completed", "code": { "text": "Screening colonoscopy — 2 benign polyps removed" }, "performedDateTime": "2023-09-21" }
+    { "resourceType": "Procedure", "id": "proc-wr-colo", "status": "completed", "code": { "text": "Screening colonoscopy — 2 benign polyps removed" }, "performedDateTime": "2023-09-21" },
+    { "resourceType": "Procedure", "id": "proc-wr-cataract", "status": "completed", "code": { "text": "Cataract surgery with IOL implant, right eye" }, "performedDateTime": "2025-09-10" },
+    { "resourceType": "Procedure", "id": "proc-wr-skinbx", "status": "completed", "code": { "text": "Skin biopsy, shoulder — benign, actinic keratosis" }, "performedDateTime": "2026-01-15" },
+    { "resourceType": "Procedure", "id": "proc-wr-dental-ext", "status": "completed", "code": { "text": "Tooth extraction, #30" }, "performedDateTime": "2024-11-08" }
   ],
   "binaries": {
     "bin-wr-ednote-0628": {
@@ -243,6 +360,14 @@
       "text": "CARDIOLOGY PROGRESS NOTE 3/14/2026\n\n68M with paroxysmal AFib (CHA2DS2-VASc 4: age, HTN, DM, vascular risk), chronic LBBB since 11/2024, LVEF 45-50% on 12/2025 echo.\n\nASSESSMENT/PLAN:\n1. AFib — rate controlled on metoprolol succinate 50 daily. Continue apixaban 5 BID. No pauses or symptomatic episodes on 14-day monitor (1/2026).\n2. LBBB with mildly reduced EF — likely early nonischemic cardiomyopathy vs tachycardia-mediated; ischemic evaluation NOT yet completed. Stress imaging ordered — patient deferred scheduling.\n3. Counseled on symptoms warranting ED evaluation, including exertional chest pain.\n\nQTc today 452 ms — avoid additive QT-prolonging agents where possible."
     },
     "bin-wr-pdf-cardiology-fax": { "contentType": "application/pdf", "file": "documents/cardiology-consult-fax.pdf" },
-    "bin-wr-pdf-ems": { "contentType": "application/pdf", "file": "documents/ems-run-sheet.pdf" }
+    "bin-wr-pdf-ems": { "contentType": "application/pdf", "file": "documents/ems-run-sheet.pdf" },
+    "bin-wr-dermnote-0115": {
+      "contentType": "text/plain",
+      "text": "DERMATOLOGY NOTE 1/15/2026\n\nAnnual full-body skin exam. Several scattered actinic keratoses noted on scalp and forearms, treated with liquid nitrogen cryotherapy today. No lesions concerning for melanoma or nonmelanoma skin cancer. Fitzpatrick type II skin, extensive sun exposure history from outdoor electrical work. Return in 12 months for routine surveillance, sooner if new or changing lesions."
+    },
+    "bin-wr-eyenote-0820": {
+      "contentType": "text/plain",
+      "text": "OPHTHALMOLOGY NOTE 8/20/2025\n\nPatient reports gradually worsening blurred vision and glare with night driving. Exam notes bilateral nuclear sclerotic cataracts, right eye greater than left, with best corrected visual acuity 20/40 OD and 20/30 OS. No diabetic retinopathy identified on dilated exam. Intraocular pressures normal bilaterally. Cataract surgery recommended for the right eye; patient will schedule."
+    }
   }
 }

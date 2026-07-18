@@ -42,9 +42,8 @@ export interface CdsResult {
   ribbon: CdsRibbonTopic[];
   recommendations: CdsRecommendationView[];
   supportingFindings: CdsFindingView[];
+  sentActions: Record<string, { confirmation: string; at: string }>;
 }
-
-const EMPTY: CdsResult = { hasCds: false, asOfTimestamp: null, ribbon: [], recommendations: [], supportingFindings: [] };
 
 /**
  * Computes the fired Abridge AI recommendations for a patient at their current
@@ -52,12 +51,13 @@ const EMPTY: CdsResult = { hasCds: false, asOfTimestamp: null, ribbon: [], recom
  * no LLM call, so it's instant and works even before the narrative agent runs.
  */
 export function computeCds(rec: PatientRecord): CdsResult {
+  const sentActions = rec.sentCdsActions ?? {};
   const patientCds = loadPatientCds(rec.dir);
-  if (!patientCds) return EMPTY;
+  if (!patientCds) return { hasCds: false, asOfTimestamp: null, ribbon: [], recommendations: [], supportingFindings: [], sentActions };
 
   const currentStage = rec.releasedStages; // 0 = arrival, 1 = after 1st simulate, ...
   const visible: CdsFinding[] = patientCds.findings.filter((f) => f.stageIndex <= currentStage);
-  if (visible.length === 0) return { ...EMPTY, hasCds: true };
+  if (visible.length === 0) return { hasCds: true, asOfTimestamp: null, ribbon: [], recommendations: [], supportingFindings: [], sentActions };
 
   const asOfTimestamp = visible[visible.length - 1]?.timestamp ?? null;
   const matchedRuleIds = new Set(visible.map((f) => f.matched_rule_id));
@@ -144,5 +144,5 @@ export function computeCds(rec: PatientRecord): CdsResult {
     return WEIGHT_ORDER[a.priority] - WEIGHT_ORDER[b.priority];
   });
 
-  return { hasCds: true, asOfTimestamp, ribbon, recommendations, supportingFindings };
+  return { hasCds: true, asOfTimestamp, ribbon, recommendations, supportingFindings, sentActions };
 }

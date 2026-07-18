@@ -1,18 +1,18 @@
 {
-  "recordedAt": "2026-07-18T20:14:18.937Z",
+  "recordedAt": "2026-07-18T21:27:06.265Z",
   "events": [
     {
       "type": "run_started",
-      "runId": "run--1784405633481_2",
+      "runId": "run--1784409999970_2",
       "patientId": "walter-reyes",
       "mode": "delta",
-      "at": 1784405633482
+      "at": 1784409999970
     },
     {
       "type": "agent_started",
       "agent": "delta",
       "label": "Delta Agent",
-      "at": 1784405633482
+      "at": 1784409999970
     },
     {
       "type": "fhir_call",
@@ -22,8 +22,8 @@
         "sinceLastCard": true
       },
       "resourceCount": 4,
-      "ms": 183,
-      "at": 1784405633575
+      "ms": 134,
+      "at": 1784410000039
     },
     {
       "type": "fhir_call",
@@ -33,8 +33,8 @@
         "sinceLastCard": true
       },
       "resourceCount": 0,
-      "ms": 83,
-      "at": 1784405633617
+      "ms": 109,
+      "at": 1784410000095
     },
     {
       "type": "fhir_call",
@@ -44,8 +44,8 @@
         "sinceLastCard": true
       },
       "resourceCount": 2,
-      "ms": 117,
-      "at": 1784405633676
+      "ms": 181,
+      "at": 1784410000186
     },
     {
       "type": "fhir_call",
@@ -55,8 +55,8 @@
         "sinceLastCard": true
       },
       "resourceCount": 1,
-      "ms": 188,
-      "at": 1784405633771
+      "ms": 105,
+      "at": 1784410000239
     },
     {
       "type": "fhir_call",
@@ -66,16 +66,16 @@
         "binaryId": "bin-wr-pdf-stress-fax"
       },
       "resourceCount": 1,
-      "ms": 85,
-      "at": 1784405633774
+      "ms": 98,
+      "at": 1784410000245
     },
     {
       "type": "agent_done",
       "agent": "delta",
       "label": "Delta Agent",
       "findingsCount": 3,
-      "ms": 25453,
-      "at": 1784405658935
+      "ms": 26294,
+      "at": 1784410026264
     },
     {
       "type": "delta_ready",
@@ -84,46 +84,46 @@
         "items": [
           {
             "flag": "ACT",
-            "text": "CXR final read: new widened mediastinum",
-            "prior": "6/28/2026 CXR — stable mild cardiomegaly, no acute process",
-            "current": "Widened mediastinum, stable cardiomegaly, no pneumothorax — recommend correlation for aortic pathology",
-            "why": "Raises concern for aortic pathology in a patient already given ASA and on therapeutic apixaban; CT chest ordered",
-            "source": "dr-wr-cxr-today, final attending read 10:58"
+            "text": "CXR mediastinal contour",
+            "prior": "6/28/2026 baseline — stable mild cardiomegaly, no mediastinal widening",
+            "current": "Final read 10:58 — widened mediastinum, no pneumothorax, recommend correlation for aortic pathology",
+            "why": "Raises aortic dissection concern in a patient already anticoagulated and given ASA — changes immediate management",
+            "source": "dr-wr-cxr-today (CXR final 7/18 10:58)"
           },
           {
             "flag": "ACT",
-            "text": "hs-Troponin T resulted critical high",
-            "prior": "Negative workup 6/28/2026 (no value captured)",
-            "current": "62 ng/L (ref <14 ng/L), flagged critical high",
-            "why": "First positive troponin this visit — confirms myocardial injury; reframes twice-deferred ischemic workup as acute event",
-            "source": "lab-wr-trop-today1"
+            "text": "hs-Troponin T",
+            "prior": "Negative workup 6/28/2026 (prior episode, value not in this record)",
+            "current": "62 ng/L (ref <14 ng/L) — critical high",
+            "why": "New myocardial injury marker; LBBB precludes standard STEMI criteria so this drives ACS management now",
+            "source": "lab-wr-trop-today1 (hs-Troponin T 10:57)"
           },
           {
             "flag": "NOTE",
-            "text": "Today's ECG final read: no Sgarbossa criteria met",
-            "prior": "EMS 12-lead 08:55 — LBBB, no read yet documented",
-            "current": "Sinus tach 102, LBBB unchanged (QRS 148ms), QTc 455, no concordant STE, no excessive discordance",
-            "why": "Rules out STEMI-equivalent pattern for now, but troponin already positive — does not exclude ACS",
-            "source": "dr-wr-ecg-today"
+            "text": "ED 12-lead ECG final read",
+            "prior": "6/28/2026 — LBBB baseline, QTc 452 ms, no Sgarbossa criteria met",
+            "current": "Today — LBBB unchanged (QRS 148 ms), QTc 455 ms, no Sgarbossa criteria met",
+            "why": "No STEMI-equivalent pattern despite troponin rise — supports NSTEMI/other etiology over acute occlusive MI, informs cath urgency",
+            "source": "dr-wr-ecg-today (ECG final 09:30)"
           }
         ],
-        "interactionCheck": "ASA 324mg given at triage + therapeutic apixaban on board — reconsider before further antiplatelet/anticoagulant dosing given new widened mediastinum concern for aortic pathology.",
+        "interactionCheck": "New widened mediastinum (possible aortic dissection) in a patient already given ASA 324mg and on therapeutic apixaban — further anticoagulation/antiplatelet therapy should be reconsidered pending dissection workup.",
         "pending": [
-          "2nd hs-Troponin T (due ~12:00)",
+          "2nd hs-Troponin T (2-hr draw, due ~12:00)",
           "Cardiology consult (paged 10:10)",
           "CT chest/abdomen/pelvis with contrast (ordered 11:02 for widened mediastinum)"
         ],
-        "overflowNote": "+1 additional item (outside 9/2024 stress echo fax — equivocal inferolateral hypokinesis, never followed up) — reinforces known workup gap already on Room-Entry Card, does not independently change management right now."
+        "overflowNote": "+1 additional item — outside stress echo fax (9/2024, equivocal inferolateral hypokinesis) adds history but does not change immediate management given today's findings."
       },
-      "at": 1784405658936
+      "at": 1784410026264
     },
     {
       "type": "run_complete",
       "totalApiCalls": 5,
       "totalResources": 8,
-      "totalMs": 25454,
+      "totalMs": 26294,
       "agentCount": 1,
-      "at": 1784405658936
+      "at": 1784410026264
     }
   ]
 }

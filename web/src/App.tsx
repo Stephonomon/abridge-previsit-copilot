@@ -45,7 +45,7 @@ export default function App() {
   const selected = patients.find((p) => p.id === selectedId) ?? null;
 
   const runAgent = useCallback(
-    async (patient: Patient, mode: "previsit" | "delta") => {
+    async (patient: Patient, mode: "previsit" | "delta", releasedStagesOverride?: number) => {
       setRunningPatientId(patient.id);
       setRunMode((m) => ({ ...m, [patient.id]: mode }));
       setEvents((e) => ({ ...e, [patient.id]: [] }));
@@ -53,7 +53,10 @@ export default function App() {
         setCards((c) => ({ ...c, [patient.id]: null }));
         setDeltaCards((c) => ({ ...c, [patient.id]: null }));
       }
-      const runId = mode === "previsit" ? await startPrevisit(patient.id) : await startDelta(patient.id, patient.releasedStages);
+      const runId =
+        mode === "previsit"
+          ? await startPrevisit(patient.id)
+          : await startDelta(patient.id, releasedStagesOverride ?? patient.releasedStages);
       unsubscribe.current?.();
       unsubscribe.current = subscribeRun(runId, (event) => {
         setEvents((e) => ({ ...e, [patient.id]: [...(e[patient.id] ?? []), event] }));
@@ -90,10 +93,15 @@ export default function App() {
 
   const handleSimulateAdvance = useCallback(async () => {
     if (!selected) return;
-    await simulateAdvance(selected.id, selected.releasedStages);
+    const result = await simulateAdvance(selected.id, selected.releasedStages);
     await refreshPatients();
     setChartVersion((v) => v + 1); // new results also appear in the EHR chart tabs
-  }, [selected, refreshPatients]);
+    // Auto-run the delta agent on the freshly released stage so new results
+    // surface without a separate manual "Run Delta" click.
+    if (cards[selected.id] && result?.releasedStages > 0) {
+      await runAgent(selected, "delta", result.releasedStages);
+    }
+  }, [selected, refreshPatients, runAgent, cards]);
 
   return (
     <div className="min-h-screen bg-[#c8d4dc]">
@@ -112,6 +120,9 @@ export default function App() {
           onOpenChart={(p) => {
             setSelectedId(p.id);
             setCopilotOpenFor(null);
+            // For the sake of time, the pre-visit brief is ready before the
+            // user even opens the copilot window — no manual "Run" click needed.
+            if (!p.hasCard) runAgent(p, "previsit");
           }}
         />
       ) : (

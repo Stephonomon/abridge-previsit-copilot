@@ -317,9 +317,13 @@ export function CopilotOverlay({
         )}
       </div>
 
-      {/* Body: Abridge AI CDS always up top; AI chart summary collapsed below it */}
+      {/* Body: Abridge AI CDS + latest delta always up top; AI chart summary collapsed below */}
       <div className="flex-1 overflow-y-auto p-3 space-y-3">
         <CdsPanel cds={cds} patient={patient} />
+
+        {deltaCard && (
+          <DeltaCardView card={deltaCard} stageLabel={patient.releasedStages > 0 ? `Stage ${patient.releasedStages} results in` : null} />
+        )}
 
         <div className="rounded-2xl border border-stone-200 bg-white/70 overflow-hidden">
           <button
@@ -368,9 +372,6 @@ export function CopilotOverlay({
 
               <div className={`grid gap-3 items-start ${showActivity ? "grid-cols-[1fr_330px]" : "grid-cols-1"}`}>
                 <div className="space-y-3 min-w-0">
-                  {deltaCard && (
-                    <DeltaCardView card={deltaCard} stageLabel={patient.releasedStages > 0 ? `Stage ${patient.releasedStages} results in` : null} />
-                  )}
                   <CardView
                     card={card}
                     loading={running}

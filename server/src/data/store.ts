@@ -56,6 +56,7 @@ export interface Chart {
   documentReferencesExternal: any[];
   familyMemberHistory: any[];
   procedures: any[];
+  referrals: any[];
   binaries: Record<string, { contentType: string; text?: string; file?: string }>;
 }
 
@@ -85,6 +86,7 @@ export interface PatientRecord {
   lastCardAt: string | null;
   lastCard: any | null;
   lastDeltaCheckedStage: number;
+  sentCdsActions: Record<string, { confirmation: string; at: string }>;
 }
 
 const records = new Map<string, PatientRecord>();
@@ -101,6 +103,7 @@ function loadPatient(id: string): PatientRecord {
     lastCardAt: null,
     lastCard: null,
     lastDeltaCheckedStage: 0,
+    sentCdsActions: {},
   };
 }
 
@@ -133,6 +136,7 @@ export function resetPatients(): void {
 /** Chart view including all released delta-stage resources merged in. */
 export function effectiveChart(rec: PatientRecord): Chart {
   const chart: Chart = JSON.parse(JSON.stringify(rec.chart));
+  chart.referrals = chart.referrals ?? [];
   for (const stage of rec.events.stages.slice(0, rec.releasedStages)) {
     chart.observationsLabs.push(...(stage.newObservationsLabs ?? []));
     chart.observationsVitals.push(...(stage.newObservationsVitals ?? []));
@@ -142,6 +146,42 @@ export function effectiveChart(rec: PatientRecord): Chart {
       chart.binaries[doc.binaryId] = doc.binary;
     }
   }
+  return chart;
+}
+
+const bulkChartCache = new Map<string, Partial<Chart>>();
+
+/** Large, purely-cosmetic chart clutter (chart-bulk.json), never seen by the FHIR mock layer or agents. */
+function loadBulkChart(rec: PatientRecord): Partial<Chart> {
+  if (!bulkChartCache.has(rec.dir)) {
+    const p = path.join(rec.dir, "chart-bulk.json");
+    bulkChartCache.set(rec.dir, fs.existsSync(p) ? JSON.parse(fs.readFileSync(p, "utf8")) : {});
+  }
+  return bulkChartCache.get(rec.dir)!;
+}
+
+/**
+ * Chart view for the EHR UI only: effectiveChart() plus display-only bulk
+ * clutter merged in, to make the chart look like a real decades-deep record.
+ * Never used by the FHIR mock layer/agents — they call effectiveChart directly.
+ */
+export function chartForDisplay(rec: PatientRecord): Chart {
+  const chart = effectiveChart(rec);
+  const bulk = loadBulkChart(rec);
+  chart.encounters.push(...(bulk.encounters ?? []));
+  chart.conditionsProblems.push(...(bulk.conditionsProblems ?? []));
+  chart.conditionsMedicalHistory.push(...(bulk.conditionsMedicalHistory ?? []));
+  chart.allergies.push(...(bulk.allergies ?? []));
+  chart.medicationRequests.push(...(bulk.medicationRequests ?? []));
+  chart.observationsLabs.push(...(bulk.observationsLabs ?? []));
+  chart.observationsVitals.push(...(bulk.observationsVitals ?? []));
+  chart.diagnosticReports.push(...(bulk.diagnosticReports ?? []));
+  chart.documentReferencesClinicalNotes.push(...(bulk.documentReferencesClinicalNotes ?? []));
+  chart.documentReferencesExternal.push(...(bulk.documentReferencesExternal ?? []));
+  chart.procedures.push(...(bulk.procedures ?? []));
+  chart.familyMemberHistory.push(...(bulk.familyMemberHistory ?? []));
+  chart.referrals.push(...(bulk.referrals ?? []));
+  Object.assign(chart.binaries, bulk.binaries ?? {});
   return chart;
 }
 
@@ -156,7 +196,7 @@ export function stagesBetween(rec: PatientRecord, fromStage: number, toStage: nu
 }
 
 export function readBinary(rec: PatientRecord, binaryId: string) {
-  const chart = effectiveChart(rec);
+  const chart = chartForDisplay(rec);
   const bin = chart.binaries[binaryId];
   if (!bin) return null;
   if (bin.file) {

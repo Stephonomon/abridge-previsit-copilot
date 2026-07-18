@@ -141,6 +141,7 @@ export interface CdsResult {
   ribbon: CdsRibbonTopic[];
   recommendations: CdsRecommendationView[];
   supportingFindings: CdsFindingView[];
+  sentActions: Record<string, { confirmation: string; at: string }>;
 }
 
 export interface AgentConfigResponse {
