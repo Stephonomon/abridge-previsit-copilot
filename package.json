@@ -2,6 +2,7 @@
   "name": "previsit-copilot",
   "private": true,
   "version": "0.1.0",
+  "type": "module",
   "scripts": {
     "build": "npm run build --workspace web",
     "dev:server": "npm run dev --workspace server",
