@@ -17,6 +17,7 @@ import {
   __resetCache,
 } from "./store/agentConfig.js";
 import { basePrompt } from "./agents/prompts.js";
+import { computeCds } from "./cds/engine.js";
 import fs from "fs";
 import path from "path";
 import { DATA_DIR } from "./data/store.js";
@@ -64,6 +65,14 @@ app.get("/api/patients/:id/binary/:binaryId", (req, res) => {
     res.setHeader("Content-Type", "text/plain; charset=utf-8");
     res.send(bin.text ?? "");
   }
+});
+
+// Abridge AI CDS — pure rules-matching over the current chart stage. No LLM
+// call, so it's instant and reflects the chart even before the narrative
+// pre-visit agent has run.
+app.get("/api/patients/:id/cds", (req, res) => {
+  const rec = getPatient(req.params.id);
+  res.json(computeCds(rec));
 });
 
 app.get("/api/patients/:id/card", (req, res) => {

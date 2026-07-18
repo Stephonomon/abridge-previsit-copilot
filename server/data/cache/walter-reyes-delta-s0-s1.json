@@ -1,18 +1,18 @@
 {
-  "recordedAt": "2026-07-18T18:49:13.388Z",
+  "recordedAt": "2026-07-18T20:14:18.937Z",
   "events": [
     {
       "type": "run_started",
-      "runId": "run_1784400529331_8",
+      "runId": "run--1784405633481_2",
       "patientId": "walter-reyes",
       "mode": "delta",
-      "at": 1784400529331
+      "at": 1784405633482
     },
     {
       "type": "agent_started",
       "agent": "delta",
       "label": "Delta Agent",
-      "at": 1784400529331
+      "at": 1784405633482
     },
     {
       "type": "fhir_call",
@@ -22,8 +22,8 @@
         "sinceLastCard": true
       },
       "resourceCount": 4,
-      "ms": 84,
-      "at": 1784400529374
+      "ms": 183,
+      "at": 1784405633575
     },
     {
       "type": "fhir_call",
@@ -33,8 +33,8 @@
         "sinceLastCard": true
       },
       "resourceCount": 0,
-      "ms": 144,
-      "at": 1784400529447
+      "ms": 83,
+      "at": 1784405633617
     },
     {
       "type": "fhir_call",
@@ -44,8 +44,8 @@
         "sinceLastCard": true
       },
       "resourceCount": 2,
-      "ms": 87,
-      "at": 1784400529492
+      "ms": 117,
+      "at": 1784405633676
     },
     {
       "type": "fhir_call",
@@ -55,8 +55,8 @@
         "sinceLastCard": true
       },
       "resourceCount": 1,
-      "ms": 146,
-      "at": 1784400529566
+      "ms": 188,
+      "at": 1784405633771
     },
     {
       "type": "fhir_call",
@@ -66,16 +66,16 @@
         "binaryId": "bin-wr-pdf-stress-fax"
       },
       "resourceCount": 1,
-      "ms": 169,
-      "at": 1784400529569
+      "ms": 85,
+      "at": 1784405633774
     },
     {
       "type": "agent_done",
       "agent": "delta",
       "label": "Delta Agent",
       "findingsCount": 3,
-      "ms": 24056,
-      "at": 1784400553387
+      "ms": 25453,
+      "at": 1784405658935
     },
     {
       "type": "delta_ready",
@@ -84,46 +84,46 @@
         "items": [
           {
             "flag": "ACT",
-            "text": "hs-Troponin T resulted",
-            "prior": "no prior troponin drawn today",
-            "current": "62 ng/L (ref <14) — critical high",
-            "why": "Confirms myocardial injury; on apixaban and baseline LBBB — cath eligibility/bleeding risk now immediately relevant",
-            "source": "lab-wr-trop-today1 (hs-Troponin T 09:58)"
+            "text": "CXR final read: new widened mediastinum",
+            "prior": "6/28/2026 CXR — stable mild cardiomegaly, no acute process",
+            "current": "Widened mediastinum, stable cardiomegaly, no pneumothorax — recommend correlation for aortic pathology",
+            "why": "Raises concern for aortic pathology in a patient already given ASA and on therapeutic apixaban; CT chest ordered",
+            "source": "dr-wr-cxr-today, final attending read 10:58"
           },
           {
             "flag": "ACT",
-            "text": "ECG resulted — LBBB comparison performed",
-            "prior": "6/28 ECG: sinus 94, chronic LBBB, QTc 452, no Sgarbossa",
-            "current": "Sinus tach 102, LBBB unchanged, QTc 455, no Sgarbossa criteria met",
-            "why": "No STEMI-equivalent pattern despite positive troponin — supports NSTEMI pathway, not emergent STEMI activation, but urgent cardiology still needed",
-            "source": "dr-wr-ecg-today (ECG final read 09:30)"
+            "text": "hs-Troponin T resulted critical high",
+            "prior": "Negative workup 6/28/2026 (no value captured)",
+            "current": "62 ng/L (ref <14 ng/L), flagged critical high",
+            "why": "First positive troponin this visit — confirms myocardial injury; reframes twice-deferred ischemic workup as acute event",
+            "source": "lab-wr-trop-today1"
           },
           {
             "flag": "NOTE",
-            "text": "Outside stress echo fax arrived (2024, never previously in chart)",
-            "prior": "Not previously documented — ischemic workup gap known from 12/2025 and 6/28 notes",
-            "current": "9/2024 stress echo: equivocal, inferolateral hypokinesis at peak stress; recommended CTA or angiography if suspicion persists; never completed",
-            "why": "Adds concrete prior ischemic substrate directly relevant to today's exertional CP and troponin elevation",
-            "source": "docref-wr-fax-stress / bin-wr-pdf-stress-fax"
+            "text": "Today's ECG final read: no Sgarbossa criteria met",
+            "prior": "EMS 12-lead 08:55 — LBBB, no read yet documented",
+            "current": "Sinus tach 102, LBBB unchanged (QRS 148ms), QTc 455, no concordant STE, no excessive discordance",
+            "why": "Rules out STEMI-equivalent pattern for now, but troponin already positive — does not exclude ACS",
+            "source": "dr-wr-ecg-today"
           }
         ],
-        "interactionCheck": "Troponin now critical with likely need for invasive workup — active apixaban (CHA2DS2-VASc 4) raises bleeding risk for cath access; confirm hold/reversal plan with cardiology before any intervention.",
+        "interactionCheck": "ASA 324mg given at triage + therapeutic apixaban on board — reconsider before further antiplatelet/anticoagulant dosing given new widened mediastinum concern for aortic pathology.",
         "pending": [
-          "2nd hs-Troponin T (2-hour draw, due ~12:00)",
+          "2nd hs-Troponin T (due ~12:00)",
           "Cardiology consult (paged 10:10)",
-          "Chest X-ray final attending read"
+          "CT chest/abdomen/pelvis with contrast (ordered 11:02 for widened mediastinum)"
         ],
-        "overflowNote": null
+        "overflowNote": "+1 additional item (outside 9/2024 stress echo fax — equivocal inferolateral hypokinesis, never followed up) — reinforces known workup gap already on Room-Entry Card, does not independently change management right now."
       },
-      "at": 1784400553387
+      "at": 1784405658936
     },
     {
       "type": "run_complete",
       "totalApiCalls": 5,
       "totalResources": 8,
-      "totalMs": 24056,
+      "totalMs": 25454,
       "agentCount": 1,
-      "at": 1784400553387
+      "at": 1784405658936
     }
   ]
 }

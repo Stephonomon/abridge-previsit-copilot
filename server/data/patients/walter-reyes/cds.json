@@ -1,0 +1,86 @@
+{
+  "topic_ids": ["cp-adult", "aortic-dissection"],
+  "findings": [
+    {
+      "id": "f-lbbb",
+      "stageIndex": 0,
+      "timestamp": "09:20",
+      "text": "Chronic LBBB since 11/2024. Baseline ECG 6/28/2026: sinus 94, LBBB unchanged, QTc 452, no Sgarbossa.",
+      "chart_ref": "dr-wr-ecg-0628",
+      "chart_label": "ECG 6/28/2026",
+      "matched_rule_id": "cp-r1"
+    },
+    {
+      "id": "f-apixaban",
+      "stageIndex": 0,
+      "timestamp": "09:20",
+      "text": "Apixaban 5 mg BID — active since 2023-08-04, AFib, CHA2DS2-VASc 4. Last dose timing NOT documented in ED note.",
+      "chart_ref": "med-wr-apixaban",
+      "chart_label": "Medication list",
+      "matched_rule_id": "cp-r2"
+    },
+    {
+      "id": "f-sildenafil",
+      "stageIndex": 0,
+      "timestamp": "09:20",
+      "text": "Sildenafil 50 mg taken ~11 hours prior to arrival, per EMS report at 08:55. Within 24-hour nitrate contraindication window.",
+      "chart_ref": "docref-wr-ems",
+      "chart_label": "EMS run sheet",
+      "matched_rule_id": "cp-r7"
+    },
+    {
+      "id": "f-cards-deferred",
+      "stageIndex": 0,
+      "timestamp": "09:20",
+      "text": "Cardiology 1/2026: pharmacologic stress imaging ordered but not completed (patient deferred). Note explicitly recommends low threshold for repeat workup with exertional symptoms.",
+      "chart_ref": "docref-wr-fax-cardiology",
+      "chart_label": "DVCA cardiology consult fax, 1/5/2026",
+      "matched_rule_id": "cp-r8"
+    },
+    {
+      "id": "f-stress-neg",
+      "stageIndex": 0,
+      "timestamp": "09:20",
+      "text": "Prior workup 6/28/2026 negative — but that was for AT-REST pain, not exertional. Cardiology framed it as insufficient for exertional symptoms.",
+      "chart_ref": "docref-wr-ednote-0628",
+      "chart_label": "ED Provider Note 6/28/2026",
+      "matched_rule_id": "cp-r6"
+    },
+    {
+      "id": "f-trop-critical",
+      "stageIndex": 1,
+      "timestamp": "11:00",
+      "text": "hs-Troponin T resulted critical high: 62 ng/L (ref <14). First troponin of the encounter. Confirms myocardial injury.",
+      "chart_ref": "lab-wr-trop-today1",
+      "chart_label": "hs-Troponin T, 10:57",
+      "matched_rule_id": "cp-r9"
+    },
+    {
+      "id": "f-outside-stress-echo",
+      "stageIndex": 1,
+      "timestamp": "11:00",
+      "text": "Outside 2024 stress echo faxed in: peak-stress inferolateral hypokinesis, equivocal for ischemia; no follow-up testing despite recommendation. Corroborates cardiology's flagged incomplete workup.",
+      "chart_ref": "docref-wr-fax-stress",
+      "chart_label": "Outside stress echo fax, 9/2024 study",
+      "matched_rule_id": "cp-r8"
+    },
+    {
+      "id": "f-cxr-widened",
+      "stageIndex": 1,
+      "timestamp": "11:00",
+      "text": "Today's CXR final attending read: WIDENED MEDIASTINUM compared to 6/28/2026 baseline. Stable mild cardiomegaly. Recommend clinical correlation for aortic pathology.",
+      "chart_ref": "dr-wr-cxr-today",
+      "chart_label": "CXR, final read 10:58",
+      "matched_rule_id": "ad-r5"
+    },
+    {
+      "id": "f-ct-dissection",
+      "stageIndex": 2,
+      "timestamp": "11:30",
+      "text": "CT chest/abdomen/pelvis with contrast: intimal flap in ascending aorta extending from root through arch into descending aorta. Stanford Type A / DeBakey I acute dissection. No tamponade. Coronary ostia preserved.",
+      "chart_ref": "dr-wr-ct-cap-today",
+      "chart_label": "CT chest/abd/pelvis, 11:30",
+      "matched_rule_id": "ad-r1"
+    }
+  ]
+}

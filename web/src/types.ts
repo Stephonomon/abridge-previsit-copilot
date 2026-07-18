@@ -57,6 +57,7 @@ export interface Patient {
   nextStageLabel: string | null;
   pending: string[];
   deltaAvailable: boolean;
+  triageVitals?: { hr?: number | string; bp?: string; rr?: number; spo2?: number; temp?: number; pain?: number };
 }
 
 export type RunEvent =
@@ -82,6 +83,64 @@ export interface AgentVersion {
   label: string;
   customizations: Customization[];
   createdAt: string;
+}
+
+export interface CdsRibbonTopic {
+  topic_id: string;
+  title: string;
+  matchedCount: number;
+  totalRules: number;
+  badge: "emergency" | "suspected" | null;
+}
+
+export interface CdsActionOrderDetails {
+  orderType: string;
+  items: string[];
+  indication: string;
+  priority: string;
+}
+
+export interface CdsAction {
+  id: string;
+  type: "secure_message" | "order";
+  label: string;
+  recipient?: { name: string; role: string; channel: string };
+  template_fill_from_patient?: boolean;
+  template?: string;
+  orderDetails?: CdsActionOrderDetails;
+}
+
+export interface CdsFindingView {
+  id: string;
+  timestamp: string;
+  text: string;
+  chart_ref: string;
+  chart_label: string;
+  matched_rule_id: string;
+  weight: string;
+  topic_title: string;
+}
+
+export interface CdsRecommendationView {
+  id: string;
+  text: string;
+  rationale: string;
+  priority: "high" | "medium" | "low";
+  evidence_line: string;
+  topic_id: string;
+  topic_title: string;
+  isEmergency: boolean;
+  actions: CdsAction[];
+  contributingFindings: CdsFindingView[];
+  contributingRules: { id: string; finding_pattern: string; why_it_matters: string }[];
+}
+
+export interface CdsResult {
+  hasCds: boolean;
+  asOfTimestamp: string | null;
+  ribbon: CdsRibbonTopic[];
+  recommendations: CdsRecommendationView[];
+  supportingFindings: CdsFindingView[];
 }
 
 export interface AgentConfigResponse {

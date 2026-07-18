@@ -81,7 +81,7 @@
     }
   ],
   "medicationRequests": [
-    { "resourceType": "MedicationRequest", "id": "med-wr-apixaban", "status": "active", "medicationCodeableConcept": { "text": "Apixaban 5 mg tablet" }, "dosageInstruction": [{ "text": "5 mg PO BID" }], "authoredOn": "2023-05-12", "reasonCode": [{ "text": "Atrial fibrillation — stroke prevention" }] },
+    { "resourceType": "MedicationRequest", "id": "med-wr-apixaban", "status": "active", "medicationCodeableConcept": { "text": "Apixaban 5 mg tablet" }, "dosageInstruction": [{ "text": "5 mg PO BID" }], "authoredOn": "2023-08-04", "reasonCode": [{ "text": "Atrial fibrillation — stroke prevention" }] },
     { "resourceType": "MedicationRequest", "id": "med-wr-metoprolol", "status": "active", "medicationCodeableConcept": { "text": "Metoprolol succinate 50 mg tablet" }, "dosageInstruction": [{ "text": "50 mg PO daily" }], "authoredOn": "2023-05-12", "reasonCode": [{ "text": "AFib rate control" }] },
     { "resourceType": "MedicationRequest", "id": "med-wr-metformin", "status": "active", "medicationCodeableConcept": { "text": "Metformin 1000 mg tablet" }, "dosageInstruction": [{ "text": "1000 mg PO BID" }], "authoredOn": "2015-03-15", "reasonCode": [{ "text": "Type 2 diabetes" }] },
     { "resourceType": "MedicationRequest", "id": "med-wr-atorvastatin", "status": "active", "medicationCodeableConcept": { "text": "Atorvastatin 40 mg tablet" }, "dosageInstruction": [{ "text": "40 mg PO nightly" }], "authoredOn": "2012-04-01", "reasonCode": [{ "text": "Hyperlipidemia" }] },
@@ -94,9 +94,9 @@
     { "resourceType": "Observation", "id": "vit-wr-today", "status": "final", "code": { "text": "Vital signs panel (triage)" }, "effectiveDateTime": "2026-07-18T09:15:00-04:00", "component": [
       { "code": { "text": "Heart rate" }, "valueQuantity": { "value": 104, "unit": "bpm" } },
       { "code": { "text": "Blood pressure" }, "valueString": "152/88 mmHg" },
-      { "code": { "text": "Respiratory rate" }, "valueQuantity": { "value": 18, "unit": "/min" } },
-      { "code": { "text": "SpO2" }, "valueQuantity": { "value": 97, "unit": "%" } },
-      { "code": { "text": "Temperature" }, "valueQuantity": { "value": 36.8, "unit": "C" } },
+      { "code": { "text": "Respiratory rate" }, "valueQuantity": { "value": 20, "unit": "/min" } },
+      { "code": { "text": "SpO2" }, "valueQuantity": { "value": 96, "unit": "%" } },
+      { "code": { "text": "Temperature" }, "valueQuantity": { "value": 37.1, "unit": "C" } },
       { "code": { "text": "Pain score" }, "valueQuantity": { "value": 6, "unit": "/10" } }
     ] },
     { "resourceType": "Observation", "id": "vit-wr-0628-2", "status": "final", "code": { "text": "Vital signs panel" }, "effectiveDateTime": "2026-06-28T20:30:00-04:00", "component": [

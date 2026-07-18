@@ -1,0 +1,116 @@
+{
+  "topic_id": "cp-adult",
+  "title": "Chest Pain — Adult",
+  "rules": [
+    {
+      "id": "cp-r1",
+      "finding_pattern": "Chronic left bundle branch block on baseline ECG",
+      "why_it_matters": "LBBB obscures standard STEMI ST-elevation criteria; ischemia must be assessed with Sgarbossa/modified Sgarbossa criteria against a known baseline tracing, not against generic STEMI criteria.",
+      "weight": "high"
+    },
+    {
+      "id": "cp-r2",
+      "finding_pattern": "Active therapeutic anticoagulation (DOAC) for atrial fibrillation",
+      "why_it_matters": "Anticoagulation changes the bleeding-risk calculus for cath, thrombolysis, and any invasive procedure; last-dose timing determines reversal strategy if bleeding or urgent surgery arises.",
+      "weight": "medium"
+    },
+    {
+      "id": "cp-r6",
+      "finding_pattern": "Prior negative cardiac workup for a different symptom pattern (at-rest vs. exertional)",
+      "why_it_matters": "A negative workup for one symptom pattern does not clear a different, higher-risk presentation. Anchoring on the prior negative result risks premature closure of the differential.",
+      "weight": "medium"
+    },
+    {
+      "id": "cp-r7",
+      "finding_pattern": "PDE5 inhibitor (sildenafil/tadalafil) use within the nitrate contraindication window",
+      "why_it_matters": "Concurrent nitrates with a PDE5 inhibitor can cause profound, refractory hypotension. This is an absolute contraindication for at least 24 hours after sildenafil (48h after tadalafil).",
+      "weight": "high"
+    },
+    {
+      "id": "cp-r8",
+      "finding_pattern": "Documented incomplete ischemic workup with an explicit low-threshold recommendation for re-evaluation",
+      "why_it_matters": "Cardiology has already flagged this gap in writing and specified the trigger for re-workup. Today's presentation is the scenario that note anticipated.",
+      "weight": "medium"
+    },
+    {
+      "id": "cp-r9",
+      "finding_pattern": "Elevated high-sensitivity troponin above the 99th percentile URL, with or without STEMI-equivalent ECG",
+      "why_it_matters": "Confirms myocardial injury; shifts disposition toward the ACS pathway even when the ECG is non-diagnostic due to baseline conduction delay.",
+      "weight": "high"
+    }
+  ],
+  "recommendations": [
+    {
+      "id": "cp-rec1",
+      "text": "Chronic LBBB precludes standard STEMI ECG criteria — apply Sgarbossa/modified Sgarbossa criteria and compare today's tracing directly to the 11/2024 baseline before ruling ischemia in or out.",
+      "rationale": "Generic ST-elevation thresholds are unreliable in the presence of LBBB and can produce false-negative or false-positive STEMI calls.",
+      "priority": "medium",
+      "triggered_by": ["cp-r1"],
+      "evidence_line": "ACC/AHA STEMI Guideline — Sgarbossa/modified Sgarbossa criteria in the presence of LBBB",
+      "actions": []
+    },
+    {
+      "id": "cp-rec2",
+      "text": "Confirm apixaban last-dose timing before any invasive workup, thrombolysis, or line placement. Have reversal (andexanet alfa) protocol identified in case of bleeding or emergent surgery.",
+      "rationale": "CHA2DS2-VASc 4 on a DOAC — timing is currently undocumented in the ED note and materially changes cath/surgical risk.",
+      "priority": "medium",
+      "triggered_by": ["cp-r2"],
+      "evidence_line": "ACC 2020 Expert Consensus — periprocedural management of DOAC therapy",
+      "actions": []
+    },
+    {
+      "id": "cp-rec6",
+      "text": "The 6/28/2026 negative workup evaluated pain that was at rest. Today's presentation is exertional — that pattern was never cleared. Do not treat the prior negative result as reassurance for this visit.",
+      "rationale": "Different symptom triggers carry different pretest probabilities; the prior encounter explicitly did not address exertional symptoms.",
+      "priority": "low",
+      "triggered_by": ["cp-r6"],
+      "evidence_line": "Cardiology 6/28/2026 note — workup scoped to at-rest pain only",
+      "actions": []
+    },
+    {
+      "id": "cp-rec7",
+      "text": "Patient took sildenafil ~11 hours ago. Nitrates — including sublingual and IV nitroglycerin — are contraindicated for at least 24 hours. Alert pharmacy and strip nitrate orders from any ACS order set before they're placed.",
+      "rationale": "Sildenafil + nitrates can cause severe, refractory hypotension; this needs to be visible before anyone reaches for nitro.",
+      "priority": "high",
+      "triggered_by": ["cp-r7"],
+      "evidence_line": "FDA labeling — PDE5 inhibitor / organic nitrate contraindication",
+      "actions": [
+        {
+          "id": "act-alert-pharmacy",
+          "type": "secure_message",
+          "label": "Alert Pharmacy — nitrate hold",
+          "recipient": { "name": "ED Pharmacy", "role": "pharmacy", "channel": "Epic Secure Chat" },
+          "template_fill_from_patient": true,
+          "template": "NITRATE HOLD — sildenafil within contraindication window.\n\nPatient: {name}, {age}{sex}, MRN {mrn}\nLocation: ED bed {bed}\n\nPatient took sildenafil 50 mg approximately 11 hours prior to arrival (per EMS report, 08:55). Nitrates — including sublingual and IV nitroglycerin — are contraindicated until at least 24h post-dose.\n\nPlease flag/hold any nitrate order that hits this MRN's chest-pain order set today.\n\n— Sent from ED via Abridge AI"
+        }
+      ]
+    },
+    {
+      "id": "cp-rec8",
+      "text": "Cardiology's outpatient workup for this patient's LBBB / reduced-EF picture remains incomplete despite an explicit low-threshold recommendation for re-evaluation with exertional symptoms. Today's presentation meets that threshold — and the outside stress echo faxed in today (equivocal, never followed up) reinforces the gap.",
+      "rationale": "The prior physician already documented the exact trigger for re-workup; that trigger has now occurred.",
+      "priority": "medium",
+      "triggered_by": ["cp-r8"],
+      "evidence_line": "Cardiology 1/2026 outpatient note — explicit low-threshold recommendation for exertional symptoms",
+      "actions": []
+    },
+    {
+      "id": "cp-rec9",
+      "text": "Update Cardiology on-call with NSTEMI-pattern presentation. Troponin-positive with LBBB precluding Sgarbossa STEMI-equivalent — combined picture is high-risk. Include anticoagulation status and reversal considerations in the update.",
+      "rationale": "Troponin elevation with a non-diagnostic ECG establishes NSTEMI/UA; cardiology involvement determines cath timing and coordinates anticoagulation management.",
+      "priority": "high",
+      "triggered_by": ["cp-r9"],
+      "evidence_line": "ACC/AHA/HFSA 2020 NSTEMI Guideline — early invasive vs. conservative strategy in high-risk patients",
+      "actions": [
+        {
+          "id": "act-message-cards",
+          "type": "secure_message",
+          "label": "Update Cardiology on-call",
+          "recipient": { "name": "Cardiology on-call", "role": "cardiology_oncall", "channel": "Epic Secure Chat" },
+          "template_fill_from_patient": true,
+          "template": "UPDATE — NSTEMI-pattern presentation.\n\nPatient: {name}, {age}{sex}, MRN {mrn}\nLocation: ED bed {bed}\nCC: {chief_complaint}\nVitals: HR {hr}, BP {bp}\n\nKey findings:\n  - hs-Troponin T at 10:57: 62 ng/L (ref <14) — critical high\n  - Today's ECG: sinus tach 102, LBBB unchanged from 11/2024 baseline, no Sgarbossa criteria\n  - Chronic LBBB precludes STEMI-equivalent interpretation; combined with trop+ = NSTEMI-pattern\n  - Outside 2024 stress echo (faxed today): peak-stress inferolateral hypokinesis, equivocal, never followed up\n  - Cardiology 1/2026 explicitly flagged incomplete ischemic workup with exertional-symptom follow-up recommendation\n\nMedications relevant:\n  - Apixaban 5 mg BID (CHA2DS2-VASc 4) — LAST DOSE TIMING NOT DOCUMENTED\n  - ASA 324 mg given at triage 09:20\n  - Sildenafil ~11h prior — nitrates contraindicated\n\nRequesting guidance on cath timing, anticoagulation reversal planning, and whether to pursue further imaging before invasive strategy.\n\n— Sent from ED via Abridge AI"
+        }
+      ]
+    }
+  ]
+}

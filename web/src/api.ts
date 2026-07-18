@@ -1,9 +1,14 @@
-import type { AgentConfigResponse, Patient, RunEvent } from "./types";
+import type { AgentConfigResponse, CdsResult, Patient, RunEvent } from "./types";
 
 export async function fetchPatients(): Promise<Patient[]> {
   const r = await fetch("/api/patients");
   const j = await r.json();
   return j.patients;
+}
+
+export async function fetchCds(patientId: string): Promise<CdsResult> {
+  const r = await fetch(`/api/patients/${patientId}/cds`);
+  return r.json();
 }
 
 export async function fetchChart(patientId: string) {

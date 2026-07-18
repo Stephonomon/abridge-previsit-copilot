@@ -4,7 +4,7 @@
 
 An agentic ED pre-visit intelligence demo built for the Abridge **Future of Agentic AI in Healthcare** hackathon by Stephon Proctor + John Lee, MD.
 
-Five Claude sub-agents fan out across a simulated Epic EHR (mirroring Abridge's real incoming Epic API surface), mine structured FHIR R4 data **and** the PDFs buried in the chart (faxes, EMS run sheets, outside reports), and synthesize a physician-taught, versioned **Room-Entry Card** — plus a mid-encounter **Delta Card** when new results land.
+Five Claude sub-agents fan out across a simulated Epic EHR (mirroring Abridge's real incoming Epic API surface), mine structured FHIR R4 data **and** the PDFs buried in the chart (faxes, EMS run sheets, outside reports), and synthesize a physician-taught, versioned **Room-Entry Card** — plus a mid-encounter **Delta Card** when new results land. Sitting above that narrative pull is **Abridge AI**, an instant, non-LLM clinical decision support layer: a rules engine that matches chart findings against an authored knowledge base and fires prioritized recommendations with one-click actions (secure messages, orders) — no wait, live from the moment the chart opens.
 
 ## Architecture
 
@@ -31,6 +31,7 @@ web/  (Vite + React + Tailwind)          server/  (Express + Anthropic SDK)
 - **Sub-agents** — real Claude tool-use loops (model: `claude-sonnet-5`), each scoped to its own API subset. The Document Intelligence agent receives faxed PDFs as native document blocks and extracts facts structured data misses (e.g. sildenafil use documented only in the EMS run sheet).
 - **Feedback → versions** — "Teach the agent" feedback becomes section-scoped customizations layered on the base specialty prompt; versions (v1.0 → v1.1, "Geriatric-focused", …) are switchable per patient population. Eye icon = base prompt; sliders icon = your edits.
 - **Delta agent** — staged results (`events.json` per patient) release via "Simulate: 45 min later"; the delta agent compares against the prior card and interrupts with a max-3-item ACT/NOTE card plus a Pending line.
+- **Abridge AI CDS** — `server/src/cds/engine.ts` matches per-patient authored findings (`server/data/patients/<id>/cds.json`) against a topic knowledge base (`server/data/kb/*.json`: rules, why-it-matters, recommendations, evidence lines, one-click actions) filtered to the current chart stage. Pure data matching, zero LLM calls, so it's instant and reacts the moment you click `Simulate` — independent of whether the narrative agent has run. On Walter Reyes, the chest-pain topic fires immediately at triage (sildenafil/nitrate contraindication with a one-click pharmacy alert); staging in the widened-mediastinum CXR and then the CT confirms a Stanford Type A dissection, flipping the ribbon to a pulsing **SURGICAL EMERGENCY** badge with five pre-filled actions (CV surgery consult, hold anticoagulation, type & cross, OR booking).
 
 ## Run
 

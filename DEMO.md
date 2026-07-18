@@ -2,39 +2,45 @@
 
 > **Setup (before judges arrive):**
 > 1. Both servers running (`npm run dev:server`, `npm run dev:web`), browser at `localhost:5173`.
-> 2. Replay cache is warm (repo ships with it; refresh with `npm run warm --workspace server`).
+> 2. Replay cache is warm (repo ships with it; refresh with `npm run warm --workspace server`, or a single patient: `npm run warm --workspace server -- walter-reyes`).
 > 3. Clean state: `curl -X POST localhost:8787/api/reset`, then reload.
 >
-> Agent runs replay recorded live runs (~5–10s pre-visit, ~2–5s delta). `PREVISIT_MODE=live` runs the API for real (~60–90s).
+> Agent-narrated runs replay from recorded live runs (~5–10s pre-visit, ~2–5s delta). Abridge AI's clinical decision support is **not** an LLM call — it's an instant rules engine that reacts to `Simulate` clicks with zero wait, independent of whether you've run the narrative agent at all.
 
-## Beat 1 — The problem, in the EHR itself (30s)
+## Beat 1 — Problem, in the EHR itself (25s)
 
 Start on the **Meridian ED Track Board**. *"This is where an ED doc lives. Three patients waiting."*
 
-Click **Reyes, Walter** → his chart opens. Click **Chart Review** and flip through a few tabs — Encounters, Laboratory, Notes, **Media**. *"Everything you need to know about this chest-pain patient is in here somewhere — encounters, labs, ECGs, and scanned faxes like this one"* (open the EMS run-sheet PDF from Media — it's a real fax-style PDF). *"Nobody has time to read all of this before walking into the room. That's the problem."*
+Click **Reyes, Walter** → his chart opens. Flip through **Chart Review** tabs — Encounters, Laboratory, Notes, **Media** (open the EMS run-sheet fax). *"Everything about this chest-pain patient is in here somewhere. Nobody has time to read all of it before walking into the room."*
 
-## Beat 2 — Launch the copilot (45s)
+## Beat 2 — Launch the copilot, meet Abridge AI (45s)
 
-Click the **✦ sparkle next to Walter's name** in the storyboard. *"The copilot opens with patient context — it knows whose chart I'm in."* Note the window behavior: semi-transparent over the chart, **collapses to a side rail when you mouse away, pin keeps it open, X closes it**.
+Click the **✦ sparkle** next to Walter's name in the storyboard. The copilot opens with patient context already loaded — no run required. **Abridge AI's clinical decision support is live immediately**, at the top of the window:
 
-Click **Run Pre-Visit Agent**. Narrate the Live Agent Activity panel: *"Five sub-agents in parallel, hitting the same Epic FHIR APIs Abridge already ships — Patient.Read, Observation.Search (Labs), Binary.Read."*
+*"Chest Pain — Adult, 5 of 6 rules already matched, just from triage."* Point at the top card: **sildenafil ~11 hours ago — nitrate contraindication**, with a one-click **Alert Pharmacy** action. Click it, show the pre-filled secure message, send it — toast confirms.
 
-Card lands. Point at the top item: **"Sildenafil last night per EMS — nitrates contraindicated."** *"That fact exists only in the EMS fax you just saw in the Media tab. The Document Intelligence agent read it. Nitro after sildenafil bottoms out his pressure — that's a real catch."* Fast follow: chronic LBBB → Sgarbossa, and the never-completed stress workup from the faxed cardiology consult.
+*"Every recommendation is grounded twice: the chart fact that triggered it, and the reference rule that makes it standard-of-care."* Click a `chart:` or `rule:` citation chip to expand it inline.
 
-## Beat 3 — Teach the agent (40s)
+## Beat 3 — Delta card lands, dissection suspected (35s)
 
-Hover a card section → **Teach the agent** → type a preference ("always show last anticoagulant dose timing"). Version bumps **v1.0 → v1.1**. Open the **eye** (base specialty prompt) and **sliders** (the doc's own edits). *"Versions per patient population — here's a Geriatric-focused variant. One scaffold, personally tuned, every future run uses it."*
+Click **Simulate: Delta card — 11:00**. Instantly — no LLM wait — the CDS ribbon adds a second topic: **Aortic Dissection — SUSPECTED**. New top recommendation: *"Troponin critical at 62. But look at this one — widened mediastinum on the CXR final read. The card is telling me: get the CT before I anchor on ACS."*
 
-## Beat 4 — Delta Card, and the EHR agrees (45s)
+(Optional, if time: expand **Chart summary** — collapsed by default — to show the narrative delta card independently reaches the same conclusion, reading the same widened-mediastinum CXR and the outside stress-echo fax that arrived mid-encounter.)
 
-Click **Simulate: 45 min later** → the labs land in the chart. Flip the EHR's **Laboratory tab** behind the overlay: *"there's the troponin — 62, critical."* Then click **Run Delta**: **ACT: hs-Troponin 8 → 62**, the ECG read, and *"a stress-echo fax arrived mid-encounter — already read: equivocal ischemia, never followed up."* Point at the interaction check (apixaban vs cath) and the **Pending** line. *"Max three items, interruption-budgeted — a quiet interval honestly returns 'no management-changing results.'"*
+## Beat 4 — CT results: SURGICAL EMERGENCY (45s)
+
+Click **Simulate: CT results — 11:30**. The ribbon flips: **Aortic Dissection — SURGICAL EMERGENCY**, red, pulsing. Every card cascades red:
+
+*"Stanford Type A. The card doesn't just tell me what it is — it hands me five one-click actions: message CV surgery on-call pre-filled from the CT read, hold the apixaban and aspirin that are now a bleeding risk, type & cross blood products, book the emergent OR with diagnosis and cannulation preferences pre-filled. All editable, all auditable, one click each."*
+
+Click **Update CV Surgery on-call** to show the pre-filled STAT message. *"The clock starts before I've walked to the phone."*
 
 ## Beat 5 — Close (15s)
 
-*"An agent layer inside the EHR workflow: trackboard → chart → one click → a taught, versioned brief. Same Epic APIs Abridge has in production. The other two patients catch an ESBL organism ceftriaxone would miss, and a Crohn's patient whose appendix — per an outside op-note PDF — isn't there."*
+*"Two systems working together: Abridge AI's rules engine catches the emergency instantly and hands over the actions — no LLM wait, always-on. Below it, collapsed until you want it, the multi-agent narrative pull shows its work in full. Same Epic APIs Abridge already has in production."*
 
-## Backup / Q&A
+## If asked / spare time
 
-- Collapse/expand: mouse away collapses to the rail; hover or click the rail to reopen; pin to lock; the header chevron also collapses.
-- Margaret Okafor: ESBL + mechanical valve + SJS allergy; delta = lactate clearing + carbapenem renal dosing. Jasmine Cole: no appendix, masked inflammation, hCG-gated imaging; stage-2 delta = CT abscess.
-- "Is it live?" — *"Every card was generated by the real multi-agent pipeline; we replay the recorded run for stage time. Flip `PREVISIT_MODE=live` and it runs the API in ~90s."*
+- Margaret Okafor: ESBL organism + mechanical valve + SJS sulfa allergy (no CDS layer — pure narrative agent demo). Jasmine Cole: no appendix (outside op-note PDF), biologic-masked inflammation, hCG-gated imaging.
+- "Is the narrative card live?" — *"Every card was generated by the real multi-agent pipeline; we replay the recording for stage time. Flip `PREVISIT_MODE=live` and it runs the API in ~90s. The CDS panel above it is never cached — it's a deterministic rules match, live every time."*
+- "Is this real medical logic?" — Every rule/recommendation pair is our own authored KB (`server/data/kb/*.json`), citing guideline lines (ACC/AHA, AATS) the way a real CDS system would — fully editable, fully auditable, nothing sends without a click.

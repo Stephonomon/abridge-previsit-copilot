@@ -1,7 +1,9 @@
-import { useRef, useState } from "react";
-import type { AgentConfigResponse, DeltaCard, Patient, RoomEntryCard, RunEvent } from "../types";
+import { useEffect, useRef, useState } from "react";
+import type { AgentConfigResponse, CdsResult, DeltaCard, Patient, RoomEntryCard, RunEvent } from "../types";
+import { fetchCds } from "../api";
 import { ActivityPanel } from "./ActivityPanel";
 import { CardView } from "./CardView";
+import { CdsPanel } from "./CdsPanel";
 import { DeltaCardView } from "./DeltaCardView";
 import { Eye, Sliders, Sparkle, Stethoscope } from "./icons";
 
@@ -19,8 +21,10 @@ type WH = { w: number; h: number };
  * The Pre-Visit Copilot as a free-floating in-EHR window:
  * - draggable by its title bar, resizable from the bottom-right corner
  * - collapses to a small draggable floating icon (hover or click to expand)
- * - the Live Agent Activity panel is collapsed by default; toggle it open to
- *   show the multi-agent run to an audience.
+ * - Abridge AI clinical decision support sits at the top, always live (pure
+ *   rules matching over the current chart stage — no LLM wait). Below it, the
+ *   AI-narrated chart summary is collapsed by default; expand it to show the
+ *   full multi-agent pull.
  */
 export function CopilotOverlay({
   patient,
@@ -60,7 +64,19 @@ export function CopilotOverlay({
   const [advancing, setAdvancing] = useState(false);
   const [dragging, setDragging] = useState(false);
   const [showActivity, setShowActivity] = useState(false); // collapsed by default
+  const [showSummary, setShowSummary] = useState(false); // AI chart summary — collapsed by default
+  const [cds, setCds] = useState<CdsResult | null>(null);
   const expanded = pinned || hovering;
+
+  useEffect(() => {
+    let cancelled = false;
+    fetchCds(patient.id).then((res) => {
+      if (!cancelled) setCds(res);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [patient.id, patient.releasedStages]);
 
   const [winPos, setWinPos] = useState<XY>(() => ({
     x: clamp(window.innerWidth - DEFAULT_W - 16, 8, window.innerWidth - DEFAULT_W - 8),
@@ -188,8 +204,10 @@ export function CopilotOverlay({
         style={{ left: bubblePos.x, top: bubblePos.y, width: BUBBLE, height: BUBBLE }}
       >
         <Sparkle className="w-6 h-6" />
-        {card && (
-          <span className="absolute -top-0.5 -right-0.5 w-3.5 h-3.5 rounded-full bg-emerald-400 border-2 border-white" title="Card ready" />
+        {cds?.ribbon.some((t) => t.badge === "emergency") ? (
+          <span className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-red-500 border-2 border-white animate-pulse" title="Emergency recommendation" />
+        ) : (
+          card && <span className="absolute -top-0.5 -right-0.5 w-3.5 h-3.5 rounded-full bg-emerald-400 border-2 border-white" title="Card ready" />
         )}
       </button>
     );
@@ -328,48 +346,97 @@ export function CopilotOverlay({
           </>
         )}
 
-        {/* Live Agent Activity toggle — collapsed by default, open to reveal the run */}
-        <button
-          onClick={toggleActivity}
-          className={`ml-auto flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold border ${
-            showActivity ? "bg-indigo-soft border-indigo-brand/30 text-indigo-brand-dark" : "bg-white border-stone-300 text-stone-600 hover:bg-stone-50"
-          }`}
-          title="Show what the sub-agents are doing behind the scenes"
-        >
-          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M3 12h4l2.5-6 4 12 2.5-6h5" />
-          </svg>
-          {showActivity ? "Hide" : "Show"} agent activity
-          {running && (
-            <span className="relative flex w-2 h-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-70" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
-            </span>
-          )}
-        </button>
+        {/* Simulate button still needs to be reachable even before the LLM card exists,
+            since Abridge AI CDS reacts to stage changes independent of the narrative agent. */}
+        {!card && canAdvance && (
+          <button
+            onClick={async () => {
+              setAdvancing(true);
+              await onSimulateAdvance();
+              setAdvancing(false);
+            }}
+            disabled={advancing}
+            className="flex items-center gap-1.5 bg-white border border-stone-300 hover:bg-stone-50 rounded-full px-3.5 py-1.5 text-xs font-semibold"
+            title="Demo control: release the next wave of results into the chart"
+          >
+            ◷ {advancing ? "Time passing…" : `Simulate: ${patient.nextStageLabel ?? "time passes"}`}
+          </button>
+        )}
       </div>
 
-      {/* Body: card, with the activity panel optionally beside it */}
-      <div className="flex-1 overflow-y-auto p-3">
-        <div className={`grid gap-3 items-start ${showActivity ? "grid-cols-[1fr_330px]" : "grid-cols-1"}`}>
-          <div className="space-y-3 min-w-0">
-            {deltaCard && <DeltaCardView card={deltaCard} stageLabel={patient.releasedStages > 0 ? `Stage ${patient.releasedStages} results in` : null} />}
-            <CardView
-              card={card}
-              loading={running}
-              patientHeader={{ name: patient.name, age: patient.age, sex: patient.sex, mrn: patient.mrn }}
-              onTeach={onTeach}
-            />
-          </div>
-          {showActivity && (
-            <div>
-              {events.length > 0 ? (
-                <ActivityPanel events={events} mode={mode} />
-              ) : (
-                <div className="bg-white/60 border border-dashed border-stone-300 rounded-2xl p-5 text-xs text-stone-400 text-center">
-                  Sub-agent activity will stream here during a run.
+      {/* Body: Abridge AI CDS always up top; AI chart summary collapsed below it */}
+      <div className="flex-1 overflow-y-auto p-3 space-y-3">
+        <CdsPanel cds={cds} patient={patient} />
+
+        <div className="rounded-2xl border border-stone-200 bg-white/70 overflow-hidden">
+          <button
+            onClick={() => setShowSummary((v) => !v)}
+            className="w-full flex items-center gap-2 px-4 py-2.5 text-left hover:bg-stone-50"
+          >
+            <svg
+              className={`w-3.5 h-3.5 text-stone-400 transition-transform ${showSummary ? "rotate-90" : ""}`}
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"
+            >
+              <path d="M9 6l6 6-6 6" />
+            </svg>
+            <span className="text-[13px] font-bold text-stone-700">Chart summary</span>
+            <span className="text-[11px] text-stone-400">— the AI-narrated pull from every sub-agent</span>
+            {!showSummary && card && (
+              <span className="ml-auto text-[10px] font-semibold text-emerald-600 bg-emerald-50 border border-emerald-200 rounded-full px-2 py-0.5">
+                Ready
+              </span>
+            )}
+          </button>
+
+          {showSummary && (
+            <div className="border-t border-stone-200 p-3">
+              <div className="flex justify-end mb-2">
+                <button
+                  onClick={toggleActivity}
+                  className={`flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold border ${
+                    showActivity
+                      ? "bg-indigo-soft border-indigo-brand/30 text-indigo-brand-dark"
+                      : "bg-white border-stone-300 text-stone-600 hover:bg-stone-50"
+                  }`}
+                  title="Show what the sub-agents are doing behind the scenes"
+                >
+                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M3 12h4l2.5-6 4 12 2.5-6h5" />
+                  </svg>
+                  {showActivity ? "Hide" : "Show"} agent activity
+                  {running && (
+                    <span className="relative flex w-2 h-2">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-70" />
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+                    </span>
+                  )}
+                </button>
+              </div>
+
+              <div className={`grid gap-3 items-start ${showActivity ? "grid-cols-[1fr_330px]" : "grid-cols-1"}`}>
+                <div className="space-y-3 min-w-0">
+                  {deltaCard && (
+                    <DeltaCardView card={deltaCard} stageLabel={patient.releasedStages > 0 ? `Stage ${patient.releasedStages} results in` : null} />
+                  )}
+                  <CardView
+                    card={card}
+                    loading={running}
+                    patientHeader={{ name: patient.name, age: patient.age, sex: patient.sex, mrn: patient.mrn }}
+                    onTeach={onTeach}
+                  />
                 </div>
-              )}
+                {showActivity && (
+                  <div>
+                    {events.length > 0 ? (
+                      <ActivityPanel events={events} mode={mode} />
+                    ) : (
+                      <div className="bg-white/60 border border-dashed border-stone-300 rounded-2xl p-5 text-xs text-stone-400 text-center">
+                        Sub-agent activity will stream here during a run.
+                      </div>
+                    )}
+                  </div>
+                )}
+              </div>
             </div>
           )}
         </div>

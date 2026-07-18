@@ -1,18 +1,18 @@
 {
-  "recordedAt": "2026-07-18T18:49:17.825Z",
+  "recordedAt": "2026-07-18T20:14:28.042Z",
   "events": [
     {
       "type": "run_started",
-      "runId": "run_1784400553389_9",
+      "runId": "run--1784405658948_3",
       "patientId": "walter-reyes",
       "mode": "delta",
-      "at": 1784400553389
+      "at": 1784405658948
     },
     {
       "type": "agent_started",
       "agent": "delta",
       "label": "Delta Agent",
-      "at": 1784400553389
+      "at": 1784405658948
     },
     {
       "type": "fhir_call",
@@ -21,9 +21,9 @@
       "params": {
         "sinceLastCard": true
       },
-      "resourceCount": 1,
-      "ms": 80,
-      "at": 1784400553430
+      "resourceCount": 0,
+      "ms": 102,
+      "at": 1784405659000
     },
     {
       "type": "fhir_call",
@@ -32,9 +32,9 @@
       "params": {
         "sinceLastCard": true
       },
-      "resourceCount": 1,
-      "ms": 89,
-      "at": 1784400553475
+      "resourceCount": 0,
+      "ms": 157,
+      "at": 1784405659079
     },
     {
       "type": "fhir_call",
@@ -43,9 +43,9 @@
       "params": {
         "sinceLastCard": true
       },
-      "resourceCount": 0,
-      "ms": 194,
-      "at": 1784400553573
+      "resourceCount": 1,
+      "ms": 171,
+      "at": 1784405659165
     },
     {
       "type": "fhir_call",
@@ -55,40 +55,48 @@
         "sinceLastCard": true
       },
       "resourceCount": 0,
-      "ms": 155,
-      "at": 1784400553652
+      "ms": 134,
+      "at": 1784405659234
     },
     {
       "type": "agent_done",
       "agent": "delta",
       "label": "Delta Agent",
-      "findingsCount": 0,
-      "ms": 4435,
-      "at": 1784400557824
+      "findingsCount": 1,
+      "ms": 9092,
+      "at": 1784405668040
     },
     {
       "type": "delta_ready",
       "card": {
-        "noDelta": true,
-        "items": [],
-        "interactionCheck": null,
+        "noDelta": false,
+        "items": [
+          {
+            "flag": "ACT",
+            "text": "CT chest/abd/pelvis final read: Stanford Type A aortic dissection (root to arch, extending into descending thoracic aorta), max diameter 4.7cm at sinotubular junction",
+            "prior": "No prior imaging of aorta; working framework was ACS/ischemia",
+            "current": "Type A dissection confirmed — surgical emergency",
+            "why": "Reframes entire presentation from ACS to aortic catastrophe; ASA already given and apixaban on board now represent active bleeding risk for imminent surgery",
+            "source": "dr-wr-ct-cap-today CT chest/abd/pelvis 7/18 11:30"
+          }
+        ],
+        "interactionCheck": "Therapeutic apixaban + ASA 324mg given at triage now high-risk in setting of confirmed Type A dissection requiring emergent surgery — anticoagulation reversal must be addressed with CV surgery immediately.",
         "pending": [
-          "2nd hs-Troponin T (2-hour draw, due ~12:00)",
-          "Cardiology consult (paged 10:10)",
-          "Chest X-ray final attending read",
-          "Today's ECG official read"
+          "2nd hs-Troponin T (deprioritized, dissection confirmed)",
+          "Emergent CV surgery consult",
+          "Type & crossmatch, OR booking"
         ],
         "overflowNote": null
       },
-      "at": 1784400557824
+      "at": 1784405668040
     },
     {
       "type": "run_complete",
       "totalApiCalls": 4,
-      "totalResources": 2,
-      "totalMs": 4435,
+      "totalResources": 1,
+      "totalMs": 9092,
       "agentCount": 1,
-      "at": 1784400557824
+      "at": 1784405668040
     }
   ]
 }
