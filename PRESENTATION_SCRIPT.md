@@ -39,6 +39,8 @@ No live Q&A, no room to recover from a fumbled click — this is the tightest po
 
 **Cut list if you're over time:** drop the tab-flipping in the first beat (go straight from trackboard to chart to sparkle icon); collapse the two Simulate beats into one (skip straight to CT results and mention "results evolve automatically" verbally instead of showing both stages).
 
+**Why the new-results icon animation isn't in this cut:** the sparkle/bubble icon only flashes amber when the copilot window is closed or collapsed at the moment new results land — in this script the window stays open throughout, so it never triggers (auto-cleared instantly since you're already looking at it). That's a deliberate call for a 60-second cut with zero room for a collapse/re-expand beat. It's staged properly in the live demo below (Beat 4) — if you want it in the recorded cut too, see the live version's collapse beat and splice ~8s in after the first Simulate click.
+
 ---
 
 ## 3-Minute Live Demo
@@ -55,17 +57,17 @@ Stand with the **physical copy of *Fahrenheit 451*** in hand before touching the
 
 > *Presenter note: double-check the exact citation before you're in front of engineers who'll look it up — get the real title/venue locked down in rehearsal.*
 
-### Beat 2 — The chart, unassisted (0:35–1:00)
+### Beat 2 — The chart, unassisted (0:35–0:58)
 
 Move to the laptop. On the **Meridian ED Track Board**.
 
 > **JOHN:** "Three patients waiting. Let's take Walter — 68, chest pain, ESI 2."
 
-Click **Reyes, Walter** → chart opens on **Chart Review**. Click through **Encounters → Laboratory → Notes → Media** (open the EMS run-sheet fax briefly).
+Click **Reyes, Walter** → chart opens on **Chart Review**. Click through **Encounters → Laboratory → Notes** (fast, visual only — don't stop to open anything).
 
 > **JOHN:** "Every one of these tabs has something relevant to today buried in it, mixed in with forty years of stuff that isn't. Nobody has time to read all of it before walking in the room."
 
-### Beat 3 — Meet the copilot, grounded twice (1:00–1:45)
+### Beat 3 — Meet the copilot, grounded twice (0:58–1:40)
 
 Click the **sparkle icon** next to Walter's name in the left storyboard. Copilot window opens.
 
@@ -87,7 +89,7 @@ Gesture to the collapsed **Chart summary** below.
 
 > **STEPHON:** "Below that is the second system — the multi-agent chart-review pull, narrated in plain language, every line sourced back to the chart. Two different engines, two different jobs, working the same chart."
 
-### Beat 4 — Time moves, the card moves with it (1:45–2:30)
+### Beat 4 — Time moves, the card moves with it (1:40–2:35)
 
 > **JOHN:** "Chest pain doesn't sit still. Let's fast-forward."
 
@@ -95,9 +97,17 @@ Click **Simulate: Delta card — 11:00**.
 
 > **JOHN:** "New labs, new imaging — landing automatically, no one re-running anything." *(point at ribbon)* "Aortic Dissection, suspected. Troponin's critical — that would normally point straight at a heart attack. But it caught a widened mediastinum on today's chest X-ray, and it's telling me: don't anchor on ACS yet, get the CT."
 
-Click **Simulate: CT results — 11:30**.
+Click the **collapse button** in the window's title bar (thin line icon, top right) — the window shrinks to a small floating icon.
 
-> **JOHN:** "CT's back." *(ribbon flips red, pulsing)* "Stanford Type A dissection, confirmed. Surgical emergency."
+> **STEPHON:** "I don't need this open every second — and neither does he. Let's collapse it."
+
+Click **Simulate: CT results — 11:30**. The floating icon (and the sparkle icon by Walter's name) turns **amber and pulses**.
+
+> **STEPHON:** *(point at the icon, pause a beat)* "Watch the icon. It just told me something changed — I didn't have to remember to check back and re-read anything. It interrupts me."
+
+Click the pulsing icon to re-expand. It reverts to purple. Ribbon flips red, pulsing: **SURGICAL EMERGENCY**.
+
+> **JOHN:** "CT's back." *(point at ribbon)* "Stanford Type A dissection, confirmed. Surgical emergency."
 
 Point at the cascading action cards.
 
@@ -107,7 +117,7 @@ Click **💬 Update CV Surgery on-call** — show the pre-filled STAT message.
 
 > **STEPHON:** "And if there are more than one — " *(point at the Execute all button)* " — send everything that's still pending in one click, all logged, all timestamped, none of it silent."
 
-### Beat 5 — Teach it once, it stays taught (2:30–2:50)
+### Beat 5 — Teach it once, it stays taught (2:35–2:50)
 
 Expand **Chart summary**. Hover any section (e.g. *Meds That Matter Now*) → click **Teach the agent**.
 
@@ -119,7 +129,7 @@ Type something like *"Show the last 5–10 vitals, not just the most recent"* �
 
 ### Beat 6 — Close (2:50–3:00)
 
-> **JOHN:** "One specialty, built end to end, top to bottom, real Epic APIs."
+> **JOHN:** "One specialty, built end to end, top to bottom, real EHR APIs."
 >
 > **STEPHON:** "Abridge already runs fifty specialties in production. This is the shape the other forty-nine take."
 
@@ -134,6 +144,8 @@ Type something like *"Show the last 5–10 vitals, not just the most recent"* �
 - Bulk actionable recommendations, in order they'll fire: **Alert Pharmacy — nitrate hold** (arrival) → **Update Cardiology on-call** (stage 1) → **Update CV Surgery on-call, Hold apixaban + ASA, Type & crossmatch — STAT, Emergent OR request** (stage 2) — 6 total, matching the **"Execute all (6)"** button once stage 2 lands
 - Sent-action pill: greyed out, **"{label} — sent {time}"**, persists across reload until the workspace is reset
 - Teach popover copy: **"How should '{section}' work for you in future runs? Your feedback becomes part of this agent's next version."**
+- New-results notification: sparkle icon (storyboard) and floating bubble (collapsed copilot) both turn **amber and pulse**, title **"New results — click to review"**, the instant Simulate lands new results *while the window is closed or collapsed*. Reverts to normal purple the moment either icon is clicked — or instantly, with no flash at all, if the window is already open and visible when the results land (nothing to notify about if you're already looking at it).
+- Delta Card items are lean like the CDS cards now: headline + current value visible by default, prior value / why-it-matters / source citation collapsed behind a per-item **"why?"** toggle.
 
 ## If asked (Q&A prep)
 
