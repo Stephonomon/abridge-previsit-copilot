@@ -18,6 +18,7 @@ import { PatientChart } from "./ehr/PatientChart";
 import { CopilotOverlay } from "./components/CopilotOverlay";
 import { DemoControls } from "./components/DemoControls";
 import { CustomizationsDrawer, PromptDrawer } from "./components/Drawers";
+import { ErrorBoundary } from "./components/ErrorBoundary";
 
 export default function App() {
   const [patients, setPatients] = useState<Patient[]>([]);
@@ -35,6 +36,9 @@ export default function App() {
   // Bumped (per-patient) to force the copilot window open from outside its own
   // internal expand/collapse state — see CopilotOverlay's expandSignal prop.
   const [expandSignal, setExpandSignal] = useState<Record<string, number | null>>({});
+  // Bumped to force a fresh CopilotOverlay mount after the error boundary
+  // catches a crash there — see the ErrorBoundary wrapping it below.
+  const [copilotResetKey, setCopilotResetKey] = useState(0);
   const unsubscribe = useRef<(() => void) | null>(null);
 
   const markSeen = useCallback((patientId: string) => {
@@ -167,24 +171,26 @@ export default function App() {
       )}
 
       {selected && copilotOpenFor === selected.id && (
-        <CopilotOverlay
-          key={selected.id}
-          patient={selected}
-          config={config}
-          card={cards[selected.id] ?? null}
-          deltaCard={deltaCards[selected.id] ?? null}
-          events={events[selected.id] ?? []}
-          mode={runMode[selected.id] ?? "previsit"}
-          running={runningPatientId === selected.id}
-          hasUnseenUpdate={!!hasUnseenUpdate[selected.id]}
-          onSeen={() => markSeen(selected.id)}
-          expandSignal={expandSignal[selected.id] ?? null}
-          onClose={() => setCopilotOpenFor(null)}
-          onRun={() => runAgent(selected, "previsit")}
-          onTeach={handleTeach}
-          onShowPrompt={() => setDrawer("prompt")}
-          onShowCustomizations={() => setDrawer("customizations")}
-        />
+        <ErrorBoundary onReset={() => setCopilotResetKey((k) => k + 1)}>
+          <CopilotOverlay
+            key={`${selected.id}-${copilotResetKey}`}
+            patient={selected}
+            config={config}
+            card={cards[selected.id] ?? null}
+            deltaCard={deltaCards[selected.id] ?? null}
+            events={events[selected.id] ?? []}
+            mode={runMode[selected.id] ?? "previsit"}
+            running={runningPatientId === selected.id}
+            hasUnseenUpdate={!!hasUnseenUpdate[selected.id]}
+            onSeen={() => markSeen(selected.id)}
+            expandSignal={expandSignal[selected.id] ?? null}
+            onClose={() => setCopilotOpenFor(null)}
+            onRun={() => runAgent(selected, "previsit")}
+            onTeach={handleTeach}
+            onShowPrompt={() => setDrawer("prompt")}
+            onShowCustomizations={() => setDrawer("customizations")}
+          />
+        </ErrorBoundary>
       )}
 
       {drawer === "prompt" && config && <PromptDrawer config={config} onClose={() => setDrawer(null)} />}
