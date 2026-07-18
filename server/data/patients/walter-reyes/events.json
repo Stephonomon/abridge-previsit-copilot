@@ -1,0 +1,58 @@
+{
+  "pendingAtArrival": [
+    "hs-Troponin T (initial draw, collected 09:25)",
+    "BMP",
+    "CBC",
+    "12-lead ECG official read",
+    "Chest X-ray"
+  ],
+  "stages": [
+    {
+      "stage": 1,
+      "label": "45 min later — first results arrive",
+      "releasedAt": "2026-07-18T10:05:00-04:00",
+      "newObservationsLabs": [
+        { "resourceType": "Observation", "id": "lab-wr-trop-today1", "status": "final", "code": { "coding": [{ "system": "http://loinc.org", "code": "67151-1" }], "text": "hs-Troponin T" }, "effectiveDateTime": "2026-07-18T09:58:00-04:00", "valueQuantity": { "value": 62, "unit": "ng/L" }, "referenceRange": [{ "high": { "value": 14, "unit": "ng/L" } }], "interpretation": [{ "coding": [{ "code": "HH" }], "text": "Critical high" }] },
+        { "resourceType": "Observation", "id": "lab-wr-k-today", "status": "final", "code": { "coding": [{ "system": "http://loinc.org", "code": "2823-3" }], "text": "Potassium" }, "effectiveDateTime": "2026-07-18T10:00:00-04:00", "valueQuantity": { "value": 4.9, "unit": "mmol/L" }, "referenceRange": [{ "low": { "value": 3.5 }, "high": { "value": 5.1 } }] },
+        { "resourceType": "Observation", "id": "lab-wr-cr-today", "status": "final", "code": { "coding": [{ "system": "http://loinc.org", "code": "2160-0" }], "text": "Creatinine" }, "effectiveDateTime": "2026-07-18T10:00:00-04:00", "valueQuantity": { "value": 1.35, "unit": "mg/dL" }, "referenceRange": [{ "low": { "value": 0.7 }, "high": { "value": 1.3 } }] },
+        { "resourceType": "Observation", "id": "lab-wr-hgb-today", "status": "final", "code": { "coding": [{ "system": "http://loinc.org", "code": "718-7" }], "text": "Hemoglobin" }, "effectiveDateTime": "2026-07-18T10:00:00-04:00", "valueQuantity": { "value": 13.6, "unit": "g/dL" }, "referenceRange": [{ "low": { "value": 13.0 }, "high": { "value": 17.0 } }] }
+      ],
+      "newDiagnosticReports": [
+        { "resourceType": "DiagnosticReport", "id": "dr-wr-ecg-today", "status": "final", "category": [{ "text": "ECG" }], "code": { "text": "12-lead ECG" }, "effectiveDateTime": "2026-07-18T09:30:00-04:00", "conclusion": "Sinus tachycardia 102 bpm. Left bundle branch block, unchanged from 6/28/2026. QTc 455 ms. No Sgarbossa criteria met (no concordant ST elevation, no excessive discordance)." },
+        { "resourceType": "DiagnosticReport", "id": "dr-wr-cxr-today", "status": "preliminary", "category": [{ "text": "Radiology" }], "code": { "text": "Chest X-ray, portable" }, "effectiveDateTime": "2026-07-18T09:45:00-04:00", "conclusion": "PRELIMINARY: No acute cardiopulmonary process. Stable mild cardiomegaly." }
+      ],
+      "newDocuments": [
+        {
+          "documentReference": { "resourceType": "DocumentReference", "id": "docref-wr-fax-stress", "status": "current", "type": { "text": "Outside Records — Faxed Stress Test Report" }, "date": "2026-07-18T10:02:00-04:00", "description": "Fax just received from outside imaging center — 2024 stress echocardiogram report", "content": [{ "attachment": { "contentType": "application/pdf", "url": "Binary/bin-wr-pdf-stress-fax", "title": "Outside stress echo report (PDF, 1 page)" } }] },
+          "binaryId": "bin-wr-pdf-stress-fax",
+          "binary": { "contentType": "application/pdf", "file": "documents/stress-echo-fax.pdf" }
+        }
+      ],
+      "pendingAfter": [
+        "2nd hs-Troponin T (2-hour draw, due ~12:00)",
+        "Cardiology consult (paged 10:10)",
+        "Chest X-ray final attending read"
+      ]
+    },
+    {
+      "stage": 2,
+      "label": "30 min later — quiet interval",
+      "releasedAt": "2026-07-18T10:35:00-04:00",
+      "newObservationsVitals": [
+        { "resourceType": "Observation", "id": "vit-wr-today2", "status": "final", "code": { "text": "Vital signs panel (repeat)" }, "effectiveDateTime": "2026-07-18T10:30:00-04:00", "component": [
+          { "code": { "text": "Heart rate" }, "valueQuantity": { "value": 98, "unit": "bpm" } },
+          { "code": { "text": "Blood pressure" }, "valueString": "148/86 mmHg" },
+          { "code": { "text": "SpO2" }, "valueQuantity": { "value": 97, "unit": "%" } }
+        ] }
+      ],
+      "newObservationsLabs": [
+        { "resourceType": "Observation", "id": "lab-wr-mg-today", "status": "final", "code": { "text": "Magnesium" }, "effectiveDateTime": "2026-07-18T10:25:00-04:00", "valueQuantity": { "value": 2.0, "unit": "mg/dL" }, "referenceRange": [{ "low": { "value": 1.7 }, "high": { "value": 2.2 } }] }
+      ],
+      "pendingAfter": [
+        "2nd hs-Troponin T (2-hour draw, due ~12:00)",
+        "Cardiology consult (paged 10:10)",
+        "Chest X-ray final attending read"
+      ]
+    }
+  ]
+}

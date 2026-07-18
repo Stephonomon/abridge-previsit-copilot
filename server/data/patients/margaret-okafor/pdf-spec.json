@@ -1,0 +1,100 @@
+{
+  "pdfs": [
+    {
+      "file": "documents/id-consult-fax.pdf",
+      "faxHeader": "FAX  RECEIVED 04/15/2026 16:48  FROM: Schuylkill Infectious Disease Assoc  215-555-0197  PAGE 1/2",
+      "title": "INFECTIOUS DISEASE CONSULTATION LETTER",
+      "facility": "Schuylkill Infectious Disease Associates — 833 Spruce St, Philadelphia PA",
+      "pages": [
+        {
+          "heading": "Re: Margaret Okafor  DOB 03/22/1952  Consult date 04/14/2026",
+          "lines": [
+            "Setting: Inpatient consultation, hospital day 3 of admission for acute",
+            "pyelonephritis (admitted 04/12/2026).",
+            "",
+            "REASON FOR CONSULT: Persistent fever on empiric ceftriaxone; urine",
+            "culture finalized today with ESBL-producing organism.",
+            "",
+            "SUMMARY: 74F with recurrent UTIs, mechanical mitral valve on warfarin,",
+            "T2DM, and CKD stage 3b (eGFR ~34). Urine culture 04/12: E. coli",
+            ">100,000 CFU/mL, ESBL PRODUCER.",
+            "",
+            "SUSCEPTIBILITIES:",
+            "  Ceftriaxone ............ RESISTANT",
+            "  Ciprofloxacin .......... RESISTANT",
+            "  Levofloxacin ........... RESISTANT",
+            "  TMP-SMX ................ RESISTANT (also SJS allergy - NEVER use)",
+            "  Meropenem .............. SENSITIVE",
+            "  Ertapenem .............. SENSITIVE",
+            "  Nitrofurantoin ......... SENSITIVE (avoid: CrCl <40, pyelo)",
+            "  Fosfomycin ............. SENSITIVE (cystitis only)",
+            "",
+            "COURSE: Transitioned ceftriaxone to meropenem 1 g IV q12h (renal",
+            "dosing) with defervescence within 24 hours. Blood cultures no growth."
+          ]
+        },
+        {
+          "heading": "RECOMMENDATIONS (page 2/2)",
+          "lines": [
+            "1. Complete 14-day total course: ertapenem 500 mg IV daily (renally",
+            "   dosed) x10 days via OPAT after discharge.",
+            "2. FOR FUTURE FEBRILE UTI EPISODES: recommend EMPIRIC CARBAPENEM",
+            "   (e.g., meropenem, renally dosed) PENDING CULTURES given documented",
+            "   ESBL history. Standard empiric ceftriaxone is expected to FAIL",
+            "   this organism.",
+            "3. Avoid TMP-SMX permanently (Stevens-Johnson syndrome).",
+            "4. Fluoroquinolones: resistant, and QTc 470 ms is a further caution.",
+            "5. Fever with a mechanical mitral prosthesis: maintain a low",
+            "   threshold to draw blood cultures BEFORE antibiotics and consider",
+            "   TEE if bacteremia or persistent fever (endocarditis evaluation).",
+            "6. Urology referral for recurrent UTI workup (placed).",
+            "",
+            "Thank you for this consultation. Happy to re-consult on any",
+            "recurrence.",
+            "",
+            "Ngozi Adeyemi, MD — Infectious Disease",
+            "Schuylkill Infectious Disease Associates"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "documents/anticoag-flowsheet-fax.pdf",
+      "faxHeader": "FAX  RECEIVED 07/10/2026 15:31  FROM: Liberty Anticoagulation Clinic  215-555-0126  PAGE 1/1",
+      "title": "WARFARIN MANAGEMENT FLOWSHEET",
+      "facility": "Liberty Anticoagulation Clinic — 4200 Frankford Ave, Philadelphia PA",
+      "pages": [
+        {
+          "heading": "Patient: Okafor, Margaret  DOB 03/22/1952",
+          "lines": [
+            "INDICATION: Mechanical mitral valve replacement (St. Jude bileaflet,",
+            "09/2015). TARGET INR RANGE: 2.5 - 3.5. Duration: LIFELONG.",
+            "",
+            "NOTE: Mechanical MITRAL prosthesis - do NOT hold or reverse warfarin",
+            "without cardiology involvement; if interruption required, bridging",
+            "with heparin per cardiology.",
+            "",
+            "CURRENT REGIMEN: Warfarin 5 mg PO daily; 2.5 mg on Sundays",
+            "(32.5 mg/week).",
+            "",
+            "INR HISTORY:",
+            "  07/10/2026   INR 2.7   In range      No dose change",
+            "  06/19/2026   INR 3.1   In range      No dose change",
+            "  05/29/2026   INR 2.4   Slightly low  Sunday dose 2.5 -> full 5 mg",
+            "               for 1 week, then resume; recheck 3 wks",
+            "  04/16/2026   INR 2.9   In range      Hospital discharge check",
+            "  04/12/2026   INR 2.6   In range      On admission",
+            "  03/06/2026   INR 2.8   In range      No dose change",
+            "",
+            "INTERACTIONS FLAGGED: Antibiotics frequently potentiate warfarin",
+            "(esp. TMP-SMX - also ALLERGY/SJS, fluoroquinolones, metronidazole).",
+            "Recheck INR within 3-5 days of starting any antibiotic.",
+            "",
+            "Next scheduled INR: 08/07/2026.",
+            "Managing pharmacist: R. Delgado, PharmD, CACP"
+          ]
+        }
+      ]
+    }
+  ]
+}

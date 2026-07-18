@@ -1,0 +1,248 @@
+{
+  "patient": {
+    "resourceType": "Patient",
+    "id": "walter-reyes",
+    "identifier": [{ "system": "urn:epic:mrn", "value": "4471902" }],
+    "name": [{ "family": "Reyes", "given": ["Walter"], "text": "Walter Reyes" }],
+    "gender": "male",
+    "birthDate": "1957-11-03",
+    "address": [{ "city": "Philadelphia", "state": "PA" }],
+    "maritalStatus": { "text": "Married" }
+  },
+  "coverage": [
+    {
+      "resourceType": "Coverage",
+      "id": "cov-wr-1",
+      "status": "active",
+      "type": { "text": "Medicare Part B" },
+      "payor": [{ "display": "Medicare" }]
+    }
+  ],
+  "encounters": [
+    {
+      "resourceType": "Encounter",
+      "id": "enc-wr-ed-0628",
+      "status": "finished",
+      "class": { "code": "EMER", "display": "Emergency" },
+      "type": [{ "text": "ED visit — Chest pain" }],
+      "period": { "start": "2026-06-28T14:05:00-04:00", "end": "2026-06-28T21:40:00-04:00" },
+      "reasonCode": [{ "text": "Chest pain" }],
+      "extension": [{ "url": "dispositionDx", "valueString": "Atypical chest pain — serial hs-troponins negative (8→9), discharged with cardiology follow-up" }]
+    },
+    {
+      "resourceType": "Encounter",
+      "id": "enc-wr-card-0314",
+      "status": "finished",
+      "class": { "code": "AMB", "display": "Ambulatory" },
+      "type": [{ "text": "Cardiology follow-up — AFib" }],
+      "period": { "start": "2026-03-14T10:30:00-04:00" },
+      "reasonCode": [{ "text": "Atrial fibrillation" }],
+      "extension": [{ "url": "dispositionDx", "valueString": "Paroxysmal AFib, rate controlled on metoprolol; continue apixaban (CHA2DS2-VASc 4)" }]
+    },
+    {
+      "resourceType": "Encounter",
+      "id": "enc-wr-echo-1209",
+      "status": "finished",
+      "class": { "code": "AMB", "display": "Ambulatory" },
+      "type": [{ "text": "Transthoracic echocardiogram" }],
+      "period": { "start": "2025-12-09T09:00:00-05:00" },
+      "reasonCode": [{ "text": "LBBB, evaluate LV function" }],
+      "extension": [{ "url": "dispositionDx", "valueString": "EF 45–50%, mild global hypokinesis, mild LAE" }]
+    },
+    {
+      "resourceType": "Encounter",
+      "id": "enc-wr-pcp-1002",
+      "status": "finished",
+      "class": { "code": "AMB", "display": "Ambulatory" },
+      "type": [{ "text": "Annual physical — primary care" }],
+      "period": { "start": "2025-10-02T08:45:00-04:00" },
+      "reasonCode": [{ "text": "Annual exam" }],
+      "extension": [{ "url": "dispositionDx", "valueString": "T2DM (A1c 7.4), HTN, hyperlipidemia — stable; colonoscopy up to date" }]
+    }
+  ],
+  "conditionsProblems": [
+    { "resourceType": "Condition", "id": "cond-wr-afib", "clinicalStatus": { "coding": [{ "code": "active" }] }, "code": { "coding": [{ "system": "http://snomed.info/sct", "code": "49436004" }], "text": "Paroxysmal atrial fibrillation" }, "onsetDateTime": "2023-05-10", "note": [{ "text": "CHA2DS2-VASc 4. Anticoagulated with apixaban." }] },
+    { "resourceType": "Condition", "id": "cond-wr-lbbb", "clinicalStatus": { "coding": [{ "code": "active" }] }, "code": { "coding": [{ "system": "http://snomed.info/sct", "code": "164909002" }], "text": "Left bundle branch block (chronic)" }, "onsetDateTime": "2024-11-19", "note": [{ "text": "First documented on ECG 11/2024, present on all subsequent ECGs." }] },
+    { "resourceType": "Condition", "id": "cond-wr-t2dm", "clinicalStatus": { "coding": [{ "code": "active" }] }, "code": { "coding": [{ "system": "http://snomed.info/sct", "code": "44054006" }], "text": "Type 2 diabetes mellitus" }, "onsetDateTime": "2015-03-01" },
+    { "resourceType": "Condition", "id": "cond-wr-htn", "clinicalStatus": { "coding": [{ "code": "active" }] }, "code": { "coding": [{ "system": "http://snomed.info/sct", "code": "38341003" }], "text": "Essential hypertension" }, "onsetDateTime": "2012-01-01" },
+    { "resourceType": "Condition", "id": "cond-wr-hld", "clinicalStatus": { "coding": [{ "code": "active" }] }, "code": { "coding": [{ "system": "http://snomed.info/sct", "code": "55822004" }], "text": "Hyperlipidemia" }, "onsetDateTime": "2012-01-01" }
+  ],
+  "conditionsMedicalHistory": [
+    { "resourceType": "Condition", "id": "cond-wr-hx-appy", "clinicalStatus": { "coding": [{ "code": "resolved" }] }, "code": { "text": "Appendicitis s/p appendectomy" }, "onsetDateTime": "1998-06-01" }
+  ],
+  "allergies": [
+    {
+      "resourceType": "AllergyIntolerance",
+      "id": "allergy-wr-pcn",
+      "clinicalStatus": { "coding": [{ "code": "active" }] },
+      "criticality": "low",
+      "code": { "text": "Penicillin" },
+      "reaction": [{ "manifestation": [{ "text": "Hives" }], "severity": "mild" }]
+    }
+  ],
+  "medicationRequests": [
+    { "resourceType": "MedicationRequest", "id": "med-wr-apixaban", "status": "active", "medicationCodeableConcept": { "text": "Apixaban 5 mg tablet" }, "dosageInstruction": [{ "text": "5 mg PO BID" }], "authoredOn": "2023-05-12", "reasonCode": [{ "text": "Atrial fibrillation — stroke prevention" }] },
+    { "resourceType": "MedicationRequest", "id": "med-wr-metoprolol", "status": "active", "medicationCodeableConcept": { "text": "Metoprolol succinate 50 mg tablet" }, "dosageInstruction": [{ "text": "50 mg PO daily" }], "authoredOn": "2023-05-12", "reasonCode": [{ "text": "AFib rate control" }] },
+    { "resourceType": "MedicationRequest", "id": "med-wr-metformin", "status": "active", "medicationCodeableConcept": { "text": "Metformin 1000 mg tablet" }, "dosageInstruction": [{ "text": "1000 mg PO BID" }], "authoredOn": "2015-03-15", "reasonCode": [{ "text": "Type 2 diabetes" }] },
+    { "resourceType": "MedicationRequest", "id": "med-wr-atorvastatin", "status": "active", "medicationCodeableConcept": { "text": "Atorvastatin 40 mg tablet" }, "dosageInstruction": [{ "text": "40 mg PO nightly" }], "authoredOn": "2012-04-01", "reasonCode": [{ "text": "Hyperlipidemia" }] },
+    { "resourceType": "MedicationRequest", "id": "med-wr-lisinopril", "status": "active", "medicationCodeableConcept": { "text": "Lisinopril 10 mg tablet" }, "dosageInstruction": [{ "text": "10 mg PO daily" }], "authoredOn": "2012-04-01", "reasonCode": [{ "text": "Hypertension" }] }
+  ],
+  "medicationAdministrations": [
+    { "resourceType": "MedicationAdministration", "id": "medadm-wr-asa", "status": "completed", "medicationCodeableConcept": { "text": "Aspirin 324 mg chewed" }, "effectiveDateTime": "2026-07-18T09:20:00-04:00", "note": [{ "text": "Given at triage per chest pain protocol" }] }
+  ],
+  "observationsVitals": [
+    { "resourceType": "Observation", "id": "vit-wr-today", "status": "final", "code": { "text": "Vital signs panel (triage)" }, "effectiveDateTime": "2026-07-18T09:15:00-04:00", "component": [
+      { "code": { "text": "Heart rate" }, "valueQuantity": { "value": 104, "unit": "bpm" } },
+      { "code": { "text": "Blood pressure" }, "valueString": "152/88 mmHg" },
+      { "code": { "text": "Respiratory rate" }, "valueQuantity": { "value": 18, "unit": "/min" } },
+      { "code": { "text": "SpO2" }, "valueQuantity": { "value": 97, "unit": "%" } },
+      { "code": { "text": "Temperature" }, "valueQuantity": { "value": 36.8, "unit": "C" } },
+      { "code": { "text": "Pain score" }, "valueQuantity": { "value": 6, "unit": "/10" } }
+    ] },
+    { "resourceType": "Observation", "id": "vit-wr-0628-2", "status": "final", "code": { "text": "Vital signs panel" }, "effectiveDateTime": "2026-06-28T20:30:00-04:00", "component": [
+      { "code": { "text": "Heart rate" }, "valueQuantity": { "value": 82, "unit": "bpm" } },
+      { "code": { "text": "Blood pressure" }, "valueString": "138/82 mmHg" },
+      { "code": { "text": "SpO2" }, "valueQuantity": { "value": 98, "unit": "%" } }
+    ] },
+    { "resourceType": "Observation", "id": "vit-wr-0628-1", "status": "final", "code": { "text": "Vital signs panel (triage)" }, "effectiveDateTime": "2026-06-28T14:10:00-04:00", "component": [
+      { "code": { "text": "Heart rate" }, "valueQuantity": { "value": 96, "unit": "bpm" } },
+      { "code": { "text": "Blood pressure" }, "valueString": "148/90 mmHg" },
+      { "code": { "text": "SpO2" }, "valueQuantity": { "value": 97, "unit": "%" } },
+      { "code": { "text": "Temperature" }, "valueQuantity": { "value": 36.9, "unit": "C" } }
+    ] },
+    { "resourceType": "Observation", "id": "vit-wr-0314", "status": "final", "code": { "text": "Vital signs panel" }, "effectiveDateTime": "2026-03-14T10:35:00-04:00", "component": [
+      { "code": { "text": "Heart rate" }, "valueQuantity": { "value": 74, "unit": "bpm" } },
+      { "code": { "text": "Blood pressure" }, "valueString": "142/84 mmHg" }
+    ] },
+    { "resourceType": "Observation", "id": "vit-wr-1209", "status": "final", "code": { "text": "Vital signs panel" }, "effectiveDateTime": "2025-12-09T09:05:00-05:00", "component": [
+      { "code": { "text": "Heart rate" }, "valueQuantity": { "value": 71, "unit": "bpm" } },
+      { "code": { "text": "Blood pressure" }, "valueString": "136/80 mmHg" }
+    ] },
+    { "resourceType": "Observation", "id": "vit-wr-1002", "status": "final", "code": { "text": "Vital signs panel" }, "effectiveDateTime": "2025-10-02T08:50:00-04:00", "component": [
+      { "code": { "text": "Heart rate" }, "valueQuantity": { "value": 76, "unit": "bpm" } },
+      { "code": { "text": "Blood pressure" }, "valueString": "144/86 mmHg" },
+      { "code": { "text": "Weight" }, "valueQuantity": { "value": 92.5, "unit": "kg" } }
+    ] }
+  ],
+  "observationsLabs": [
+    { "resourceType": "Observation", "id": "lab-wr-trop-0628a", "status": "final", "code": { "coding": [{ "system": "http://loinc.org", "code": "67151-1" }], "text": "hs-Troponin T" }, "effectiveDateTime": "2026-06-28T14:45:00-04:00", "valueQuantity": { "value": 8, "unit": "ng/L" }, "referenceRange": [{ "high": { "value": 14, "unit": "ng/L" } }] },
+    { "resourceType": "Observation", "id": "lab-wr-trop-0628b", "status": "final", "code": { "coding": [{ "system": "http://loinc.org", "code": "67151-1" }], "text": "hs-Troponin T" }, "effectiveDateTime": "2026-06-28T17:50:00-04:00", "valueQuantity": { "value": 9, "unit": "ng/L" }, "referenceRange": [{ "high": { "value": 14, "unit": "ng/L" } }] },
+    { "resourceType": "Observation", "id": "lab-wr-bnp-0628", "status": "final", "code": { "coding": [{ "system": "http://loinc.org", "code": "30934-4" }], "text": "BNP" }, "effectiveDateTime": "2026-06-28T15:00:00-04:00", "valueQuantity": { "value": 148, "unit": "pg/mL" }, "referenceRange": [{ "high": { "value": 100, "unit": "pg/mL" } }], "interpretation": [{ "coding": [{ "code": "H" }] }] },
+    { "resourceType": "Observation", "id": "lab-wr-cr-0628", "status": "final", "code": { "coding": [{ "system": "http://loinc.org", "code": "2160-0" }], "text": "Creatinine" }, "effectiveDateTime": "2026-06-28T15:00:00-04:00", "valueQuantity": { "value": 1.3, "unit": "mg/dL" }, "referenceRange": [{ "low": { "value": 0.7 }, "high": { "value": 1.3 } }] },
+    { "resourceType": "Observation", "id": "lab-wr-k-0628", "status": "final", "code": { "coding": [{ "system": "http://loinc.org", "code": "2823-3" }], "text": "Potassium" }, "effectiveDateTime": "2026-06-28T15:00:00-04:00", "valueQuantity": { "value": 4.4, "unit": "mmol/L" }, "referenceRange": [{ "low": { "value": 3.5 }, "high": { "value": 5.1 } }] },
+    { "resourceType": "Observation", "id": "lab-wr-hgb-0628", "status": "final", "code": { "coding": [{ "system": "http://loinc.org", "code": "718-7" }], "text": "Hemoglobin" }, "effectiveDateTime": "2026-06-28T15:00:00-04:00", "valueQuantity": { "value": 13.8, "unit": "g/dL" }, "referenceRange": [{ "low": { "value": 13.0 }, "high": { "value": 17.0 } }] },
+    { "resourceType": "Observation", "id": "lab-wr-a1c-0326", "status": "final", "code": { "coding": [{ "system": "http://loinc.org", "code": "4548-4" }], "text": "Hemoglobin A1c" }, "effectiveDateTime": "2026-03-14T11:00:00-04:00", "valueQuantity": { "value": 7.4, "unit": "%" }, "referenceRange": [{ "high": { "value": 5.7, "unit": "%" } }] },
+    { "resourceType": "Observation", "id": "lab-wr-ldl-1002", "status": "final", "code": { "coding": [{ "system": "http://loinc.org", "code": "13457-7" }], "text": "LDL cholesterol" }, "effectiveDateTime": "2025-10-02T09:30:00-04:00", "valueQuantity": { "value": 88, "unit": "mg/dL" } },
+    { "resourceType": "Observation", "id": "lab-wr-egfr-0628", "status": "final", "code": { "coding": [{ "system": "http://loinc.org", "code": "62238-1" }], "text": "eGFR" }, "effectiveDateTime": "2026-06-28T15:00:00-04:00", "valueQuantity": { "value": 58, "unit": "mL/min/1.73m2" }, "referenceRange": [{ "low": { "value": 60 } }] }
+  ],
+  "observationsSocial": [
+    { "resourceType": "Observation", "id": "soc-wr-tobacco", "status": "final", "code": { "text": "Tobacco use" }, "valueString": "Former smoker — 20 pack-years, quit 2015", "effectiveDateTime": "2025-10-02" },
+    { "resourceType": "Observation", "id": "soc-wr-etoh", "status": "final", "code": { "text": "Alcohol use" }, "valueString": "1–2 drinks/week", "effectiveDateTime": "2025-10-02" },
+    { "resourceType": "Observation", "id": "soc-wr-living", "status": "final", "code": { "text": "Living situation" }, "valueString": "Lives with spouse, retired electrician, drives independently", "effectiveDateTime": "2025-10-02" }
+  ],
+  "diagnosticReports": [
+    {
+      "resourceType": "DiagnosticReport",
+      "id": "dr-wr-ecg-0628",
+      "status": "final",
+      "category": [{ "text": "ECG" }],
+      "code": { "text": "12-lead ECG" },
+      "effectiveDateTime": "2026-06-28T14:20:00-04:00",
+      "conclusion": "Sinus rhythm 94 bpm. Left bundle branch block, unchanged from 11/2024. QTc 452 ms. No Sgarbossa criteria. Cardiologist over-read: no acute ischemic changes identifiable in setting of LBBB."
+    },
+    {
+      "resourceType": "DiagnosticReport",
+      "id": "dr-wr-ecg-1124",
+      "status": "final",
+      "category": [{ "text": "ECG" }],
+      "code": { "text": "12-lead ECG" },
+      "effectiveDateTime": "2024-11-19T10:00:00-05:00",
+      "conclusion": "Sinus rhythm 78 bpm. New left bundle branch block compared to 2022 tracing. QTc 448 ms."
+    },
+    {
+      "resourceType": "DiagnosticReport",
+      "id": "dr-wr-echo-1209",
+      "status": "final",
+      "category": [{ "text": "Cardiac imaging" }],
+      "code": { "text": "Transthoracic echocardiogram" },
+      "effectiveDateTime": "2025-12-09T09:30:00-05:00",
+      "conclusion": "LVEF 45–50% with mild global hypokinesis. Mild left atrial enlargement. No significant valvular disease. No pericardial effusion."
+    },
+    {
+      "resourceType": "DiagnosticReport",
+      "id": "dr-wr-cxr-0628",
+      "status": "final",
+      "category": [{ "text": "Radiology" }],
+      "code": { "text": "Chest X-ray, PA and lateral" },
+      "effectiveDateTime": "2026-06-28T15:10:00-04:00",
+      "conclusion": "No acute cardiopulmonary process. Mild cardiomegaly, stable."
+    },
+    {
+      "resourceType": "DiagnosticReport",
+      "id": "dr-wr-ucx-2025",
+      "status": "final",
+      "category": [{ "text": "Microbiology" }],
+      "code": { "text": "Urine culture" },
+      "effectiveDateTime": "2025-08-11T00:00:00-04:00",
+      "conclusion": "E. coli >100,000 CFU/mL, pan-sensitive. Treated with nitrofurantoin, resolved."
+    }
+  ],
+  "documentReferencesClinicalNotes": [
+    {
+      "resourceType": "DocumentReference",
+      "id": "docref-wr-ednote-0628",
+      "status": "current",
+      "type": { "text": "ED Provider Note" },
+      "date": "2026-06-28T21:30:00-04:00",
+      "content": [{ "attachment": { "contentType": "text/plain", "url": "Binary/bin-wr-ednote-0628", "title": "ED Provider Note 6/28/2026" } }]
+    },
+    {
+      "resourceType": "DocumentReference",
+      "id": "docref-wr-cardnote-0314",
+      "status": "current",
+      "type": { "text": "Cardiology Progress Note" },
+      "date": "2026-03-14T11:15:00-04:00",
+      "content": [{ "attachment": { "contentType": "text/plain", "url": "Binary/bin-wr-cardnote-0314", "title": "Cardiology Note 3/14/2026" } }]
+    }
+  ],
+  "documentReferencesExternal": [
+    {
+      "resourceType": "DocumentReference",
+      "id": "docref-wr-fax-cardiology",
+      "status": "current",
+      "type": { "text": "Outside Records — Faxed Cardiology Consult" },
+      "date": "2026-01-05T00:00:00-05:00",
+      "description": "Fax from Delaware Valley Cardiology Associates — consult letter + echo report",
+      "content": [{ "attachment": { "contentType": "application/pdf", "url": "Binary/bin-wr-pdf-cardiology-fax", "title": "DVCA consult fax (PDF, 2 pages)" } }]
+    },
+    {
+      "resourceType": "DocumentReference",
+      "id": "docref-wr-ems",
+      "status": "current",
+      "type": { "text": "EMS Run Sheet" },
+      "date": "2026-07-18T09:05:00-04:00",
+      "description": "Medic 12 prehospital care report for today's arrival",
+      "content": [{ "attachment": { "contentType": "application/pdf", "url": "Binary/bin-wr-pdf-ems", "title": "EMS run sheet (PDF, 1 page)" } }]
+    }
+  ],
+  "familyMemberHistory": [
+    { "resourceType": "FamilyMemberHistory", "id": "fmh-wr-father", "status": "completed", "relationship": { "text": "Father" }, "deceasedBoolean": true, "condition": [{ "code": { "text": "Myocardial infarction" }, "onsetAge": { "value": 61, "unit": "years" }, "note": [{ "text": "Fatal MI at age 61" }] }] },
+    { "resourceType": "FamilyMemberHistory", "id": "fmh-wr-brother", "status": "completed", "relationship": { "text": "Brother" }, "condition": [{ "code": { "text": "Coronary artery disease s/p CABG" }, "onsetAge": { "value": 66, "unit": "years" } }] }
+  ],
+  "procedures": [
+    { "resourceType": "Procedure", "id": "proc-wr-appy", "status": "completed", "code": { "text": "Appendectomy" }, "performedDateTime": "1998-06-14" },
+    { "resourceType": "Procedure", "id": "proc-wr-colo", "status": "completed", "code": { "text": "Screening colonoscopy — 2 benign polyps removed" }, "performedDateTime": "2023-09-21" }
+  ],
+  "binaries": {
+    "bin-wr-ednote-0628": {
+      "contentType": "text/plain",
+      "text": "ED PROVIDER NOTE 6/28/2026\n\nHPI: 68M hx paroxysmal AFib (on apixaban), T2DM, HTN, HLD, chronic LBBB presenting with 1 hour of substernal chest pressure at rest, resolved on arrival. No radiation, no diaphoresis at that time.\n\nED COURSE: hs-troponin 8 -> 9 ng/L (both < 99th percentile URL of 14), delta negative. ECG: LBBB unchanged from 11/2024, no Sgarbossa criteria, cardiology over-read agrees. CXR without acute process. HEART score 5 (moderate) driven by age, risk factors, and history.\n\nDISPO: Discussed with cardiology — discharged with expedited outpatient stress imaging and cardiology follow-up within 2 weeks. Strict return precautions given. Patient verbalized understanding.\n\nNote: patient did not complete the outpatient stress test prior to today's visit per scheduling records."
+    },
+    "bin-wr-cardnote-0314": {
+      "contentType": "text/plain",
+      "text": "CARDIOLOGY PROGRESS NOTE 3/14/2026\n\n68M with paroxysmal AFib (CHA2DS2-VASc 4: age, HTN, DM, vascular risk), chronic LBBB since 11/2024, LVEF 45-50% on 12/2025 echo.\n\nASSESSMENT/PLAN:\n1. AFib — rate controlled on metoprolol succinate 50 daily. Continue apixaban 5 BID. No pauses or symptomatic episodes on 14-day monitor (1/2026).\n2. LBBB with mildly reduced EF — likely early nonischemic cardiomyopathy vs tachycardia-mediated; ischemic evaluation NOT yet completed. Stress imaging ordered — patient deferred scheduling.\n3. Counseled on symptoms warranting ED evaluation, including exertional chest pain.\n\nQTc today 452 ms — avoid additive QT-prolonging agents where possible."
+    },
+    "bin-wr-pdf-cardiology-fax": { "contentType": "application/pdf", "file": "documents/cardiology-consult-fax.pdf" },
+    "bin-wr-pdf-ems": { "contentType": "application/pdf", "file": "documents/ems-run-sheet.pdf" }
+  }
+}

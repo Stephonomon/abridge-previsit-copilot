@@ -1,0 +1,23 @@
+{
+  "id": "jasmine-cole",
+  "name": "Jasmine Cole",
+  "firstName": "Jasmine",
+  "lastName": "Cole",
+  "age": 29,
+  "sex": "F",
+  "mrn": "5583441",
+  "esi": 3,
+  "chiefComplaint": "Abdominal pain",
+  "arrivalTime": "2026-07-18T11:58:00-04:00",
+  "arrivalLabel": "11:58 AM",
+  "room": "ED 22",
+  "triageNote": "29F with RLQ abdominal pain x2 days, worse today, with nausea and low-grade fever at home. Hx Crohn's disease. LMP uncertain — 'maybe 6 weeks ago.' 3rd ED visit for abdominal pain in 8 months.",
+  "triageVitals": {
+    "hr": 98,
+    "bp": "118/74",
+    "rr": 16,
+    "spo2": 99,
+    "temp": 37.9,
+    "pain": 7
+  }
+}

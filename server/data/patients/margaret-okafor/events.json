@@ -1,0 +1,67 @@
+{
+  "pendingAtArrival": [
+    "CBC with differential",
+    "BMP",
+    "Lactate",
+    "Urinalysis with microscopy",
+    "Urine culture (collected 10:58)",
+    "Blood cultures x2 (ordered)",
+    "INR",
+    "Chest X-ray, portable"
+  ],
+  "stages": [
+    {
+      "stage": 1,
+      "label": "40 min later — first results arrive",
+      "releasedAt": "2026-07-18T11:21:00-04:00",
+      "newObservationsLabs": [
+        { "resourceType": "Observation", "id": "lab-mo-lactate-today1", "status": "final", "code": { "coding": [{ "system": "http://loinc.org", "code": "2524-7" }], "text": "Lactate" }, "effectiveDateTime": "2026-07-18T11:12:00-04:00", "valueQuantity": { "value": 3.4, "unit": "mmol/L" }, "referenceRange": [{ "high": { "value": 2.0, "unit": "mmol/L" } }], "interpretation": [{ "coding": [{ "code": "H" }], "text": "High — meets sepsis threshold, act on this result" }] },
+        { "resourceType": "Observation", "id": "lab-mo-ua-today", "status": "final", "code": { "coding": [{ "system": "http://loinc.org", "code": "24356-8" }], "text": "Urinalysis with microscopy" }, "effectiveDateTime": "2026-07-18T11:10:00-04:00", "component": [
+          { "code": { "text": "Leukocyte esterase" }, "valueString": "POSITIVE (large)" },
+          { "code": { "text": "Nitrites" }, "valueString": "POSITIVE" },
+          { "code": { "text": "WBC" }, "valueString": ">50/hpf" },
+          { "code": { "text": "Bacteria" }, "valueString": "Many" },
+          { "code": { "text": "Glucose" }, "valueString": "2+ (on SGLT2 inhibitor)" },
+          { "code": { "text": "Ketones" }, "valueString": "Negative" },
+          { "code": { "text": "Blood" }, "valueString": "Trace" }
+        ] },
+        { "resourceType": "Observation", "id": "lab-mo-wbc-today", "status": "final", "code": { "coding": [{ "system": "http://loinc.org", "code": "6690-2" }], "text": "WBC" }, "effectiveDateTime": "2026-07-18T11:08:00-04:00", "valueQuantity": { "value": 16.8, "unit": "10*3/uL" }, "referenceRange": [{ "low": { "value": 4.0 }, "high": { "value": 11.0 } }], "interpretation": [{ "coding": [{ "code": "H" }] }] },
+        { "resourceType": "Observation", "id": "lab-mo-bands-today", "status": "final", "code": { "coding": [{ "system": "http://loinc.org", "code": "26507-4" }], "text": "Band neutrophils" }, "effectiveDateTime": "2026-07-18T11:08:00-04:00", "valueQuantity": { "value": 12, "unit": "%" }, "referenceRange": [{ "high": { "value": 10, "unit": "%" } }], "interpretation": [{ "coding": [{ "code": "H" }], "text": "Bandemia" }] },
+        { "resourceType": "Observation", "id": "lab-mo-cr-today", "status": "final", "code": { "coding": [{ "system": "http://loinc.org", "code": "2160-0" }], "text": "Creatinine" }, "effectiveDateTime": "2026-07-18T11:08:00-04:00", "valueQuantity": { "value": 1.9, "unit": "mg/dL" }, "referenceRange": [{ "low": { "value": 0.5 }, "high": { "value": 1.1 } }], "interpretation": [{ "coding": [{ "code": "H" }], "text": "Up from baseline 1.6 (6/9/2026)" }] },
+        { "resourceType": "Observation", "id": "lab-mo-inr-today", "status": "final", "code": { "coding": [{ "system": "http://loinc.org", "code": "6301-6" }], "text": "INR" }, "effectiveDateTime": "2026-07-18T11:08:00-04:00", "valueQuantity": { "value": 3.4, "unit": "{INR}" }, "referenceRange": [{ "low": { "value": 2.5 }, "high": { "value": 3.5 }, "text": "Therapeutic target for mechanical mitral valve" }], "interpretation": [{ "coding": [{ "code": "H" }], "text": "Up from 2.7 on 7/10 — relevant if procedures needed" }] },
+        { "resourceType": "Observation", "id": "lab-mo-glu-today", "status": "final", "code": { "coding": [{ "system": "http://loinc.org", "code": "2345-7" }], "text": "Glucose" }, "effectiveDateTime": "2026-07-18T11:08:00-04:00", "valueQuantity": { "value": 188, "unit": "mg/dL" }, "referenceRange": [{ "low": { "value": 70 }, "high": { "value": 99 } }], "interpretation": [{ "coding": [{ "code": "H" }] }] }
+      ],
+      "newDiagnosticReports": [
+        { "resourceType": "DiagnosticReport", "id": "dr-mo-bcx-today", "status": "registered", "category": [{ "text": "Microbiology" }], "code": { "text": "Blood cultures x2" }, "effectiveDateTime": "2026-07-18T11:05:00-04:00", "conclusion": "COLLECTED 11:05, two sets from separate sites prior to antibiotics. No growth to date — final results pending." },
+        { "resourceType": "DiagnosticReport", "id": "dr-mo-ucx-today", "status": "registered", "category": [{ "text": "Microbiology" }], "code": { "text": "Urine culture" }, "effectiveDateTime": "2026-07-18T10:58:00-04:00", "conclusion": "COLLECTED 10:58 (clean catch). Pending — prior culture 4/2026 grew ESBL E. coli; compare susceptibilities when finalized." },
+        { "resourceType": "DiagnosticReport", "id": "dr-mo-cxr-today", "status": "preliminary", "category": [{ "text": "Radiology" }], "code": { "text": "Chest X-ray, portable" }, "effectiveDateTime": "2026-07-18T11:02:00-04:00", "conclusion": "PRELIMINARY: No focal consolidation, effusion, or pneumothorax. Median sternotomy wires and mechanical mitral prosthesis in place. Attending read pending." }
+      ],
+      "pendingAfter": [
+        "Blood cultures x2 (collected 11:05, no growth to date)",
+        "Urine culture (collected 10:58)",
+        "Repeat lactate after fluid resuscitation"
+      ]
+    },
+    {
+      "stage": 2,
+      "label": "35 min later — post-fluid recheck",
+      "releasedAt": "2026-07-18T11:56:00-04:00",
+      "newObservationsVitals": [
+        { "resourceType": "Observation", "id": "vit-mo-today2", "status": "final", "code": { "text": "Vital signs panel (post 1L LR)" }, "effectiveDateTime": "2026-07-18T11:50:00-04:00", "component": [
+          { "code": { "text": "Heart rate" }, "valueQuantity": { "value": 96, "unit": "bpm" } },
+          { "code": { "text": "Blood pressure" }, "valueString": "118/70 mmHg" },
+          { "code": { "text": "Respiratory rate" }, "valueQuantity": { "value": 18, "unit": "/min" } },
+          { "code": { "text": "SpO2" }, "valueQuantity": { "value": 96, "unit": "%" } },
+          { "code": { "text": "Temperature" }, "valueQuantity": { "value": 38.1, "unit": "C" } }
+        ] }
+      ],
+      "newObservationsLabs": [
+        { "resourceType": "Observation", "id": "lab-mo-lactate-today2", "status": "final", "code": { "coding": [{ "system": "http://loinc.org", "code": "2524-7" }], "text": "Lactate (repeat)" }, "effectiveDateTime": "2026-07-18T11:45:00-04:00", "valueQuantity": { "value": 1.9, "unit": "mmol/L" }, "referenceRange": [{ "high": { "value": 2.0, "unit": "mmol/L" } }], "interpretation": [{ "coding": [{ "code": "N" }], "text": "Cleared after 1L lactated Ringer's" }] }
+      ],
+      "pendingAfter": [
+        "Blood cultures x2 (collected 11:05, no growth to date)",
+        "Urine culture (collected 10:58)"
+      ]
+    }
+  ]
+}

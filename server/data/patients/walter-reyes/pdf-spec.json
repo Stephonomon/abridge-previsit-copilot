@@ -1,0 +1,103 @@
+{
+  "pdfs": [
+    {
+      "file": "documents/cardiology-consult-fax.pdf",
+      "faxHeader": "FAX  RECEIVED 01/05/2026 14:22  FROM: Delaware Valley Cardiology Assoc  215-555-0184  PAGE 1/2",
+      "title": "CARDIOLOGY CONSULTATION LETTER",
+      "facility": "Delaware Valley Cardiology Associates — 1200 Walnut St, Philadelphia PA",
+      "pages": [
+        {
+          "heading": "Re: Walter Reyes  DOB 11/03/1957",
+          "lines": [
+            "Date of consultation: 12/30/2025",
+            "Referring provider: Dr. A. Patel (Primary Care)",
+            "",
+            "Dear Dr. Patel,",
+            "",
+            "Thank you for referring Mr. Reyes for evaluation of left bundle branch block",
+            "identified on routine ECG 11/2024 and mildly reduced ejection fraction.",
+            "",
+            "IMPRESSION:",
+            "1. Chronic LBBB with LVEF 45-50% (TTE 12/09/2025) - etiology not yet defined.",
+            "   Ischemic evaluation is INCOMPLETE. Stress imaging was ordered but the",
+            "   patient deferred scheduling. I have re-emphasized its importance.",
+            "2. Paroxysmal atrial fibrillation, CHA2DS2-VASc 4 - continue apixaban 5 mg BID.",
+            "3. QTc mildly prolonged at 452 ms - avoid additive QT-prolonging agents.",
+            "",
+            "RECOMMENDATIONS: Complete pharmacologic stress imaging within 4-6 weeks.",
+            "Low threshold for ischemic workup should he develop exertional symptoms."
+          ]
+        },
+        {
+          "heading": "ATTACHMENT: Transthoracic Echocardiogram Report 12/09/2025",
+          "lines": [
+            "LV: LVEF 45-50%. Mild global hypokinesis. No regional wall motion",
+            "abnormality definitively identified (limited by LBBB dyssynchrony).",
+            "LA: Mildly dilated. RV: Normal size and function.",
+            "Valves: Trace MR. No AS/AI. No pericardial effusion.",
+            "",
+            "Interpreting cardiologist: R. Whitman, MD, FACC"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "documents/ems-run-sheet.pdf",
+      "faxHeader": "PHILADELPHIA FIRE DEPT EMS  --  PREHOSPITAL CARE REPORT  --  MEDIC 12",
+      "title": "EMS RUN SHEET — 07/18/2026",
+      "facility": "Incident #26-071808  Dispatch 08:41  On scene 08:49  At ED 09:05",
+      "pages": [
+        {
+          "heading": "Patient: Reyes, Walter  68M",
+          "lines": [
+            "CHIEF COMPLAINT: Chest pain, onset ~07:10 while mowing lawn.",
+            "Substernal pressure radiating to left arm, diaphoresis. Pain 8/10 at onset,",
+            "6/10 on EMS arrival after rest.",
+            "",
+            "VITALS (08:52): BP 160/92  HR 108 irreg  RR 20  SpO2 96% RA",
+            "VITALS (09:00): BP 156/90  HR 105 irreg  RR 18  SpO2 97% RA",
+            "",
+            "12-LEAD (08:55): Wide QRS with LBBB morphology per monitor interpretation.",
+            "Transmitted to receiving facility.",
+            "",
+            "MEDICATIONS: None administered by EMS. ASA deferred to ED at pt request",
+            "(nausea).",
+            "",
+            "*** PT REPORTS TAKING SILDENAFIL APPROX 22:00 LAST NIGHT. ***",
+            "Crew relayed verbally to triage RN; documenting here for the record.",
+            "",
+            "PMH per pt: AFib (on 'blood thinner'), diabetes, HTN.",
+            "Crew: J. Alvarez EMT-P, S. Okonkwo EMT"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "documents/stress-echo-fax.pdf",
+      "faxHeader": "FAX  RECEIVED 07/18/2026 10:02  FROM: Keystone Imaging Center  610-555-0142  PAGE 1/1",
+      "title": "EXERCISE STRESS ECHOCARDIOGRAM REPORT (OUTSIDE RECORD, 09/2024)",
+      "facility": "Keystone Imaging Center — Media, PA",
+      "pages": [
+        {
+          "heading": "Patient: Walter Reyes  DOB 11/03/1957  Study date 09/17/2024",
+          "lines": [
+            "INDICATION: Dyspnea on exertion; pre-dated LBBB diagnosis.",
+            "",
+            "PROTOCOL: Bruce. Exercised 6:24, 7.1 METS, 84% MPHR. Stopped for fatigue.",
+            "",
+            "FINDINGS:",
+            "Rest: Normal LV wall motion, EF 55%.",
+            "Peak stress: Subtle hypokinesis of the inferolateral wall, EQUIVOCAL for",
+            "ischemia. No chest pain during test. Blunted BP response.",
+            "",
+            "IMPRESSION: Equivocal study. Mild inferolateral hypokinesis at peak stress.",
+            "Recommend correlation with symptoms; consider coronary CTA or invasive",
+            "angiography if clinical suspicion persists.",
+            "",
+            "*** NO RECORD OF FOLLOW-UP TESTING AT THIS FACILITY. ***"
+          ]
+        }
+      ]
+    }
+  ]
+}

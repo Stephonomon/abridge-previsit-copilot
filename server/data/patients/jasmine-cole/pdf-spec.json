@@ -1,0 +1,95 @@
+{
+  "pdfs": [
+    {
+      "file": "documents/ileocecal-resection-op-report-fax.pdf",
+      "faxHeader": "FAX  RECEIVED 09/03/2024 11:47  FROM: Lehigh Valley Surgical Assoc  610-555-0177  PAGE 1/2",
+      "title": "OPERATIVE REPORT",
+      "facility": "St. Ambrose Medical Center — 400 Chew St, Allentown PA",
+      "pages": [
+        {
+          "heading": "Patient: Cole, Jasmine  DOB 02/14/1997  Date of surgery: 08/12/2024",
+          "lines": [
+            "Surgeon: M. Okafor, MD, FACS   Assistant: L. Tran, PA-C",
+            "Anesthesia: General endotracheal",
+            "",
+            "PREOPERATIVE DIAGNOSIS: Stricturing ileocecal Crohn's disease with",
+            "recurrent partial small bowel obstruction, refractory to medical therapy.",
+            "POSTOPERATIVE DIAGNOSIS: Same.",
+            "",
+            "PROCEDURE PERFORMED: Laparoscopic ileocecal resection with primary",
+            "stapled side-to-side (functional end-to-end) ileocolic anastomosis;",
+            "lysis of adhesions (approx 25 minutes); APPENDECTOMY performed as part",
+            "of the ileocecal specimen.",
+            "",
+            "FINDINGS: 12 cm segment of thickened, strictured terminal ileum with",
+            "creeping fat and a fibrotic stricture 5 cm proximal to the ileocecal",
+            "valve. Moderate omental and pelvic adhesions. Cecum grossly involved at",
+            "the valve. No perforation, no abscess, no skip lesions palpated in the",
+            "proximal small bowel (run from ligament of Treitz)."
+          ]
+        },
+        {
+          "heading": "OPERATIVE REPORT (CONTINUED)  PAGE 2/2",
+          "lines": [
+            "TECHNIQUE (SUMMARY): 4-port laparoscopic approach. Adhesiolysis as",
+            "above. Ileocolic pedicle divided with vascular stapler. Terminal ileum",
+            "divided 3 cm proximal to diseased segment; ascending colon divided at",
+            "the cecal-ascending junction. Specimen (terminal ileum, cecum, and",
+            "APPENDIX en bloc) removed via Pfannenstiel extraction site.",
+            "Side-to-side stapled ileocolic anastomosis created; common enterotomy",
+            "closed. Anastomosis widely patent, pink, no tension, no leak on",
+            "inspection.",
+            "",
+            "ESTIMATED BLOOD LOSS: 50 mL.  SPECIMEN: Ileocecal resection including",
+            "appendix, to pathology.  COMPLICATIONS: None.",
+            "",
+            "PATHOLOGY (ADDENDUM 08/19/2024): Chronic active ileitis with",
+            "transmural inflammation and fibrostenosis, consistent with Crohn's.",
+            "Margins free of active disease. Appendix with fibrous obliteration,",
+            "no acute inflammation. 14 lymph nodes, reactive.",
+            "",
+            "DISPO: Discharged POD 3, uncomplicated. Plan postoperative biologic",
+            "prophylaxis per GI (adalimumab + azathioprine started 10/2024)."
+          ]
+        }
+      ]
+    },
+    {
+      "file": "documents/outside-colonoscopy-fax.pdf",
+      "faxHeader": "FAX  RECEIVED 01/06/2026 09:15  FROM: Keystone Endoscopy Center  215-555-0139  PAGE 1/1",
+      "title": "COLONOSCOPY REPORT (OUTSIDE RECORD, 12/18/2025)",
+      "facility": "Keystone Endoscopy Center — 850 Market St, Philadelphia PA",
+      "pages": [
+        {
+          "heading": "Patient: Cole, Jasmine  DOB 02/14/1997  Procedure date: 12/18/2025",
+          "lines": [
+            "Endoscopist: P. Ramanathan, MD   Indication: Postoperative Crohn's",
+            "surveillance, s/p ileocecal resection 08/2024. Prep: Good (BBPS 8).",
+            "",
+            "EXTENT: Cecal pouch/anastomosis reached; neo-terminal ileum intubated",
+            "to 10 cm.",
+            "",
+            "FINDINGS:",
+            "Ileocolic anastomosis: Multiple aphthous ulcers plus several larger",
+            "ulcers (>5 mm) involving the anastomotic ring and extending into the",
+            "neo-terminal ileum. Mild luminal narrowing, scope traversed easily.",
+            "Neo-terminal ileum: Patchy erythema, aphthae, and 3 larger ulcers",
+            "within the distal 10 cm. Colon: Normal mucosa throughout. Rectum:",
+            "Normal.",
+            "",
+            "IMPRESSION: Endoscopic postoperative recurrence — RUTGEERTS i2b",
+            "(lesions confined to anastomosis plus >5 aphthous ulcers in the",
+            "neo-terminal ileum with larger ulcers).",
+            "",
+            "BIOPSIES: Anastomosis and neo-terminal ileum — chronic active ileitis,",
+            "no dysplasia, no granulomata, CMV immunostain negative.",
+            "",
+            "RECOMMENDATIONS: Optimize medical therapy (check anti-TNF level and",
+            "antibodies; escalate or switch class per levels). Repeat ileo-",
+            "colonoscopy in 6-12 months. Avoid NSAIDs. Report faxed to GI office."
+          ]
+        }
+      ]
+    }
+  ]
+}

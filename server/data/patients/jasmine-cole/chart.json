@@ -1,0 +1,230 @@
+{
+  "patient": {
+    "resourceType": "Patient",
+    "id": "jasmine-cole",
+    "identifier": [{ "system": "urn:epic:mrn", "value": "5583441" }],
+    "name": [{ "family": "Cole", "given": ["Jasmine"], "text": "Jasmine Cole" }],
+    "gender": "female",
+    "birthDate": "1997-02-14",
+    "address": [{ "city": "Philadelphia", "state": "PA" }],
+    "maritalStatus": { "text": "Single" }
+  },
+  "coverage": [
+    {
+      "resourceType": "Coverage",
+      "id": "cov-jc-1",
+      "status": "active",
+      "type": { "text": "Commercial PPO" },
+      "payor": [{ "display": "Independence Blue Cross" }]
+    }
+  ],
+  "encounters": [
+    {
+      "resourceType": "Encounter",
+      "id": "enc-jc-gi-0616",
+      "status": "finished",
+      "class": { "code": "AMB", "display": "Ambulatory" },
+      "type": [{ "text": "GI office visit — Crohn's disease" }],
+      "period": { "start": "2026-06-16T13:30:00-04:00" },
+      "reasonCode": [{ "text": "Crohn's disease — worsening symptoms" }],
+      "extension": [{ "url": "dispositionDx", "valueString": "Crohn's flare (rising CRP, calprotectin 620) — prednisone taper started, escalation discussion; adherence gaps noted (missed 2 adalimumab doses)" }]
+    },
+    {
+      "resourceType": "Encounter",
+      "id": "enc-jc-gi-0512",
+      "status": "finished",
+      "class": { "code": "AMB", "display": "Ambulatory" },
+      "type": [{ "text": "GI office visit — Crohn's disease" }],
+      "period": { "start": "2026-05-12T09:15:00-04:00" },
+      "reasonCode": [{ "text": "Crohn's disease — routine monitoring" }],
+      "extension": [{ "url": "dispositionDx", "valueString": "Crohn's — intermittent cramping; labs ordered (CRP 4.2, fecal calprotectin sent, returned 620)" }]
+    },
+    {
+      "resourceType": "Encounter",
+      "id": "enc-jc-ed-0309",
+      "status": "finished",
+      "class": { "code": "EMER", "display": "Emergency" },
+      "type": [{ "text": "ED visit — Abdominal pain" }],
+      "period": { "start": "2026-03-09T18:22:00-04:00", "end": "2026-03-10T00:05:00-04:00" },
+      "reasonCode": [{ "text": "Abdominal pain" }],
+      "extension": [{ "url": "dispositionDx", "valueString": "Abdominal pain, suspected Crohn's-related — normal lipase/LFTs, no imaging performed, discharged with GI follow-up" }]
+    },
+    {
+      "resourceType": "Encounter",
+      "id": "enc-jc-ed-1114",
+      "status": "finished",
+      "class": { "code": "EMER", "display": "Emergency" },
+      "type": [{ "text": "ED visit — Abdominal pain" }],
+      "period": { "start": "2025-11-14T20:40:00-05:00", "end": "2025-11-15T04:10:00-05:00" },
+      "reasonCode": [{ "text": "Abdominal pain" }],
+      "extension": [{ "url": "dispositionDx", "valueString": "Crohn's flare — CT showed active inflammation of neo-terminal ileum, no abscess; discharged with GI follow-up" }]
+    }
+  ],
+  "conditionsProblems": [
+    { "resourceType": "Condition", "id": "cond-jc-crohns", "clinicalStatus": { "coding": [{ "code": "active" }] }, "code": { "coding": [{ "system": "http://snomed.info/sct", "code": "34000006" }], "text": "Crohn's disease, ileocolonic" }, "onsetDateTime": "2019-04-01", "note": [{ "text": "Dx 2019. S/p laparoscopic ileocecal resection 8/2024. Anastomotic recurrence (Rutgeerts i2b) on 12/2025 colonoscopy. On adalimumab + azathioprine; prednisone taper started 6/2026." }] },
+    { "resourceType": "Condition", "id": "cond-jc-ida", "clinicalStatus": { "coding": [{ "code": "active" }] }, "code": { "coding": [{ "system": "http://snomed.info/sct", "code": "87522002" }], "text": "Iron deficiency anemia" }, "onsetDateTime": "2025-09-01", "note": [{ "text": "Hgb 10.8, ferritin 12 — attributed to chronic GI losses from Crohn's. On oral iron." }] },
+    { "resourceType": "Condition", "id": "cond-jc-immunosupp", "clinicalStatus": { "coding": [{ "code": "active" }] }, "code": { "coding": [{ "system": "http://snomed.info/sct", "code": "234532001" }], "text": "Immunosuppressed state (biologic + thiopurine + corticosteroid)" }, "onsetDateTime": "2024-10-01", "note": [{ "text": "Adalimumab + azathioprine + prednisone 20 mg daily (taper). May blunt fever and WBC response; elevated intra-abdominal abscess risk." }] }
+  ],
+  "conditionsMedicalHistory": [
+    { "resourceType": "Condition", "id": "cond-jc-hx-resection", "clinicalStatus": { "coding": [{ "code": "resolved" }] }, "code": { "text": "Stricturing ileocecal Crohn's s/p laparoscopic ileocecal resection (includes appendectomy — patient has NO appendix)" }, "onsetDateTime": "2024-08-12" },
+    { "resourceType": "Condition", "id": "cond-jc-hx-sbo", "clinicalStatus": { "coding": [{ "code": "resolved" }] }, "code": { "text": "Partial small bowel obstruction (managed conservatively, pre-resection)" }, "onsetDateTime": "2024-06-20" }
+  ],
+  "allergies": [
+    {
+      "resourceType": "AllergyIntolerance",
+      "id": "allergy-jc-morphine",
+      "clinicalStatus": { "coding": [{ "code": "active" }] },
+      "criticality": "low",
+      "code": { "text": "Morphine" },
+      "reaction": [{ "manifestation": [{ "text": "Nausea and vomiting (intolerance)" }], "severity": "mild" }]
+    }
+  ],
+  "medicationRequests": [
+    { "resourceType": "MedicationRequest", "id": "med-jc-adalimumab", "status": "active", "medicationCodeableConcept": { "text": "Adalimumab 40 mg/0.4 mL prefilled pen" }, "dosageInstruction": [{ "text": "40 mg SC every 2 weeks" }], "authoredOn": "2024-10-08", "reasonCode": [{ "text": "Crohn's disease — postoperative prophylaxis/maintenance" }] },
+    { "resourceType": "MedicationRequest", "id": "med-jc-prednisone", "status": "active", "medicationCodeableConcept": { "text": "Prednisone 20 mg tablet" }, "dosageInstruction": [{ "text": "20 mg PO daily — week 3 of 6-week taper (40 mg x2wk, 20 mg x2wk, 10 mg x2wk)" }], "authoredOn": "2026-06-16", "reasonCode": [{ "text": "Crohn's flare — bridge while optimizing biologic" }] },
+    { "resourceType": "MedicationRequest", "id": "med-jc-azathioprine", "status": "active", "medicationCodeableConcept": { "text": "Azathioprine 50 mg tablet" }, "dosageInstruction": [{ "text": "100 mg PO daily" }], "authoredOn": "2024-10-08", "reasonCode": [{ "text": "Crohn's disease — combination therapy with adalimumab" }] },
+    { "resourceType": "MedicationRequest", "id": "med-jc-ferrous", "status": "active", "medicationCodeableConcept": { "text": "Ferrous sulfate 325 mg (65 mg elemental) tablet" }, "dosageInstruction": [{ "text": "325 mg PO every other day" }], "authoredOn": "2025-09-30", "reasonCode": [{ "text": "Iron deficiency anemia" }] },
+    { "resourceType": "MedicationRequest", "id": "med-jc-ondansetron", "status": "active", "medicationCodeableConcept": { "text": "Ondansetron 4 mg ODT" }, "dosageInstruction": [{ "text": "4 mg PO q8h PRN nausea" }], "authoredOn": "2026-03-10", "reasonCode": [{ "text": "Nausea" }] }
+  ],
+  "medicationAdministrations": [],
+  "observationsVitals": [
+    { "resourceType": "Observation", "id": "vit-jc-today", "status": "final", "code": { "text": "Vital signs panel (triage)" }, "effectiveDateTime": "2026-07-18T12:02:00-04:00", "component": [
+      { "code": { "text": "Heart rate" }, "valueQuantity": { "value": 98, "unit": "bpm" } },
+      { "code": { "text": "Blood pressure" }, "valueString": "118/74 mmHg" },
+      { "code": { "text": "Respiratory rate" }, "valueQuantity": { "value": 16, "unit": "/min" } },
+      { "code": { "text": "SpO2" }, "valueQuantity": { "value": 99, "unit": "%" } },
+      { "code": { "text": "Temperature" }, "valueQuantity": { "value": 37.9, "unit": "C" } },
+      { "code": { "text": "Pain score" }, "valueQuantity": { "value": 7, "unit": "/10" } }
+    ] },
+    { "resourceType": "Observation", "id": "vit-jc-0616", "status": "final", "code": { "text": "Vital signs panel" }, "effectiveDateTime": "2026-06-16T13:35:00-04:00", "component": [
+      { "code": { "text": "Heart rate" }, "valueQuantity": { "value": 88, "unit": "bpm" } },
+      { "code": { "text": "Blood pressure" }, "valueString": "112/70 mmHg" },
+      { "code": { "text": "Temperature" }, "valueQuantity": { "value": 37.2, "unit": "C" } },
+      { "code": { "text": "Weight" }, "valueQuantity": { "value": 57.6, "unit": "kg" } }
+    ] },
+    { "resourceType": "Observation", "id": "vit-jc-0512", "status": "final", "code": { "text": "Vital signs panel" }, "effectiveDateTime": "2026-05-12T09:20:00-04:00", "component": [
+      { "code": { "text": "Heart rate" }, "valueQuantity": { "value": 82, "unit": "bpm" } },
+      { "code": { "text": "Blood pressure" }, "valueString": "114/72 mmHg" },
+      { "code": { "text": "Weight" }, "valueQuantity": { "value": 59.1, "unit": "kg" } }
+    ] },
+    { "resourceType": "Observation", "id": "vit-jc-0309", "status": "final", "code": { "text": "Vital signs panel (triage)" }, "effectiveDateTime": "2026-03-09T18:30:00-04:00", "component": [
+      { "code": { "text": "Heart rate" }, "valueQuantity": { "value": 92, "unit": "bpm" } },
+      { "code": { "text": "Blood pressure" }, "valueString": "120/76 mmHg" },
+      { "code": { "text": "SpO2" }, "valueQuantity": { "value": 99, "unit": "%" } },
+      { "code": { "text": "Temperature" }, "valueQuantity": { "value": 37.1, "unit": "C" } },
+      { "code": { "text": "Pain score" }, "valueQuantity": { "value": 6, "unit": "/10" } }
+    ] },
+    { "resourceType": "Observation", "id": "vit-jc-1114", "status": "final", "code": { "text": "Vital signs panel (triage)" }, "effectiveDateTime": "2025-11-14T20:48:00-05:00", "component": [
+      { "code": { "text": "Heart rate" }, "valueQuantity": { "value": 101, "unit": "bpm" } },
+      { "code": { "text": "Blood pressure" }, "valueString": "116/72 mmHg" },
+      { "code": { "text": "SpO2" }, "valueQuantity": { "value": 98, "unit": "%" } },
+      { "code": { "text": "Temperature" }, "valueQuantity": { "value": 37.8, "unit": "C" } },
+      { "code": { "text": "Pain score" }, "valueQuantity": { "value": 8, "unit": "/10" } }
+    ] }
+  ],
+  "observationsLabs": [
+    { "resourceType": "Observation", "id": "lab-jc-hgb-0616", "status": "final", "code": { "coding": [{ "system": "http://loinc.org", "code": "718-7" }], "text": "Hemoglobin" }, "effectiveDateTime": "2026-06-16T14:10:00-04:00", "valueQuantity": { "value": 10.8, "unit": "g/dL" }, "referenceRange": [{ "low": { "value": 12.0 }, "high": { "value": 15.5 } }], "interpretation": [{ "coding": [{ "code": "L" }] }] },
+    { "resourceType": "Observation", "id": "lab-jc-wbc-0616", "status": "final", "code": { "coding": [{ "system": "http://loinc.org", "code": "6690-2" }], "text": "WBC count" }, "effectiveDateTime": "2026-06-16T14:10:00-04:00", "valueQuantity": { "value": 9.4, "unit": "10*3/uL" }, "referenceRange": [{ "low": { "value": 4.0 }, "high": { "value": 11.0 } }], "note": [{ "text": "On azathioprine — CBC monitored q3mo" }] },
+    { "resourceType": "Observation", "id": "lab-jc-crp-0616", "status": "final", "code": { "coding": [{ "system": "http://loinc.org", "code": "1988-5" }], "text": "C-reactive protein" }, "effectiveDateTime": "2026-06-16T14:10:00-04:00", "valueQuantity": { "value": 11.8, "unit": "mg/L" }, "referenceRange": [{ "high": { "value": 5.0, "unit": "mg/L" } }], "interpretation": [{ "coding": [{ "code": "H" }] }] },
+    { "resourceType": "Observation", "id": "lab-jc-ferritin-0616", "status": "final", "code": { "coding": [{ "system": "http://loinc.org", "code": "2276-4" }], "text": "Ferritin" }, "effectiveDateTime": "2026-06-16T14:10:00-04:00", "valueQuantity": { "value": 12, "unit": "ng/mL" }, "referenceRange": [{ "low": { "value": 15 }, "high": { "value": 150 } }], "interpretation": [{ "coding": [{ "code": "L" }] }] },
+    { "resourceType": "Observation", "id": "lab-jc-crp-0512", "status": "final", "code": { "coding": [{ "system": "http://loinc.org", "code": "1988-5" }], "text": "C-reactive protein" }, "effectiveDateTime": "2026-05-12T10:00:00-04:00", "valueQuantity": { "value": 4.2, "unit": "mg/L" }, "referenceRange": [{ "high": { "value": 5.0, "unit": "mg/L" } }] },
+    { "resourceType": "Observation", "id": "lab-jc-calpro-0512", "status": "final", "code": { "coding": [{ "system": "http://loinc.org", "code": "38445-3" }], "text": "Fecal calprotectin" }, "effectiveDateTime": "2026-05-12T10:00:00-04:00", "valueQuantity": { "value": 620, "unit": "ug/g" }, "referenceRange": [{ "high": { "value": 50, "unit": "ug/g" } }], "interpretation": [{ "coding": [{ "code": "H" }], "text": "Elevated — consistent with active intestinal inflammation" }] },
+    { "resourceType": "Observation", "id": "lab-jc-lipase-0309", "status": "final", "code": { "coding": [{ "system": "http://loinc.org", "code": "3040-3" }], "text": "Lipase" }, "effectiveDateTime": "2026-03-09T19:15:00-04:00", "valueQuantity": { "value": 28, "unit": "U/L" }, "referenceRange": [{ "low": { "value": 13 }, "high": { "value": 60 } }] },
+    { "resourceType": "Observation", "id": "lab-jc-alt-0309", "status": "final", "code": { "coding": [{ "system": "http://loinc.org", "code": "1742-6" }], "text": "ALT" }, "effectiveDateTime": "2026-03-09T19:15:00-04:00", "valueQuantity": { "value": 21, "unit": "U/L" }, "referenceRange": [{ "low": { "value": 7 }, "high": { "value": 33 } }] },
+    { "resourceType": "Observation", "id": "lab-jc-ast-0309", "status": "final", "code": { "coding": [{ "system": "http://loinc.org", "code": "1920-8" }], "text": "AST" }, "effectiveDateTime": "2026-03-09T19:15:00-04:00", "valueQuantity": { "value": 19, "unit": "U/L" }, "referenceRange": [{ "low": { "value": 9 }, "high": { "value": 32 } }] },
+    { "resourceType": "Observation", "id": "lab-jc-tbili-0309", "status": "final", "code": { "coding": [{ "system": "http://loinc.org", "code": "1975-2" }], "text": "Total bilirubin" }, "effectiveDateTime": "2026-03-09T19:15:00-04:00", "valueQuantity": { "value": 0.6, "unit": "mg/dL" }, "referenceRange": [{ "high": { "value": 1.2 } }] }
+  ],
+  "observationsSocial": [
+    { "resourceType": "Observation", "id": "soc-jc-tobacco", "status": "final", "code": { "text": "Tobacco use" }, "valueString": "Never smoker", "effectiveDateTime": "2026-06-16" },
+    { "resourceType": "Observation", "id": "soc-jc-etoh", "status": "final", "code": { "text": "Alcohol use" }, "valueString": "Occasional — 1-2 drinks/month", "effectiveDateTime": "2026-06-16" },
+    { "resourceType": "Observation", "id": "soc-jc-living", "status": "final", "code": { "text": "Living situation" }, "valueString": "Lives with roommate, works as elementary school teacher; frequent work travel in summer", "effectiveDateTime": "2026-06-16" },
+    { "resourceType": "Observation", "id": "soc-jc-nsaid", "status": "final", "code": { "text": "OTC analgesic use" }, "valueString": "Reports frequent ibuprofen use (400-600 mg several times/week) for abdominal pain and cramps — counseled to avoid NSAIDs given Crohn's", "effectiveDateTime": "2026-06-16" }
+  ],
+  "diagnosticReports": [
+    {
+      "resourceType": "DiagnosticReport",
+      "id": "dr-jc-ct-1114",
+      "status": "final",
+      "category": [{ "text": "Radiology" }],
+      "code": { "text": "CT abdomen/pelvis with IV contrast" },
+      "effectiveDateTime": "2025-11-14T23:10:00-05:00",
+      "conclusion": "Active inflammation of the neo-terminal ileum with mural wall thickening up to 8 mm and adjacent mesenteric fat stranding. No abscess, no obstruction, no free air. Postsurgical changes of prior ileocecal resection with ileocolic anastomosis. Appendix surgically absent."
+    },
+    {
+      "resourceType": "DiagnosticReport",
+      "id": "dr-jc-colo-1218",
+      "status": "final",
+      "category": [{ "text": "Endoscopy" }],
+      "code": { "text": "Colonoscopy with ileoscopy" },
+      "effectiveDateTime": "2025-12-18T10:45:00-05:00",
+      "conclusion": "Ileocolic anastomosis with multiple aphthous and several larger ulcers involving the anastomosis and neo-terminal ileum — Rutgeerts i2b (anastomotic recurrence). Remaining colon with normal mucosa. Biopsies: chronic active ileitis, no dysplasia, no granulomata, CMV stain negative."
+    },
+    {
+      "resourceType": "DiagnosticReport",
+      "id": "dr-jc-pelvus-2023",
+      "status": "final",
+      "category": [{ "text": "Radiology" }],
+      "code": { "text": "Pelvic ultrasound, transabdominal and transvaginal" },
+      "effectiveDateTime": "2023-07-06T14:20:00-04:00",
+      "conclusion": "Normal uterus and ovaries. No adnexal mass or free fluid. Normal study."
+    }
+  ],
+  "documentReferencesClinicalNotes": [
+    {
+      "resourceType": "DocumentReference",
+      "id": "docref-jc-ginote-0616",
+      "status": "current",
+      "type": { "text": "GI Progress Note" },
+      "date": "2026-06-16T14:30:00-04:00",
+      "content": [{ "attachment": { "contentType": "text/plain", "url": "Binary/bin-jc-ginote-0616", "title": "GI Note 6/16/2026" } }]
+    },
+    {
+      "resourceType": "DocumentReference",
+      "id": "docref-jc-ednote-1114",
+      "status": "current",
+      "type": { "text": "ED Provider Note" },
+      "date": "2025-11-15T03:55:00-05:00",
+      "content": [{ "attachment": { "contentType": "text/plain", "url": "Binary/bin-jc-ednote-1114", "title": "ED Discharge Note 11/14/2025" } }]
+    }
+  ],
+  "documentReferencesExternal": [
+    {
+      "resourceType": "DocumentReference",
+      "id": "docref-jc-fax-opreport",
+      "status": "current",
+      "type": { "text": "Outside Records — Faxed Operative Report" },
+      "date": "2024-09-03T00:00:00-04:00",
+      "description": "Fax from Lehigh Valley Surgical Associates — operative report, laparoscopic ileocecal resection 8/12/2024",
+      "content": [{ "attachment": { "contentType": "application/pdf", "url": "Binary/bin-jc-pdf-opreport-fax", "title": "Outside operative report fax (PDF, 2 pages)" } }]
+    },
+    {
+      "resourceType": "DocumentReference",
+      "id": "docref-jc-fax-colonoscopy",
+      "status": "current",
+      "type": { "text": "Outside Records — Faxed Colonoscopy Report" },
+      "date": "2026-01-06T00:00:00-05:00",
+      "description": "Fax from Keystone Endoscopy Center — 12/18/2025 colonoscopy report with Rutgeerts i2b recurrence",
+      "content": [{ "attachment": { "contentType": "application/pdf", "url": "Binary/bin-jc-pdf-colonoscopy-fax", "title": "Outside colonoscopy report fax (PDF, 1 page)" } }]
+    }
+  ],
+  "familyMemberHistory": [
+    { "resourceType": "FamilyMemberHistory", "id": "fmh-jc-mother", "status": "completed", "relationship": { "text": "Mother" }, "condition": [{ "code": { "text": "Ulcerative colitis" }, "onsetAge": { "value": 34, "unit": "years" }, "note": [{ "text": "Managed medically, no colectomy" }] }] },
+    { "resourceType": "FamilyMemberHistory", "id": "fmh-jc-father", "status": "completed", "relationship": { "text": "Father" }, "condition": [{ "code": { "text": "Hypertension" }, "onsetAge": { "value": 50, "unit": "years" } }] }
+  ],
+  "procedures": [
+    { "resourceType": "Procedure", "id": "proc-jc-resection", "status": "completed", "code": { "text": "Laparoscopic ileocecal resection with primary ileocolic anastomosis (appendectomy included in specimen) — outside hospital" }, "performedDateTime": "2024-08-12" },
+    { "resourceType": "Procedure", "id": "proc-jc-colo", "status": "completed", "code": { "text": "Colonoscopy with ileoscopy and biopsies — postoperative surveillance" }, "performedDateTime": "2025-12-18" }
+  ],
+  "binaries": {
+    "bin-jc-ginote-0616": {
+      "contentType": "text/plain",
+      "text": "GI PROGRESS NOTE 6/16/2026\n\n29F with ileocolonic Crohn's disease (dx 2019), s/p laparoscopic ileocecal resection 8/2024 for stricturing disease, on adalimumab 40 mg q2wk + azathioprine 100 mg daily. Colonoscopy 12/2025 showed anastomotic recurrence, Rutgeerts i2b.\n\nINTERVAL HISTORY: Worsening crampy RLQ pain, looser stools (4-5/day, occasional nocturnal), 1.5 kg weight loss since 5/2026. ADHERENCE: Missed 2 adalimumab doses in April-May while traveling for work; restarted on schedule 5/20. Reports frequent ibuprofen use (400-600 mg several times/week) for pain — counseled again to avoid NSAIDs as a flare trigger; suggested acetaminophen.\n\nLABS: CRP 4.2 (5/12) -> 11.8 mg/L today. Fecal calprotectin 620 ug/g (5/12). Hgb 10.8, ferritin 12 — iron deficiency anemia, continue oral iron, consider IV iron if intolerant. WBC 9.4 on azathioprine.\n\nCONTRACEPTION/REPRO: Not on contraception; not currently planning pregnancy. Counseled re: pregnancy planning while on azathioprine and during active disease. Cycles reported as irregular.\n\nASSESSMENT/PLAN:\n1. Crohn's flare with endoscopic postoperative recurrence (i2b) and rising biomarkers — likely partial secondary loss of response vs adherence gap. START prednisone taper: 40 mg x2wk, 20 mg x2wk, 10 mg x2wk. Check adalimumab level + antibodies; discussed escalation to weekly dosing vs switch to ustekinumab/risankizumab pending results.\n2. Strict NSAID avoidance.\n3. Iron deficiency anemia — continue ferrous sulfate every other day.\n4. Return precautions reviewed: fever, worsening focal pain, obstipation, vomiting — present to ED given immunosuppression may mask severity."
+    },
+    "bin-jc-ednote-1114": {
+      "contentType": "text/plain",
+      "text": "ED PROVIDER NOTE 11/14/2025 (DISCHARGE)\n\nHPI: 28F with ileocolonic Crohn's s/p ileocecal resection 8/2024, on adalimumab + azathioprine, presenting with 1 day of crampy RLQ pain and nausea. Low-grade temp 37.8 at triage.\n\nED COURSE: Labs notable for mild anemia (Hgb 11.2), WBC 8.9, CRP 22 mg/L. Urine hCG negative. CT abdomen/pelvis with IV contrast: active inflammation of the neo-terminal ileum, wall thickening 8 mm, fat stranding; NO abscess, NO obstruction. Appendix surgically absent. Pain improved with IV fluids and antiemetics. Tolerated PO challenge.\n\nDISPO: Discussed with GI on call — consistent with Crohn's flare/postoperative recurrence. Discharged with GI follow-up within 2 weeks (colonoscopy subsequently scheduled), prednisone NOT started in ED per GI preference. Return precautions: fever, worsening pain, vomiting, obstipation. Counseled that her immunosuppression can mask fever/WBC elevation and to have a low threshold to return."
+    },
+    "bin-jc-pdf-opreport-fax": { "contentType": "application/pdf", "file": "documents/ileocecal-resection-op-report-fax.pdf" },
+    "bin-jc-pdf-colonoscopy-fax": { "contentType": "application/pdf", "file": "documents/outside-colonoscopy-fax.pdf" }
+  }
+}

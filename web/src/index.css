@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --color-cream: #faf7f2;
+  --color-cream-dark: #f1ece4;
+  --color-indigo-brand: #5b5bd6;
+  --color-indigo-brand-dark: #4a4ac4;
+  --color-indigo-soft: #e6e6fa;
+  --color-ink: #1a1a2e;
+}
+
+body {
+  background: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -400px 0;
+  }
+  100% {
+    background-position: 400px 0;
+  }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #efe9e0 25%, #f7f2ea 50%, #efe9e0 75%);
+  background-size: 800px 100%;
+  animation: shimmer 1.4s infinite linear;
+  border-radius: 6px;
+}

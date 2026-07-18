@@ -1,0 +1,23 @@
+{
+  "id": "margaret-okafor",
+  "name": "Margaret Okafor",
+  "firstName": "Margaret",
+  "lastName": "Okafor",
+  "age": 74,
+  "sex": "F",
+  "mrn": "3390215",
+  "esi": 2,
+  "chiefComplaint": "Fever and painful urination",
+  "arrivalTime": "2026-07-18T10:41:00-04:00",
+  "arrivalLabel": "10:41 AM",
+  "room": "ED 9",
+  "triageNote": "74F with fever, dysuria, and left flank pain x1 day, rigors this morning. Daughter reports mild confusion this AM (new for her). Hx recurrent UTIs including pyelonephritis admission 4/2026. On warfarin for mechanical mitral valve. T2DM, CKD. Acetaminophen 650 mg PO given at triage 10:55. Urine and blood cultures ordered.",
+  "triageVitals": {
+    "hr": 112,
+    "bp": "104/62",
+    "rr": 22,
+    "spo2": 95,
+    "temp": 38.9,
+    "pain": 4
+  }
+}

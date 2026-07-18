@@ -1,0 +1,23 @@
+{
+  "id": "walter-reyes",
+  "name": "Walter Reyes",
+  "firstName": "Walter",
+  "lastName": "Reyes",
+  "age": 68,
+  "sex": "M",
+  "mrn": "4471902",
+  "esi": 2,
+  "chiefComplaint": "Chest pain",
+  "arrivalTime": "2026-07-18T09:12:00-04:00",
+  "arrivalLabel": "9:12 AM",
+  "room": "ED 14",
+  "triageNote": "68M with exertional substernal chest pain radiating to L arm x2 hours, diaphoretic. Hx AFib on apixaban, T2DM, HTN. ASA 324 mg chewed given at triage 09:20. ECG obtained, awaiting read. Denies syncope. Last similar episode 6/28 with negative workup.",
+  "triageVitals": {
+    "hr": 104,
+    "bp": "152/88",
+    "rr": 18,
+    "spo2": 97,
+    "temp": 36.8,
+    "pain": 6
+  }
+}

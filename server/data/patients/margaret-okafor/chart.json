@@ -1,0 +1,283 @@
+{
+  "patient": {
+    "resourceType": "Patient",
+    "id": "margaret-okafor",
+    "identifier": [{ "system": "urn:epic:mrn", "value": "3390215" }],
+    "name": [{ "family": "Okafor", "given": ["Margaret"], "text": "Margaret Okafor" }],
+    "gender": "female",
+    "birthDate": "1952-03-22",
+    "address": [{ "city": "Philadelphia", "state": "PA" }],
+    "maritalStatus": { "text": "Widowed" }
+  },
+  "coverage": [
+    {
+      "resourceType": "Coverage",
+      "id": "cov-mo-1",
+      "status": "active",
+      "type": { "text": "Medicare Advantage" },
+      "payor": [{ "display": "Keystone 65 HMO" }]
+    }
+  ],
+  "encounters": [
+    {
+      "resourceType": "Encounter",
+      "id": "enc-mo-hosp-0412",
+      "status": "finished",
+      "class": { "code": "IMP", "display": "Inpatient" },
+      "type": [{ "text": "Hospital admission — Acute pyelonephritis" }],
+      "period": { "start": "2026-04-12T18:20:00-04:00", "end": "2026-04-16T13:05:00-04:00" },
+      "reasonCode": [{ "text": "Fever, flank pain, dysuria" }],
+      "extension": [{ "url": "dispositionDx", "valueString": "Acute pyelonephritis due to ESBL-producing E. coli (resistant to ceftriaxone/cipro/TMP-SMX) — failed empiric ceftriaxone, defervesced on meropenem; discharged on ertapenem OPAT x10 days. ID consulted." }]
+    },
+    {
+      "resourceType": "Encounter",
+      "id": "enc-mo-uro-0521",
+      "status": "finished",
+      "class": { "code": "AMB", "display": "Ambulatory" },
+      "type": [{ "text": "Urology consultation — recurrent UTIs" }],
+      "period": { "start": "2026-05-21T09:15:00-04:00" },
+      "reasonCode": [{ "text": "Recurrent urinary tract infections" }],
+      "extension": [{ "url": "dispositionDx", "valueString": "Recurrent UTIs; cystoscopy normal, no stone or mass. Post-void residual elevated at 180 mL — incomplete emptying likely contributing. Behavioral measures; declined prophylaxis given ESBL history and CKD." }]
+    },
+    {
+      "resourceType": "Encounter",
+      "id": "enc-mo-pcp-0609",
+      "status": "finished",
+      "class": { "code": "AMB", "display": "Ambulatory" },
+      "type": [{ "text": "Primary care follow-up" }],
+      "period": { "start": "2026-06-09T13:30:00-04:00" },
+      "reasonCode": [{ "text": "T2DM, CKD, post-hospitalization follow-up" }],
+      "extension": [{ "url": "dispositionDx", "valueString": "T2DM (A1c 8.1) on glargine + empagliflozin; CKD stage 3b stable (Cr 1.6, eGFR 34); doing well post-pyelonephritis. Counseled on UTI warning signs." }]
+    },
+    {
+      "resourceType": "Encounter",
+      "id": "enc-mo-acc-0710",
+      "status": "finished",
+      "class": { "code": "AMB", "display": "Ambulatory" },
+      "type": [{ "text": "Anticoagulation clinic — INR check" }],
+      "period": { "start": "2026-07-10T10:00:00-04:00" },
+      "reasonCode": [{ "text": "Warfarin monitoring — mechanical mitral valve" }],
+      "extension": [{ "url": "dispositionDx", "valueString": "INR 2.7, in target range 2.5–3.5 for mechanical mitral valve. Continue warfarin 5 mg daily (2.5 mg Sundays). Recheck 4 weeks." }]
+    },
+    {
+      "resourceType": "Encounter",
+      "id": "enc-mo-card-0217",
+      "status": "finished",
+      "class": { "code": "AMB", "display": "Ambulatory" },
+      "type": [{ "text": "Cardiology follow-up — mechanical mitral valve" }],
+      "period": { "start": "2026-02-17T11:00:00-05:00" },
+      "reasonCode": [{ "text": "Mechanical mitral valve surveillance" }],
+      "extension": [{ "url": "dispositionDx", "valueString": "Mechanical mitral prosthesis (2015) functioning well on TTE — normal gradients, no leak, EF 60%. QTc 470 ms on ECG — avoid QT-prolonging agents. Continue warfarin, INR target 2.5–3.5." }]
+    }
+  ],
+  "conditionsProblems": [
+    { "resourceType": "Condition", "id": "cond-mo-mvr", "clinicalStatus": { "coding": [{ "code": "active" }] }, "code": { "coding": [{ "system": "http://snomed.info/sct", "code": "77347003" }], "text": "Mechanical prosthetic mitral valve (s/p MVR 2015)" }, "onsetDateTime": "2015-09-08", "note": [{ "text": "St. Jude bileaflet mechanical mitral valve for rheumatic mitral stenosis. Lifelong warfarin, INR target 2.5–3.5. Anticoagulation cannot simply be held — bridging decisions require cardiology input." }] },
+    { "resourceType": "Condition", "id": "cond-mo-uti", "clinicalStatus": { "coding": [{ "code": "active" }] }, "code": { "coding": [{ "system": "http://snomed.info/sct", "code": "197927001" }], "text": "Recurrent urinary tract infections" }, "onsetDateTime": "2024-10-01", "note": [{ "text": "Four culture-positive UTIs since 10/2024. Most recent episode 4/2026 was pyelonephritis requiring admission — ESBL-producing E. coli resistant to ceftriaxone, ciprofloxacin, and TMP-SMX. Elevated post-void residual (180 mL) on urology eval 5/2026." }] },
+    { "resourceType": "Condition", "id": "cond-mo-esbl", "clinicalStatus": { "coding": [{ "code": "active" }] }, "code": { "text": "History of ESBL-producing E. coli infection (4/2026)" }, "onsetDateTime": "2026-04-14", "note": [{ "text": "ID recommendation from 4/2026 admission: empiric carbapenem for future febrile UTI episodes pending culture data." }] },
+    { "resourceType": "Condition", "id": "cond-mo-ckd", "clinicalStatus": { "coding": [{ "code": "active" }] }, "code": { "coding": [{ "system": "http://snomed.info/sct", "code": "700379002" }], "text": "Chronic kidney disease stage 3b" }, "onsetDateTime": "2023-08-15", "note": [{ "text": "Baseline creatinine 1.5–1.7 mg/dL, eGFR 34 (6/2026). Renally dose antibiotics; nitrofurantoin relatively contraindicated." }] },
+    { "resourceType": "Condition", "id": "cond-mo-t2dm", "clinicalStatus": { "coding": [{ "code": "active" }] }, "code": { "coding": [{ "system": "http://snomed.info/sct", "code": "44054006" }], "text": "Type 2 diabetes mellitus" }, "onsetDateTime": "2009-05-01", "note": [{ "text": "On insulin glargine and empagliflozin (SGLT2 inhibitor). A1c 8.1% (6/2026)." }] },
+    { "resourceType": "Condition", "id": "cond-mo-htn", "clinicalStatus": { "coding": [{ "code": "active" }] }, "code": { "coding": [{ "system": "http://snomed.info/sct", "code": "38341003" }], "text": "Essential hypertension" }, "onsetDateTime": "2008-01-01" }
+  ],
+  "conditionsMedicalHistory": [
+    { "resourceType": "Condition", "id": "cond-mo-hx-rhd", "clinicalStatus": { "coding": [{ "code": "resolved" }] }, "code": { "text": "Rheumatic mitral stenosis s/p mechanical mitral valve replacement (2015)" }, "onsetDateTime": "2014-06-01" },
+    { "resourceType": "Condition", "id": "cond-mo-hx-chole", "clinicalStatus": { "coding": [{ "code": "resolved" }] }, "code": { "text": "Cholelithiasis s/p laparoscopic cholecystectomy" }, "onsetDateTime": "2011-02-01" }
+  ],
+  "allergies": [
+    {
+      "resourceType": "AllergyIntolerance",
+      "id": "allergy-mo-smx",
+      "clinicalStatus": { "coding": [{ "code": "active" }] },
+      "criticality": "high",
+      "code": { "text": "Sulfamethoxazole/trimethoprim" },
+      "reaction": [{ "manifestation": [{ "text": "Stevens-Johnson syndrome" }], "severity": "severe" }]
+    },
+    {
+      "resourceType": "AllergyIntolerance",
+      "id": "allergy-mo-pcn",
+      "clinicalStatus": { "coding": [{ "code": "active" }] },
+      "criticality": "low",
+      "code": { "text": "Penicillin" },
+      "reaction": [{ "manifestation": [{ "text": "Rash" }], "severity": "mild" }]
+    }
+  ],
+  "medicationRequests": [
+    { "resourceType": "MedicationRequest", "id": "med-mo-warfarin", "status": "active", "medicationCodeableConcept": { "text": "Warfarin 5 mg tablet" }, "dosageInstruction": [{ "text": "5 mg PO daily (2.5 mg on Sundays) — managed by anticoagulation clinic" }], "authoredOn": "2015-09-20", "reasonCode": [{ "text": "Mechanical mitral valve — INR target 2.5–3.5" }] },
+    { "resourceType": "MedicationRequest", "id": "med-mo-glargine", "status": "active", "medicationCodeableConcept": { "text": "Insulin glargine 100 units/mL pen" }, "dosageInstruction": [{ "text": "18 units SC nightly" }], "authoredOn": "2021-03-10", "reasonCode": [{ "text": "Type 2 diabetes" }] },
+    { "resourceType": "MedicationRequest", "id": "med-mo-empagliflozin", "status": "active", "medicationCodeableConcept": { "text": "Empagliflozin 10 mg tablet" }, "dosageInstruction": [{ "text": "10 mg PO daily" }], "authoredOn": "2024-01-18", "reasonCode": [{ "text": "Type 2 diabetes with CKD" }] },
+    { "resourceType": "MedicationRequest", "id": "med-mo-metoprolol", "status": "active", "medicationCodeableConcept": { "text": "Metoprolol succinate 25 mg tablet" }, "dosageInstruction": [{ "text": "25 mg PO daily" }], "authoredOn": "2015-09-20", "reasonCode": [{ "text": "Rate control / post-valve replacement" }] },
+    { "resourceType": "MedicationRequest", "id": "med-mo-amlodipine", "status": "active", "medicationCodeableConcept": { "text": "Amlodipine 5 mg tablet" }, "dosageInstruction": [{ "text": "5 mg PO daily" }], "authoredOn": "2018-07-02", "reasonCode": [{ "text": "Hypertension" }] },
+    { "resourceType": "MedicationRequest", "id": "med-mo-atorvastatin", "status": "active", "medicationCodeableConcept": { "text": "Atorvastatin 20 mg tablet" }, "dosageInstruction": [{ "text": "20 mg PO nightly" }], "authoredOn": "2018-07-02", "reasonCode": [{ "text": "Hyperlipidemia" }] }
+  ],
+  "medicationAdministrations": [
+    { "resourceType": "MedicationAdministration", "id": "medadm-mo-apap", "status": "completed", "medicationCodeableConcept": { "text": "Acetaminophen 650 mg PO" }, "effectiveDateTime": "2026-07-18T10:55:00-04:00", "note": [{ "text": "Given at triage for fever 38.9 C" }] }
+  ],
+  "observationsVitals": [
+    { "resourceType": "Observation", "id": "vit-mo-today", "status": "final", "code": { "text": "Vital signs panel (triage)" }, "effectiveDateTime": "2026-07-18T10:45:00-04:00", "component": [
+      { "code": { "text": "Heart rate" }, "valueQuantity": { "value": 112, "unit": "bpm" } },
+      { "code": { "text": "Blood pressure" }, "valueString": "104/62 mmHg" },
+      { "code": { "text": "Respiratory rate" }, "valueQuantity": { "value": 22, "unit": "/min" } },
+      { "code": { "text": "SpO2" }, "valueQuantity": { "value": 95, "unit": "%" } },
+      { "code": { "text": "Temperature" }, "valueQuantity": { "value": 38.9, "unit": "C" } },
+      { "code": { "text": "Pain score" }, "valueQuantity": { "value": 4, "unit": "/10" } }
+    ] },
+    { "resourceType": "Observation", "id": "vit-mo-0710", "status": "final", "code": { "text": "Vital signs panel" }, "effectiveDateTime": "2026-07-10T10:05:00-04:00", "component": [
+      { "code": { "text": "Heart rate" }, "valueQuantity": { "value": 78, "unit": "bpm" } },
+      { "code": { "text": "Blood pressure" }, "valueString": "128/74 mmHg" }
+    ] },
+    { "resourceType": "Observation", "id": "vit-mo-0609", "status": "final", "code": { "text": "Vital signs panel" }, "effectiveDateTime": "2026-06-09T13:35:00-04:00", "component": [
+      { "code": { "text": "Heart rate" }, "valueQuantity": { "value": 76, "unit": "bpm" } },
+      { "code": { "text": "Blood pressure" }, "valueString": "132/70 mmHg" },
+      { "code": { "text": "Temperature" }, "valueQuantity": { "value": 36.7, "unit": "C" } },
+      { "code": { "text": "Weight" }, "valueQuantity": { "value": 63.5, "unit": "kg" } }
+    ] },
+    { "resourceType": "Observation", "id": "vit-mo-0521", "status": "final", "code": { "text": "Vital signs panel" }, "effectiveDateTime": "2026-05-21T09:20:00-04:00", "component": [
+      { "code": { "text": "Heart rate" }, "valueQuantity": { "value": 80, "unit": "bpm" } },
+      { "code": { "text": "Blood pressure" }, "valueString": "126/72 mmHg" }
+    ] },
+    { "resourceType": "Observation", "id": "vit-mo-0412", "status": "final", "code": { "text": "Vital signs panel (ED triage)" }, "effectiveDateTime": "2026-04-12T18:30:00-04:00", "component": [
+      { "code": { "text": "Heart rate" }, "valueQuantity": { "value": 108, "unit": "bpm" } },
+      { "code": { "text": "Blood pressure" }, "valueString": "98/60 mmHg" },
+      { "code": { "text": "Respiratory rate" }, "valueQuantity": { "value": 20, "unit": "/min" } },
+      { "code": { "text": "SpO2" }, "valueQuantity": { "value": 96, "unit": "%" } },
+      { "code": { "text": "Temperature" }, "valueQuantity": { "value": 38.6, "unit": "C" } }
+    ] },
+    { "resourceType": "Observation", "id": "vit-mo-0217", "status": "final", "code": { "text": "Vital signs panel" }, "effectiveDateTime": "2026-02-17T11:05:00-05:00", "component": [
+      { "code": { "text": "Heart rate" }, "valueQuantity": { "value": 72, "unit": "bpm" } },
+      { "code": { "text": "Blood pressure" }, "valueString": "130/76 mmHg" }
+    ] }
+  ],
+  "observationsLabs": [
+    { "resourceType": "Observation", "id": "lab-mo-inr-0710", "status": "final", "code": { "coding": [{ "system": "http://loinc.org", "code": "6301-6" }], "text": "INR" }, "effectiveDateTime": "2026-07-10T10:15:00-04:00", "valueQuantity": { "value": 2.7, "unit": "{INR}" }, "referenceRange": [{ "low": { "value": 2.5 }, "high": { "value": 3.5 }, "text": "Therapeutic target for mechanical mitral valve" }] },
+    { "resourceType": "Observation", "id": "lab-mo-inr-0619", "status": "final", "code": { "coding": [{ "system": "http://loinc.org", "code": "6301-6" }], "text": "INR" }, "effectiveDateTime": "2026-06-19T09:40:00-04:00", "valueQuantity": { "value": 3.1, "unit": "{INR}" }, "referenceRange": [{ "low": { "value": 2.5 }, "high": { "value": 3.5 }, "text": "Therapeutic target for mechanical mitral valve" }] },
+    { "resourceType": "Observation", "id": "lab-mo-inr-0529", "status": "final", "code": { "coding": [{ "system": "http://loinc.org", "code": "6301-6" }], "text": "INR" }, "effectiveDateTime": "2026-05-29T10:20:00-04:00", "valueQuantity": { "value": 2.4, "unit": "{INR}" }, "referenceRange": [{ "low": { "value": 2.5 }, "high": { "value": 3.5 }, "text": "Therapeutic target for mechanical mitral valve" }] },
+    { "resourceType": "Observation", "id": "lab-mo-cr-0609", "status": "final", "code": { "coding": [{ "system": "http://loinc.org", "code": "2160-0" }], "text": "Creatinine" }, "effectiveDateTime": "2026-06-09T14:10:00-04:00", "valueQuantity": { "value": 1.6, "unit": "mg/dL" }, "referenceRange": [{ "low": { "value": 0.5 }, "high": { "value": 1.1 } }], "interpretation": [{ "coding": [{ "code": "H" }] }] },
+    { "resourceType": "Observation", "id": "lab-mo-egfr-0609", "status": "final", "code": { "coding": [{ "system": "http://loinc.org", "code": "62238-1" }], "text": "eGFR" }, "effectiveDateTime": "2026-06-09T14:10:00-04:00", "valueQuantity": { "value": 34, "unit": "mL/min/1.73m2" }, "referenceRange": [{ "low": { "value": 60 } }], "interpretation": [{ "coding": [{ "code": "L" }] }] },
+    { "resourceType": "Observation", "id": "lab-mo-cr-0412", "status": "final", "code": { "coding": [{ "system": "http://loinc.org", "code": "2160-0" }], "text": "Creatinine" }, "effectiveDateTime": "2026-04-12T19:30:00-04:00", "valueQuantity": { "value": 1.7, "unit": "mg/dL" }, "referenceRange": [{ "low": { "value": 0.5 }, "high": { "value": 1.1 } }], "interpretation": [{ "coding": [{ "code": "H" }] }] },
+    { "resourceType": "Observation", "id": "lab-mo-cr-0217", "status": "final", "code": { "coding": [{ "system": "http://loinc.org", "code": "2160-0" }], "text": "Creatinine" }, "effectiveDateTime": "2026-02-17T11:30:00-05:00", "valueQuantity": { "value": 1.5, "unit": "mg/dL" }, "referenceRange": [{ "low": { "value": 0.5 }, "high": { "value": 1.1 } }], "interpretation": [{ "coding": [{ "code": "H" }] }] },
+    { "resourceType": "Observation", "id": "lab-mo-wbc-0609", "status": "final", "code": { "coding": [{ "system": "http://loinc.org", "code": "6690-2" }], "text": "WBC" }, "effectiveDateTime": "2026-06-09T14:10:00-04:00", "valueQuantity": { "value": 8.9, "unit": "10*3/uL" }, "referenceRange": [{ "low": { "value": 4.0 }, "high": { "value": 11.0 } }] },
+    { "resourceType": "Observation", "id": "lab-mo-hgb-0609", "status": "final", "code": { "coding": [{ "system": "http://loinc.org", "code": "718-7" }], "text": "Hemoglobin" }, "effectiveDateTime": "2026-06-09T14:10:00-04:00", "valueQuantity": { "value": 11.6, "unit": "g/dL" }, "referenceRange": [{ "low": { "value": 12.0 }, "high": { "value": 16.0 } }], "interpretation": [{ "coding": [{ "code": "L" }] }] },
+    { "resourceType": "Observation", "id": "lab-mo-a1c-0609", "status": "final", "code": { "coding": [{ "system": "http://loinc.org", "code": "4548-4" }], "text": "Hemoglobin A1c" }, "effectiveDateTime": "2026-06-09T14:10:00-04:00", "valueQuantity": { "value": 8.1, "unit": "%" }, "referenceRange": [{ "high": { "value": 5.7, "unit": "%" } }], "interpretation": [{ "coding": [{ "code": "H" }] }] },
+    { "resourceType": "Observation", "id": "lab-mo-k-0609", "status": "final", "code": { "coding": [{ "system": "http://loinc.org", "code": "2823-3" }], "text": "Potassium" }, "effectiveDateTime": "2026-06-09T14:10:00-04:00", "valueQuantity": { "value": 4.6, "unit": "mmol/L" }, "referenceRange": [{ "low": { "value": 3.5 }, "high": { "value": 5.1 } }] },
+    { "resourceType": "Observation", "id": "lab-mo-pvr-0521", "status": "final", "code": { "text": "Post-void residual (bladder scan)" }, "effectiveDateTime": "2026-05-21T09:45:00-04:00", "valueQuantity": { "value": 180, "unit": "mL" }, "referenceRange": [{ "high": { "value": 100, "unit": "mL" } }], "interpretation": [{ "coding": [{ "code": "H" }] }] }
+  ],
+  "observationsSocial": [
+    { "resourceType": "Observation", "id": "soc-mo-tobacco", "status": "final", "code": { "text": "Tobacco use" }, "valueString": "Never smoker", "effectiveDateTime": "2026-06-09" },
+    { "resourceType": "Observation", "id": "soc-mo-etoh", "status": "final", "code": { "text": "Alcohol use" }, "valueString": "None", "effectiveDateTime": "2026-06-09" },
+    { "resourceType": "Observation", "id": "soc-mo-living", "status": "final", "code": { "text": "Living situation" }, "valueString": "Lives with adult daughter (primary support), retired schoolteacher, ambulates with cane, independent in ADLs, cognitively intact at baseline", "effectiveDateTime": "2026-06-09" }
+  ],
+  "diagnosticReports": [
+    {
+      "resourceType": "DiagnosticReport",
+      "id": "dr-mo-ucx-0412",
+      "status": "final",
+      "category": [{ "text": "Microbiology" }],
+      "code": { "text": "Urine culture" },
+      "effectiveDateTime": "2026-04-14T11:30:00-04:00",
+      "conclusion": "Escherichia coli >100,000 CFU/mL — ESBL PRODUCER (extended-spectrum beta-lactamase). SUSCEPTIBILITIES: Ceftriaxone RESISTANT. Ciprofloxacin RESISTANT. Levofloxacin RESISTANT. Trimethoprim-sulfamethoxazole RESISTANT. Ampicillin-sulbactam RESISTANT. Meropenem SENSITIVE. Ertapenem SENSITIVE. Nitrofurantoin SENSITIVE (note: avoid if CrCl <30; not adequate for pyelonephritis). Fosfomycin SENSITIVE (cystitis only). Gentamicin SENSITIVE. Collected 4/12/2026, finalized 4/14/2026 during inpatient admission."
+    },
+    {
+      "resourceType": "DiagnosticReport",
+      "id": "dr-mo-bcx-0412",
+      "status": "final",
+      "category": [{ "text": "Microbiology" }],
+      "code": { "text": "Blood cultures x2" },
+      "effectiveDateTime": "2026-04-17T09:00:00-04:00",
+      "conclusion": "No growth at 5 days, both sets (collected 4/12/2026 prior to antibiotics). Final."
+    },
+    {
+      "resourceType": "DiagnosticReport",
+      "id": "dr-mo-rus-0412",
+      "status": "final",
+      "category": [{ "text": "Radiology" }],
+      "code": { "text": "Renal ultrasound" },
+      "effectiveDateTime": "2026-04-13T10:15:00-04:00",
+      "conclusion": "No hydronephrosis, no perinephric abscess or fluid collection. Kidneys normal in size with mildly increased cortical echogenicity consistent with chronic medical renal disease. Bladder partially decompressed by catheter. No calculus identified."
+    },
+    {
+      "resourceType": "DiagnosticReport",
+      "id": "dr-mo-echo-0217",
+      "status": "final",
+      "category": [{ "text": "Cardiac imaging" }],
+      "code": { "text": "Transthoracic echocardiogram" },
+      "effectiveDateTime": "2026-02-17T11:45:00-05:00",
+      "conclusion": "Mechanical bileaflet mitral prosthesis (2015) well-seated with normal leaflet motion. Mean transmitral gradient 4 mmHg, stable. No perivalvular regurgitation. No vegetation identified (TTE sensitivity for prosthetic valve endocarditis is limited; TEE recommended if clinical suspicion). LVEF 60%. Mild left atrial enlargement. RVSP 32 mmHg. No pericardial effusion."
+    },
+    {
+      "resourceType": "DiagnosticReport",
+      "id": "dr-mo-ecg-0217",
+      "status": "final",
+      "category": [{ "text": "ECG" }],
+      "code": { "text": "12-lead ECG" },
+      "effectiveDateTime": "2026-02-17T11:10:00-05:00",
+      "conclusion": "Normal sinus rhythm 72 bpm. QTc 470 ms — PROLONGED. Nonspecific T-wave flattening laterally, unchanged. Avoid additive QT-prolonging agents (e.g., fluoroquinolones, ondansetron) where possible."
+    },
+    {
+      "resourceType": "DiagnosticReport",
+      "id": "dr-mo-ecg-2024",
+      "status": "final",
+      "category": [{ "text": "ECG" }],
+      "code": { "text": "12-lead ECG" },
+      "effectiveDateTime": "2024-08-06T10:30:00-04:00",
+      "conclusion": "Normal sinus rhythm 76 bpm. QTc 455 ms, borderline prolonged. Otherwise unremarkable."
+    }
+  ],
+  "documentReferencesClinicalNotes": [
+    {
+      "resourceType": "DocumentReference",
+      "id": "docref-mo-dcsum-0416",
+      "status": "current",
+      "type": { "text": "Hospital Discharge Summary" },
+      "date": "2026-04-16T12:45:00-04:00",
+      "content": [{ "attachment": { "contentType": "text/plain", "url": "Binary/bin-mo-dcsum-0416", "title": "Discharge Summary 4/16/2026 — Pyelonephritis admission" } }]
+    },
+    {
+      "resourceType": "DocumentReference",
+      "id": "docref-mo-uronote-0521",
+      "status": "current",
+      "type": { "text": "Urology Consultation Note" },
+      "date": "2026-05-21T10:00:00-04:00",
+      "content": [{ "attachment": { "contentType": "text/plain", "url": "Binary/bin-mo-uronote-0521", "title": "Urology Note 5/21/2026" } }]
+    }
+  ],
+  "documentReferencesExternal": [
+    {
+      "resourceType": "DocumentReference",
+      "id": "docref-mo-fax-id",
+      "status": "current",
+      "type": { "text": "Outside Records — Faxed Infectious Disease Consult" },
+      "date": "2026-04-15T00:00:00-04:00",
+      "description": "Fax from Schuylkill Infectious Disease Associates — consult letter from 4/2026 pyelonephritis admission with recommendations for future febrile UTI episodes",
+      "content": [{ "attachment": { "contentType": "application/pdf", "url": "Binary/bin-mo-pdf-id-fax", "title": "ID consult fax (PDF, 2 pages)" } }]
+    },
+    {
+      "resourceType": "DocumentReference",
+      "id": "docref-mo-fax-acc",
+      "status": "current",
+      "type": { "text": "Outside Records — Anticoagulation Clinic Flowsheet" },
+      "date": "2026-07-10T00:00:00-04:00",
+      "description": "Faxed warfarin flowsheet from Liberty Anticoagulation Clinic — INR history and mechanical valve target range",
+      "content": [{ "attachment": { "contentType": "application/pdf", "url": "Binary/bin-mo-pdf-acc-fax", "title": "Anticoagulation flowsheet fax (PDF, 1 page)" } }]
+    }
+  ],
+  "familyMemberHistory": [
+    { "resourceType": "FamilyMemberHistory", "id": "fmh-mo-mother", "status": "completed", "relationship": { "text": "Mother" }, "deceasedBoolean": true, "condition": [{ "code": { "text": "Stroke" }, "onsetAge": { "value": 79, "unit": "years" } }] },
+    { "resourceType": "FamilyMemberHistory", "id": "fmh-mo-sister", "status": "completed", "relationship": { "text": "Sister" }, "condition": [{ "code": { "text": "Type 2 diabetes mellitus" }, "onsetAge": { "value": 58, "unit": "years" } }] }
+  ],
+  "procedures": [
+    { "resourceType": "Procedure", "id": "proc-mo-mvr", "status": "completed", "code": { "text": "Mitral valve replacement — St. Jude bileaflet mechanical prosthesis" }, "performedDateTime": "2015-09-08" },
+    { "resourceType": "Procedure", "id": "proc-mo-cysto", "status": "completed", "code": { "text": "Cystoscopy — normal urothelium, no stone, mass, or stricture" }, "performedDateTime": "2026-05-21" },
+    { "resourceType": "Procedure", "id": "proc-mo-chole", "status": "completed", "code": { "text": "Laparoscopic cholecystectomy" }, "performedDateTime": "2011-02-19" }
+  ],
+  "binaries": {
+    "bin-mo-dcsum-0416": {
+      "contentType": "text/plain",
+      "text": "DISCHARGE SUMMARY 4/16/2026\nAdmission: 4/12/2026  Discharge: 4/16/2026 (4 days)\n\nDISCHARGE DIAGNOSIS: Acute pyelonephritis due to ESBL-producing E. coli.\n\nHPI: 74F hx recurrent UTIs, mechanical mitral valve on warfarin, T2DM (glargine + empagliflozin), CKD 3b presenting with fever 38.6, left flank pain, dysuria.\n\nHOSPITAL COURSE: Started empirically on ceftriaxone 4/12. Persistent fevers to 38.9 through hospital day 2. Urine culture finalized 4/14: E. coli >100k CFU/mL, ESBL PRODUCER — resistant to ceftriaxone, ciprofloxacin, levofloxacin, and TMP-SMX (patient also has SJS allergy to TMP-SMX); sensitive to meropenem, ertapenem, nitrofurantoin, fosfomycin. Switched to meropenem 1 g q12h (renally dosed) 4/14 with defervescence within 24h. Blood cultures x2 no growth. Renal US: no abscess or hydronephrosis. Infectious Disease consulted (Dr. Adeyemi, Schuylkill ID Associates) — see faxed consult letter. Warfarin continued without interruption; INR remained therapeutic (2.6–2.9).\n\nDISCHARGE PLAN: Ertapenem 500 mg IV daily x10 days via home infusion (OPAT, renally dosed) to complete 14-day course. ID follow-up in OPAT clinic.\n\nKEY RECOMMENDATION (ID): For FUTURE febrile UTI episodes, empiric CARBAPENEM pending cultures given ESBL history — standard empiric ceftriaxone is expected to fail. Avoid TMP-SMX (SJS). Nitrofurantoin inadequate for pyelonephritis and relatively contraindicated with eGFR ~34.\n\nDischarge Cr 1.6 (baseline 1.5–1.7). Urology referral placed for recurrent UTI evaluation."
+    },
+    "bin-mo-uronote-0521": {
+      "contentType": "text/plain",
+      "text": "UROLOGY CONSULTATION NOTE 5/21/2026\n\n74F referred after 4/2026 admission for ESBL E. coli pyelonephritis; four culture-positive UTIs since 10/2024.\n\nEVALUATION: Cystoscopy today — normal urethra and urothelium, no stone, mass, or stricture. Bladder scan post-void residual 180 mL (elevated) — incomplete emptying likely contributing to recurrence, possibly compounded by diabetic bladder dysfunction. Renal US from admission without structural abnormality.\n\nASSESSMENT/PLAN:\n1. Recurrent UTIs with elevated PVR — timed and double voiding regimen taught. Will recheck PVR in 3 months; discuss intermittent catheterization if persistently >200 mL.\n2. Antibiotic prophylaxis DEFERRED — poor options: TMP-SMX contraindicated (SJS), nitrofurantoin relatively contraindicated at eGFR 34 and would select resistance, fluoroquinolones already resistant. Agree with ID that future febrile episodes warrant empiric carbapenem pending cultures.\n3. On empagliflozin (SGLT2i) — glycosuria may contribute to UTI risk; deferred risk/benefit discussion to PCP and endocrine given renal protection benefit.\n4. Counseled on hydration and early presentation with fever given prosthetic valve."
+    },
+    "bin-mo-pdf-id-fax": { "contentType": "application/pdf", "file": "documents/id-consult-fax.pdf" },
+    "bin-mo-pdf-acc-fax": { "contentType": "application/pdf", "file": "documents/anticoag-flowsheet-fax.pdf" }
+  }
+}

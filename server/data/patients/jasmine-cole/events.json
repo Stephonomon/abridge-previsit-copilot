@@ -1,0 +1,54 @@
+{
+  "pendingAtArrival": [
+    "Urine hCG (collected 12:10)",
+    "CBC",
+    "BMP",
+    "CRP",
+    "Lactate",
+    "Urinalysis"
+  ],
+  "stages": [
+    {
+      "stage": 1,
+      "label": "50 min later — first results arrive",
+      "releasedAt": "2026-07-18T12:48:00-04:00",
+      "newObservationsLabs": [
+        { "resourceType": "Observation", "id": "lab-jc-hcg-today", "status": "final", "code": { "coding": [{ "system": "http://loinc.org", "code": "2106-3" }], "text": "hCG, urine qualitative" }, "effectiveDateTime": "2026-07-18T12:25:00-04:00", "valueString": "NEGATIVE", "note": [{ "text": "Clears patient for CT with IV contrast" }] },
+        { "resourceType": "Observation", "id": "lab-jc-wbc-today", "status": "final", "code": { "coding": [{ "system": "http://loinc.org", "code": "6690-2" }], "text": "WBC count" }, "effectiveDateTime": "2026-07-18T12:40:00-04:00", "valueQuantity": { "value": 13.9, "unit": "10*3/uL" }, "referenceRange": [{ "low": { "value": 4.0 }, "high": { "value": 11.0 } }], "interpretation": [{ "coding": [{ "code": "H" }], "text": "Elevated despite azathioprine + biologic + steroids — meaningful" }] },
+        { "resourceType": "Observation", "id": "lab-jc-hgb-today", "status": "final", "code": { "coding": [{ "system": "http://loinc.org", "code": "718-7" }], "text": "Hemoglobin" }, "effectiveDateTime": "2026-07-18T12:40:00-04:00", "valueQuantity": { "value": 10.5, "unit": "g/dL" }, "referenceRange": [{ "low": { "value": 12.0 }, "high": { "value": 15.5 } }], "interpretation": [{ "coding": [{ "code": "L" }] }] },
+        { "resourceType": "Observation", "id": "lab-jc-crp-today", "status": "final", "code": { "coding": [{ "system": "http://loinc.org", "code": "1988-5" }], "text": "C-reactive protein" }, "effectiveDateTime": "2026-07-18T12:40:00-04:00", "valueQuantity": { "value": 96, "unit": "mg/L" }, "referenceRange": [{ "high": { "value": 5.0, "unit": "mg/L" } }], "interpretation": [{ "coding": [{ "code": "HH" }], "text": "Markedly elevated vs 11.8 on 6/16" }] },
+        { "resourceType": "Observation", "id": "lab-jc-lactate-today", "status": "final", "code": { "coding": [{ "system": "http://loinc.org", "code": "2524-7" }], "text": "Lactate" }, "effectiveDateTime": "2026-07-18T12:40:00-04:00", "valueQuantity": { "value": 1.4, "unit": "mmol/L" }, "referenceRange": [{ "high": { "value": 2.0, "unit": "mmol/L" } }] },
+        { "resourceType": "Observation", "id": "lab-jc-k-today", "status": "final", "code": { "coding": [{ "system": "http://loinc.org", "code": "2823-3" }], "text": "Potassium" }, "effectiveDateTime": "2026-07-18T12:40:00-04:00", "valueQuantity": { "value": 3.9, "unit": "mmol/L" }, "referenceRange": [{ "low": { "value": 3.5 }, "high": { "value": 5.1 } }] },
+        { "resourceType": "Observation", "id": "lab-jc-cr-today", "status": "final", "code": { "coding": [{ "system": "http://loinc.org", "code": "2160-0" }], "text": "Creatinine" }, "effectiveDateTime": "2026-07-18T12:40:00-04:00", "valueQuantity": { "value": 0.8, "unit": "mg/dL" }, "referenceRange": [{ "low": { "value": 0.5 }, "high": { "value": 1.1 } }], "note": [{ "text": "Normal renal function — OK for IV contrast" }] }
+      ],
+      "newDiagnosticReports": [
+        { "resourceType": "DiagnosticReport", "id": "dr-jc-ct-today-order", "status": "registered", "category": [{ "text": "Radiology" }], "code": { "text": "CT abdomen/pelvis with IV contrast" }, "effectiveDateTime": "2026-07-18T12:45:00-04:00", "conclusion": "ORDERED — pending. hCG negative and creatinine 0.8 cleared contrast administration. Patient to scanner when slot available." }
+      ],
+      "pendingAfter": [
+        "CT abdomen/pelvis with IV contrast — radiology read",
+        "GI consult callback (paged 12:50)"
+      ]
+    },
+    {
+      "stage": 2,
+      "label": "40 min later — CT final read",
+      "releasedAt": "2026-07-18T13:28:00-04:00",
+      "newObservationsVitals": [
+        { "resourceType": "Observation", "id": "vit-jc-today2", "status": "final", "code": { "text": "Vital signs panel (repeat)" }, "effectiveDateTime": "2026-07-18T13:25:00-04:00", "component": [
+          { "code": { "text": "Heart rate" }, "valueQuantity": { "value": 104, "unit": "bpm" } },
+          { "code": { "text": "Blood pressure" }, "valueString": "112/70 mmHg" },
+          { "code": { "text": "SpO2" }, "valueQuantity": { "value": 99, "unit": "%" } },
+          { "code": { "text": "Temperature" }, "valueQuantity": { "value": 38.4, "unit": "C" } }
+        ] }
+      ],
+      "newDiagnosticReports": [
+        { "resourceType": "DiagnosticReport", "id": "dr-jc-ct-today-final", "status": "final", "category": [{ "text": "Radiology" }], "code": { "text": "CT abdomen/pelvis with IV contrast" }, "effectiveDateTime": "2026-07-18T13:22:00-04:00", "conclusion": "FINAL: Active inflammation of the neo-terminal ileum with a 3.1 cm rim-enhancing interloop abscess adjacent to the ileocolic anastomosis. No free air. No obstruction. Prior ileocecal resection noted; appendix surgically absent. Findings discussed with ED provider at 13:24. [ACT: IR drainage candidacy, empiric antibiotics, and biologic hold decisions needed]" }
+      ],
+      "pendingAfter": [
+        "IR consult — abscess drainage candidacy (paged 13:30)",
+        "GI consult callback (paged 12:50)",
+        "Blood cultures x2 if febrile >=38.0 C (now 38.4 — draw pending)"
+      ]
+    }
+  ]
+}

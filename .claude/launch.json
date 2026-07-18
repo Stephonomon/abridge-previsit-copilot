@@ -1,0 +1,19 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "previsit-server",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev", "--workspace", "server"],
+      "cwd": "/Users/stephonproctor/Documents/abridge_hackathon/previsit-copilot",
+      "port": 8787
+    },
+    {
+      "name": "previsit-web",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev", "--workspace", "web"],
+      "cwd": "/Users/stephonproctor/Documents/abridge_hackathon/previsit-copilot",
+      "port": 5173
+    }
+  ]
+}
