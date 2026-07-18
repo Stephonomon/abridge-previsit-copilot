@@ -33,6 +33,9 @@ export default function App() {
   const [drawer, setDrawer] = useState<null | "prompt" | "customizations" | "versions">(null);
   const [chartVersion, setChartVersion] = useState(0); // bump → EHR chart refetch
   const [hasUnseenUpdate, setHasUnseenUpdate] = useState<Record<string, boolean>>({});
+  // Bumped (per-patient) to force the copilot window open from outside its own
+  // internal expand/collapse state — see CopilotOverlay's expandSignal prop.
+  const [expandSignal, setExpandSignal] = useState<Record<string, number | null>>({});
   const unsubscribe = useRef<(() => void) | null>(null);
 
   const markSeen = useCallback((patientId: string) => {
@@ -131,7 +134,11 @@ export default function App() {
           patients={patients}
           onOpenChart={(p) => {
             setSelectedId(p.id);
-            setCopilotOpenFor(null);
+            // Auto-mount the copilot the moment the chart opens — it shows up
+            // as the small floating icon bottom-right, collapsed, so it's
+            // reachable immediately without an extra click.
+            setCopilotOpenFor(p.id);
+            setExpandSignal((m) => ({ ...m, [p.id]: null }));
             // For the sake of time, the pre-visit brief is ready before the
             // user even opens the copilot window — no manual "Run" click needed.
             if (!p.hasCard) runAgent(p, "previsit");
@@ -145,6 +152,7 @@ export default function App() {
           onLaunchCopilot={() => {
             markSeen(selected.id);
             launchCopilot(selected);
+            setExpandSignal((m) => ({ ...m, [selected.id]: Date.now() }));
           }}
           chartVersion={chartVersion}
         />
@@ -171,6 +179,7 @@ export default function App() {
           running={runningPatientId === selected.id}
           hasUnseenUpdate={!!hasUnseenUpdate[selected.id]}
           onSeen={() => markSeen(selected.id)}
+          expandSignal={expandSignal[selected.id] ?? null}
           onClose={() => setCopilotOpenFor(null)}
           onRun={() => runAgent(selected, "previsit")}
           onTeach={handleTeach}

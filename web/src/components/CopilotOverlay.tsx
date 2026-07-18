@@ -36,6 +36,7 @@ export function CopilotOverlay({
   running,
   hasUnseenUpdate,
   onSeen,
+  expandSignal,
   onClose,
   onRun,
   onTeach,
@@ -52,6 +53,11 @@ export function CopilotOverlay({
   running: boolean;
   hasUnseenUpdate: boolean;
   onSeen: () => void;
+  /** Bumped (to a fresh, non-null value) by the sparkle icon to force-expand
+   * an already-mounted-but-collapsed window. Null on a fresh auto-mount (chart
+   * just opened) means "start collapsed"; non-null at mount means "start
+   * expanded" (e.g. relaunching after an explicit close). */
+  expandSignal: number | null;
   onClose: () => void;
   onRun: () => void;
   onTeach: (sectionId: string, instruction: string) => Promise<void>;
@@ -60,12 +66,22 @@ export function CopilotOverlay({
   onShowVersions: () => void;
 }) {
   const [pinned, setPinned] = useState(false);
-  const [hovering, setHovering] = useState(true); // open expanded on launch
+  const [hovering, setHovering] = useState(() => expandSignal !== null);
   const [dragging, setDragging] = useState(false);
   const [showActivity, setShowActivity] = useState(false); // collapsed by default
   const [showSummary, setShowSummary] = useState(false); // AI chart summary — collapsed by default
   const [cds, setCds] = useState<CdsResult | null>(null);
   const expanded = pinned || hovering;
+
+  // The sparkle icon lives outside this component (it's always mounted, even
+  // collapsed) — this is how it forces an already-collapsed window back open.
+  const seenExpandSignal = useRef(expandSignal);
+  useEffect(() => {
+    if (expandSignal !== null && expandSignal !== seenExpandSignal.current) {
+      seenExpandSignal.current = expandSignal;
+      setHovering(true);
+    }
+  }, [expandSignal]);
 
   useEffect(() => {
     let cancelled = false;
