@@ -2,10 +2,7 @@
 
 *An agentic clinical decision-support demo for the Emergency Department, built at the [Abridge x Anthropic "Future of Agentic AI in Healthcare" hackathon](https://cerebralvalley.ai/e/abridge-hackathon), San Francisco.*
 
-<!-- Replace this block with the animated demo GIF once uploaded, e.g.:
-![Physician Co-pilot demo](docs/demo.gif)
--->
-> 🎬 **Demo GIF coming soon** — trackboard → chart opens → Abridge AI catches a nitrate/sildenafil contraindication → Simulate advances the case → widened mediastinum → SURGICAL EMERGENCY escalation → one-click pre-filled actions.
+**🎬 Watch the demo:** [youtu.be/TSwHBSF12vo](https://youtu.be/TSwHBSF12vo)
 
 ---
 
