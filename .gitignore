@@ -2,3 +2,10 @@ node_modules/
 dist/
 .env
 server/data/agent-config.json
+
+# OS / editor / build cruft
+.DS_Store
+*.tsbuildinfo
+
+# Local Claude Code tooling config (machine-specific absolute paths)
+.claude/

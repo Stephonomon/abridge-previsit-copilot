@@ -4,8 +4,8 @@ import { fileURLToPath } from "url";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 
-// Load the hackathon folder's .env (holds ANTHROPIC_API_KEY), then any local overrides
-dotenv.config({ path: path.resolve(here, "../../../.env") });
+// Load the repo root's .env (holds ANTHROPIC_API_KEY), then any server-local overrides
+dotenv.config({ path: path.resolve(here, "../../.env") });
 dotenv.config({ path: path.resolve(here, "../.env") });
 
 export const MODEL = process.env.PREVISIT_MODEL ?? "claude-sonnet-5";
