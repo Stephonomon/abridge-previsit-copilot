@@ -2,8 +2,6 @@
 
 *An agentic clinical decision-support demo for the Emergency Department, built at the [Abridge x Anthropic "Future of Agentic AI in Healthcare" hackathon](https://cerebralvalley.ai/e/abridge-hackathon), San Francisco.*
 
-**Live demo:** https://abridge-previsit-copilot.vercel.app (cached-replay mode — no API key required, click around freely)
-
 <!-- Replace this block with the animated demo GIF once uploaded, e.g.:
 ![Physician Co-pilot demo](docs/demo.gif)
 -->
@@ -103,7 +101,6 @@ All data is fully synthetic. This is a hackathon demo, not a medical device; eve
 ## Further reading
 
 - [`DEMO.md`](DEMO.md) — the 3-minute judge walkthrough script we presented from.
-- [`PRESENTATION_SCRIPT.md`](PRESENTATION_SCRIPT.md) — the longer version, including staging notes and Q&A prep.
 
 ## Credits
 
